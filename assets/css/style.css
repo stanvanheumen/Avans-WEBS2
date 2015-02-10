@@ -1,0 +1,42 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.custom-container {
+	padding-bottom: 10px;
+	border-bottom: 1px solid #dfdfdf;
+}
+
+.custom-footer {
+	padding: 10px 0px;
+}
+
+.custom-search {
+	width: 100%;
+}
+
+.content {
+	padding: 30px 0px;
+}
+
+.btn-blue {
+	color: #fff;
+	background-color: #0077FF;
+}
+
+.btn-blue:hover {
+	border-left: none;
+}
+
+.logo {
+	background-image: url("../images/logo.png");
+	width: 280px;
+	height: 134px;
+	margin: 20px 10px;
+}
+
+.test-panel { 
+	background-color: #dfdfdf; 
+	width: 100%;
+	height: 200px;
+}
