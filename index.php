@@ -23,7 +23,7 @@
 						<div class="panel-body test-panel">
 						</div>
 						<div class="panel-footer">
-							<a href="#">Ga naar product #</a>
+							<a href="product_details.php">Ga naar product #</a>
 						</div>
 					</div>
 				</div>
@@ -32,7 +32,7 @@
 						<div class="panel-body test-panel">
 						</div>
 						<div class="panel-footer">
-							<a href="#">Ga naar product #</a>
+							<a href="product_details.php">Ga naar product #</a>
 						</div>
 					</div>
 				</div>
@@ -41,7 +41,7 @@
 						<div class="panel-body test-panel">
 						</div>
 						<div class="panel-footer">
-							<a href="#">Ga naar product #</a>
+							<a href="product_details.php">Ga naar product #</a>
 						</div>
 					</div>
 				</div>
@@ -52,7 +52,7 @@
 						<div class="panel-body test-panel">
 						</div>
 						<div class="panel-footer">
-							<a href="#">Ga naar product #</a>
+							<a href="product_details.php">Ga naar product #</a>
 						</div>
 					</div>
 				</div>
@@ -61,7 +61,7 @@
 						<div class="panel-body test-panel">
 						</div>
 						<div class="panel-footer">
-							<a href="#">Ga naar product #</a>
+							<a href="product_details.php">Ga naar product #</a>
 						</div>
 					</div>
 				</div>
@@ -70,7 +70,7 @@
 						<div class="panel-body test-panel">
 						</div>
 						<div class="panel-footer">
-							<a href="#">Ga naar product #</a>
+							<a href="product_details.php">Ga naar product #</a>
 						</div>
 					</div>
 				</div>

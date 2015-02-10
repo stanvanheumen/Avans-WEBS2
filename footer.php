@@ -15,7 +15,7 @@
 		        	<ul class="nav nav-pills nav-stacked">
 		          		<li>email@mail.com</li>
 		          		<li>email@mail.com</li>
-		          		<li>(073) 61 33 774</li>
+		          		<li>(123) 12 34 567</li>
 		        	</ul>
 		      	</div>  
 		      	<div class="col-md-4">
