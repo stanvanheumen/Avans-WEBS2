@@ -32,7 +32,7 @@
 <div class="custom-footer">
 	<div class="container">
 		<p>
-			&copy; Copyright 2015 door Brian van den Broek en Stan van Heumen. All Rights Reserved.
+			&copy; Copyright <?php echo date("Y"); ?> door Brian van den Broek en Stan van Heumen. All Rights Reserved.
 		</p>
 	</div>
 </div>
