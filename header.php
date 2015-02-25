@@ -1,3 +1,8 @@
+<?php 
+error_reporting(E_ALL ^ E_STRICT); // geen strict...
+
+?>
+
 <nav class="navbar navbar-default">
 	<div class="container">
 		<div class="navbar-header">
@@ -54,10 +59,14 @@ function breadcrumbs($separator = ' &raquo; ', $home = 'Home') {
     $last = end(array_keys($path));
     foreach ($path AS $x => $crumb) {
         $title = ucwords(str_replace(Array('.php', '_'), Array('', ' '), $crumb));
-        if ($x != $last)
+        if($title == 'ICT' || $title == 'Bcfbroek') {
+        	continue;
+        }
+        if ($x != $last) {
             $breadcrumbs[] = "<a href=\"$base$crumb\">$title</a>";
-        else
+        } else {
             $breadcrumbs[] = $title;
+        }
         $base .= $crumb . '/';
     }
     return implode($separator, $breadcrumbs);
