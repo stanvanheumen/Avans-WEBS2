@@ -7,7 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="">
 		<meta name="author" content="Groep L">
-		<title>Home</title>
+		<title>About</title>
 		<link href="assets/css/bootstrap.min.css" rel="stylesheet">
 		<link href="assets/css/style.css" rel="stylesheet">
 	</head>

@@ -20,7 +20,7 @@ error_reporting(E_ALL ^ E_STRICT); // geen strict...
 				<li><a href="producten.php">Producten</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#">Registeren</a></li>
+				<li><a href="register.php">Registeren</a></li>
 				<li><a href="#">Inloggen</a></li>
 			</ul>
 		</div>
