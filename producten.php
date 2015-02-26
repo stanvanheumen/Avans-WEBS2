@@ -83,7 +83,7 @@ if (isset ( $_GET ['categorie'] ) && is_numeric ( $_GET ['categorie'] )) {
 												alt="auction">
 										</div>
 										<div class="media-body">
-											<h4 class="media-heading"><?php echo $product->getProductNaam(); ?></h4>
+											<h4 class="media-heading"><?php echo '<a href="product_details.php?product_id=' . $product->getId() . '">' . $product->getProductNaam() . '</a>'; ?></h4>
 											<?php echo $product->getBeschrijving(); ?>
 										</div>
 									</div>
