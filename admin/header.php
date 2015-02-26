@@ -16,12 +16,6 @@ error_reporting(E_ALL ^ E_STRICT); // geen strict...
 		<div class="collapse navbar-collapse" id="main-navbar-collapse">
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="index.php">Home<span class="sr-only">(current)</span></a></li>
-				<li><a href="about.php">About</a></li>
-				<li><a href="producten.php">Producten</a></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#">Registeren</a></li>
-				<li><a href="#">Inloggen</a></li>
 			</ul>
 		</div>
 	</div>
