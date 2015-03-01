@@ -1,22 +1,52 @@
+html {
+	overflow-y: scroll;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
 }
 
-.custom-container {
-	padding-bottom: 10px;
-	border-bottom: 1px solid #dfdfdf;
+.btn,
+.form-control, 
+.panel, 
+.well,
+.nav,
+.navbar-default,
+.breadcrumb {
+	border-radius: 0px;
+}
+
+.container {
+	margin-bottom: 0px;
+}
+
+.no-margin {
+	margin: 0px;
+}
+
+.col-md-4 ul {
+	padding-left:15px;
+}
+
+.border-top {
+	border-top: 10px solid #dfdfdf;
+	padding-top: 10px;
 }
 
 .custom-footer {
 	padding: 10px 0px;
+	text-align: center;
 }
 
-.custom-search {
-	width: 100%;
+.center-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.content {
-	padding: 30px 0px;
+.sm-vpadding {
+	padding-top: 10px;
+	padding-bottom: 10px;	
 }
 
 .btn-blue {
@@ -28,11 +58,19 @@ body {
 	border-left: none;
 }
 
-.logo {
-	background-image: url("../images/logo.png");
-	width: 280px;
-	height: 134px;
-	margin: 20px 10px;
+.navbar-collapse, .navbar-collapse ul {
+	margin: 0px;
+	padding: 0px;
+}
+
+.navbar {
+	min-height: 32px;
+	margin: 0px;
+}
+
+.navbar-nav > li > a {
+	padding-top: 8px; 
+	padding-bottom: 8px;
 }
 
 .test-panel { 

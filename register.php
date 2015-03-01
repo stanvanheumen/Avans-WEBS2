@@ -15,7 +15,6 @@
 <body>
 		<?php include 'header.php'; ?>
 		
-		<div class="custom-container content">
 		<div class="container">
 			<div class="col-sm-3"></div>
 			<div class="col-sm-6">
@@ -87,7 +86,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
 		
 		<?php include 'footer.php'; ?>
 		

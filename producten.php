@@ -30,7 +30,6 @@ if (isset ( $_GET ['categorie'] ) && is_numeric ( $_GET ['categorie'] )) {
 <body>
 		<?php include 'header.php'; ?>
 		
-		<div class="custom-container content">
 		<div class="container">
 			<h1>Producten</h1>
 
@@ -38,7 +37,7 @@ if (isset ( $_GET ['categorie'] ) && is_numeric ( $_GET ['categorie'] )) {
 				<div class="col-sm-3">
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3 class="panel-title">Categorieen</h3>
+							<h3 class="panel-title">Categorie&euml;n</h3>
 						</div>
 						<ul class="list-group">
 							<li class="list-group-item active-link"><a href="#">Alle
@@ -104,7 +103,6 @@ if (isset ( $_GET ['categorie'] ) && is_numeric ( $_GET ['categorie'] )) {
 				</div>
 			</div>
 		</div>
-	</div>
 			
 		
 	<?php include 'footer.php'; ?>

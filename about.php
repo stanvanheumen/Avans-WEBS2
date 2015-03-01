@@ -15,11 +15,9 @@
 	<body>
 		<?php include 'header.php'; ?>
 		
-		<div class="custom-container content">
-			<div class="container">
-				<h1>About</h1>
-				<p>Dit is de about pagina.</p>
-			</div>
+		<div class="container">
+			<h1>About</h1>
+			<p>Dit is de about pagina.</p>
 		</div>
 		
 		<?php include 'footer.php'; ?>

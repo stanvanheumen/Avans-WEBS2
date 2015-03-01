@@ -26,7 +26,6 @@ $product = $db->queryObject("SELECT * FROM product WHERE id='" . $product_id . "
 	<body>
 		<?php include 'header.php'; ?>
 		
-		<div class="custom-container content">
 			<div class="container">
 				<h1><?php echo $product->getProductNaam(); ?></h1>
 				<table class="table">
@@ -53,7 +52,6 @@ $product = $db->queryObject("SELECT * FROM product WHERE id='" . $product_id . "
 					</tr>
 				</table>
 			</div>
-		</div>
 		
 		<?php include 'footer.php'; ?>
 		
