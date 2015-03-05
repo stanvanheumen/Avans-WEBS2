@@ -66,6 +66,7 @@ body {
 .navbar {
 	min-height: 32px;
 	margin: 0px;
+	border: none;
 }
 
 .navbar-nav > li > a {
