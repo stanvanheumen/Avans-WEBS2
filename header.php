@@ -73,16 +73,17 @@ if (isset ( $_GET ['categorie'] ) && is_numeric ( $_GET ['categorie'] )) {
 </div>
 <div class="container">
 	<ol class="breadcrumb">
- 		<li><a href="#">Home</a></li>
+ 		<!--<li><a href="#">Home</a></li>
   		<li><a href="#">Library</a></li>
-  		<li class="active">Data</li>
+  		<li class="active">Data</li>-->
+		<?php echo breadcrumbs(''); ?>
 	</ol>
 </div>
 <?php
 function breadcrumbs($separator = ' &raquo; ', $home = 'Home') {
     $path = array_filter(explode('/', parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)));
     $base = ('http') . '://' . $_SERVER['HTTP_HOST'] . '/';
-    $breadcrumbs = Array("<a href=\"" . $base . "ICT/bcfbroek/\">$home</a>");
+    $breadcrumbs = Array("<li><a href=\"" . $base . "ICT/bcfbroek/\">$home</a></li>");
     $last = end(array_keys($path));
     foreach ($path AS $x => $crumb) {
         $title = ucwords(str_replace(Array('.php', '_'), Array('', ' '), $crumb));
@@ -90,9 +91,9 @@ function breadcrumbs($separator = ' &raquo; ', $home = 'Home') {
         	continue;
         }
         if ($x != $last) {
-            $breadcrumbs[] = "<a href=\"$base$crumb\">$title</a>";
+            $breadcrumbs[] = "<li><a href=\"$base$crumb\">$title</a></li>";
         } else {
-            $breadcrumbs[] = $title;
+            $breadcrumbs[] = "<li class=\"breadcrumbs\">$title</li>";
         }
         $base .= $crumb . '/';
     }
