@@ -5,22 +5,22 @@ error_reporting(E_ALL ^ E_STRICT);
 $left_menu = array (
 	0 => array (
 			'name' => 'Home',
-			'page' => 'index.php'
+			'page' => 'index'
 	),
 	1 => array (
 			'name' => 'Assortiment',
-			'page' => 'producten.php'
+			'page' => 'assortment'
 	)
 );
 
 $right_menu = array (
 	0 => array (
 			'name' => 'Registreren',
-			'page' => 'register.php'
+			'page' => 'register'
 	),
 	1 => array (
 			'name' => 'Inloggen',
-			'page' => 'login.php'
+			'page' => 'login'
 	)
 );
 
@@ -57,8 +57,8 @@ function breadcrumbs($separator = ' &raquo; ', $home = 'Home') {
 		
 		<title><?php echo $_SESSION['title'] . " - WebShop"; ?></title>
 		
-		<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-		<link href="assets/css/style.css" rel="stylesheet" type="text/css">
+		<link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		<link href="../assets/css/style.css" rel="stylesheet" type="text/css">
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
   	</head>
   	
@@ -104,10 +104,10 @@ function breadcrumbs($separator = ' &raquo; ', $home = 'Home') {
 		<div class="container sm-vpadding">
 			<div class="row">
 				<div class="col-sm-3 logo">
-					<a href="index.php"><img src="assets/images/logo.png" class="img-responsive" width="235" height="46" alt="logo" /></a>
+					<a href="index.php"><img src="../assets/images/logo.png" class="img-responsive" width="235" height="46" alt="logo" /></a>
 				</div>
 				<div class="col-sm-9">
-					<form action="search.php">
+					<form action="search">
 						<div class="input-group">
 							<input type="search" class="form-control input-lg"
 								name="search-query" id="search-query" placeholder="Zoeken in alle artikelen..." />

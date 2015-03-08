@@ -1,9 +1,9 @@
 <?php 
 	session_start();
 	$_SESSION['title'] = 'Over ons';
-	require_once 'inc/template/header.php'; 
+	require_once 'app/view/partial/header.php'; 
 ?>
-		
+
 <div class="container">
 	<div class="panel panel-default">
 		<div class="panel-body">
@@ -30,7 +30,7 @@
 		</div>
 	</div>
 </div>
-		
+
 <?php 
-	require_once 'inc/template/footer.php'; 
+	require_once 'app/view/partial/footer.php';
 ?>

@@ -1,21 +1,22 @@
 <?php
-require_once ('inc/database.php');
-require_once ('model/categorie.inc.php');
-require_once ('model/product.inc.php');
-
-$db = new db();
-$db->connect();
-
-$search_category = false;
-
-if (isset($_GET ['categorie']) && is_numeric ($_GET['categorie'])) {
-	$search_category = $db->queryObject("SELECT * FROM categorie WHERE id='" . $db->escape($_GET['categorie']) . "'", 'Categorie' );
-}
-
-session_start();
-$_SESSION['title'] = 'Assortiment';
-require_once 'inc/template/header.php'; 
+	require_once ('app/model/database.php');
+	require_once ('app/model/categorie.inc.php');
+	require_once ('app/model/product.inc.php');
+	
+	$db = new db();
+	$db->connect();
+	
+	$search_category = false;
+	
+	if (isset($_GET['categorie']) && is_numeric($_GET['categorie'])) {
+		$search_category = $db->queryObject("SELECT * FROM categorie WHERE id='" . $db->escape($_GET['categorie']) . "'", 'Categorie');
+	}
+	
+	session_start();
+	$_SESSION['title'] = 'Assortiment';
+	require_once 'app/view/partial/header.php'; 
 ?>
+
 
 <div class="container">
 	<div class="panel panel-default">
@@ -40,7 +41,7 @@ require_once 'inc/template/header.php';
 					foreach ( $items as $category ) {
 						$naam = $category->getNaam ();
 						$id = $category->getId ();
-						echo "\t\t\t\t<li class=\"list-group-item\"><a href=\"producten.php?categorie=$id\">$naam</a></li>\n";
+						echo "\t\t\t\t<li class=\"list-group-item\"><a href=\"assortment?categorie=$id\">$naam</a></li>\n";
 					}
 					
 					?>
@@ -68,7 +69,7 @@ require_once 'inc/template/header.php';
 						<div class="col-md-8">
 							<div class="media">
 								<div class="media-left media-middle">
-									<img class="media-object" src="assets/images/auction.png"
+									<img class="media-object" src="../assets/images/auction.png"
 										alt="auction">
 								</div>
 								<div class="media-body">
@@ -92,7 +93,7 @@ require_once 'inc/template/header.php';
 		</div>
 	</div>
 </div>
-			
+
 <?php 
-	require_once 'inc/template/footer.php'; 
+	require_once 'app/view/partial/footer.php';
 ?>

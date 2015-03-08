@@ -1,9 +1,9 @@
 <?php 
 	session_start();
 	$_SESSION['title'] = 'Inloggen';
-	require_once 'inc/template/header.php';
+	require_once 'app/view/partial/header.php'; 
 ?>
-		
+
 <div class="container">
 	<div class="col-sm-3"></div>
 	<div class="col-sm-6">
@@ -31,7 +31,7 @@
 		</div>
 	</div>
 </div>
-		
+
 <?php 
-	require_once 'inc/template/footer.php'; 
+	require_once 'app/view/partial/footer.php';
 ?>
