@@ -5,22 +5,22 @@ error_reporting(E_ALL ^ E_STRICT);
 $left_menu = array (
 	0 => array (
 			'name' => 'Home',
-			'page' => 'home/index'
+			'page' => 'index'
 	),
 	1 => array (
 			'name' => 'Assortiment',
-			'page' => 'home/assortment'
+			'page' => 'assortment'
 	)
 );
 
 $right_menu = array (
 	0 => array (
 			'name' => 'Registreren',
-			'page' => 'home/register'
+			'page' => 'register'
 	),
 	1 => array (
 			'name' => 'Inloggen',
-			'page' => 'home/login'
+			'page' => 'login'
 	)
 );
 
