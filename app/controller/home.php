@@ -47,6 +47,22 @@ class Home extends Controller {
 		$this->view('home/assortment');
 	}
 	
+	public function productdetails() {
+		require_once ('app/model/product.inc.php');
+		
+		$this->smart('Product Details');
+		
+		$db = $this->model('database', 'db');
+		$db->connect();
+		
+		$product_id = $_GET['product_id'];
+		$product = $db->queryObject("SELECT * FROM product WHERE id='" . $product_id . "'", 'Product');
+		
+		$this->smarty->assign('product', $product);
+		
+		$this->view('home/productdetails');
+	}
+	
 	public function register() {
 		$this->view('home/register');
 	}

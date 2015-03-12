@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-12 17:23:48
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-12 18:11:11
          compiled from "app\view\home\assortment.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:10415501900a6e4624-26074044%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '2bc4fc92c46d5a6e247909c72749e232130c815b' => 
     array (
       0 => 'app\\view\\home\\assortment.tpl',
-      1 => 1426177426,
+      1 => 1426180268,
       2 => 'file',
     ),
   ),
@@ -76,7 +76,7 @@ $_smarty_tpl->tpl_vars['product']->_loop = true;
 									<img class="media-object" src="/assets/images/auction.png" alt="auction">
 								</div>
 								<div class="media-body">
-									<h4 class="media-heading"><a href="product_details.php?product_id=<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
+									<h4 class="media-heading"><a href="productdetails?product_id=<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
 "><?php echo $_smarty_tpl->tpl_vars['product']->value->getProductNaam();?>
 </a></h4>
 									<?php echo $_smarty_tpl->tpl_vars['product']->value->getBeschrijving();?>

@@ -35,7 +35,7 @@
 									<img class="media-object" src="/assets/images/auction.png" alt="auction">
 								</div>
 								<div class="media-body">
-									<h4 class="media-heading"><a href="product_details.php?product_id={$product->getId()}">{$product->getProductNaam()}</a></h4>
+									<h4 class="media-heading"><a href="productdetails?product_id={$product->getId()}">{$product->getProductNaam()}</a></h4>
 									{$product->getBeschrijving()}
 								</div>
 							</div>
