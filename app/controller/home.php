@@ -23,6 +23,8 @@ class Home extends Controller {
 		$db = $this->model('database', 'db');
 		$db->connect();
 		
+		$this->smart('Assortiment');
+		
 		$search_category = false;
 	
 		if (isset($_GET['categorie']) && is_numeric($_GET['categorie'])) {
@@ -35,9 +37,9 @@ class Home extends Controller {
 		
 		if($search_category) {
 			$producten = $db->queryArray("SELECT * FROM product WHERE categorie_id='" . $db->escape ( $search_category->getId () ) . "'", 'Product');
+			$this->smarty->assign('products', $producten);
+			$this->smarty->assign('last_product', end($producten));
 		}
-		
-		$this->smart('Assortiment');
 		
 		$this->smarty->assign('category', $category);
 		$this->smarty->assign('categories', $categories);
