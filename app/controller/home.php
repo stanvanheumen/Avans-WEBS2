@@ -17,7 +17,30 @@ class Home extends Controller {
 	}
 	
 	public function assortment() {
+		require_once ('app/model/categorie.inc.php');
+		require_once ('app/model/product.inc.php');
+	
+		$db = $this->model('database', 'db');
+		$db->connect();
+		
+		$search_category = false;
+	
+		if (isset($_GET['categorie']) && is_numeric($_GET['categorie'])) {
+			$search_category = $db->queryObject("SELECT * FROM categorie WHERE id='" . $db->escape($_GET['categorie']) . "'", 'Categorie');
+		}
+		
+		$categories = $db->queryArray("SELECT * FROM categorie ORDER BY naam", 'Categorie');
+		
+		$category = ($search_category ? $search_category->getNaam () : "Producten");
+		
+		if($search_category) {
+			$producten = $db->queryArray("SELECT * FROM product WHERE categorie_id='" . $db->escape ( $search_category->getId () ) . "'", 'Product');
+		}
+		
 		$this->smart('Assortiment');
+		
+		$this->smarty->assign('category', $category);
+		$this->smarty->assign('categories', $categories);
 		
 		$this->view('home/assortment');
 	}

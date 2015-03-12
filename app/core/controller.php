@@ -4,9 +4,9 @@ require_once 'app/libs/Smarty.class.php';
 class Controller {
 	protected $smarty;
 	
-	public function model($model) {
+	public function model($model, $name) {
 		require_once 'app/model/' . $model . '.php';
-		return new $model();
+		return new $name();
 	}
 	
 	public function view($view, $data = []) {
