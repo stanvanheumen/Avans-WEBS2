@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-12 13:33:22
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-12 13:47:57
          compiled from "app\view\partial\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:94615501879252f6e1-92942258%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'eee7d3028f7f920040e2d732e3724681a9d2548c' => 
     array (
       0 => 'app\\view\\partial\\header.tpl',
-      1 => 1426163599,
+      1 => 1426164473,
       2 => 'file',
     ),
   ),
@@ -15,13 +15,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_55018792568fe8_30056019',
   'variables' => 
   array (
     'title' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_55018792568fe8_30056019',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_55018792568fe8_30056019')) {function content_55018792568fe8_30056019($_smarty_tpl) {?><!DOCTYPE html>
 <html lang="nl">
@@ -30,7 +30,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="">
-		<meta name="author" content="Groep L">
+		<meta name="author" content="Stan van Heumen en Brian van den Broek">
 		
 		<title><?php echo $_smarty_tpl->tpl_vars['title']->value;?>
 </title>

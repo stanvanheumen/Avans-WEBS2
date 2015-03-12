@@ -1,22 +1,27 @@
 <?php
+require_once 'app/libs/Smarty.class.php';
 
 class Controller {
+	protected $smarty;
 	
 	public function model($model) {
 		require_once 'app/model/' . $model . '.php';
 		return new $model();
 	}
 	
-	public function view($title, $view, $data = []) {
-		require_once 'app/libs/Smarty.class.php';
+	public function view($view, $data = []) {
 		
-		$smarty = new Smarty();
-		$smarty->assign('title', $title);
-		$smarty->display('app/view/partial/header.tpl');
+		$this->smarty->display('app/view/partial/header.tpl');
 		
-		//require_once 'app/view/partial/header.php'; 
-		require_once 'app/view/' . $view . '.php';
-		require_once 'app/view/partial/footer.php';
+		$this->smarty->display('app/view/' . $view . '.tpl');
+		
+		$this->smarty->display('app/view/partial/footer.tpl');
+	}
+	
+	public function smart($title) {
+		$this->smarty = new Smarty();
+		$this->smarty->assign('title', $title);
+		$this->smarty->assign('year', date('Y'));
 	}
 	
 }

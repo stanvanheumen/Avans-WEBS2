@@ -3,27 +3,31 @@
 class Home extends Controller {
 	
 	public function index() {
-		$this->view('Home', 'home/index');
+		$this->smart('Home');
+		
+		$this->view('home/index');
 	}
 	
 	public function about() {
-		$this->view('Over', 'home/about');
+		$this->view('home/about');
 	}
 	
 	public function search($search_query = '') {
-		$this->view('Zoeken', 'home/search', ['search_query' => $search_query]);
+		$this->view('home/search', ['search_query' => $search_query]);
 	}
 	
 	public function assortment() {
-		$this->view('Assortiment', 'home/assortment');
+		$this->smart('Assortiment');
+		
+		$this->view('home/assortment');
 	}
 	
 	public function register() {
-		$this->view('Registreren', 'home/register');
+		$this->view('home/register');
 	}
 	
 	public function login() {
-		$this->view('Inloggen', 'home/login');
+		$this->view('home/login');
 	}
 	
 }
