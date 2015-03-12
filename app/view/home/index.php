@@ -1,9 +1,3 @@
-<?php 
-	session_start();
-	$_SESSION['title'] = 'Home';
-	require_once 'app/view/partial/header.php'; 
-?>
-
 <div class="container">
 	<div class="row">
 		<div class="col-md-4">
@@ -64,7 +58,3 @@
 		</div>
 	</div>
 </div>
-
-<?php 
-	require_once 'app/view/partial/footer.php';
-?>

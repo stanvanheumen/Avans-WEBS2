@@ -1,4 +1,29 @@
-<!DOCTYPE html>
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-12 13:33:22
+         compiled from "app\view\partial\header.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:94615501879252f6e1-92942258%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    'eee7d3028f7f920040e2d732e3724681a9d2548c' => 
+    array (
+      0 => 'app\\view\\partial\\header.tpl',
+      1 => 1426163599,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '94615501879252f6e1-92942258',
+  'function' => 
+  array (
+  ),
+  'variables' => 
+  array (
+    'title' => 0,
+  ),
+  'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_55018792568fe8_30056019',
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_55018792568fe8_30056019')) {function content_55018792568fe8_30056019($_smarty_tpl) {?><!DOCTYPE html>
 <html lang="nl">
 	<head>
   		<meta charset="utf-8">
@@ -7,7 +32,8 @@
 		<meta name="description" content="">
 		<meta name="author" content="Groep L">
 		
-		<title><?php echo $_SESSION['title'] . " - WebShop"; ?></title>
+		<title><?php echo $_smarty_tpl->tpl_vars['title']->value;?>
+</title>
 		
 		<link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 		<link href="/assets/css/style.css" rel="stylesheet" type="text/css">
@@ -15,7 +41,7 @@
   	</head>
   	
   	<body>
-  		<!-- {navigation} -->
+  		<!-- navigation -->
 		<div class="container">
 			<nav class="navbar navbar-default">
 				<div class="navbar-header">
@@ -36,9 +62,9 @@
 				</div>
 			</nav>
 		</div>
-		<!-- {/navigation} -->
+		<!-- /navigation -->
 		
-		<!-- {logo} -->
+		<!-- logo -->
 		<div class="container sm-vpadding">
 			<div class="row">
 				<div class="col-sm-3 logo">
@@ -59,12 +85,12 @@
 				</div>
 			</div>
 		</div>
-		<!-- {/logo} -->
+		<!-- /logo -->
 		
-		<!-- {breadcrumbs} -->
+		<!-- breadcrumbs -->
 		<div class="container">
 			<ol class="breadcrumb">
 				
 			</ol>
 		</div>
-		<!-- {/navigation} -->
+		<!-- /navigation --><?php }} ?>

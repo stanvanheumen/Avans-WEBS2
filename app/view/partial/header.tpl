@@ -7,7 +7,7 @@
 		<meta name="description" content="">
 		<meta name="author" content="Groep L">
 		
-		<title><?php echo $_SESSION['title'] . " - WebShop"; ?></title>
+		<title>{$title}</title>
 		
 		<link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 		<link href="/assets/css/style.css" rel="stylesheet" type="text/css">
@@ -15,7 +15,7 @@
   	</head>
   	
   	<body>
-  		<!-- {navigation} -->
+  		<!-- navigation -->
 		<div class="container">
 			<nav class="navbar navbar-default">
 				<div class="navbar-header">
@@ -36,9 +36,9 @@
 				</div>
 			</nav>
 		</div>
-		<!-- {/navigation} -->
+		<!-- /navigation -->
 		
-		<!-- {logo} -->
+		<!-- logo -->
 		<div class="container sm-vpadding">
 			<div class="row">
 				<div class="col-sm-3 logo">
@@ -59,12 +59,12 @@
 				</div>
 			</div>
 		</div>
-		<!-- {/logo} -->
+		<!-- /logo -->
 		
-		<!-- {breadcrumbs} -->
+		<!-- breadcrumbs -->
 		<div class="container">
 			<ol class="breadcrumb">
 				
 			</ol>
 		</div>
-		<!-- {/navigation} -->
+		<!-- /navigation -->
