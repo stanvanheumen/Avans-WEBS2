@@ -13,7 +13,7 @@
 				<ul class="list-group">
 					<li class="list-group-item active-link"><a href="#">Alle artikelen</a></li>		
 					{foreach $categories as $cat} 
-						<a href="#"><li>{$cat->getNaam()}</li></a>
+						<li class="list-group-item"><a href="?categorie={$cat->getId()}">{$cat->getNaam()}</a></li>
 					{/foreach} 
 				</ul>
 			</div>
