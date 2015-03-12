@@ -69,7 +69,7 @@
 						<div class="col-md-8">
 							<div class="media">
 								<div class="media-left media-middle">
-									<img class="media-object" src="../assets/images/auction.png"
+									<img class="media-object" src="/assets/images/auction.png"
 										alt="auction">
 								</div>
 								<div class="media-body">
