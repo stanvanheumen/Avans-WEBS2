@@ -1,4 +1,33 @@
-<!DOCTYPE html>
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-12 14:37:03
+         compiled from "app\view\partial\header.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:549955018e175ac4f6-84509311%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    'cf6f6f0460319d02aae42226b81ebb3968eacea2' => 
+    array (
+      0 => 'app\\view\\partial\\header.tpl',
+      1 => 1426167259,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '549955018e175ac4f6-84509311',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_55018e1772cdf7_07405975',
+  'variables' => 
+  array (
+    'title' => 0,
+    'categories' => 0,
+    'cat' => 0,
+    'books' => 0,
+    'book' => 0,
+  ),
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_55018e1772cdf7_07405975')) {function content_55018e1772cdf7_07405975($_smarty_tpl) {?><!DOCTYPE html>
 <html lang="nl">
 	<head>
   		<meta charset="utf-8">
@@ -7,7 +36,8 @@
 		<meta name="description" content="">
 		<meta name="author" content="Stan van Heumen en Brian van den Broek">
 		
-		<title>{$title}</title>
+		<title><?php echo $_smarty_tpl->tpl_vars['title']->value;?>
+</title>
 		
 		<link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 		<link href="/assets/css/style.css" rel="stylesheet" type="text/css">
@@ -63,17 +93,28 @@
 					<li class="col-sm-3">
 						<ul>
 							<li class="dropdown-header">Categorie</li>
-						  	{foreach $categories as $cat}
-  								<li><a href="/home/assortment?categorie={$cat->getId()}">{$cat->getNaam()}</a></li>
-  							{/foreach}
+						  	<?php  $_smarty_tpl->tpl_vars['cat'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['cat']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['categories']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['cat']->key => $_smarty_tpl->tpl_vars['cat']->value) {
+$_smarty_tpl->tpl_vars['cat']->_loop = true;
+?>
+  								<li><a href="/home/assortment?categorie=<?php echo $_smarty_tpl->tpl_vars['cat']->value->getId();?>
+"><?php echo $_smarty_tpl->tpl_vars['cat']->value->getNaam();?>
+</a></li>
+  							<?php } ?>
 						</ul>
 					</li>
 					<li class="col-sm-3">
 						<ul>
 							<li class="dropdown-header">Boeken</li>
-							{foreach $books as $book}
-  								<li><a href="#">{$book->getProductNaam()}</a></li>
-  							{/foreach}
+							<?php  $_smarty_tpl->tpl_vars['book'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['book']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['books']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['book']->key => $_smarty_tpl->tpl_vars['book']->value) {
+$_smarty_tpl->tpl_vars['book']->_loop = true;
+?>
+  								<li><a href="#"><?php echo $_smarty_tpl->tpl_vars['book']->value->getProductNaam();?>
+</a></li>
+  							<?php } ?>
 							<li class="divider"></li>
 							<li class="dropdown-header">Pants</li>
 							<li><a href="#">Coloured Headers</a></li>
@@ -126,4 +167,4 @@
 				
 			</ol>
 		</div>
-		<!-- /navigation -->
+		<!-- /navigation --><?php }} ?>
