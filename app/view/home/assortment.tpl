@@ -26,7 +26,27 @@
 					</h3>
 				</div>
 				<div class="panel-body">
-				
+				{if isset($products)}
+				{foreach $products as $product} 
+					<div class="row">
+						<div class="col-md-8">
+							<div class="media">
+								<div class="media-left media-middle">
+									<img class="media-object" src="/assets/images/auction.png" alt="auction">
+								</div>
+								<div class="media-body">
+									<h4 class="media-heading"><a href="productdetails?product_id={$product->getId()}">{$product->getProductNaam()}</a></h4>
+									{$product->getBeschrijving()}
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 auctions">Prijs &euro; {$product->getPrijs()}</div>
+					</div>
+					{if $last_product != $product}
+					<hr/>
+					{/if}
+					{/foreach} 
+					{/if}
 				</div>
 			</div>
 		</div>
