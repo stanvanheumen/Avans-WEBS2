@@ -3,71 +3,103 @@
 class Home extends Controller {
 	
 	public function index() {
+		// Require models
+		require_once ('app/model/product.inc.php');
 		$this->smart('Home');
-		
+
+		// Database requests
+		$products = $this->db->queryArray("SELECT * FROM product LIMIT 9", 'Product');
+
+		$this->smarty->assign('products', $products);
+
+		// Render view
 		$this->view('home/index');
 	}
 	
 	public function about() {
+		// Require models
+		$this->smart('Over ons');
+
+		// Render view
 		$this->view('home/about');
 	}
 	
-	public function search($search_query = '') {
-		$this->view('home/search', ['search_query' => $search_query]);
+	public function search() {
+		// Require models
+		require_once ('app/model/product.inc.php');
+		$this->smart('Zoeken');
+
+		/* <?php echo count($producten); ?> resultaten gevonden voor '<?php echo $_GET['search-query']; ?> */
+
+		// Database requests
+		if (isset($_GET['search-query']))
+			$products = $this->db->queryArray("SELECT * FROM product WHERE productnaam LIKE '%" . $this->db->escape($_GET['search-query']) . "%'", 'Product');
+
+		$this->smarty->assign('products', $products);
+		$this->smarty->assign('amount', count($products));
+		$this->smarty->assign('searchquery', $_GET['search-query']);
+		// Render view
+		$this->view('home/search');
 	}
 	
 	public function assortment() {
+		// Require models
 		require_once ('app/model/categorie.inc.php');
 		require_once ('app/model/product.inc.php');
-	
-		$db = $this->model('database', 'db');
-		$db->connect();
-		
 		$this->smart('Assortiment');
-		
+
+		// Database requests
 		$search_category = false;
 	
-		if (isset($_GET['categorie']) && is_numeric($_GET['categorie'])) {
-			$search_category = $db->queryObject("SELECT * FROM categorie WHERE id='" . $db->escape($_GET['categorie']) . "'", 'Categorie');
-		}
+		if (isset($_GET['categorie']) && is_numeric($_GET['categorie']))
+			$search_category = $this->db->queryObject("SELECT * FROM categorie WHERE id = '" . $this->db->escape($_GET['categorie']) . "'", 'Categorie');
 		
-		$categories = $db->queryArray("SELECT * FROM categorie ORDER BY naam", 'Categorie');
+		$categories = $this->db->queryArray("SELECT * FROM categorie ORDER BY naam", 'Categorie');
 		
 		$category = ($search_category ? $search_category->getNaam () : "Producten");
 		
 		if($search_category) {
-			$producten = $db->queryArray("SELECT * FROM product WHERE categorie_id='" . $db->escape ( $search_category->getId () ) . "'", 'Product');
+			$producten = $this->db->queryArray("SELECT * FROM product WHERE categorie_id = '" . $this->db->escape($search_category->getId()) . "'", 'Product');
 			$this->smarty->assign('products', $producten);
 			$this->smarty->assign('last_product', end($producten));
 		}
 		
 		$this->smarty->assign('category', $category);
+		$this->smarty->assign('currcategory', $_GET['categorie']);
 		$this->smarty->assign('categories', $categories);
 		
+		// Render view
 		$this->view('home/assortment');
 	}
 	
 	public function productdetails() {
+		// Require models
 		require_once ('app/model/product.inc.php');
-		
 		$this->smart('Product Details');
-		
-		$db = $this->model('database', 'db');
-		$db->connect();
-		
+
+		// Database requests
 		$product_id = $_GET['product_id'];
-		$product = $db->queryObject("SELECT * FROM product WHERE id='" . $product_id . "'", 'Product');
+		$product = $this->db->queryObject("SELECT * FROM product WHERE id = '" . $product_id . "'", 'Product');
 		
 		$this->smarty->assign('product', $product);
 		
+		// Render view
 		$this->view('home/productdetails');
 	}
 	
 	public function register() {
+		// Require models
+		$this->smart('Registreren'); 
+
+		// Render view
 		$this->view('home/register');
 	}
 	
 	public function login() {
+		// Require models
+		$this->smart('Login'); 
+
+		// Render view
 		$this->view('home/login');
 	}
 	

@@ -15,115 +15,91 @@
   	</head>
   	
   	<body>
-  		<!-- navigation -->
 		<div class="container">
-<nav class="navbar navbar-default">
-    <div class="navbar-header">
-		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
-			<span class="sr-only">Toggle navigation</span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		</button>
-		<a class="navbar-brand" href="/home/index"><img src="/assets/images/logo.png" class="img-responsive" width="150" height="30" alt="logo" /></a>
-	</div>
+			<!-- navigation -->
+			<nav class="navbar navbar-default">
+    			<div class="navbar-header">
+					<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="/home/index"><img src="/assets/images/logo.png" class="img-responsive" width="150" height="30" alt="logo" /></a>
+				</div>
 	
-	<div class="collapse navbar-collapse js-navbar-collapse">
-		<ul class="nav navbar-nav">
-			<li class="dropdown mega-dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Assortiment <span class="glyphicon glyphicon-chevron-down pull-right"></span></a>
-				
-				<ul class="dropdown-menu mega-dropdown-menu row">
-					<li class="col-sm-3">
-						<ul>
-							<li class="dropdown-header">Nieuwe producten</li>                            
-                            <div id="myCarousel" class="carousel slide" data-ride="carousel">
-                              <div class="carousel-inner">
-                                <div class="item active">
-                                    <a href="#"><img src="http://placehold.it/254x150/3498db/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 1"></a>
-                                    <h4><small>Summer dress floral prints</small></h4>                                        
-                                    <button class="btn btn-primary" type="button">49,99 €</button> <button href="#" class="btn btn-default" type="button"><span class="glyphicon glyphicon-heart"></span> Add to Wishlist</button>       
-                                </div><!-- End Item -->
-                                <div class="item">
-                                    <a href="#"><img src="http://placehold.it/254x150/ef5e55/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 2"></a>
-                                    <h4><small>Gold sandals with shiny touch</small></h4>                                        
-                                    <button class="btn btn-primary" type="button">9,99 €</button> <button href="#" class="btn btn-default" type="button"><span class="glyphicon glyphicon-heart"></span> Add to Wishlist</button>        
-                                </div><!-- End Item -->
-                                <div class="item">
-                                    <a href="#"><img src="http://placehold.it/254x150/2ecc71/f5f5f5/&text=New+Collection" class="img-responsive" alt="product 3"></a>
-                                    <h4><small>Denin jacket stamped</small></h4>                                        
-                                    <button class="btn btn-primary" type="button">49,99 €</button> <button href="#" class="btn btn-default" type="button"><span class="glyphicon glyphicon-heart"></span> Add to Wishlist</button>      
-                                </div><!-- End Item -->                                
-                              </div><!-- End Carousel Inner -->
-                            </div><!-- /.carousel -->
-                            <li class="divider"></li>
-                            <li><a href="/home/assortment">Bekijk volledig assortiment <span class="glyphicon glyphicon-chevron-right pull-right"></span></a></li>
-						</ul>
-					</li>
-					<li class="col-sm-3">
-						<ul>
-							<li class="dropdown-header">Categorie</li>
-						  	{foreach $categories as $cat}
-  								<li><a href="/home/assortment?categorie={$cat->getId()}">{$cat->getNaam()}</a></li>
-  							{/foreach}
-						</ul>
-					</li>
-					<li class="col-sm-3">
-						<ul>
-							<li class="dropdown-header">Boeken</li>
-							{foreach $books as $book}
-  								<li><a href="#">{$book->getProductNaam()}</a></li>
-  							{/foreach}
-							<li class="divider"></li>
-							<li class="dropdown-header">Pants</li>
-							<li><a href="#">Coloured Headers</a></li>
-							<li><a href="#">Primary Buttons & Default</a></li>
-							<li><a href="#">Calls to action</a></li>
-						</ul>
-					</li>
-					<li class="col-sm-3">
-						<ul>
-							<li class="dropdown-header">Accessories</li>
-							<li><a href="#">Default Navbar</a></li>
-							<li><a href="#">Lovely Fonts</a></li>
-							<li><a href="#">Responsive Dropdown </a></li>							                                                    
-						</ul>
-					</li>
-				</ul>
-				
-			</li>
-		</ul>
+				<div class="collapse navbar-collapse js-navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li class="dropdown mega-dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Assortiment <span class="glyphicon glyphicon-chevron-down pull-right"></span></a>			
+							<ul class="dropdown-menu mega-dropdown-menu row">
+								<li class="col-sm-3">
+									<ul>
+										<li class="dropdown-header">Categorie</li>
+										<li class="divider"></li>
+									  	{foreach $categories as $cat}
+			  								<li><a href="/home/assortment?categorie={$cat->getId()}">{$cat->getNaam()}</a></li>
+			  							{/foreach}
+									</ul>
+								</li>
+								<li class="col-sm-3">
+									<ul>
+										<li class="dropdown-header">Muziek, Film en Games</li>
+										<li class="divider"></li>
+										{foreach $games as $game}
+			  							<li><a href="/home/productdetails?product_id={$game->getId()}">{$game->getProductNaam()}</a></li>
+			  							{/foreach}
+									</ul>
+								</li>
+								<li class="col-sm-3">
+									<ul>
+										<li class="dropdown-header">Computer en Elektronica</li>
+										<li class="divider"></li>
+										{foreach $computers as $computer}
+			  							<li><a href="/home/productdetails?product_id={$computer->getId()}">{$computer->getProductNaam()}</a></li>
+			  							{/foreach}
+									</ul>
+								</li>
+								<li class="col-sm-3">
+									<ul>
+										<li class="dropdown-header">Speelgoed</li>
+										<li class="divider"></li>
+										{foreach $toys as $toy}
+			  							<li><a href="/home/productdetails?product_id={$toy->getId()}">{$toy->getProductNaam()}</a></li>
+			  							{/foreach}
+									</ul>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</nav>
+			<!-- /navigation -->
 		
-	</div><!-- /.nav-collapse -->
-</nav>
-</div>
-
-		<!-- /navigation -->
-		
-		<!-- logo -->
-		<div class="container sm-vpadding">
-			<div class="row">
-				<div class="col-sm-12">
-					<form action="search">
-						<div class="input-group">
-							<input type="search" class="form-control input-lg"
-								name="search-query" id="search-query" placeholder="Zoeken in alle artikelen..." />
-							<div class="input-group-btn">
-								<button class="btn btn-lg btn-blue" type="submit" id="Search">
-									<span class="glyphicon glyphicon-search"></span>
-								</button>
+			<!-- logo -->
+			<div class="sm-vpadding">
+				<div class="row">
+					<div class="col-sm-12">
+						<form action="search">
+							<div class="input-group">
+								<input type="search" class="form-control input-lg"
+									name="search-query" id="search-query" placeholder="Zoeken in alle artikelen..." />
+								<div class="input-group-btn">
+									<button class="btn btn-lg btn-blue" type="submit" id="Search">
+										<span class="glyphicon glyphicon-search"></span>
+									</button>
+								</div>
 							</div>
-						</div>
-					</form>
+						</form>
+					</div>
 				</div>
 			</div>
-		</div>
-		<!-- /logo -->
+			<!-- /logo -->
 		
-		<!-- breadcrumbs -->
-		<div class="container">
+			<!-- breadcrumbs -->
 			<ol class="breadcrumb">
 				
 			</ol>
+			<!-- /breadcrumbs -->
 		</div>
-		<!-- /navigation -->
+		

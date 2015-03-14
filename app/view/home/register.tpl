@@ -1,9 +1,3 @@
-<?php 
-	session_start();
-	$_SESSION['title'] = 'Registreren';
-	require_once 'app/view/partial/header.php'; 
-?>
-
 <div class="container">
 	<div class="col-sm-3"></div>
 	<div class="col-sm-6">
@@ -12,7 +6,6 @@
 				<h3 class="panel-title">Registreren</h3>
 			</div>
 			<div class="panel-body">
-
 				<form action="account.php" accept-charset="UTF-8" role="form">
 					<fieldset>
 						<div class="form-group">
@@ -80,7 +73,3 @@
 		</div>
 	</div>
 </div>
-
-<?php 
-	require_once 'app/view/partial/footer.php';
-?>

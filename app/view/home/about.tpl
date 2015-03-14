@@ -1,9 +1,3 @@
-<?php 
-	session_start();
-	$_SESSION['title'] = 'Over ons';
-	require_once 'app/view/partial/header.php'; 
-?>
-
 <div class="container">
 	<div class="panel panel-default">
 		<div class="panel-body">
@@ -29,8 +23,23 @@
 			</p>
 		</div>
 	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Taakverdeling</h3>
+		</div>
+		<table class="table">
+			<tr>
+				<th>Brian</th>
+				<th>Stan</th>
+			</tr>
+			<tr>
+				<td>Database klasse</td>
+				<td>MVC framework</td>
+			</tr>
+			<tr>
+				<td>Smarty</td>
+				<td>Layout / CSS</td>
+			</tr>
+		</table>
+	</div>
 </div>
-
-<?php 
-	require_once 'app/view/partial/footer.php';
-?>
