@@ -80,7 +80,7 @@
 			<div class="sm-vpadding">
 				<div class="row">
 					<div class="col-sm-12">
-						<form action="search">
+						<form action="/home/search">
 							<div class="input-group">
 								<input type="search" class="form-control input-lg"
 									name="search-query" id="search-query" placeholder="Zoeken in alle artikelen..." />
