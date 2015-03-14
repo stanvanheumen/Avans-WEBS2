@@ -31,7 +31,7 @@
 				<div class="collapse navbar-collapse js-navbar-collapse">
 					<ul class="nav navbar-nav">
 						<li class="dropdown mega-dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Assortiment <span class="glyphicon glyphicon-chevron-down pull-right"></span></a>			
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Assortiment <span class="glyphicon glyphicon-chevron-down"></span></a>			
 							<ul class="dropdown-menu mega-dropdown-menu row">
 								<li class="col-sm-3">
 									<ul>
@@ -71,6 +71,10 @@
 								</li>
 							</ul>
 						</li>
+					</ul>
+					<ul class="nav navbar-nav pull-right">
+						<li><a href="/home/login">Inloggen</a></li>
+						<li><a href="/home/register">Registreren</a></li>
 					</ul>
 				</div>
 			</nav>

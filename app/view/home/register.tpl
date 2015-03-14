@@ -12,40 +12,36 @@
 							<span class="label label-default">Persoonlijke gegevens</span>
 						</div>
 						<div class="form-group">
-							<input class="form-control" placeholder="Voornaam"
-								name="first_name" type="text" required>
-						</div>
-						<div class="form-group">
-							<input class="form-control" placeholder="Tussenvoegsel"
-								name="infix_name" type="text">
-						</div>
-						<div class="form-group">
-							<input class="form-control" placeholder="Achternaam"
-								name="last_name" type="text">
-						</div>
-						<div class="form-group">
 							<div class="row">
-								<div class="col-md-6">
-									<input class="form-control" placeholder="Straat"
-										name="street" type="text">
+								<div class="col-md-4">
+									<input class="form-control" placeholder="Voornaam" name="first_name" type="text" required>
 								</div>
-								<div class="col-md-3">
-									<input class="form-control" placeholder="Postcode"
-										name="postal_code" type="text">
+								<div class="col-md-4">
+									<input class="form-control" placeholder="Tussenvoegsel" name="infix_name" type="text">
 								</div>
-								<div class="col-md-3">
-									<input class="form-control" placeholder="Huisnr"
-										name="house_number" type="text">
+								<div class="col-md-4">
+									<input class="form-control" placeholder="Achternaam" name="last_name" type="text">
 								</div>
 							</div>
 						</div>
 						<div class="form-group">
-							<input class="form-control" placeholder="Woonplaats"
-								name="place" type="text" value="">
+							<div class="row">
+								<div class="col-md-6">
+									<input class="form-control" placeholder="Straat" name="street" type="text">
+								</div>
+								<div class="col-md-3">
+									<input class="form-control" placeholder="Postcode" name="postal_code" type="text">
+								</div>
+								<div class="col-md-3">
+									<input class="form-control" placeholder="Huisnr" name="house_number" type="text">
+								</div>
+							</div>
 						</div>
 						<div class="form-group">
-							<input class="form-control" placeholder="Telefoonnummer"
-								name="place" type="text" value="">
+							<input class="form-control" placeholder="Woonplaats" name="place" type="text" value="">
+						</div>
+						<div class="form-group">
+							<input class="form-control" placeholder="Telefoonnummer" name="place" type="text" value="">
 						</div>
 						<div class="form-group">
 							<select class="form-control" name="Geslacht">
@@ -58,15 +54,12 @@
 							<span class="label label-default">Login gegevens</span>
 						</div>
 						<div class="form-group">
-							<input class="form-control" placeholder="E-mail"
-								name="email" type="text" required>
+							<input class="form-control" placeholder="E-mail" name="email" type="text" required>
 						</div>
 						<div class="form-group">
-							<input class="form-control" placeholder="Wachtwoord"
-								name="password" type="password" value="">
+							<input class="form-control" placeholder="Wachtwoord" name="password" type="password" value="">
 						</div>
-						<input class="btn btn-lg btn-blue btn-block" type="submit"
-							value="Registreren">
+						<input class="btn btn-lg btn-blue btn-block" type="submit" value="Registreren">
 					</fieldset>
 				</form>
 			</div>

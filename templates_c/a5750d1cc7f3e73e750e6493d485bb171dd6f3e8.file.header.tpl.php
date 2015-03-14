@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-14 00:42:01
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-14 17:38:37
          compiled from "app\view\partial\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:169635501dc8d3e50a7-09540670%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a5750d1cc7f3e73e750e6493d485bb171dd6f3e8' => 
     array (
       0 => 'app\\view\\partial\\header.tpl',
-      1 => 1426290094,
+      1 => 1426351114,
       2 => 'file',
     ),
   ),
@@ -65,7 +65,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				<div class="collapse navbar-collapse js-navbar-collapse">
 					<ul class="nav navbar-nav">
 						<li class="dropdown mega-dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Assortiment <span class="glyphicon glyphicon-chevron-down pull-right"></span></a>			
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Assortiment <span class="glyphicon glyphicon-chevron-down"></span></a>			
 							<ul class="dropdown-menu mega-dropdown-menu row">
 								<li class="col-sm-3">
 									<ul>
@@ -130,6 +130,10 @@ $_smarty_tpl->tpl_vars['toy']->_loop = true;
 							</ul>
 						</li>
 					</ul>
+					<ul class="nav navbar-nav pull-right">
+						<li><a href="/home/login">Inloggen</a></li>
+						<li><a href="/home/register">Registreren</a></li>
+					</ul>
 				</div>
 			</nav>
 			<!-- /navigation -->
@@ -138,7 +142,7 @@ $_smarty_tpl->tpl_vars['toy']->_loop = true;
 			<div class="sm-vpadding">
 				<div class="row">
 					<div class="col-sm-12">
-						<form action="search">
+						<form action="/home/search">
 							<div class="input-group">
 								<input type="search" class="form-control input-lg"
 									name="search-query" id="search-query" placeholder="Zoeken in alle artikelen..." />
