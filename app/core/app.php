@@ -9,9 +9,11 @@ class App {
 	public function __construct() {
 		$url = $this->parseUrl();
 
+		if (!isset($url[0]) && !isset($url[1]))
+			header('Location: /home/index');
+
 		if (file_exists('app/controller/' . $url[0] . '.php')) {
 			$this->controller = $url[0];
-			$this->method = 'index';
 			unset($url[0]);
 		}
 
@@ -24,6 +26,8 @@ class App {
 				$this->method = $url[1];
 				unset($url[1]);
 			}
+		} else {
+			$this->method = 'index';
 		}
 		
 		$this->params = $url ? array_values($url) : [];
