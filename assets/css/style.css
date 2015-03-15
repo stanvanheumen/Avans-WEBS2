@@ -1,5 +1,5 @@
 html {
-	overflow-y: scroll;
+  overflow-y: scroll;
 }
 
 body {
@@ -12,7 +12,8 @@ body {
 .well,
 .nav,
 .navbar-default,
-.breadcrumb {
+.breadcrumb,
+.dropdown-menu {
 	border-radius: 0px;
 }
 
@@ -38,9 +39,9 @@ body {
 }
 
 .center-img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .sm-vpadding {
@@ -57,40 +58,40 @@ body {
 }
 
 .navbar-nav>li>.dropdown-menu {
-    margin-top:20px;
+  margin-top:20px;
 }
 .navbar-default .navbar-nav>li>a {
-    font-weight:bold;
+  font-weight:bold;
 }
 .mega-dropdown {
   position: static !important;
   width:100%;
 }
 .mega-dropdown-menu {
-    padding: 20px 0px;
-    width: 100%;
-    box-shadow: none;
-    -webkit-box-shadow: none;
+  padding: 20px 0px;
+  width: 100%;
+  box-shadow: none;
+  -webkit-box-shadow: none;
 }
 .mega-dropdown-menu:before {
-    content: "";
-    border-bottom: 15px solid #fff;
-    border-right: 17px solid transparent;
-    border-left: 17px solid transparent;
-    position: absolute;
-    top: -15px;
-    left: 285px;
-    z-index: 10;
+  content: "";
+  border-bottom: 15px solid #fff;
+  border-right: 17px solid transparent;
+  border-left: 17px solid transparent;
+  position: absolute;
+  top: -15px;
+  left: 285px;
+  z-index: 10;
 }
 .mega-dropdown-menu:after {
-    content: "";
-    border-bottom: 17px solid #ccc;
-    border-right: 19px solid transparent;
-    border-left: 19px solid transparent;
-    position: absolute;
-    top: -17px;
-    left: 283px;
-    z-index: 8;
+  content: "";
+  border-bottom: 17px solid #ccc;
+  border-right: 19px solid transparent;
+  border-left: 19px solid transparent;
+  position: absolute;
+  top: -17px;
+  left: 283px;
+  z-index: 8;
 }
 .mega-dropdown-menu > li > ul {
   padding: 0;
@@ -120,7 +121,7 @@ body {
   font-weight:bold;
 }
 .mega-dropdown-menu form {
-    margin:3px 20px;
+  margin:3px 20px;
 }
 
 .test-panel { 
@@ -150,4 +151,27 @@ body {
 
 .mneu > .container a {
   color: #fff;
+}
+
+/* CMS */
+.vertical-offset-100 {
+  padding-top: 100px;
+}
+
+.vertical-offset-20 {
+  padding-top: 20px;
+}
+
+.text-centered {
+  text-align: center;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.icon-xl {
+  font-size: 80px;
 }

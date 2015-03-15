@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-14 17:43:09
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-14 17:44:40
          compiled from "app\view\home\register.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2322355045d6777a904-94193311%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '235f948b4afa669491ab14e00ad4519be00b56ab' => 
     array (
       0 => 'app\\view\\home\\register.tpl',
-      1 => 1426351387,
+      1 => 1426351447,
       2 => 'file',
     ),
   ),
@@ -48,26 +48,21 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						<div class="form-group">
 							<div class="row">
 								<div class="col-md-6">
-									<input class="form-control" placeholder="Straat"
-										name="street" type="text">
+									<input class="form-control" placeholder="Straat" name="street" type="text">
 								</div>
 								<div class="col-md-3">
-									<input class="form-control" placeholder="Postcode"
-										name="postal_code" type="text">
+									<input class="form-control" placeholder="Postcode" name="postal_code" type="text">
 								</div>
 								<div class="col-md-3">
-									<input class="form-control" placeholder="Huisnr"
-										name="house_number" type="text">
+									<input class="form-control" placeholder="Huisnr" name="house_number" type="text">
 								</div>
 							</div>
 						</div>
 						<div class="form-group">
-							<input class="form-control" placeholder="Woonplaats"
-								name="place" type="text" value="">
+							<input class="form-control" placeholder="Woonplaats" name="place" type="text" value="">
 						</div>
 						<div class="form-group">
-							<input class="form-control" placeholder="Telefoonnummer"
-								name="place" type="text" value="">
+							<input class="form-control" placeholder="Telefoonnummer" name="place" type="text" value="">
 						</div>
 						<div class="form-group">
 							<select class="form-control" name="Geslacht">
@@ -80,15 +75,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 							<span class="label label-default">Login gegevens</span>
 						</div>
 						<div class="form-group">
-							<input class="form-control" placeholder="E-mail"
-								name="email" type="text" required>
+							<input class="form-control" placeholder="E-mail" name="email" type="text" required>
 						</div>
 						<div class="form-group">
-							<input class="form-control" placeholder="Wachtwoord"
-								name="password" type="password" value="">
+							<input class="form-control" placeholder="Wachtwoord" name="password" type="password" value="">
 						</div>
-						<input class="btn btn-lg btn-blue btn-block" type="submit"
-							value="Registreren">
+						<input class="btn btn-lg btn-blue btn-block" type="submit" value="Registreren">
 					</fieldset>
 				</form>
 			</div>
