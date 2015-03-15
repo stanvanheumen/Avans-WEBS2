@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-15 02:28:51
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-15 15:46:32
          compiled from "app\view\cms\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:195455504cd4f463da7-69990634%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a46b9477e7fa778a07d8c0d36a85f4a666371bd7' => 
     array (
       0 => 'app\\view\\cms\\index.tpl',
-      1 => 1426382929,
+      1 => 1426430768,
       2 => 'file',
     ),
   ),
@@ -28,7 +28,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			    	<h3 class="panel-title">CMS</h3>
 			 	</div>
 			  	<div class="panel-body">
-			    	<form action="/cms/dashboard" method="post" accept-charset="UTF-8" role="form">
+			    	<form action="/cms/index" method="post" accept-charset="UTF-8" role="form">
 	                    <fieldset>
 				    	  	<div class="form-group">
 				    		    <input class="form-control" placeholder="Gebruikersnaam" name="username" type="text" required>

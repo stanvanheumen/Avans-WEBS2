@@ -13,7 +13,7 @@ class App {
 			$this->controller = $url[0];
 			$this->method = 'index';
 			unset($url[0]);
-		} 
+		}
 
 		require_once 'app/controller/' . $this->controller . '.php';
 		

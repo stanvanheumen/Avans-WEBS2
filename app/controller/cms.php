@@ -5,6 +5,10 @@ class CMS extends Controller {
 	public function index() {
 		// Require models
 		$this->smart('CMS');
+
+		if (isset($_POST['username']) && isset($_POST['password']) && $_POST['username'] == 'admin' && $_POST['password'] == 'admin')
+			header('Location: /cms/dashboard');
+
 		// Render view
 		$this->view('cms/index');
 	}
@@ -13,9 +17,6 @@ class CMS extends Controller {
 		// Require models
 		$this->smart('Dashboard');
 
-		if (!isset($_POST['username']) || !isset($_POST['password']) || $_POST['username'] != 'admin' || $_POST['password'] != 'admin')
-			header('Location: /cms/index');
-
 		require_once ('app/model/product.inc.php');
 		$products = $this->db->queryArray("SELECT * FROM product", 'Product');
 
@@ -23,6 +24,32 @@ class CMS extends Controller {
 
 		// Render view
 		$this->view('cms/dashboard');
+	}
+
+	public function create() {
+		// Require models
+		$this->smart('Toevoegen');
+
+		require_once ('app/model/categorie.inc.php');
+		$categorie = $this->db->queryArray("SELECT * FROM categorie", 'Categorie');
+
+		$this->smarty->assign('categorie', $categorie);
+
+		// Render view
+		$this->view('cms/create');
+	}
+
+	public function edit() {
+		// Require models
+		$this->smart('Wijzigen');
+
+		require_once ('app/model/categorie.inc.php');
+		$categorie = $this->db->queryArray("SELECT * FROM categorie", 'Categorie');
+
+		$this->smarty->assign('categorie', $categorie);
+
+		// Render view
+		$this->view('cms/edit');
 	}
 
 	public function view($view, $data = []) {

@@ -7,7 +7,7 @@
 			    	<h3 class="panel-title">CMS</h3>
 			 	</div>
 			  	<div class="panel-body">
-			    	<form action="/cms/dashboard" method="post" accept-charset="UTF-8" role="form">
+			    	<form action="/cms/index" method="post" accept-charset="UTF-8" role="form">
 	                    <fieldset>
 				    	  	<div class="form-group">
 				    		    <input class="form-control" placeholder="Gebruikersnaam" name="username" type="text" required>
