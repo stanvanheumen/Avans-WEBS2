@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-15 15:46:32
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-15 15:56:03
          compiled from "app\view\cms\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:195455504cd4f463da7-69990634%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a46b9477e7fa778a07d8c0d36a85f4a666371bd7' => 
     array (
       0 => 'app\\view\\cms\\index.tpl',
-      1 => 1426430768,
+      1 => 1426431361,
       2 => 'file',
     ),
   ),
@@ -24,7 +24,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     	<div class="col-md-4 col-md-offset-4">
     		<div class="panel panel-default">
 			  	<div class="panel-heading text-centered">
-			  		<img src="/assets/images/logo.png" class="img-responsive center" width="250" height="30" alt="logo" />
+			  		<a href="/home/index"><img src="/assets/images/logo.png" class="img-responsive center" width="250" height="30" alt="logo" /></a>
 			    	<h3 class="panel-title">CMS</h3>
 			 	</div>
 			  	<div class="panel-body">
