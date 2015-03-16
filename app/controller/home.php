@@ -102,13 +102,51 @@ class Home extends Controller {
 		// Render view
 		$this->view('home/register');
 	}
+
+	public function register_post() {
+		$first_name 	= $this->db->escape($_POST['first_name']);
+		$infix_name 	= $this->db->escape($_POST['infix_name']);
+		$last_name 		= $this->db->escape($_POST['last_name']);
+		$street 		= $this->db->escape($_POST['street']);
+		$postal_code 	= $this->db->escape($_POST['postal_code']);
+		$place 			= $this->db->escape($_POST['place']);
+		$gender			= $this->db->escape($_POST['gender']);
+		$number 		= $this->db->escape($_POST['number']);
+		$email 			= $this->db->escape($_POST['email']);
+		$password 		= $this->getHash($this->db->escape($_POST['password']));
+		$this->db->query("INSERT INTO account VALUES (NULL, 'member', '$email', '$password', '$first_name', '$infix_name', '$last_name', '$street', '$postal_code', '$place', '$number', '$gender')");
+		$this->redirect('/home/index');
+	}
+
+	public function getHash($input, $rounds = 9) {
+		$salt = '';
+		$saltChars = array_merge(range('A', 'Z'), range('a', 'z'), range(0, 9));
+		for ($i = 0; $i < 22; $i++) {
+			$salt .= $saltChars[array_rand($saltChars)];
+		}
+		return crypt($input, sprintf('$2y$%02d$', $rounds). $salt);
+	}
 	
 	public function login() {
 		// Require models
 		$this->smart('Login'); 
-
+		
 		// Render view
 		$this->view('home/login');
+	}
+	
+	public function login_post() {
+		require_once ('app/model/account.inc.php');
+
+		if (isset($_POST['email']) && isset($_POST['password'])) {
+			$email = $this->db->escape($_POST['email']);
+			$password = $this->getHash($this->db->escape($_POST['password']));
+			$account = $this->db->queryObject("SELECT * FROM account WHERE gebruikersnaam = '$email'", 'Account');
+			if ($email == $account->getGebruikersnaam() && $wachtwoord = $account->getHash())
+				echo 'Je zou nu ingelogd zijn.';
+		}
+
+		
 	}
 
 	public function view($view, $data = []) {
@@ -116,9 +154,9 @@ class Home extends Controller {
 		require_once ('app/model/product.inc.php');
 		
 		$categories = $this->db->queryArray('SELECT * FROM categorie ORDER BY naam', 'Categorie');
-		$games = $this->db->queryArray('SELECT * FROM product WHERE categorie_id = 6 LIMIT 8', 'Product');
-		$computers = $this->db->queryArray('SELECT * FROM product WHERE categorie_id = 2 LIMIT 8', 'Product');
-		$toys = $this->db->queryArray('SELECT * FROM product WHERE categorie_id = 7 LIMIT 8', 'Product');
+		$games 		= $this->db->queryArray('SELECT * FROM product WHERE categorie_id = 6 LIMIT 8', 'Product');
+		$computers 	= $this->db->queryArray('SELECT * FROM product WHERE categorie_id = 2 LIMIT 8', 'Product');
+		$toys 		= $this->db->queryArray('SELECT * FROM product WHERE categorie_id = 7 LIMIT 8', 'Product');
 		
 		$this->smarty->assign('categories', $categories);
 		$this->smarty->assign('games', $games);

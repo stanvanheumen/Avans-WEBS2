@@ -7,7 +7,7 @@ class CMS extends Controller {
 		$this->smart('CMS');
 
 		if (isset($_POST['username']) && isset($_POST['password']) && $_POST['username'] == 'admin' && $_POST['password'] == 'admin')
-			header('Location: /cms/dashboard');
+			$this->redirect('/cms/dashboard');
 
 		// Render view
 		$this->view('cms/index');
@@ -75,7 +75,7 @@ class CMS extends Controller {
 		$beschrijving 	= $this->db->escape($_POST['beschrijving']);
 		$voorraad 		= $this->db->escape($_POST['voorraad']);
 		$this->db->query("UPDATE product SET categorie_id='$categorie_id', productnaam='$productnaam', prijs='$prijs', beschrijving='$beschrijving', voorraad='$voorraad' WHERE id='$id'");
-		header("Location: /cms/dashboard");
+		$this->redirect('/cms/dashboard');
 	}
 
 	public function view($view, $data = []) {

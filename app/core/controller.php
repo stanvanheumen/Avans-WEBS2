@@ -25,5 +25,9 @@ class Controller {
 		$this->smarty->assign('title', $title);
 		$this->smarty->assign('year', date('Y'));
 	}
+
+	public function redirect($page) {
+		header("Location: $page");
+	}
 	
 }
