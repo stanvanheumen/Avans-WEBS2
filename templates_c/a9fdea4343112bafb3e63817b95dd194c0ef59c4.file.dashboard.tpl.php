@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-15 15:49:15
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-16 18:00:49
          compiled from "app\view\cms\dashboard.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:150135504d1733123b6-60820039%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a9fdea4343112bafb3e63817b95dd194c0ef59c4' => 
     array (
       0 => 'app\\view\\cms\\dashboard.tpl',
-      1 => 1426430954,
+      1 => 1426525238,
       2 => 'file',
     ),
   ),
@@ -60,7 +60,8 @@ $_smarty_tpl->tpl_vars['product']->_loop = true;
 						<td class="col-md-2 text-centered">
 							<a class="btn btn-warning" href="/cms/edit?id=<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
 "><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-							<a class="btn btn-danger" href="#"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+							<a class="btn btn-danger" href="/cms/delete?id=<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
+"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 						</td>
 					</tr>
 					<?php } ?>

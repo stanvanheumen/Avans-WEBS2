@@ -27,7 +27,7 @@
 						<td class="col-md-2">&euro; {$product->getPrijs()}</td>
 						<td class="col-md-2 text-centered">
 							<a class="btn btn-warning" href="/cms/edit?id={$product->getId()}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-							<a class="btn btn-danger" href="#"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+							<a class="btn btn-danger" href="/cms/delete?id={$product->getId()}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 						</td>
 					</tr>
 					{/foreach}

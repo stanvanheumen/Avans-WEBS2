@@ -86,4 +86,10 @@ class CMS extends Controller {
 		$this->smarty->display('app/view/cms/partial/footer.tpl');
 	}
 
+	public function delete() {
+		$id = $this->db->escape($_GET['id']);
+		$this->db->query("DELETE FROM product WHERE id='$id'");
+		header("Location: /cms/dashboard");
+	}
+
 }
