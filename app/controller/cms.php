@@ -28,6 +28,23 @@ class CMS extends Controller {
 		
 		// Require models
 		$this->smart('Dashboard');
+		
+		$result = $this->db->query("SELECT COUNT(*) FROM product");
+		$row = $result->fetch_row();
+		$products = $row[0];
+		
+		$result = $this->db->query("SELECT COUNT(*) FROM account");
+		$row = $result->fetch_row();
+		$users = $row[0];
+		
+		$result = $this->db->query("SELECT COUNT(*) FROM bestelling");
+		$row = $result->fetch_row();
+		$orders = $row[0];
+		
+		$this->smarty->assign('products', $products);
+		$this->smarty->assign('users', $users);
+		$this->smarty->assign('orders', $orders);
+		$this->smarty->assign('visitors', '0');
 
 		// Render view
 		$this->view('cms/dashboard');

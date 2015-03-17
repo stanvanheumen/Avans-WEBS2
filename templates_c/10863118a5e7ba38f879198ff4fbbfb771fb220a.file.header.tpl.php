@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-17 18:28:11
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-17 18:42:23
          compiled from "app\view\cms\partial\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:106925505b3bb0c3596-43076651%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '10863118a5e7ba38f879198ff4fbbfb771fb220a' => 
     array (
       0 => 'app\\view\\cms\\partial\\header.tpl',
-      1 => 1426613287,
+      1 => 1426614133,
       2 => 'file',
     ),
   ),
@@ -38,6 +38,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 		<link href="/assets/css/style.css" rel="stylesheet" type="text/css">
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 	</head>
 
 	<body style="background-color: #dfdfdf;">
