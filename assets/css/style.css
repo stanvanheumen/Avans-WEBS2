@@ -158,8 +158,20 @@ body {
   padding-top: 100px;
 }
 
+.vertical-offset-7 {
+	padding-top: 7px;
+}
+
 .vertical-offset-20 {
   padding-top: 20px;
+}
+
+.vertical-offset-40 {
+	padding-top: 40px;
+}
+
+.vertical-offset-60 {
+	padding-top: 60px;
 }
 
 .text-centered {
