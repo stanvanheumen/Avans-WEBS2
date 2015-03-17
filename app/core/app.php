@@ -8,6 +8,8 @@ class App {
 	
 	public function __construct() {
 		$url = $this->parseUrl();
+		
+		session_start();
 
 		if (!isset($url[0]) && !isset($url[1]))
 			header('Location: /home/index');

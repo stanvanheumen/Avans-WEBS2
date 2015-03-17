@@ -5,9 +5,17 @@ class CMS extends Controller {
 	public function index() {
 		// Require models
 		$this->smart('CMS');
-
-		if (isset($_POST['username']) && isset($_POST['password']) && $_POST['username'] == 'admin' && $_POST['password'] == 'admin')
+		
+		if(isset($_SESSION['cms_authenticated']) && $_SESSION['cms_authenticated'] == 1) {
 			$this->redirect('/cms/dashboard');
+			return;
+		}
+
+		if (isset($_POST['username']) && isset($_POST['password']) && $_POST['username'] == 'admin' && $_POST['password'] == 'admin') {
+			$_SESSION['cms_authenticated'] = 1;
+			$this->redirect('/cms/dashboard');
+			return;
+		}
 
 		// Render view
 		$this->view('cms/index');
@@ -16,6 +24,11 @@ class CMS extends Controller {
 	public function dashboard() {
 		// Require models
 		$this->smart('Dashboard');
+		
+		if(!isset($_SESSION['cms_authenticated']) || $_SESSION['cms_authenticated'] != 1) {
+			$this->redirect('/cms/index');
+			return;
+		}
 
 		require_once ('app/model/product.inc.php');
 		$products = $this->db->queryArray('SELECT * FROM product', 'Product');
@@ -90,6 +103,12 @@ class CMS extends Controller {
 		$id = $this->db->escape($_GET['id']);
 		$this->db->query("DELETE FROM product WHERE id='$id'");
 		header("Location: /cms/dashboard");
+	}
+	
+	public function logout() {
+		unset($_SESSION['cms_authenticated']);
+		
+		$this->redirect('/cms/index');
 	}
 
 }

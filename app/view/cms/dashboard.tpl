@@ -4,7 +4,7 @@
 			<div class="panel panel-default">
 				<div class="panel-body text-centered">
 					<a class="btn btn-success" href="/cms/create"><span class="glyphicon glyphicon-file" aria-hidden="true"></span></a>
-					<a href="/cms/index" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-off" aria-hidden="true"></a>
+					<a href="/cms/logout" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-off" aria-hidden="true"></a>
 				</div>
 			</div>
 		</div>
