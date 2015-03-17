@@ -113,7 +113,7 @@ class CMS extends Controller {
 		// Database requests
 		$id = $this->db->escape($_GET['id']);
 
-		$product = $this->db->queryObject('SELECT * FROM PRODUCT WHERE id = ' . $id, 'Product');
+		$product = $this->db->queryObject("SELECT * FROM PRODUCT WHERE id='$id'", 'Product');
 		$categorie = $this->db->queryArray('SELECT * FROM categorie', 'Categorie');
 
 		$this->smarty->assign('categorie', $categorie);
@@ -160,6 +160,31 @@ class CMS extends Controller {
 		$this->db->query("DELETE FROM product WHERE id='$id'");
 		
 		$this->redirect('/cms/products');
+	}
+	
+	public function edit_user() {
+		if(!$this->authenticate_check()) {
+			return;
+		}
+	
+		if(!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+			$this->redirect('/cms/users');
+			return;
+		}
+		
+		// Require models
+		$this->smart('Gebruiker wijzigen');
+		require_once ('app/model/account.inc.php');
+		// Database requests
+		$id = $this->db->escape($_GET['id']);
+
+		$product = $this->db->queryObject("SELECT * FROM PRODUCT WHERE id='$id'", 'Product');
+
+		$this->smarty->assign('categorie', $categorie);
+		$this->smarty->assign('product', $product);
+		
+		// Render view
+		$this->view('cms/edit_product');
 	}
 	
 	public function delete_user() {
