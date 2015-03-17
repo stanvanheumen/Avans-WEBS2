@@ -16,6 +16,7 @@
 
 	<body style="background-color: #dfdfdf;">
 	
+	{if isset($smarty.session.cms_authenticated) && $smarty.session.cms_authenticated == 1}
 	<nav class="navbar navbar-default">
 		<div class="container">
 			<div class="navbar-header">
@@ -39,3 +40,4 @@
 			</div><!--/.nav-collapse -->
 	  </div>
 	</nav>
+	{/if}

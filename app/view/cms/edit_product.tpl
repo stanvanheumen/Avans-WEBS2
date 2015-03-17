@@ -6,7 +6,7 @@
 					<h4 class="panel-title">Product wijzigen</h4>
 				</div>
 				<div class="panel-body">
-					<form action="/cms/edit_post?id={$product->getId()}" method="post" role="form">
+					<form action="/cms/edit_product_post?id={$product->getId()}" method="post" role="form">
 					    <div class="form-group">
 							<label for="categorie">Categorie:</label>
 							<select class="form-control" id="categorie_id" name="categorie_id" required>
@@ -36,7 +36,7 @@
 					      	<input type="text" class="form-control" id="voorraad" value="{$product->getVoorraad()}" name="voorraad" placeholder="Voorraad" required />
 					    </div>
 					    <button type="submit" class="btn btn-default">Wijzigen</button>
-					    <a href="/cms/dashboard" class="btn btn-default">Annuleren</a>
+					    <a href="/cms/products" class="btn btn-default">Annuleren</a>
 					</form>
 				</div>
 			</div>

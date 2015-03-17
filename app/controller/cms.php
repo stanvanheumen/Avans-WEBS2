@@ -123,7 +123,7 @@ class CMS extends Controller {
 		$this->view('cms/edit_product');
 	}
 
-	public function edit_post() {
+	public function edit_product_post() {
 		if(!$this->authenticate_check()) {
 			return;
 		}
@@ -136,6 +136,25 @@ class CMS extends Controller {
 		$voorraad 		= $this->db->escape($_POST['voorraad']);
 		$this->db->query("UPDATE product SET categorie_id='$categorie_id', productnaam='$productnaam', prijs='$prijs', beschrijving='$beschrijving', voorraad='$voorraad' WHERE id='$id'");
 		$this->redirect('/cms/products');
+	}
+	
+	public function edit_user_post() {
+		if(!$this->authenticate_check()) {
+			return;
+		}
+		
+		$id 			= $this->db->escape($_GET['id']);
+		$first_name 	= $this->db->escape($_POST['first_name']);
+		$infix_name 	= $this->db->escape($_POST['infix_name']);
+		$last_name 		= $this->db->escape($_POST['last_name']);
+		$street 		= $this->db->escape($_POST['street']);
+		$postal_code 	= $this->db->escape($_POST['postal_code']);
+		$place 			= $this->db->escape($_POST['place']);
+		$gender			= $this->db->escape($_POST['gender']);
+		$number 		= $this->db->escape($_POST['number']);
+		
+		$this->db->query("UPDATE account SET voornaam='$first_name', tussenvoegsel='$infix_name', achternaam='$last_name', straat='$street', postcode='$postal_code', woonplaats='$place', geslacht='$gender', telefoonnummer='$number' WHERE id='$id'");
+		$this->redirect('/cms/users');
 	}
 
 	public function view($view, $data = []) {
@@ -175,16 +194,16 @@ class CMS extends Controller {
 		// Require models
 		$this->smart('Gebruiker wijzigen');
 		require_once ('app/model/account.inc.php');
+		
 		// Database requests
 		$id = $this->db->escape($_GET['id']);
 
-		$product = $this->db->queryObject("SELECT * FROM PRODUCT WHERE id='$id'", 'Product');
+		$user = $this->db->queryObject("SELECT * FROM account WHERE id='$id'", 'Account');
 
-		$this->smarty->assign('categorie', $categorie);
-		$this->smarty->assign('product', $product);
+		$this->smarty->assign('user', $user);
 		
 		// Render view
-		$this->view('cms/edit_product');
+		$this->view('cms/edit_user');
 	}
 	
 	public function delete_user() {
