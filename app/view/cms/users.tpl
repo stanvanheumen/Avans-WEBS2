@@ -17,14 +17,16 @@
 				<table class="table table-bordered">
 					<tr>
 						<th class="col-md-3">E-mail</th>
-						<th class="col-md-3">Naam</th>
+						<th class="col-md-2">Rank</th>
+						<th class="col-md-2">Naam</th>
 						<th class="col-md-3">Adres</th>
 						<th class="col-md-2 text-centered">Opties</th>
 					</tr>
 					{foreach $users as $user}
 					<tr>
 						<td class="col-md-3">{$user->getGebruikersnaam()}</td>
-						<td class="col-md-3">{$user->getNaam()}</td>
+						<td class="col-md-2">{$user->getRankNaam()}</td>
+						<td class="col-md-2">{$user->getNaam()}</td>
 						<td class="col-md-3">{$user->getAdres()}</td>
 						<td class="col-md-2 text-centered">
 							<a class="btn btn-warning" href="/cms/edit_user?id={$user->getId()}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>

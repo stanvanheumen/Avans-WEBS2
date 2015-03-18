@@ -3,6 +3,7 @@
 class Account {
 	
 	private $id;
+	private $rank_naam;
 	private $gebruikersnaam;
 	private $hash;
 	private $voornaam;
@@ -16,6 +17,10 @@ class Account {
 	
 	public function getId() {
 		return $this->id;
+	}
+
+	public function getRankNaam() {
+		return $this->rank_naam;
 	}
 
 	public function getGebruikersnaam() {
