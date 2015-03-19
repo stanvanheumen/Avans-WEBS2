@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-19 10:30:23
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-19 14:22:02
          compiled from "app\view\cms\edit_user.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:753155085f9de501a4-27831362%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ab01302235edac2b5fa7d766c6b3fca17d62f66a' => 
     array (
       0 => 'app\\view\\cms\\edit_user.tpl',
-      1 => 1426757330,
+      1 => 1426771265,
       2 => 'file',
     ),
   ),
@@ -116,9 +116,10 @@ $_smarty_tpl->tpl_vars['rank']->_loop = true;
 								<?php } ?>
 								</select>
 							</div>
-						
-							<button type="submit" class="btn btn-default">Wijzigen</button>
-							<a href="/cms/users" class="btn btn-default">Annuleren</a>
+							<div class="pull-right">
+								<button type="submit" class="btn btn-default">Wijzigen</button>
+								<a href="/cms/users" class="btn btn-default">Annuleren</a>
+							</div>
 						</fieldset>
 					</form>
 				</div>

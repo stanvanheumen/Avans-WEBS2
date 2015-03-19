@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-19 14:18:06
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-19 14:22:13
          compiled from "app\view\cms\create_category.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:20525550acc1fb88cc9-27155297%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8278e516b77395cf0919e415e325087520b26c2c' => 
     array (
       0 => 'app\\view\\cms\\create_category.tpl',
-      1 => 1426771084,
+      1 => 1426771111,
       2 => 'file',
     ),
   ),
@@ -40,8 +40,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					    </div>
 						
 						<div class="pull-right">
-					    <button type="submit" class="btn btn-default">Toevoegen</button>
-					    <a href="/cms/dashboard" class="btn btn-default">Annuleren</a>
+							<button type="submit" class="btn btn-default">Toevoegen</button>
+							<a href="/cms/dashboard" class="btn btn-default">Annuleren</a>
 						</div>
 					</form>
 				</div>

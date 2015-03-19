@@ -118,7 +118,23 @@ class CMS extends Controller {
 		// Render view
 		$this->view('cms/create_category');
 	}
-
+	
+	public function create_category_post() {
+		if(!$this->authenticate_check()) {
+			return;
+		}
+		
+		$naam = $this->db->escape($_POST['naam']);
+		
+		$this->db->query("INSERT INTO categorie (naam) VALUES ('$naam')");
+		
+		$this->redirect('/cms/categories');
+	}
+	
+	public function error() {
+		echo "error";
+	}
+	
 	public function create_post() {
 		if(!$this->authenticate_check()) {
 			return;
@@ -286,7 +302,7 @@ class CMS extends Controller {
 		$this->smart('Categorie&#235;n');
 
 		require_once ('app/model/categorie.inc.php');
-		$categories = $this->db->queryArray('SELECT * FROM categorie', 'Categorie');
+		$categories = $this->db->queryArray('SELECT * FROM categorie ORDER BY naam ASC', 'Categorie');
 
 		$this->smarty->assign('categories', $categories);
 
