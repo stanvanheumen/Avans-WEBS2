@@ -30,4 +30,8 @@ class Controller {
 		header("Location: $page");
 	}
 	
+	public function getHash($input) {
+		return password_hash($input, PASSWORD_DEFAULT);
+	}
+	
 }
