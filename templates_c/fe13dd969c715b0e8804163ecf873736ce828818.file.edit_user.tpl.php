@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-18 10:19:57
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-19 10:39:00
          compiled from "app\view\cms\edit_user.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:155175509433dc02310-45794819%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'fe13dd969c715b0e8804163ecf873736ce828818' => 
     array (
       0 => 'app\\view\\cms\\edit_user.tpl',
-      1 => 1426670284,
+      1 => 1426757875,
       2 => 'file',
     ),
   ),
@@ -15,13 +15,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_5509433dc77886_69970151',
   'variables' => 
   array (
     'user' => 0,
+    'genders' => 0,
+    'gender' => 0,
+    'ranks' => 0,
+    'rank' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5509433dc77886_69970151',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5509433dc77886_69970151')) {function content_5509433dc77886_69970151($_smarty_tpl) {?><div class="container">
 	<div class="row">
@@ -76,9 +80,40 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 							</div>
 							<div class="form-group">
 								<select class="form-control" name="gender" required>
-									<option value="0">Man</option>
-									<option value="1">Vrouw</option>
-									<option value="2">Ik weet het niet/beide</option>
+									<?php  $_smarty_tpl->tpl_vars['gender'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['gender']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['genders']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['gender']->key => $_smarty_tpl->tpl_vars['gender']->value) {
+$_smarty_tpl->tpl_vars['gender']->_loop = true;
+?>
+									<?php if ($_smarty_tpl->tpl_vars['user']->value->getGeslacht()==$_smarty_tpl->tpl_vars['gender']->value['id']) {?>
+									<option value="<?php echo $_smarty_tpl->tpl_vars['gender']->value['id'];?>
+" selected><?php echo $_smarty_tpl->tpl_vars['gender']->value['gender'];?>
+</option>
+									<?php } else { ?>
+									<option value="<?php echo $_smarty_tpl->tpl_vars['gender']->value['id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['gender']->value['gender'];?>
+</option>
+									<?php }?>
+								<?php } ?>
+								</select>
+							</div>
+							<div class="form-group">
+								<select class="form-control" name="rank" required>
+									<?php  $_smarty_tpl->tpl_vars['rank'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['rank']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['ranks']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['rank']->key => $_smarty_tpl->tpl_vars['rank']->value) {
+$_smarty_tpl->tpl_vars['rank']->_loop = true;
+?>
+									<?php if ($_smarty_tpl->tpl_vars['rank']->value->getNaam()==$_smarty_tpl->tpl_vars['user']->value->getRankNaam()) {?>
+									<option value="<?php echo $_smarty_tpl->tpl_vars['rank']->value->getNaam();?>
+" selected><?php echo $_smarty_tpl->tpl_vars['rank']->value->getNaam();?>
+</option>
+									<?php } else { ?>
+									<option value="<?php echo $_smarty_tpl->tpl_vars['rank']->value->getNaam();?>
+"><?php echo $_smarty_tpl->tpl_vars['rank']->value->getNaam();?>
+</option>
+									<?php }?>
+								<?php } ?>
 								</select>
 							</div>
 						

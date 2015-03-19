@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-19 09:50:47
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-19 14:04:12
          compiled from "app\view\home\partial\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:77015506b87d4cea71-39422611%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '05bc796b59176bb95fc96ed999d2513b2b1049fd' => 
     array (
       0 => 'app\\view\\home\\partial\\header.tpl',
-      1 => 1426754947,
+      1 => 1426770246,
       2 => 'file',
     ),
   ),
@@ -131,8 +131,13 @@ $_smarty_tpl->tpl_vars['toy']->_loop = true;
 						</li>
 					</ul>
 					<ul class="nav navbar-nav pull-right">
+						<?php if (isset($_SESSION['home_authenticated'])&&$_SESSION['home_authenticated']==1) {?>
+						<li><a href="/home/account">Mijn account</a></li>
+						<li><a href="/home/logout">Log uit</a></li>
+						<?php } else { ?>
 						<li><a href="/home/login">Inloggen</a></li>
 						<li><a href="/home/register">Registreren</a></li>
+						<?php }?>
 					</ul>
 				</div>
 			</nav>
@@ -161,6 +166,11 @@ $_smarty_tpl->tpl_vars['toy']->_loop = true;
 			<!-- breadcrumbs -->
 			<ol class="breadcrumb">
 				<!-- TODO: Add breadcrumb trail here. -->
+				<?php if ($_smarty_tpl->tpl_vars['title']->value!="Home") {?>
+				<li><a href="/home/">Home</a></li>
+				<?php }?>
+				<li class="active"><?php echo $_smarty_tpl->tpl_vars['title']->value;?>
+</li>
 			</ol>
 			<!-- /breadcrumbs -->
 		</div><?php }} ?>

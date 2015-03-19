@@ -1,7 +1,7 @@
 <?php
 
 class Home extends Controller {
-	
+
 	public function index() {
 		// Require models
 		require_once ('app/model/product.inc.php');
@@ -119,22 +119,38 @@ class Home extends Controller {
 	public function login() {
 		// Require models
 		$this->smart('Login'); 
-		
+
 		// Render view
 		$this->view('home/login');
+	}
+
+	public function account() {
+		if(!$this->authenticate_check()) {
+			$this->redirect('/home/login');
+			return;
+		}
+
+		// Require models
+		$this->smart('Mijn Account'); 
+
+		// Render view
+		$this->view('home/account');
 	}
 	
 	public function login_post() {
 		require_once ('app/model/account.inc.php');
 
 		if (isset($_POST['email']) && isset($_POST['password'])) {
-			$email = $this->db->escape($_POST['email']);
-			$password = $this->getHash($this->db->escape($_POST['password']));
-			$account = $this->db->queryObject("SELECT * FROM account WHERE gebruikersnaam = '$email'", 'Account');
-			if ($email == $account->getGebruikersnaam() && $wachtwoord = $account->getHash())
-				echo 'Je zou nu ingelogd zijn.';
+			$username = $this->db->escape($_POST['email']);
+			$user = $this->db->queryObject("SELECT * FROM account WHERE gebruikersnaam = '$username'", 'Account');
+			if ($user != null && $user->getRankNaam() == 'member') {
+				if(password_verify($this->db->escape($_POST['password']), $user->getHash())) {
+					$_SESSION['home_authenticated'] = 1;
+					$this->redirect('/home/index');
+					return;
+				}
+			}
 		}
-
 		
 	}
 
@@ -157,5 +173,20 @@ class Home extends Controller {
 		
 		$this->smarty->display('app/view/home/partial/footer.tpl');
 	}
+
+	public function authenticate_check() {
+		if(!isset($_SESSION['home_authenticated']) || $_SESSION['home_authenticated'] != 1) {
+			return false;
+		}
+		
+		return true;
+	}
+
+	public function logout() {
+		unset($_SESSION['home_authenticated']);
+		
+		$this->redirect('/home/index');
+	}
+
 	
 }
