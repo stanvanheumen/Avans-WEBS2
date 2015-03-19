@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-15 17:27:36
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-19 09:54:08
          compiled from "app\view\home\partial\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:77935505b2f8b41789-34681639%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'bddf610982e41b70ea2587fd68fb1d1cf1f21d78' => 
     array (
       0 => 'app\\view\\home\\partial\\header.tpl',
-      1 => 1426436828,
+      1 => 1426755128,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_5505b2f8f35539_67315525',
   'variables' => 
   array (
     'title' => 0,
@@ -28,13 +30,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'toy' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5505b2f8f35539_67315525',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5505b2f8f35539_67315525')) {function content_5505b2f8f35539_67315525($_smarty_tpl) {?><!DOCTYPE html>
 <html lang="nl">
 	<head>
-  		<meta charset="utf-8">
+		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="description" content="">

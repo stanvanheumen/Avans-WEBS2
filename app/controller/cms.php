@@ -176,8 +176,9 @@ class CMS extends Controller {
 		$place 			= $this->db->escape($_POST['place']);
 		$gender			= $this->db->escape($_POST['gender']);
 		$number 		= $this->db->escape($_POST['number']);
+		$rank			= $this->db->escape($_POST['rank']);
 		
-		$this->db->query("UPDATE account SET voornaam='$first_name', tussenvoegsel='$infix_name', achternaam='$last_name', straat='$street', postcode='$postal_code', woonplaats='$place', geslacht='$gender', telefoonnummer='$number' WHERE id='$id'");
+		$this->db->query("UPDATE account SET rank_naam='$rank', voornaam='$first_name', tussenvoegsel='$infix_name', achternaam='$last_name', straat='$street', postcode='$postal_code', woonplaats='$place', geslacht='$gender', telefoonnummer='$number' WHERE id='$id'");
 		$this->redirect('/cms/users');
 	}
 
@@ -218,6 +219,7 @@ class CMS extends Controller {
 		// Require models
 		$this->smart('Gebruiker wijzigen');
 		require_once ('app/model/account.inc.php');
+		require_once ('app/model/rank.inc.php');
 		
 		// Database requests
 		$id = $this->db->escape($_GET['id']);
@@ -225,6 +227,19 @@ class CMS extends Controller {
 		$user = $this->db->queryObject("SELECT * FROM account WHERE id='$id'", 'Account');
 
 		$this->smarty->assign('user', $user);
+		
+		$genders = array(
+							array("gender" => "Man", "id" => "0"),
+							array("gender" => "Vrouw", "id" => "1"),
+							array("gender" => "Ik weet het niet/beide", "id" => "2")
+						);
+
+		$ranks = $this->db->queryArray('SELECT * FROM rank', 'Rank');
+						
+		$this->smarty->assign('genders', $genders);
+		$this->smarty->assign('ranks', $ranks);
+		
+		
 		
 		// Render view
 		$this->view('cms/edit_user');

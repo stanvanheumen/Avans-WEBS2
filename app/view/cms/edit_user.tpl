@@ -43,9 +43,24 @@
 							</div>
 							<div class="form-group">
 								<select class="form-control" name="gender" required>
-									<option value="0">Man</option>
-									<option value="1">Vrouw</option>
-									<option value="2">Ik weet het niet/beide</option>
+									{foreach $genders as $gender}
+									{if $user->getGeslacht() eq $gender.id}
+									<option value="{$gender.id}" selected>{$gender.gender}</option>
+									{else}
+									<option value="{$gender.id}">{$gender.gender}</option>
+									{/if}
+								{/foreach}
+								</select>
+							</div>
+							<div class="form-group">
+								<select class="form-control" name="rank" required>
+									{foreach $ranks as $rank}
+									{if $rank->getNaam() eq $user->getRankNaam()}
+									<option value="{$rank->getNaam()}" selected>{$rank->getNaam()}</option>
+									{else}
+									<option value="{$rank->getNaam()}">{$rank->getNaam()}</option>
+									{/if}
+								{/foreach}
 								</select>
 							</div>
 						
