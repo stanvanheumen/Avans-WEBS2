@@ -63,9 +63,10 @@
 								{/foreach}
 								</select>
 							</div>
-						
-							<button type="submit" class="btn btn-default">Wijzigen</button>
-							<a href="/cms/users" class="btn btn-default">Annuleren</a>
+							<div class="pull-right">
+								<button type="submit" class="btn btn-default">Wijzigen</button>
+								<a href="/cms/users" class="btn btn-default">Annuleren</a>
+							</div>
 						</fieldset>
 					</form>
 				</div>

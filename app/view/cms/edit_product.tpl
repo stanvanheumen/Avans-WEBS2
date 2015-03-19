@@ -35,8 +35,10 @@
 					     	<label for="voorraad">Voorraad:</label>
 					      	<input type="text" class="form-control" id="voorraad" value="{$product->getVoorraad()}" name="voorraad" placeholder="Voorraad" required />
 					    </div>
-					    <button type="submit" class="btn btn-default">Wijzigen</button>
-					    <a href="/cms/products" class="btn btn-default">Annuleren</a>
+						<div class="pull-right">
+							<button type="submit" class="btn btn-default">Wijzigen</button>
+							<a href="/cms/products" class="btn btn-default">Annuleren</a>
+						</div>
 					</form>
 				</div>
 			</div>

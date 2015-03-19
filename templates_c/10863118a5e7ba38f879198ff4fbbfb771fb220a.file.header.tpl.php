@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-17 18:42:23
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-19 13:40:52
          compiled from "app\view\cms\partial\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:106925505b3bb0c3596-43076651%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '10863118a5e7ba38f879198ff4fbbfb771fb220a' => 
     array (
       0 => 'app\\view\\cms\\partial\\header.tpl',
-      1 => 1426614133,
+      1 => 1426768850,
       2 => 'file',
     ),
   ),
@@ -58,7 +58,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li><a href="/cms/dashboard">Dashboard</a></li>
+					<li><a href="/cms/categories">Categorie&#235;n</a></li>
 					<li><a href="/cms/products">Producten</a></li>
+					<li><a href="/cms/orders">Bestellingen</a></li>
 					<li><a href="/cms/users">Gebruikers</a></li>
 				</ul>
 				<div class="pull-right vertical-offset-7">
