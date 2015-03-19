@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-19 09:54:08
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-19 11:02:26
          compiled from "app\view\home\partial\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:77935505b2f8b41789-34681639%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'bddf610982e41b70ea2587fd68fb1d1cf1f21d78' => 
     array (
       0 => 'app\\view\\home\\partial\\header.tpl',
-      1 => 1426755128,
+      1 => 1426759344,
       2 => 'file',
     ),
   ),
@@ -161,6 +161,11 @@ $_smarty_tpl->tpl_vars['toy']->_loop = true;
 			<!-- breadcrumbs -->
 			<ol class="breadcrumb">
 				<!-- TODO: Add breadcrumb trail here. -->
+				<?php if ($_smarty_tpl->tpl_vars['title']->value!="Home") {?>
+				<li><a href="/home/">Home</a></li>
+				<?php }?>
+				<li class="active"><?php echo $_smarty_tpl->tpl_vars['title']->value;?>
+</li>
 			</ol>
 			<!-- /breadcrumbs -->
 		</div><?php }} ?>

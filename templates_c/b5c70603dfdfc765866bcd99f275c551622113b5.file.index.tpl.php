@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-15 17:30:51
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-19 10:54:09
          compiled from "app\view\cms\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:124615505b3bb11eaa4-07649612%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b5c70603dfdfc765866bcd99f275c551622113b5' => 
     array (
       0 => 'app\\view\\cms\\index.tpl',
-      1 => 1426436828,
+      1 => 1426758536,
       2 => 'file',
     ),
   ),
@@ -15,9 +15,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
   'unifunc' => 'content_5505b3bb121c66_68657649',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5505b3bb121c66_68657649')) {function content_5505b3bb121c66_68657649($_smarty_tpl) {?><div class="container">
     <div class="row vertical-offset-100">
@@ -31,7 +31,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			    	<form action="/cms/index" method="post" accept-charset="UTF-8" role="form">
 	                    <fieldset>
 				    	  	<div class="form-group">
-				    		    <input class="form-control" placeholder="Gebruikersnaam" name="username" type="text" required>
+				    		    <input class="form-control" placeholder="E-mail" name="email" type="text" required>
 				    		</div>
 				    		<div class="form-group">
 				    			<input class="form-control" placeholder="Wachtwoord" name="password" type="password" required>

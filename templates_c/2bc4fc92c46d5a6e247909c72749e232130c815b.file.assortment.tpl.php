@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-12 18:11:11
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-19 10:58:10
          compiled from "app\view\home\assortment.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:10415501900a6e4624-26074044%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '2bc4fc92c46d5a6e247909c72749e232130c815b' => 
     array (
       0 => 'app\\view\\home\\assortment.tpl',
-      1 => 1426180268,
+      1 => 1426436828,
       2 => 'file',
     ),
   ),
@@ -21,6 +21,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
     'categories' => 0,
     'cat' => 0,
+    'currcategory' => 0,
     'category' => 0,
     'products' => 0,
     'product' => 0,
@@ -47,9 +48,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 foreach ($_from as $_smarty_tpl->tpl_vars['cat']->key => $_smarty_tpl->tpl_vars['cat']->value) {
 $_smarty_tpl->tpl_vars['cat']->_loop = true;
 ?> 
-						<li class="list-group-item"><a href="?categorie=<?php echo $_smarty_tpl->tpl_vars['cat']->value->getId();?>
+						<?php if ($_smarty_tpl->tpl_vars['cat']->value->getId()==$_smarty_tpl->tpl_vars['currcategory']->value) {?>
+							<li class="list-group-item cat-active"><a href="?categorie=<?php echo $_smarty_tpl->tpl_vars['cat']->value->getId();?>
 "><?php echo $_smarty_tpl->tpl_vars['cat']->value->getNaam();?>
 </a></li>
+						<?php } else { ?>
+							<li class="list-group-item"><a href="?categorie=<?php echo $_smarty_tpl->tpl_vars['cat']->value->getId();?>
+"><?php echo $_smarty_tpl->tpl_vars['cat']->value->getNaam();?>
+</a></li>
+						<?php }?>
 					<?php } ?> 
 				</ul>
 			</div>

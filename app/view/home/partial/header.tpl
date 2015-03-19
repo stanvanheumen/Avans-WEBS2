@@ -103,6 +103,10 @@
 			<!-- breadcrumbs -->
 			<ol class="breadcrumb">
 				<!-- TODO: Add breadcrumb trail here. -->
+				{if $title != "Home"}
+				<li><a href="/home/">Home</a></li>
+				{/if}
+				<li class="active">{$title}</li>
 			</ol>
 			<!-- /breadcrumbs -->
 		</div>
