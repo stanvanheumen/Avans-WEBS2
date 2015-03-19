@@ -33,7 +33,7 @@
 				{if isset($products)}
 				{foreach $products as $product} 
 					<div class="row">
-						<div class="col-md-8">
+						<div class="col-md-6">
 							<div class="media">
 								<div class="media-left media-middle">
 									<img class="media-object" src="/assets/images/auction.png" alt="auction">
@@ -44,7 +44,13 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-4 auctions">Prijs &euro; {$product->getPrijs()}</div>
+						<div class="col-md-2 auctions">Prijs &euro; {$product->getPrijs()}</div>
+						<div class="col-md-4">
+							<form action="/home/addtocart" method="post" role="form">
+								<input type="hidden" name="value" value="{$product->getId()}" />
+								<button type="submit" class="btn btn-success">Toevoegen aan winkelwagentje</button>
+							</form>
+						</div>
 					</div>
 					{if $last_product != $product}
 					<hr/>

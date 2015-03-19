@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-18 15:13:08
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-19 19:19:56
          compiled from "app\view\home\partial\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:152885504cf2864e144-41746963%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1d6ae20fa24257141043b4465874c54dfbdb3689' => 
     array (
       0 => 'app\\view\\home\\partial\\header.tpl',
-      1 => 1426687891,
+      1 => 1426789195,
       2 => 'file',
     ),
   ),
@@ -69,7 +69,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 							<ul class="dropdown-menu mega-dropdown-menu row">
 								<li class="col-sm-3">
 									<ul>
-										<li class="dropdown-header">Categorie</li>
+										<li class="dropdown-header"><a href="#">Alle Categorie&euml;n</a></li>
 										<li class="divider"></li>
 									  	<?php  $_smarty_tpl->tpl_vars['cat'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['cat']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['categories']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
@@ -131,8 +131,13 @@ $_smarty_tpl->tpl_vars['toy']->_loop = true;
 						</li>
 					</ul>
 					<ul class="nav navbar-nav pull-right">
+						<?php if (isset($_SESSION['home_authenticated'])&&$_SESSION['home_authenticated']==1) {?>
+						<li><a href="/home/account">Mijn account</a></li>
+						<li><a href="/home/logout">Log uit</a></li>
+						<?php } else { ?>
 						<li><a href="/home/login">Inloggen</a></li>
 						<li><a href="/home/register">Registreren</a></li>
+						<?php }?>
 					</ul>
 				</div>
 			</nav>
@@ -161,6 +166,11 @@ $_smarty_tpl->tpl_vars['toy']->_loop = true;
 			<!-- breadcrumbs -->
 			<ol class="breadcrumb">
 				<!-- TODO: Add breadcrumb trail here. -->
+				<?php if ($_smarty_tpl->tpl_vars['title']->value!="Home") {?>
+				<li><a href="/home/">Home</a></li>
+				<?php }?>
+				<li class="active"><?php echo $_smarty_tpl->tpl_vars['title']->value;?>
+</li>
 			</ol>
 			<!-- /breadcrumbs -->
 		</div><?php }} ?>

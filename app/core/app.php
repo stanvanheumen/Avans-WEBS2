@@ -11,6 +11,8 @@ class App {
 		
 		session_start();
 
+		//$_SESSION['shoppingcart'] = array();
+
 		if (!isset($url[0]) && !isset($url[1]))
 			header('Location: /home/index');
 

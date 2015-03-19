@@ -23,5 +23,14 @@
 			{/if}
 			</td>
 		</tr>
+		<tr>
+			<td><td>
+			<td>
+				<form action="/home/addtocart" method="post" role="form">
+					<input type="hidden" name="value" value="{$product->getId()}" />
+					<button type="submit" class="btn btn-success">Toevoegen aan winkelwagentje</button>
+				</form>
+			</td>
+		</tr>
 	</table>
 </div>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-14 17:06:34
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-19 21:20:07
          compiled from "app\view\home\assortment.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:70175503202f0c4220-34060484%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7b04cb8ca090b5922bddc3e1a6eee848a1978ee1' => 
     array (
       0 => 'app\\view\\home\\assortment.tpl',
-      1 => 1426349193,
+      1 => 1426796393,
       2 => 'file',
     ),
   ),
@@ -77,7 +77,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['product']->key => $_smarty_tpl->tpl_v
 $_smarty_tpl->tpl_vars['product']->_loop = true;
 ?> 
 					<div class="row">
-						<div class="col-md-8">
+						<div class="col-md-6">
 							<div class="media">
 								<div class="media-left media-middle">
 									<img class="media-object" src="/assets/images/auction.png" alt="auction">
@@ -91,8 +91,15 @@ $_smarty_tpl->tpl_vars['product']->_loop = true;
 								</div>
 							</div>
 						</div>
-						<div class="col-md-4 auctions">Prijs &euro; <?php echo $_smarty_tpl->tpl_vars['product']->value->getPrijs();?>
+						<div class="col-md-2 auctions">Prijs &euro; <?php echo $_smarty_tpl->tpl_vars['product']->value->getPrijs();?>
 </div>
+						<div class="col-md-4">
+							<form action="/home/addtocart" method="post" role="form">
+								<input type="hidden" name="value" value="<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
+" />
+								<button type="submit" class="btn btn-success">Toevoegen aan winkelwagentje</button>
+							</form>
+						</div>
 					</div>
 					<?php if ($_smarty_tpl->tpl_vars['last_product']->value!=$_smarty_tpl->tpl_vars['product']->value) {?>
 					<hr/>

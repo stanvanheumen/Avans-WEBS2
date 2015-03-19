@@ -9,7 +9,7 @@
 				<div class="panel-body">
 					<form action="/cms/create_category_post" method="post" role="form">
 					    <div class="form-group">
-					     	<label for="naam">Naam:</label>
+					     	<label for="naam">Naam</label>
 					      	<input type="text" class="form-control" id="naam" name="naam" placeholder="Naam" required />
 					    </div>
 						

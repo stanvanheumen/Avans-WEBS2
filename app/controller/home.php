@@ -23,14 +23,6 @@ class Home extends Controller {
 		// Render view
 		$this->view('home/about');
 	}
-
-	public function error() {
-		// Require models
-		$this->smart('Error');
-
-		// Render view
-		$this->view('home/error');
-	}
 	
 	public function search() {
 		// Require models
@@ -46,6 +38,26 @@ class Home extends Controller {
 		$this->smarty->assign('searchquery', $_GET['search-query']);
 		// Render view
 		$this->view('home/search');
+	}
+
+	public function addtocart() {
+		$id = $this->db->escape($_POST['value']);
+
+		if (!isset($_SESSION['shoppingcart']))
+			$_SESSION['shoppingcart'] = [];
+
+		if (!in_array($id, $_SESSION['shoppingcart'])) 
+			array_push($_SESSION['shoppingcart'], $id);
+
+		$this->redirect('/home/account');
+	}
+
+	public function removefromcart() {
+		if (!isset($_SESSION['shoppingcart']))
+			$_SESSION['shoppingcart'] = [];
+		$id = $_GET['id'];
+		$_SESSION['shoppingcart'] = array_diff($_SESSION['shoppingcart'], array($id));
+		$this->redirect('/home/account');
 	}
 	
 	public function assortment() {
@@ -131,7 +143,25 @@ class Home extends Controller {
 		}
 
 		// Require models
-		$this->smart('Mijn Account'); 
+		require_once ('app/model/product.inc.php');
+		$this->smart('Mijn Account');
+
+		$temp = '';
+
+		if (!isset($_SESSION['shoppingcart']))
+			$_SESSION['shoppingcart'] = [];
+
+		foreach ($_SESSION['shoppingcart'] as $value) {
+			if (end($_SESSION['shoppingcart']) == $value)
+				$temp .= $value;
+			else 
+				$temp .= $value . ' OR ';
+		}
+		$products = [];
+		if (strlen($temp) != 0)
+			$products = $this->db->queryArray("SELECT * FROM product WHERE id = $temp", 'Product');
+
+		$this->smarty->assign('products', $products);
 
 		// Render view
 		$this->view('home/account');

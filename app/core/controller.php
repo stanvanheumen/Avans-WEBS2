@@ -33,5 +33,13 @@ class Controller {
 	public function getHash($input) {
 		return password_hash($input, PASSWORD_DEFAULT);
 	}
+
+	public function error() {
+		// Require models
+		$this->smart('Error');
+
+		// Render view
+		$this->view('home/error');
+	}
 	
 }

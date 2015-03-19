@@ -131,21 +131,18 @@ class CMS extends Controller {
 		$this->redirect('/cms/categories');
 	}
 	
-	public function error() {
-		echo "error";
-	}
-	
 	public function create_post() {
 		if(!$this->authenticate_check()) {
 			return;
 		}
 	
-		$categorie_id 	= $this->db->escape($_POST['categorie_id']);
-		$productnaam 	= $this->db->escape($_POST['productnaam']);
-		$prijs 			= $this->db->escape($_POST['prijs']);
-		$beschrijving 	= $this->db->escape($_POST['beschrijving']);
-		$voorraad 		= $this->db->escape($_POST['voorraad']);
-		$this->db->query("INSERT INTO product VALUES (NULL, '$categorie_id', '$productnaam', '$prijs', '$beschrijving', '$voorraad', NULL, CURRENT_TIMESTAMP, NULL)");
+		$categorie_id 		= $this->db->escape($_POST['categorie_id']);
+		$productnaam 		= $this->db->escape($_POST['productnaam']);
+		$prijs 				= $this->db->escape($_POST['prijs']);
+		$beschrijving_kort 	= $this->db->escape($_POST['beschrijving_kort']);
+		$beschrijving_lang 	= $this->db->escape($_POST['beschrijving_lang']);
+		$voorraad 			= $this->db->escape($_POST['voorraad']);
+		$this->db->query("INSERT INTO product VALUES (NULL, '$categorie_id', '$productnaam', '$prijs', '$beschrijving_lang', '$beschrijving_kort', '$voorraad', NULL, CURRENT_TIMESTAMP, NULL)");
 		
 		// Render view
 		$this->redirect('/cms/products');
@@ -184,13 +181,14 @@ class CMS extends Controller {
 			return;
 		}
 	
-		$id 			= $this->db->escape($_GET['id']);
-		$categorie_id 	= $this->db->escape($_POST['categorie_id']);
-		$productnaam 	= $this->db->escape($_POST['productnaam']);
-		$prijs 			= $this->db->escape($_POST['prijs']);
-		$beschrijving 	= $this->db->escape($_POST['beschrijving']);
-		$voorraad 		= $this->db->escape($_POST['voorraad']);
-		$this->db->query("UPDATE product SET categorie_id='$categorie_id', productnaam='$productnaam', prijs='$prijs', beschrijving='$beschrijving', voorraad='$voorraad' WHERE id='$id'");
+		$id 				= $this->db->escape($_GET['id']);
+		$categorie_id 		= $this->db->escape($_POST['categorie_id']);
+		$productnaam 		= $this->db->escape($_POST['productnaam']);
+		$prijs 				= $this->db->escape($_POST['prijs']);
+		$beschrijving_kort 	= $this->db->escape($_POST['beschrijving_kort']);
+		$beschrijving_lang 	= $this->db->escape($_POST['beschrijving_lang']);
+		$voorraad 			= $this->db->escape($_POST['voorraad']);
+		$this->db->query("UPDATE product SET categorie_id='$categorie_id', productnaam='$productnaam', prijs='$prijs', beschrijving='$beschrijving_lang', beschrijving_kort='$beschrijving_kort', voorraad='$voorraad' WHERE id='$id'");
 		$this->redirect('/cms/products');
 	}
 	

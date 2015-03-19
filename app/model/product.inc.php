@@ -6,6 +6,7 @@ class Product {
 	private $productnaam;
 	private $prijs;
 	private $beschrijving;
+	private $beschrijving_kort;
 	private $kortingsprijs;
 	private $aanmaak_datum;
 	private $update_datum;
@@ -25,6 +26,10 @@ class Product {
 	
 	public function getBeschrijving() {
 		return $this->beschrijving;
+	}
+
+	public function getBeschrijvingKort() {
+		return $this->beschrijving_kort;
 	}
 	
 	public function getPrijs() {
