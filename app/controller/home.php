@@ -37,8 +37,6 @@ class Home extends Controller {
 		require_once ('app/model/product.inc.php');
 		$this->smart('Zoeken');
 
-		/* <?php echo count($producten); ?> resultaten gevonden voor '<?php echo $_GET['search-query']; ?> */
-
 		// Database requests
 		if (isset($_GET['search-query']))
 			$products = $this->db->queryArray("SELECT * FROM product WHERE productnaam LIKE '%" . $this->db->escape($_GET['search-query']) . "%'", 'Product');
@@ -116,15 +114,6 @@ class Home extends Controller {
 		$password 		= $this->getHash($this->db->escape($_POST['password']));
 		$this->db->query("INSERT INTO account VALUES (NULL, 'member', '$email', '$password', '$first_name', '$infix_name', '$last_name', '$street', '$postal_code', '$place', '$number', '$gender')");
 		$this->redirect('/home/index');
-	}
-
-	public function getHash($input, $rounds = 9) {
-		$salt = '';
-		$saltChars = array_merge(range('A', 'Z'), range('a', 'z'), range(0, 9));
-		for ($i = 0; $i < 22; $i++) {
-			$salt .= $saltChars[array_rand($saltChars)];
-		}
-		return crypt($input, sprintf('$2y$%02d$', $rounds). $salt);
 	}
 	
 	public function login() {

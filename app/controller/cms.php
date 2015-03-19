@@ -5,16 +5,23 @@ class CMS extends Controller {
 	public function index() {
 		// Require models
 		$this->smart('CMS');
-		
+		require_once ('app/model/account.inc.php');
+
 		if(isset($_SESSION['cms_authenticated']) && $_SESSION['cms_authenticated'] == 1) {
 			$this->redirect('/cms/dashboard');
 			return;
 		}
 
-		if (isset($_POST['username']) && isset($_POST['password']) && $_POST['username'] == 'admin' && $_POST['password'] == 'admin') {
-			$_SESSION['cms_authenticated'] = 1;
-			$this->redirect('/cms/dashboard');
-			return;
+		if (isset($_POST['email']) && isset($_POST['password'])) {
+			$username = $this->db->escape($_POST['email']);
+			$user = $this->db->queryObject("SELECT * FROM account WHERE gebruikersnaam = '$username'", 'Account');
+			if ($user != null && $user->getRankNaam() == 'admin') {
+				if(password_verify($this->db->escape($_POST['password']), $user->getHash())) {
+					$_SESSION['cms_authenticated'] = 1;
+					$this->redirect('/cms/dashboard');
+					return;
+				}
+			}
 		}
 
 		// Render view
