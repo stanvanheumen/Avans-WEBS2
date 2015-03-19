@@ -73,8 +73,13 @@
 						</li>
 					</ul>
 					<ul class="nav navbar-nav pull-right">
+						{if isset($smarty.session.home_authenticated) && $smarty.session.home_authenticated == 1}
+						<li><a href="/home/account">Mijn account</a></li>
+						<li><a href="/home/logout">Log uit</a></li>
+						{else}
 						<li><a href="/home/login">Inloggen</a></li>
 						<li><a href="/home/register">Registreren</a></li>
+						{/if}
 					</ul>
 				</div>
 			</nav>
