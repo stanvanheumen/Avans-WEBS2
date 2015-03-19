@@ -121,6 +121,11 @@ class CMS extends Controller {
 		if(!$this->authenticate_check()) {
 			return;
 		}
+		
+		if(!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+			$this->redirect('/cms/products');
+			return;
+		}
 	
 		// Require models
 		$this->smart('Wijzigen');
