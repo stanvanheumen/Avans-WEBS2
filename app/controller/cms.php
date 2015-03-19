@@ -107,6 +107,17 @@ class CMS extends Controller {
 		// Render view
 		$this->view('cms/create_product');
 	}
+	
+	public function create_category() {
+		if(!$this->authenticate_check()) {
+			return;
+		}
+		
+		$this->smart('Categorie aanmaken');
+		
+		// Render view
+		$this->view('cms/create_category');
+	}
 
 	public function create_post() {
 		if(!$this->authenticate_check()) {
@@ -264,6 +275,24 @@ class CMS extends Controller {
 		$this->db->query("DELETE FROM account WHERE id='$id'");
 		
 		$this->redirect('/cms/users');
+	}
+	
+	public function categories() {
+		if(!$this->authenticate_check()) {
+			return;
+		}
+		
+		// Require models
+		$this->smart('Categorie&#235;n');
+
+		require_once ('app/model/categorie.inc.php');
+		$categories = $this->db->queryArray('SELECT * FROM categorie', 'Categorie');
+
+		$this->smarty->assign('categories', $categories);
+
+		// Render view
+		$this->view('cms/categories');
+		
 	}
 	
 	public function logout() {

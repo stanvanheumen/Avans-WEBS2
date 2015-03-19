@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-17 17:56:25
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-19 13:29:43
          compiled from "app\view\cms\edit_product.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:3275555085cb93df5f4-97971142%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'de9f11e65ef67e6ff095462b1225f55a8e37702d' => 
     array (
       0 => 'app\\view\\cms\\edit_product.tpl',
-      1 => 1426607063,
+      1 => 1426613053,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_55085cb9690f28_00731865',
   'variables' => 
   array (
     'product' => 0,
@@ -22,8 +24,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'cat' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_55085cb9690f28_00731865',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_55085cb9690f28_00731865')) {function content_55085cb9690f28_00731865($_smarty_tpl) {?><div class="container">
 	<div class="row vertical-offset-20">
@@ -33,7 +33,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<h4 class="panel-title">Product wijzigen</h4>
 				</div>
 				<div class="panel-body">
-					<form action="/cms/edit_post?id=<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
+					<form action="/cms/edit_product_post?id=<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
 " method="post" role="form">
 					    <div class="form-group">
 							<label for="categorie">Categorie:</label>
@@ -76,7 +76,7 @@ $_smarty_tpl->tpl_vars['cat']->_loop = true;
 " name="voorraad" placeholder="Voorraad" required />
 					    </div>
 					    <button type="submit" class="btn btn-default">Wijzigen</button>
-					    <a href="/cms/dashboard" class="btn btn-default">Annuleren</a>
+					    <a href="/cms/products" class="btn btn-default">Annuleren</a>
 					</form>
 				</div>
 			</div>

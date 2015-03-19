@@ -31,8 +31,10 @@
 					     	<label for="voorraad">Voorraad:</label>
 					      	<input type="text" class="form-control" id="voorraad" name="voorraad" placeholder="Voorraad" required />
 					    </div>
-					    <button type="submit" class="btn btn-default">Toevoegen</button>
-					    <a href="/cms/dashboard" class="btn btn-default">Annuleren</a>
+						<div class="pull-right">
+							<button type="submit" class="btn btn-default">Toevoegen</button>
+							<a href="/cms/dashboard" class="btn btn-default">Annuleren</a>
+						</div>
 					</form>
 				</div>
 			</div>
