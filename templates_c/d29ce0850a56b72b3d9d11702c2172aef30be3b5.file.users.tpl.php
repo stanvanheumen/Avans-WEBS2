@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-17 18:00:31
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-19 10:08:47
          compiled from "app\view\cms\users.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1528055085a22743407-36874321%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd29ce0850a56b72b3d9d11702c2172aef30be3b5' => 
     array (
       0 => 'app\\view\\cms\\users.tpl',
-      1 => 1426611422,
+      1 => 1426755128,
       2 => 'file',
     ),
   ),
@@ -43,7 +43,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				<table class="table table-bordered">
 					<tr>
 						<th class="col-md-3">E-mail</th>
-						<th class="col-md-3">Naam</th>
+						<th class="col-md-2">Rank</th>
+						<th class="col-md-2">Naam</th>
 						<th class="col-md-3">Adres</th>
 						<th class="col-md-2 text-centered">Opties</th>
 					</tr>
@@ -55,7 +56,9 @@ $_smarty_tpl->tpl_vars['user']->_loop = true;
 					<tr>
 						<td class="col-md-3"><?php echo $_smarty_tpl->tpl_vars['user']->value->getGebruikersnaam();?>
 </td>
-						<td class="col-md-3"><?php echo $_smarty_tpl->tpl_vars['user']->value->getNaam();?>
+						<td class="col-md-2"><?php echo $_smarty_tpl->tpl_vars['user']->value->getRankNaam();?>
+</td>
+						<td class="col-md-2"><?php echo $_smarty_tpl->tpl_vars['user']->value->getNaam();?>
 </td>
 						<td class="col-md-3"><?php echo $_smarty_tpl->tpl_vars['user']->value->getAdres();?>
 </td>
