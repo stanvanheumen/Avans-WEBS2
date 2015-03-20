@@ -9,7 +9,7 @@ class Home extends Controller {
 
 		// Database requests
 		$products = $this->db->queryArray("SELECT * FROM product LIMIT 9", 'Product');
-
+		
 		$this->smarty->assign('products', $products);
 
 		// Render view

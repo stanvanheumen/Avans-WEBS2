@@ -108,13 +108,33 @@ class CMS extends Controller {
 		if(!$this->authenticate_check())
 			return;
 	
+		require_once ('app/model/product.inc.php');
 		$categorie_id 		= $this->db->escape($_POST['categorie_id']);
 		$productnaam 		= $this->db->escape($_POST['productnaam']);
 		$prijs 				= $this->db->escape($_POST['prijs']);
 		$beschrijving_kort 	= $this->db->escape($_POST['beschrijving_kort']);
 		$beschrijving_lang 	= $this->db->escape($_POST['beschrijving_lang']);
 		$voorraad 			= $this->db->escape($_POST['voorraad']);
+		
+		$thumbnail 			= $_FILES['image'];
+		$images 			= $_FILES['images'];
+		
 		$this->db->query("INSERT INTO product VALUES (NULL, '$categorie_id', '$productnaam', '$prijs', '$beschrijving_lang', '$beschrijving_kort', '$voorraad', NULL, CURRENT_TIMESTAMP, NULL)");
+		$curr_product = $this->db->queryObject('SELECT * FROM product ORDER BY id DESC LIMIT 1', 'Product');
+		
+		$p_id = $curr_product->getId();
+
+		move_uploaded_file($thumbnail['tmp_name'], 'uploads/' . $curr_product->getId() . '_1.png');
+		$filename = 'uploads/' . $curr_product->getId() . '_1.png';
+		$this->db->query("INSERT INTO productafbeelding VALUES (NULL, '$p_id', 'thumbnail', '$filename')");
+
+		$counter = 2;
+		foreach ($images['tmp_name'] as $value) {
+			$location = 'uploads/' . $curr_product->getId() . '_' . $counter . '.png';
+			move_uploaded_file($value, $location);
+			$this->db->query("INSERT INTO productafbeelding VALUES (NULL, '$p_id', 'afbeelding', '$location')");
+			$counter++;
+		}
 		
 		// Render view
 		$this->redirect('/cms/products');
