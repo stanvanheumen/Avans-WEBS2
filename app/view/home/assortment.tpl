@@ -46,10 +46,12 @@
 						</div>
 						<div class="col-md-2 auctions">Prijs &euro; {$product->getPrijs()}</div>
 						<div class="col-md-4">
+							{if isset($smarty.session.home_authenticated) && $smarty.session.home_authenticated == 1}
 							<form action="/home/addtocart" method="post" role="form">
 								<input type="hidden" name="value" value="{$product->getId()}" />
 								<button type="submit" class="btn btn-success">Toevoegen aan winkelwagentje</button>
 							</form>
+							{/if}
 						</div>
 					</div>
 					{if $last_product != $product}

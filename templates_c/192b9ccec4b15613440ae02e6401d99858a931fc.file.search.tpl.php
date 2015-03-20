@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-19 22:14:07
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-20 13:43:59
          compiled from "app\view\home\search.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2309355045fa11b5154-67833840%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '192b9ccec4b15613440ae02e6401d99858a931fc' => 
     array (
       0 => 'app\\view\\home\\search.tpl',
-      1 => 1426799646,
+      1 => 1426855426,
       2 => 'file',
     ),
   ),
@@ -66,11 +66,13 @@ $_smarty_tpl->tpl_vars['product']->_loop = true;
 							<div class="col-md-3 auctions">Prijs &euro; <?php echo $_smarty_tpl->tpl_vars['product']->value->getPrijs();?>
 </div>
 							<div class="col-md-3">
+								<?php if (isset($_SESSION['home_authenticated'])&&$_SESSION['home_authenticated']==1) {?>
 								<form action="/home/addtocart" method="post" role="form">
 									<input type="hidden" name="value" value="<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
 " />
 									<button type="submit" class="btn btn-success">Toevoegen aan winkelwagentje</button>
 								</form>
+								<?php }?>
 							</div>
 						</div>
 						<?php } ?>

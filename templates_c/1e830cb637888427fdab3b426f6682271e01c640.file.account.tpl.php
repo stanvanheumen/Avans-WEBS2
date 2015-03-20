@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-19 22:00:26
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-20 14:03:13
          compiled from "app\view\home\account.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:5451550b0e18114ae0-56077541%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1e830cb637888427fdab3b426f6682271e01c640' => 
     array (
       0 => 'app\\view\\home\\account.tpl',
-      1 => 1426798824,
+      1 => 1426856591,
       2 => 'file',
     ),
   ),
@@ -56,9 +56,14 @@ $_smarty_tpl->tpl_vars['product']->_loop = true;
 				<td data-th="Price">&euro; <?php echo $_smarty_tpl->tpl_vars['product']->value->getPrijs();?>
 </td>
 				<td data-th="Quantity">
-					<input type="number" class="form-control text-center" value="1">
+					<input type="number" min="1" id="input<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
+" onchange="update(<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
+, <?php echo $_smarty_tpl->tpl_vars['product']->value->getPrijs();?>
+)" class="form-control text-center" value="1">
 				</td>
-				<td data-th="Subtotal" class="text-center">(MOET NOG)</td>
+				<td data-th="Subtotal" id="<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
+" class="text-center">&euro; <?php echo $_smarty_tpl->tpl_vars['product']->value->getPrijs();?>
+</td>
 				<td class="actions">
 					<a href="/home/removefromcart?id=<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
 " class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></a>								
@@ -67,9 +72,6 @@ $_smarty_tpl->tpl_vars['product']->_loop = true;
 			<?php } ?>
 		</tbody>
 		<tfoot>
-			<tr class="visible-xs">
-				<td class="text-center"><strong>Totaal 1.99</strong></td>
-			</tr>
 			<tr>
 				<td><a href="/home/index" class="btn btn-warning"><i class="glyphicon glyphicon-chevron-left"></i>Ga door met winkelen</a></td>
 				<td colspan="2" class="hidden-xs"></td>
@@ -78,4 +80,12 @@ $_smarty_tpl->tpl_vars['product']->_loop = true;
 			</tr>
 		</tfoot>
 	</table>
-</div><?php }} ?>
+</div>
+
+<?php echo '<script'; ?>
+>
+function update(id, price) {
+	document.getElementById(id).innerHTML = "€ " + (price * document.getElementById("input" + id).value);
+}
+<?php echo '</script'; ?>
+><?php }} ?>

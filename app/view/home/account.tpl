@@ -23,9 +23,9 @@
 				</td>
 				<td data-th="Price">&euro; {$product->getPrijs()}</td>
 				<td data-th="Quantity">
-					<input type="number" class="form-control text-center" value="1">
+					<input type="number" min="1" id="input{$product->getId()}" onchange="update({$product->getId()}, {$product->getPrijs()})" class="form-control text-center" value="1">
 				</td>
-				<td data-th="Subtotal" class="text-center">(MOET NOG)</td>
+				<td data-th="Subtotal" id="{$product->getId()}" class="text-center">&euro; {$product->getPrijs()}</td>
 				<td class="actions">
 					<a href="/home/removefromcart?id={$product->getId()}" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></a>								
 				</td>
@@ -33,9 +33,6 @@
 			{/foreach}
 		</tbody>
 		<tfoot>
-			<tr class="visible-xs">
-				<td class="text-center"><strong>Totaal 1.99</strong></td>
-			</tr>
 			<tr>
 				<td><a href="/home/index" class="btn btn-warning"><i class="glyphicon glyphicon-chevron-left"></i>Ga door met winkelen</a></td>
 				<td colspan="2" class="hidden-xs"></td>
@@ -45,3 +42,9 @@
 		</tfoot>
 	</table>
 </div>
+
+<script>
+function update(id, price) {
+	document.getElementById(id).innerHTML = "€ " + (price * document.getElementById("input" + id).value);
+}
+</script>
