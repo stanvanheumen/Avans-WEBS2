@@ -1,12 +1,14 @@
 <div class="container">
 	<div class="row vertical-offset-20">
-		<div class="col-md-12">
+		<div class="col-md-2">
+		</div>
+		<div class="col-md-8">
 			<div class="panel panel-default">
 				<div class="panel-heading text-centered">
 					<h4 class="panel-title">Product toevoegen</h4>
 				</div>
 				<div class="panel-body">
-					<form action="/cms/create_post" method="post" role="form">
+					<form action="/cms/create_product_post" method="post" role="form">
 					    <div class="form-group">
 							<label for="categorie">Categorie</label>
 							<select class="form-control" id="categorie_id" name="categorie_id" required>
@@ -37,7 +39,7 @@
 					    </div>
 						<div class="pull-right">
 							<button type="submit" class="btn btn-default">Toevoegen</button>
-							<a href="/cms/dashboard" class="btn btn-default">Annuleren</a>
+							<a href="/cms/products" class="btn btn-default">Annuleren</a>
 						</div>
 					</form>
 				</div>

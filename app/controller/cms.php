@@ -2,6 +2,14 @@
 
 class CMS extends Controller {
 	
+	public function view($view, $data = []) {
+		$this->smarty->display('app/view/cms/partial/header.tpl');
+		
+		$this->smarty->display('app/view/' . $view . '.tpl');
+		
+		$this->smarty->display('app/view/cms/partial/footer.tpl');
+	}
+
 	public function index() {
 		// Require models
 		$this->smart('CMS');
@@ -47,20 +55,25 @@ class CMS extends Controller {
 		$result = $this->db->query("SELECT COUNT(*) FROM bestelling");
 		$row = $result->fetch_row();
 		$orders = $row[0];
+
+		$result = $this->db->query("SELECT COUNT(*) FROM categorie");
+		$row = $result->fetch_row();
+		$categories = $row[0];
 		
 		$this->smarty->assign('products', $products);
 		$this->smarty->assign('users', $users);
 		$this->smarty->assign('orders', $orders);
-		$this->smarty->assign('visitors', '0');
+		$this->smarty->assign('categories', $categories);
 
 		// Render view
 		$this->view('cms/dashboard');
 	}
+
+	/* <PRODUCTS> */
 	
 	public function products() {
-		if(!$this->authenticate_check()) {
+		if(!$this->authenticate_check())
 			return;
-		}
 		
 		// Require models
 		$this->smart('Producten');
@@ -73,33 +86,16 @@ class CMS extends Controller {
 		// Render view
 		$this->view('cms/products');
 	}
-	
-	public function users() {
-		if(!$this->authenticate_check()) {
-			return;
-		}
-		
-		// Require models
-		$this->smart('Gebruikers');
-		
-		require_once ('app/model/account.inc.php');
-		$users = $this->db->queryArray('SELECT * FROM account', 'Account');
-		
-		$this->smarty->assign('users', $users);
-		
-		// Render view
-		$this->view('cms/users');
-	}
 
 	public function create_product() {
-		if(!$this->authenticate_check()) {
+		if(!$this->authenticate_check())
 			return;
-		}
 		
 		// Require models
 		$this->smart('Toevoegen');
-
 		require_once ('app/model/categorie.inc.php');
+
+		// Database requests
 		$categorie = $this->db->queryArray('SELECT * FROM categorie', 'Categorie');
 
 		$this->smarty->assign('categorie', $categorie);
@@ -107,34 +103,10 @@ class CMS extends Controller {
 		// Render view
 		$this->view('cms/create_product');
 	}
-	
-	public function create_category() {
-		if(!$this->authenticate_check()) {
+
+	public function create_product_post() {
+		if(!$this->authenticate_check())
 			return;
-		}
-		
-		$this->smart('Categorie aanmaken');
-		
-		// Render view
-		$this->view('cms/create_category');
-	}
-	
-	public function create_category_post() {
-		if(!$this->authenticate_check()) {
-			return;
-		}
-		
-		$naam = $this->db->escape($_POST['naam']);
-		
-		$this->db->query("INSERT INTO categorie (naam) VALUES ('$naam')");
-		
-		$this->redirect('/cms/categories');
-	}
-	
-	public function create_post() {
-		if(!$this->authenticate_check()) {
-			return;
-		}
 	
 		$categorie_id 		= $this->db->escape($_POST['categorie_id']);
 		$productnaam 		= $this->db->escape($_POST['productnaam']);
@@ -149,9 +121,8 @@ class CMS extends Controller {
 	}
 
 	public function edit_product() {
-		if(!$this->authenticate_check()) {
+		if(!$this->authenticate_check())
 			return;
-		}
 		
 		if(!isset($_GET['id']) || !is_numeric($_GET['id'])) {
 			$this->redirect('/cms/products');
@@ -177,9 +148,8 @@ class CMS extends Controller {
 	}
 
 	public function edit_product_post() {
-		if(!$this->authenticate_check()) {
+		if(!$this->authenticate_check())
 			return;
-		}
 	
 		$id 				= $this->db->escape($_GET['id']);
 		$categorie_id 		= $this->db->escape($_POST['categorie_id']);
@@ -191,39 +161,10 @@ class CMS extends Controller {
 		$this->db->query("UPDATE product SET categorie_id='$categorie_id', productnaam='$productnaam', prijs='$prijs', beschrijving='$beschrijving_lang', beschrijving_kort='$beschrijving_kort', voorraad='$voorraad' WHERE id='$id'");
 		$this->redirect('/cms/products');
 	}
-	
-	public function edit_user_post() {
-		if(!$this->authenticate_check()) {
-			return;
-		}
-		
-		$id 			= $this->db->escape($_GET['id']);
-		$first_name 	= $this->db->escape($_POST['first_name']);
-		$infix_name 	= $this->db->escape($_POST['infix_name']);
-		$last_name 		= $this->db->escape($_POST['last_name']);
-		$street 		= $this->db->escape($_POST['street']);
-		$postal_code 	= $this->db->escape($_POST['postal_code']);
-		$place 			= $this->db->escape($_POST['place']);
-		$gender			= $this->db->escape($_POST['gender']);
-		$number 		= $this->db->escape($_POST['number']);
-		$rank			= $this->db->escape($_POST['rank']);
-		
-		$this->db->query("UPDATE account SET rank_naam='$rank', voornaam='$first_name', tussenvoegsel='$infix_name', achternaam='$last_name', straat='$street', postcode='$postal_code', woonplaats='$place', geslacht='$gender', telefoonnummer='$number' WHERE id='$id'");
-		$this->redirect('/cms/users');
-	}
-
-	public function view($view, $data = []) {
-		$this->smarty->display('app/view/cms/partial/header.tpl');
-		
-		$this->smarty->display('app/view/' . $view . '.tpl');
-		
-		$this->smarty->display('app/view/cms/partial/footer.tpl');
-	}
 
 	public function delete_product() {
-		if(!$this->authenticate_check()) {
+		if(!$this->authenticate_check())
 			return;
-		}
 		
 		if(!isset($_GET['id']) || !is_numeric($_GET['id'])) {
 			$this->redirect('/cms/products');
@@ -235,11 +176,143 @@ class CMS extends Controller {
 		
 		$this->redirect('/cms/products');
 	}
+
+	/* </PRODUCTS> */
 	
-	public function edit_user() {
-		if(!$this->authenticate_check()) {
+	/* <CATEGORIES> */
+
+	public function categories() {
+		if(!$this->authenticate_check())
+			return;
+		
+		// Require models
+		$this->smart('Categorie&#235;n');
+
+		require_once ('app/model/categorie.inc.php');
+		$categories = $this->db->queryArray('SELECT * FROM categorie ORDER BY naam ASC', 'Categorie');
+
+		$this->smarty->assign('categories', $categories);
+
+		// Render view
+		$this->view('cms/categories');
+		
+	}
+
+	public function create_category() {
+		if(!$this->authenticate_check())
+			return;
+		
+		// Require models
+		$this->smart('Categorie aanmaken');
+		
+		// Render view
+		$this->view('cms/create_category');
+	}
+
+	public function create_category_post() {
+		if(!$this->authenticate_check())
+			return;
+		
+		// Database requests
+		$naam = $this->db->escape($_POST['naam']);
+		
+		$this->db->query("INSERT INTO categorie (naam) VALUES ('$naam')");
+		
+		// Redirecting
+		$this->redirect('/cms/categories');
+	}
+
+	public function edit_category() {
+		if(!$this->authenticate_check())
+			return;
+		
+		if(!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+			$this->redirect('/cms/categories');
 			return;
 		}
+	
+		// Require models
+		$this->smart('Categorie wijzigen');
+		require_once ('app/model/categorie.inc.php');
+
+		// Database requests
+		$id = $this->db->escape($_GET['id']);
+
+		$categorie = $this->db->queryObject("SELECT * FROM categorie WHERE id = '$id'", 'Categorie');
+
+		$this->smarty->assign('categorie', $categorie);
+		
+		// Render view
+		$this->view('cms/edit_category');
+	}
+
+	public function delete_category() {
+		if(!$this->authenticate_check())
+			return;
+		
+		if(!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+			$this->redirect('/cms/categories');
+			return;
+		}
+	
+		$id = $this->db->escape($_GET['id']);
+		$this->db->query("DELETE FROM categorie WHERE id = '$id'");
+		
+		$this->redirect('/cms/categories');
+	}
+
+	/* </CATEGORIES> */
+
+	/* <ORDERS> */
+
+	public function orders() {
+		if(!$this->authenticate_check())
+			return;
+		
+		// Require models
+		$this->smart('Bestellingen');
+
+		require_once ('app/model/bestelling.inc.php');
+		$orders = $this->db->queryArray('SELECT * FROM bestelling', 'Bestelling');
+
+		$this->smarty->assign('orders', $orders);
+
+		// Render view
+		$this->view('cms/orders');
+	}
+
+
+	/*
+	TODO: ADD ORDER 
+					-CREATE
+					-UPDATE
+					-DELETE
+	*/
+
+	/* </ORDERS> */
+
+	/* <USERS> */
+
+	public function users() {
+		if(!$this->authenticate_check())
+			return;
+		
+		// Require models
+		$this->smart('Gebruikers');
+		require_once ('app/model/account.inc.php');
+
+		// Database requests
+		$users = $this->db->queryArray('SELECT * FROM account', 'Account');
+		
+		$this->smarty->assign('users', $users);
+		
+		// Render view
+		$this->view('cms/users');
+	}
+
+	public function edit_user() {
+		if(!$this->authenticate_check())
+			return;
 	
 		if(!isset($_GET['id']) || !is_numeric($_GET['id'])) {
 			$this->redirect('/cms/users');
@@ -269,16 +342,32 @@ class CMS extends Controller {
 		$this->smarty->assign('genders', $genders);
 		$this->smarty->assign('ranks', $ranks);
 		
-		
-		
 		// Render view
 		$this->view('cms/edit_user');
 	}
-	
-	public function delete_user() {
-		if(!$this->authenticate_check()) {
+
+	public function edit_user_post() {
+		if(!$this->authenticate_check())
 			return;
-		}
+		
+		$id 			= $this->db->escape($_GET['id']);
+		$first_name 	= $this->db->escape($_POST['first_name']);
+		$infix_name 	= $this->db->escape($_POST['infix_name']);
+		$last_name 		= $this->db->escape($_POST['last_name']);
+		$street 		= $this->db->escape($_POST['street']);
+		$postal_code 	= $this->db->escape($_POST['postal_code']);
+		$place 			= $this->db->escape($_POST['place']);
+		$gender			= $this->db->escape($_POST['gender']);
+		$number 		= $this->db->escape($_POST['number']);
+		$rank			= $this->db->escape($_POST['rank']);
+		
+		$this->db->query("UPDATE account SET rank_naam='$rank', voornaam='$first_name', tussenvoegsel='$infix_name', achternaam='$last_name', straat='$street', postcode='$postal_code', woonplaats='$place', geslacht='$gender', telefoonnummer='$number' WHERE id='$id'");
+		$this->redirect('/cms/users');
+	}
+
+	public function delete_user() {
+		if(!$this->authenticate_check())
+			return;
 		
 		if(!isset($_GET['id']) || !is_numeric($_GET['id'])) {
 			$this->redirect('/cms/users');
@@ -290,25 +379,11 @@ class CMS extends Controller {
 		
 		$this->redirect('/cms/users');
 	}
+
+	/* </USERS> */
 	
-	public function categories() {
-		if(!$this->authenticate_check()) {
-			return;
-		}
-		
-		// Require models
-		$this->smart('Categorie&#235;n');
+	/* <EXTRA_FUNCTIONS> */
 
-		require_once ('app/model/categorie.inc.php');
-		$categories = $this->db->queryArray('SELECT * FROM categorie ORDER BY naam ASC', 'Categorie');
-
-		$this->smarty->assign('categories', $categories);
-
-		// Render view
-		$this->view('cms/categories');
-		
-	}
-	
 	public function logout() {
 		unset($_SESSION['cms_authenticated']);
 		
@@ -323,5 +398,7 @@ class CMS extends Controller {
 		
 		return true;
 	}
+
+	/* </EXTRA_FUNCTIONS> */
 
 }

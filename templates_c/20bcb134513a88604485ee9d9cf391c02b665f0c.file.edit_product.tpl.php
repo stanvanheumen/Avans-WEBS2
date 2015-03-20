@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-19 19:07:28
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-20 14:56:24
          compiled from "app\view\cms\edit_product.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2110550871dcc67e90-30396556%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '20bcb134513a88604485ee9d9cf391c02b665f0c' => 
     array (
       0 => 'app\\view\\cms\\edit_product.tpl',
-      1 => 1426788447,
+      1 => 1426859783,
       2 => 'file',
     ),
   ),
@@ -27,7 +27,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_550871dccfffe7_29857136')) {function content_550871dccfffe7_29857136($_smarty_tpl) {?><div class="container">
 	<div class="row vertical-offset-20">
-		<div class="col-md-12">
+		<div class="col-md-2">
+		</div>
+		<div class="col-md-8">
 			<div class="panel panel-default">
 				<div class="panel-heading text-centered">
 					<h4 class="panel-title">Product wijzigen</h4>

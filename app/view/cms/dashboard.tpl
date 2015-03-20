@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="row">
-		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+		<div class="col-lg-6 col-md-3 col-sm-6 col-xs-12">
 			<a class="dashboard-stat dashboard-stat-light blue-soft" href="/cms/products">
 			<div class="visual">
 				<i class="fa fa-suitcase"></i>
@@ -15,25 +15,26 @@
 			</div>
 			</a>
 		</div>
-		
-		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			<a class="dashboard-stat dashboard-stat-light red-soft" href="/cms/users">
+
+		<div class="col-lg-6 col-md-3 col-sm-6 col-xs-12">
+			<a class="dashboard-stat dashboard-stat-light purple-soft" href="/cms/categories">
 			<div class="visual">
-				<i class="fa fa-user"></i>
+				<i class="fa fa-globe"></i>
 			</div>
 			<div class="details">
 				<div class="number">
-					 {$users}
+					 {$categories}
 				</div>
 				<div class="desc">
-					 Gebruikers
+					 Categorie&#235;n
 				</div>
 			</div>
 			</a>
 		</div>
-		
-		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			<a class="dashboard-stat dashboard-stat-light green-soft" href="/cms/">
+	</div>
+	<div class="row">	
+		<div class="col-lg-6 col-md-3 col-sm-6 col-xs-12">
+			<a class="dashboard-stat dashboard-stat-light green-soft" href="/cms/orders">
 			<div class="visual">
 				<i class="fa fa-shopping-cart"></i>
 			</div>
@@ -47,18 +48,18 @@
 			</div>
 			</a>
 		</div>
-		
-		<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-			<a class="dashboard-stat dashboard-stat-light purple-soft" href="/cms/">
+
+		<div class="col-lg-6 col-md-3 col-sm-6 col-xs-12">
+			<a class="dashboard-stat dashboard-stat-light red-soft" href="/cms/users">
 			<div class="visual">
-				<i class="fa fa-globe"></i>
+				<i class="fa fa-user"></i>
 			</div>
 			<div class="details">
 				<div class="number">
-					 {$visitors}
+					 {$users}
 				</div>
 				<div class="desc">
-					 Bezoekers
+					 Gebruikers
 				</div>
 			</div>
 			</a>

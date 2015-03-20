@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-19 19:19:56
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-20 14:49:15
          compiled from "app\view\home\partial\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:152885504cf2864e144-41746963%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1d6ae20fa24257141043b4465874c54dfbdb3689' => 
     array (
       0 => 'app\\view\\home\\partial\\header.tpl',
-      1 => 1426789195,
+      1 => 1426859354,
       2 => 'file',
     ),
   ),
@@ -152,7 +152,7 @@ $_smarty_tpl->tpl_vars['toy']->_loop = true;
 								<input type="search" class="form-control input-lg"
 									name="search-query" id="search-query" placeholder="Zoeken in alle artikelen..." />
 								<div class="input-group-btn">
-									<button class="btn btn-lg btn-blue" type="submit" id="Search">
+									<button class="btn btn-lg btn-primary" type="submit" id="Search">
 										<span class="glyphicon glyphicon-search"></span>
 									</button>
 								</div>

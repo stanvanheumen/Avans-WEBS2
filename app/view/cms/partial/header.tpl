@@ -32,8 +32,8 @@
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li><a href="/cms/dashboard">Dashboard</a></li>
-					<li><a href="/cms/categories">Categorie&#235;n</a></li>
 					<li><a href="/cms/products">Producten</a></li>
+					<li><a href="/cms/categories">Categorie&#235;n</a></li>
 					<li><a href="/cms/orders">Bestellingen</a></li>
 					<li><a href="/cms/users">Gebruikers</a></li>
 				</ul>

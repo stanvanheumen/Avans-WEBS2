@@ -94,7 +94,7 @@
 								<input type="search" class="form-control input-lg"
 									name="search-query" id="search-query" placeholder="Zoeken in alle artikelen..." />
 								<div class="input-group-btn">
-									<button class="btn btn-lg btn-blue" type="submit" id="Search">
+									<button class="btn btn-lg btn-primary" type="submit" id="Search">
 										<span class="glyphicon glyphicon-search"></span>
 									</button>
 								</div>

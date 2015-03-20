@@ -114,6 +114,7 @@ class Home extends Controller {
 	}
 
 	public function register_post() {
+		require_once ('app/model/account.inc.php');
 		$first_name 	= $this->db->escape($_POST['first_name']);
 		$infix_name 	= $this->db->escape($_POST['infix_name']);
 		$last_name 		= $this->db->escape($_POST['last_name']);
@@ -124,6 +125,11 @@ class Home extends Controller {
 		$number 		= $this->db->escape($_POST['number']);
 		$email 			= $this->db->escape($_POST['email']);
 		$password 		= $this->getHash($this->db->escape($_POST['password']));
+		$acc = $this->db->queryObject("SELECT * FROM account WHERE gebruikersnaam = '$email'", 'Account');
+		if($acc != null) {
+			$this->redirect('/home/register');
+			return;
+		}
 		$this->db->query("INSERT INTO account VALUES (NULL, 'member', '$email', '$password', '$first_name', '$infix_name', '$last_name', '$street', '$postal_code', '$place', '$number', '$gender')");
 		$this->redirect('/home/index');
 	}
@@ -181,7 +187,7 @@ class Home extends Controller {
 				}
 			}
 		}
-		
+		$this->redirect('/home/login');
 	}
 
 	public function view($view, $data = []) {
@@ -205,16 +211,14 @@ class Home extends Controller {
 	}
 
 	public function authenticate_check() {
-		if(!isset($_SESSION['home_authenticated']) || $_SESSION['home_authenticated'] != 1) {
+		if(!isset($_SESSION['home_authenticated']) || $_SESSION['home_authenticated'] != 1)
 			return false;
-		}
-		
-		return true;
+		else
+			return true;
 	}
 
 	public function logout() {
 		unset($_SESSION['home_authenticated']);
-		
 		$this->redirect('/home/index');
 	}
 

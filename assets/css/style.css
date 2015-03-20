@@ -53,10 +53,6 @@ body {
 	background-color: #0077FF;
 }
 
-.btn-blue:hover {
-	border-left: none;
-}
-
 .navbar-nav>li>.dropdown-menu {
 	margin-top:20px;
 }

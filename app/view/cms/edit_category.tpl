@@ -7,10 +7,10 @@
 					<h4 class="panel-title">{$title}</h4>
 				</div>
 				<div class="panel-body">
-					<form action="/cms/create_category_post" method="post" role="form">
+					<form action="/cms/edit_categorie_post?id={$categorie->getId()}" method="post" role="form">
 						<div class="form-group">
 							<label for="naam">Naam</label>
-							<input type="text" class="form-control" id="naam" name="naam" placeholder="Naam" required />
+							<input type="text" class="form-control" id="naam" value="{$categorie->getNaam()}" name="naam" placeholder="Naam" required />
 						</div>
 						
 						<div class="pull-right">
