@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-20 20:28:09
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-21 17:46:10
          compiled from "app\view\home\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:206725501dc8d47a230-57829835%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f3682ca662719940da0ffb28a935e99ae0c65336' => 
     array (
       0 => 'app\\view\\home\\index.tpl',
-      1 => 1426879607,
+      1 => 1426956368,
       2 => 'file',
     ),
   ),
@@ -20,6 +20,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'products' => 0,
+    'product_images' => 0,
+    'image' => 0,
     'product' => 0,
   ),
   'has_nocache_code' => false,
@@ -33,7 +35,17 @@ $_smarty_tpl->tpl_vars['product']->_loop = true;
 ?>
 		<div class="col-md-4">
 			<div class="panel panel-default">
-				<div class="panel-body test-panel">
+				<div class="panel-body">
+					<?php  $_smarty_tpl->tpl_vars['image'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['image']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['product_images']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['image']->key => $_smarty_tpl->tpl_vars['image']->value) {
+$_smarty_tpl->tpl_vars['image']->_loop = true;
+?>
+					<?php if ($_smarty_tpl->tpl_vars['image']->value->getProductId()==$_smarty_tpl->tpl_vars['product']->value->getId()) {?>
+					<img src="/<?php echo $_smarty_tpl->tpl_vars['image']->value->getLink();?>
+" alt="temp" class="img-responsive" />
+					<?php }?>
+					<?php } ?>
 				</div>
 				<div class="panel-footer">
 					<a href="/home/productdetails?product_id=<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>

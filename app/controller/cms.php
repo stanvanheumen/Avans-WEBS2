@@ -304,9 +304,7 @@ class CMS extends Controller {
 
 	/*
 	TODO: ADD ORDER 
-					-CREATE
-					-UPDATE
-					-DELETE
+					-READ
 	*/
 
 	/* </ORDERS> */
@@ -333,12 +331,12 @@ class CMS extends Controller {
 	public function edit_user() {
 		if(!$this->authenticate_check())
 			return;
-	
+
 		if(!isset($_GET['id']) || !is_numeric($_GET['id'])) {
 			$this->redirect('/cms/users');
 			return;
 		}
-		
+
 		// Require models
 		$this->smart('Gebruiker wijzigen');
 		require_once ('app/model/account.inc.php');

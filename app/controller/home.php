@@ -5,12 +5,24 @@ class Home extends Controller {
 	public function index() {
 		// Require models
 		require_once ('app/model/product.inc.php');
+		require_once ('app/model/productafbeelding.inc.php');
 		$this->smart('Home');
 
 		// Database requests
-		$products = $this->db->queryArray("SELECT * FROM product LIMIT 9", 'Product');
+		$products = $this->db->queryArray('SELECT * FROM product LIMIT 9', 'Product');
+
+		$temp = '';
+		foreach ($products as $product) {
+			if (end($products) == $product)
+				$temp .= $product->getId();
+			else 
+				$temp .= $product->getId() . ' OR ';
+		}
 		
+		$product_images = $this->db->queryArray("SELECT * FROM productafbeelding WHERE afbeeldingtype_type = 'afbeelding' AND (product_id = $temp)", 'ProductAfbeelding');
+
 		$this->smarty->assign('products', $products);
+		$this->smarty->assign('product_images', $product_images);
 
 		// Render view
 		$this->view('home/index');
