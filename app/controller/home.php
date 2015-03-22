@@ -174,18 +174,21 @@ class Home extends Controller {
 
 		$temp = '';
 
-		if (!isset($_SESSION['shoppingcart']))
+		if (!isset($_SESSION['shoppingcart'])) {
 			$_SESSION['shoppingcart'] = [];
+		}
 
 		foreach ($_SESSION['shoppingcart'] as $value) {
-			if (end($_SESSION['shoppingcart']) == $value)
+			if (end($_SESSION['shoppingcart']) == $value) {
 				$temp .= $value;
-			else 
+			} else {
 				$temp .= $value . ' OR ';
+			}
 		}
 		$products = [];
-		if (strlen($temp) != 0)
+		if (strlen($temp) != 0) {
 			$products = $this->db->queryArray("SELECT * FROM product WHERE id = $temp", 'Product');
+		}
 
 		$this->smarty->assign('products', $products);
 
