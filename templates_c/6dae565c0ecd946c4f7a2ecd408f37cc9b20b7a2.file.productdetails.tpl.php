@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-22 13:27:05
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-22 18:07:18
          compiled from "app\view\home\productdetails.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:286495501c8b33e6ab1-31103040%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6dae565c0ecd946c4f7a2ecd408f37cc9b20b7a2' => 
     array (
       0 => 'app\\view\\home\\productdetails.tpl',
-      1 => 1427027220,
+      1 => 1427044028,
       2 => 'file',
     ),
   ),
@@ -27,48 +27,88 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <?php if ($_valid && !is_callable('content_5501c8b346ffa1_73922325')) {function content_5501c8b346ffa1_73922325($_smarty_tpl) {?><div class="container">
 	<h1><?php echo $_smarty_tpl->tpl_vars['product']->value->getProductNaam();?>
 </h1>
-	<table class="table">
-		<tr>
-			<td>Productnaam<td>
-			<td><?php echo $_smarty_tpl->tpl_vars['product']->value->getProductNaam();?>
+	<div class="row">
+		<div class="col-md-4">
+			<div class="col-md-8">
+				<a class="fancybox" href="/assets/images/404.png" title="404" rel="ligthbox">
+					<div class="panel panel-default">
+						<div class="panel-body product-thumbnail">
+							<img src="/assets/images/404.png" class="img-responsive center-block">
+						</div>
+					</div>
+				</a>
+			</div>
+			<div class="col-md-4">
+				<a class="fancybox" href="/assets/images/404.png" title="404" rel="ligthbox">
+					<div class="panel panel-default pull-left">
+						<div class="panel-body product-image">
+							<img src="/assets/images/404.png" class="img-responsive center-block">
+						</div>
+					</div>
+				</a>
+				
+				<a class="fancybox" href="/assets/images/404.png" title="404" rel="ligthbox">
+					<div class="panel panel-default pull-left">
+						<div class="panel-body product-image">
+							<img src="/assets/images/404.png" class="img-responsive center-block">
+						</div>
+					</div>
+				</a>
+				
+				<a class="fancybox" href="/assets/images/404.png" title="404" rel="ligthbox">
+					<div class="panel panel-default pull-left">
+						<div class="panel-body product-image">
+							<img src="/assets/images/404.png" class="img-responsive center-block">
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<table class="table">
+				<tr>
+					<td>Productnaam<td>
+					<td><?php echo $_smarty_tpl->tpl_vars['product']->value->getProductNaam();?>
 </td>
-		</tr>
-		<tr>
-			<td>Beschrijving<td>
-			<td><?php echo $_smarty_tpl->tpl_vars['product']->value->getBeschrijving();?>
+				</tr>
+				<tr>
+					<td>Beschrijving<td>
+					<td><?php echo $_smarty_tpl->tpl_vars['product']->value->getBeschrijving();?>
 </td>
-		</tr>
-		<tr>
-			<td>Prijs<td>
-			<td>&euro; <?php echo $_smarty_tpl->tpl_vars['product']->value->getPrijs();?>
+				</tr>
+				<tr>
+					<td>Prijs<td>
+					<td>&euro; <?php echo $_smarty_tpl->tpl_vars['product']->value->getPrijs();?>
 </td>
-		</tr>
-		<tr>
-			<td>Op voorraad<td>
-			<td> 
-			<?php if ($_smarty_tpl->tpl_vars['product']->value->getVoorraad()>0) {?>
-			Ja
-			<?php } else { ?>
-			Nee
-			<?php }?>
-			</td>
-		</tr>
-		<tr>
-			<td><td>
-			<td>
-				<?php if (isset($_SESSION['home_authenticated'])&&$_SESSION['home_authenticated']==1) {?>
-				<?php if (isset($_smarty_tpl->tpl_vars['in_shopping_cart']->value)) {?>
-				<a href="/home/removefromcart?id=<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
+				</tr>
+				<tr>
+					<td>Op voorraad<td>
+					<td> 
+					<?php if ($_smarty_tpl->tpl_vars['product']->value->getVoorraad()>0) {?>
+					Ja
+					<?php } else { ?>
+					Nee
+					<?php }?>
+					</td>
+				</tr>
+				<tr>
+					<td><td>
+					<td>
+						<?php if (isset($_SESSION['home_authenticated'])&&$_SESSION['home_authenticated']==1) {?>
+						<?php if (isset($_smarty_tpl->tpl_vars['in_shopping_cart']->value)) {?>
+						<a href="/home/removefromcart?id=<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
 " class="btn btn-danger">Verwijderen van winkelwagentje</a>
-				<?php } else { ?>
-				<form action="/home/addtocart" method="post" role="form">
-					<input type="hidden" name="value" value="<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
+						<?php } else { ?>
+						<form action="/home/addtocart" method="post" role="form">
+							<input type="hidden" name="value" value="<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
 " />
-					<button type="submit" class="btn btn-success">Toevoegen aan winkelwagentje</button>
-				</form>
-				<?php }?>
-				<?php }?>
-			</td>
-		</tr>
-	</table>
+							<button type="submit" class="btn btn-success">Toevoegen aan winkelwagentje</button>
+						</form>
+						<?php }?>
+						<?php }?>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
 </div><?php }} ?>

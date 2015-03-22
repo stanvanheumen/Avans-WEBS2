@@ -209,6 +209,17 @@ body {
 	height: 200px;
 }
 
+.product-thumbnail img {
+	max-height: 200px;
+}
+
+.product-image {
+}
+
+.product-image img {
+	max-height: 50px;
+}
+
 /***
 Dashboard stats
 ***/

@@ -2,6 +2,11 @@ $(document).ready(function(){
 	if(location.pathname == '/home/account') {
 		totalPrice();
 	}
+	
+	$(".fancybox").fancybox({
+        openEffect: "none",
+        closeEffect: "none"
+    });
 });
 
 function update(id, price) {
