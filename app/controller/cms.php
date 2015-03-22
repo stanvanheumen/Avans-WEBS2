@@ -372,8 +372,14 @@ class CMS extends Controller {
 	}
 
 	public function edit_user_post() {
-		if(!$this->authenticate_check())
+		if(!$this->authenticate_check()) {
 			return;
+		}
+		
+		if(!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+			$this->redirect('/cms/users');
+			return;
+		}
 		
 		$id 			= $this->db->escape($_GET['id']);
 		$first_name 	= $this->db->escape($_POST['first_name']);
