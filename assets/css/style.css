@@ -201,6 +201,14 @@ body {
 	font-size: 80px;
 }
 
+.featured {
+	padding: 0;
+}
+
+.featured img {
+	height: 200px;
+}
+
 /***
 Dashboard stats
 ***/

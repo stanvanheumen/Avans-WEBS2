@@ -25,7 +25,7 @@
 				<td data-th="Quantity">
 					<input type="number" min="1" id="input{$product->getId()}" onchange="update({$product->getId()}, {$product->getPrijs()})" class="form-control text-center" value="1">
 				</td>
-				<td data-th="Subtotal" id="{$product->getId()}" class="text-center">&euro; {$product->getPrijs()}</td>
+				<td data-th="Subtotal" data-price="{$product->getPrijs()}" id="{$product->getId()}" class="product-price text-center">&euro; {$product->getPrijs()}</td>
 				<td class="actions">
 					<a href="/home/removefromcart?id={$product->getId()}" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></a>								
 				</td>
@@ -36,16 +36,9 @@
 			<tr>
 				<td><a href="/home/index" class="btn btn-warning"><i class="glyphicon glyphicon-chevron-left"></i>Ga door met winkelen</a></td>
 				<td colspan="2" class="hidden-xs"></td>
-				<td class="hidden-xs text-center"><strong>Totaal (MOET NOG)</strong></td>
+				<td class="hidden-xs text-center total-price"></td>
 				<td><a href="#" class="btn btn-success btn-block">Betalen <i class="glyphicon glyphicon-chevron-right"></i></a></td>
 			</tr>
 		</tfoot>
 	</table>
 </div>
-
-<script>
-function update(id, price) {
-	//document.getElementById(id).innerHTML = "€ " + (price * document.getElementById("input" + id).value);
-	$('#' + id).text("€ " + (price * $("#input" + id).val()) );
-}
-</script>

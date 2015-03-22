@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-12 18:13:53
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-22 13:00:16
          compiled from "app\view\home\productdetails.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:286495501c8b33e6ab1-31103040%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6dae565c0ecd946c4f7a2ecd408f37cc9b20b7a2' => 
     array (
       0 => 'app\\view\\home\\productdetails.tpl',
-      1 => 1426180430,
+      1 => 1427021083,
       2 => 'file',
     ),
   ),
@@ -50,6 +50,18 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			<?php } else { ?>
 			Nee
 			<?php }?>
+			</td>
+		</tr>
+		<tr>
+			<td><td>
+			<td>
+				<?php if (isset($_SESSION['home_authenticated'])&&$_SESSION['home_authenticated']==1) {?>
+				<form action="/home/addtocart" method="post" role="form">
+					<input type="hidden" name="value" value="<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
+" />
+					<button type="submit" class="btn btn-success">Toevoegen aan winkelwagentje</button>
+				</form>
+				<?php }?>
 			</td>
 		</tr>
 	</table>

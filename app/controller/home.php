@@ -17,10 +17,11 @@ class Home extends Controller {
 
 		$temp = '';
 		foreach ($products as $product) {
-			if (end($products) == $product)
+			if (end($products) == $product) {
 				$temp .= $product->getId();
-			else 
+			} else {
 				$temp .= $product->getId() . ' OR ';
+			}
 		}
 		
 		$product_images = $this->db->queryArray("SELECT * FROM productafbeelding WHERE afbeeldingtype_type = 'afbeelding' AND (product_id = $temp)", 'ProductAfbeelding');
@@ -46,9 +47,10 @@ class Home extends Controller {
 		$this->smart('Zoeken');
 
 		// Database requests
-		if (isset($_GET['search-query']))
+		if (isset($_GET['search-query'])) {
 			$products = $this->db->queryArray("SELECT * FROM product WHERE productnaam LIKE '%" . $this->db->escape($_GET['search-query']) . "%'", 'Product');
-
+		}
+		
 		$this->smarty->assign('products', $products);
 		$this->smarty->assign('amount', count($products));
 		$this->smarty->assign('searchquery', $_GET['search-query']);
@@ -59,20 +61,25 @@ class Home extends Controller {
 	public function addtocart() {
 		$id = $this->db->escape($_POST['value']);
 
-		if (!isset($_SESSION['shoppingcart']))
+		if (!isset($_SESSION['shoppingcart'])) {
 			$_SESSION['shoppingcart'] = [];
+		}
 
-		if (!in_array($id, $_SESSION['shoppingcart'])) 
+		if (!in_array($id, $_SESSION['shoppingcart'])) {
 			array_push($_SESSION['shoppingcart'], $id);
+		}
 
 		$this->redirect('/home/account');
 	}
 
 	public function removefromcart() {
-		if (!isset($_SESSION['shoppingcart']))
+		if (!isset($_SESSION['shoppingcart'])) {
 			$_SESSION['shoppingcart'] = [];
-		$id = $_GET['id'];
-		$_SESSION['shoppingcart'] = array_diff($_SESSION['shoppingcart'], array($id));
+		}
+		if(isset($_GET['id'])) {
+			$id = $_GET['id'];
+			$_SESSION['shoppingcart'] = array_diff($_SESSION['shoppingcart'], array($id));
+		}
 		$this->redirect('/home/account');
 	}
 	
