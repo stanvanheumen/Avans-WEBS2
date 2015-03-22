@@ -12,7 +12,7 @@ class db {
 	
 	public function query($sql) {
 		if(!$result = $this->db->query($sql)){
-			die('There was an error running the query [' . $this->db->error . ']');
+			die('There was an error running the query [' . $this->db->error . ']' . "<br/>" . $sql);
 		}
 		return $result;
 	}

@@ -92,8 +92,9 @@ class Home extends Controller {
 		// Database requests
 		$search_category = false;
 	
-		if (isset($_GET['categorie']) && is_numeric($_GET['categorie']))
+		if (isset($_GET['categorie']) && is_numeric($_GET['categorie'])) {
 			$search_category = $this->db->queryObject("SELECT * FROM categorie WHERE id = '" . $this->db->escape($_GET['categorie']) . "'", 'Categorie');
+		}
 		
 		$categories = $this->db->queryArray("SELECT * FROM categorie ORDER BY naam", 'Categorie');
 		
@@ -117,10 +118,26 @@ class Home extends Controller {
 		// Require models
 		require_once ('app/model/product.inc.php');
 		$this->smart('Product Details');
+		
+		if(!isset($_GET['product_id'])) {
+			$this->redirect('/home/assortment');
+			return;
+		}
+		
+		if (!isset($_SESSION['shoppingcart'])) {
+			$_SESSION['shoppingcart'] = [];
+		}
 
 		// Database requests
-		$product_id = $_GET['product_id'];
+		$product_id = $this->db->escape($_GET['product_id']);
 		$product = $this->db->queryObject("SELECT * FROM product WHERE id = '" . $product_id . "'", 'Product');
+		
+		foreach ($_SESSION['shoppingcart'] as $id) {
+			if($product_id == $id) {
+				$this->smarty->assign('in_shopping_cart', '1');
+				break;
+			}
+		}
 		
 		$this->smarty->assign('product', $product);
 		
@@ -179,22 +196,18 @@ class Home extends Controller {
 		require_once ('app/model/product.inc.php');
 		$this->smart('Mijn Account');
 
-		$temp = '';
-
 		if (!isset($_SESSION['shoppingcart'])) {
 			$_SESSION['shoppingcart'] = [];
 		}
-
-		foreach ($_SESSION['shoppingcart'] as $value) {
-			if (end($_SESSION['shoppingcart']) == $value) {
-				$temp .= $value;
-			} else {
-				$temp .= $value . ' OR ';
-			}
-		}
+		$temp = '';
+		
+		if(!empty($_SESSION['shoppingcart'])) {
+			$temp = "('" . implode("','", $_SESSION['shoppingcart']) . "')";
+		}		
+		
 		$products = [];
 		if (strlen($temp) != 0) {
-			$products = $this->db->queryArray("SELECT * FROM product WHERE id = $temp", 'Product');
+			$products = $this->db->queryArray("SELECT * FROM product WHERE id IN $temp", 'Product');
 		}
 
 		$this->smarty->assign('products', $products);

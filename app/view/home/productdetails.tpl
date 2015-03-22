@@ -27,10 +27,14 @@
 			<td><td>
 			<td>
 				{if isset($smarty.session.home_authenticated) && $smarty.session.home_authenticated == 1}
+				{if isset($in_shopping_cart) }
+				<a href="/home/removefromcart?id={$product->getId()}" class="btn btn-danger">Verwijderen van winkelwagentje</a>
+				{else}
 				<form action="/home/addtocart" method="post" role="form">
 					<input type="hidden" name="value" value="{$product->getId()}" />
 					<button type="submit" class="btn btn-success">Toevoegen aan winkelwagentje</button>
 				</form>
+				{/if}
 				{/if}
 			</td>
 		</tr>
