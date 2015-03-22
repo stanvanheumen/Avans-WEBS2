@@ -234,10 +234,11 @@ class Home extends Controller {
 	}
 
 	public function authenticate_check() {
-		if(!isset($_SESSION['home_authenticated']) || $_SESSION['home_authenticated'] != 1)
+		return isset($_SESSION['home_authenticated']) && $_SESSION['home_authenticated'] == 1;
+		/*if(!isset($_SESSION['home_authenticated']) || $_SESSION['home_authenticated'] != 1)
 			return false;
 		else
-			return true;
+			return true;*/
 	}
 
 	public function logout() {
