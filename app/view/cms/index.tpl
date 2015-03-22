@@ -18,6 +18,9 @@
 				    		<input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
 				    	</fieldset>
 			      	</form>
+					<div class="vertical-offset-7">
+						<a href="/home/" class="btn btn-primary btn-lg btn-block" role="button">Ga terug</a>
+					</div>
 			    </div>
 			</div>
 		</div>
