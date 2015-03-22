@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-22 12:11:01
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-22 12:29:48
          compiled from "app\view\home\account.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:141550ea345e45719-09829484%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f077b1ca60ab317d57d0b5e9103c23b40f3b8738' => 
     array (
       0 => 'app\\view\\home\\account.tpl',
-      1 => 1427021083,
+      1 => 1427023786,
       2 => 'file',
     ),
   ),
@@ -15,14 +15,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_550ea34619e837_85098218',
   'variables' => 
   array (
     'products' => 0,
     'product' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_550ea34619e837_85098218',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_550ea34619e837_85098218')) {function content_550ea34619e837_85098218($_smarty_tpl) {?><div class="container">
 	<table id="cart" class="table table-hover table-condensed">
@@ -85,7 +85,8 @@ $_smarty_tpl->tpl_vars['product']->_loop = true;
 <?php echo '<script'; ?>
 >
 function update(id, price) {
-	document.getElementById(id).innerHTML = "€ " + (price * document.getElementById("input" + id).value);
+	//document.getElementById(id).innerHTML = "€ " + (price * document.getElementById("input" + id).value);
+	$('#' + id).text("€ " + (price * $("#input" + id).val()) );
 }
 <?php echo '</script'; ?>
 ><?php }} ?>

@@ -45,6 +45,7 @@
 
 <script>
 function update(id, price) {
-	document.getElementById(id).innerHTML = "€ " + (price * document.getElementById("input" + id).value);
+	//document.getElementById(id).innerHTML = "€ " + (price * document.getElementById("input" + id).value);
+	$('#' + id).text("€ " + (price * $("#input" + id).val()) );
 }
 </script>
