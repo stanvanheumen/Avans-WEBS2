@@ -7,6 +7,10 @@ class Home extends Controller {
 		require_once ('app/model/product.inc.php');
 		require_once ('app/model/productafbeelding.inc.php');
 		$this->smart('Home');
+		
+		if(isset($_GET['authenticated'])) {
+			$this->smarty->assign('authenticated', $_GET['authenticated']);
+		}
 
 		// Database requests
 		$products = $this->db->queryArray('SELECT * FROM product LIMIT 9', 'Product');
@@ -148,7 +152,11 @@ class Home extends Controller {
 	
 	public function login() {
 		// Require models
-		$this->smart('Login'); 
+		$this->smart('Login');
+		
+		if(isset($_GET['err']) && $_GET['err'] == 1) {
+			$this->smarty->assign('authenticate_error', '1');
+		}
 
 		// Render view
 		$this->view('home/login');
@@ -194,12 +202,12 @@ class Home extends Controller {
 			if ($user != null && $user->getRankNaam() == 'member') {
 				if(password_verify($this->db->escape($_POST['password']), $user->getHash())) {
 					$_SESSION['home_authenticated'] = 1;
-					$this->redirect('/home/index');
+					$this->redirect('/home/index?authenticated=1');
 					return;
 				}
 			}
 		}
-		$this->redirect('/home/login');
+		$this->redirect('/home/login?err=1');
 	}
 
 	public function view($view, $data = []) {
@@ -231,7 +239,7 @@ class Home extends Controller {
 
 	public function logout() {
 		unset($_SESSION['home_authenticated']);
-		$this->redirect('/home/index');
+		$this->redirect('/home/index?authenticated=2');
 	}
 
 	

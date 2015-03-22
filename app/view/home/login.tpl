@@ -6,6 +6,12 @@
 				<h3 class="panel-title">Inloggen</h3>
 			</div>
 			<div class="panel-body">
+				{if isset($authenticate_error)}
+				<div class="alert alert-danger" role="alert">
+					<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Verkeerde gebruikersnaam/wachtwoord
+				</div>
+				{/if}
 				<form action="/home/login_post" method="post" accept-charset="UTF-8" role="form">
 					<fieldset>
 						<div class="form-group">

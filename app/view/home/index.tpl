@@ -1,4 +1,17 @@
 <div class="container">
+	{if isset($authenticated)}
+	<div class="row">
+		<div class="col-md-12">
+			<div class="alert alert-success" role="alert">
+				{if $authenticated == 1 }
+				U bent succesvol ingelogd!
+				{elseif $authenticated == 2 }
+				U ben uitgelogd!
+				{/if}
+			</div>
+		</div>
+	</div>
+	{/if}
 	<div class="row">
 		{foreach $products as $product}
 		<div class="col-md-4">
