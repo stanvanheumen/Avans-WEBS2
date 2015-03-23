@@ -18,7 +18,11 @@
 							<div class="col-md-6">
 								<div class="media">
 									<div class="media-left media-middle">
-										<img class="media-object" src="/assets/images/auction.png" alt="auction">
+										{foreach $product_images as $afbeelding}
+											{if $product->getId() eq $afbeelding->getProductId()}
+											<img class="media-object" src="/{$afbeelding->getLink()}" alt="auction" height="100" width="100">
+											{/if}
+										{/foreach}
 									</div>
 									<div class="media-body">
 										<h4 class="media-heading"><a href="productdetails?product_id={$product->getId()}">{$product->getProductNaam()}</a></h4>

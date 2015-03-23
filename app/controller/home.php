@@ -47,16 +47,32 @@ class Home extends Controller {
 	public function search() {
 		// Require models
 		require_once ('app/model/product.inc.php');
+		require_once ('app/model/productafbeelding.inc.php');
 		$this->smart('Zoeken');
 
 		// Database requests
 		if (isset($_GET['search-query'])) {
 			$products = $this->db->queryArray("SELECT * FROM product WHERE productnaam LIKE '%" . $this->db->escape($_GET['search-query']) . "%'", 'Product');
+			$product_images = [];
+
+			$temp = '';
+			foreach ($products as $product) {
+				if (end($products) == $product) {
+					$temp .= $product->getId();
+				} else {
+					$temp .= $product->getId() . ' OR ';
+				}
+			}
+
+			if (sizeof($products) != 0)
+				$product_images = $this->db->queryArray("SELECT * FROM productafbeelding WHERE afbeeldingtype_type = 'thumbnail' AND (product_id = $temp)", 'ProductAfbeelding');
 		}
 		
 		$this->smarty->assign('products', $products);
+		$this->smarty->assign('product_images', $product_images);
 		$this->smarty->assign('amount', count($products));
 		$this->smarty->assign('searchquery', $_GET['search-query']);
+
 		// Render view
 		$this->view('home/search');
 	}

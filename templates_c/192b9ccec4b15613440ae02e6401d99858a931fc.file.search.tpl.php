@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-20 13:43:59
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-23 20:28:18
          compiled from "app\view\home\search.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2309355045fa11b5154-67833840%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '192b9ccec4b15613440ae02e6401d99858a931fc' => 
     array (
       0 => 'app\\view\\home\\search.tpl',
-      1 => 1426855426,
+      1 => 1427138897,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'amount' => 0,
     'searchquery' => 0,
     'products' => 0,
+    'product_images' => 0,
     'product' => 0,
+    'afbeelding' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -52,7 +54,16 @@ $_smarty_tpl->tpl_vars['product']->_loop = true;
 							<div class="col-md-6">
 								<div class="media">
 									<div class="media-left media-middle">
-										<img class="media-object" src="/assets/images/auction.png" alt="auction">
+										<?php  $_smarty_tpl->tpl_vars['afbeelding'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['afbeelding']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['product_images']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['afbeelding']->key => $_smarty_tpl->tpl_vars['afbeelding']->value) {
+$_smarty_tpl->tpl_vars['afbeelding']->_loop = true;
+?>
+											<?php if ($_smarty_tpl->tpl_vars['product']->value->getId()==$_smarty_tpl->tpl_vars['afbeelding']->value->getProductId()) {?>
+											<img class="media-object" src="/<?php echo $_smarty_tpl->tpl_vars['afbeelding']->value->getLink();?>
+" alt="auction" height="100" width="100">
+											<?php }?>
+										<?php } ?>
 									</div>
 									<div class="media-body">
 										<h4 class="media-heading"><a href="productdetails?product_id=<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
