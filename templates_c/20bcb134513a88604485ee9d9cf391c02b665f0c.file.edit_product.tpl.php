@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-20 14:56:24
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-23 17:20:56
          compiled from "app\view\cms\edit_product.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2110550871dcc67e90-30396556%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '20bcb134513a88604485ee9d9cf391c02b665f0c' => 
     array (
       0 => 'app\\view\\cms\\edit_product.tpl',
-      1 => 1426859783,
+      1 => 1427127643,
       2 => 'file',
     ),
   ),
@@ -51,7 +51,7 @@ $_smarty_tpl->tpl_vars['cat']->_loop = true;
 </option>
 								<?php } else { ?>
 								<option value="<?php echo $_smarty_tpl->tpl_vars['cat']->value->getId();?>
-}"><?php echo $_smarty_tpl->tpl_vars['cat']->value->getNaam();?>
+"><?php echo $_smarty_tpl->tpl_vars['cat']->value->getNaam();?>
 </option>
 								<?php }?>
 							<?php } ?>

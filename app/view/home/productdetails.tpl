@@ -3,38 +3,24 @@
 	<div class="row">
 		<div class="col-md-4">
 			<div class="col-md-8">
-				<a class="fancybox" href="/assets/images/404.png" title="404" rel="ligthbox">
+				<a class="fancybox" href="/{$thumbnail->getLink()}" rel="ligthbox">
 					<div class="panel panel-default">
 						<div class="panel-body product-thumbnail">
-							<img src="/assets/images/404.png" class="img-responsive center-block">
+							<img src="/{$thumbnail->getLink()}" class="img-responsive center-block">
 						</div>
 					</div>
 				</a>
 			</div>
 			<div class="col-md-4">
-				<a class="fancybox" href="/assets/images/404.png" title="404" rel="ligthbox">
+				{foreach $product_afbeeldingen as $afbeelding}
+				<a class="fancybox" href="/{$afbeelding->getLink()}" rel="ligthbox">
 					<div class="panel panel-default pull-left">
 						<div class="panel-body product-image">
-							<img src="/assets/images/404.png" class="img-responsive center-block">
+							<img src="/{$afbeelding->getLink()}" class="img-responsive center-block">
 						</div>
 					</div>
 				</a>
-				
-				<a class="fancybox" href="/assets/images/404.png" title="404" rel="ligthbox">
-					<div class="panel panel-default pull-left">
-						<div class="panel-body product-image">
-							<img src="/assets/images/404.png" class="img-responsive center-block">
-						</div>
-					</div>
-				</a>
-				
-				<a class="fancybox" href="/assets/images/404.png" title="404" rel="ligthbox">
-					<div class="panel panel-default pull-left">
-						<div class="panel-body product-image">
-							<img src="/assets/images/404.png" class="img-responsive center-block">
-						</div>
-					</div>
-				</a>
+				{/foreach}
 			</div>
 		</div>
 		<div class="col-md-8">

@@ -16,7 +16,7 @@
 								{if $product->getCategorieId() eq $cat->getId()}
 								<option value="{$cat->getId()}" selected>{$cat->getNaam()}</option>
 								{else}
-								<option value="{$cat->getId()}}">{$cat->getNaam()}</option>
+								<option value="{$cat->getId()}">{$cat->getNaam()}</option>
 								{/if}
 							{/foreach}
 							</select>

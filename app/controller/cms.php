@@ -125,7 +125,7 @@ class CMS extends Controller {
 		
 		$thumbnail 			= $_FILES['image'];
 		$images 			= $_FILES['images'];
-		
+
 		$this->db->query("INSERT INTO product VALUES (NULL, '$categorie_id', '$productnaam', '$prijs', '$beschrijving_lang', '$beschrijving_kort', '$voorraad', NULL, CURRENT_TIMESTAMP, NULL)");
 		$curr_product = $this->db->queryObject('SELECT * FROM product ORDER BY id DESC LIMIT 1', 'Product');
 		
@@ -137,6 +137,8 @@ class CMS extends Controller {
 
 		$counter = 2;
 		foreach ($images['tmp_name'] as $value) {
+			if ($value == '') 
+				break;
 			$location = 'uploads/' . $curr_product->getId() . '_' . $counter . '.png';
 			move_uploaded_file($value, $location);
 			$this->db->query("INSERT INTO productafbeelding VALUES (NULL, '$p_id', 'afbeelding', '$location')");
@@ -199,6 +201,9 @@ class CMS extends Controller {
 		}
 	
 		$id = $this->db->escape($_GET['id']);
+
+		$this->db->query("DELETE FROM productafbeelding WHERE product_id='$id'");
+		
 		$this->db->query("DELETE FROM product WHERE id='$id'");
 		
 		$this->redirect('/cms/products');

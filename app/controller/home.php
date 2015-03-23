@@ -24,7 +24,10 @@ class Home extends Controller {
 			}
 		}
 		
-		$product_images = $this->db->queryArray("SELECT * FROM productafbeelding WHERE afbeeldingtype_type = 'afbeelding' AND (product_id = $temp)", 'ProductAfbeelding');
+		$product_images = [];
+
+		if (sizeof($products) != 0)
+			$product_images = $this->db->queryArray("SELECT * FROM productafbeelding WHERE afbeeldingtype_type = 'thumbnail' AND (product_id = $temp)", 'ProductAfbeelding');
 
 		$this->smarty->assign('products', $products);
 		$this->smarty->assign('product_images', $product_images);
@@ -117,6 +120,7 @@ class Home extends Controller {
 	public function productdetails() {
 		// Require models
 		require_once ('app/model/product.inc.php');
+		require_once ('app/model/productafbeelding.inc.php');
 		$this->smart('Product Details');
 		
 		if(!isset($_GET['product_id'])) {
@@ -131,7 +135,13 @@ class Home extends Controller {
 		// Database requests
 		$product_id = $this->db->escape($_GET['product_id']);
 		$product = $this->db->queryObject("SELECT * FROM product WHERE id = '" . $product_id . "'", 'Product');
+		$product_thumbnail = $this->db->queryObject("SELECT * FROM productafbeelding WHERE product_id = '" . $product_id . "' AND afbeeldingtype_type = 'thumbnail'", 'ProductAfbeelding');
+		$product_afbeeldingen = $this->db->queryArray("SELECT * FROM productafbeelding WHERE product_id = '" . $product_id . "' AND afbeeldingtype_type = 'afbeelding'", 'ProductAfbeelding');
 		
+		if ($product_afbeeldingen == null) {
+			$product_afbeeldingen = [];
+		}
+
 		foreach ($_SESSION['shoppingcart'] as $id) {
 			if($product_id == $id) {
 				$this->smarty->assign('in_shopping_cart', '1');
@@ -140,6 +150,8 @@ class Home extends Controller {
 		}
 		
 		$this->smarty->assign('product', $product);
+		$this->smarty->assign('thumbnail', $product_thumbnail);
+		$this->smarty->assign('product_afbeeldingen', $product_afbeeldingen);
 		
 		// Render view
 		$this->view('home/productdetails');

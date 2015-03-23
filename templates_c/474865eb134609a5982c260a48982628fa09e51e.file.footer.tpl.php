@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-18 15:13:08
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-23 16:43:46
          compiled from "app\view\home\partial\footer.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:116655504cf2876d802-54219077%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '474865eb134609a5982c260a48982628fa09e51e' => 
     array (
       0 => 'app\\view\\home\\partial\\footer.tpl',
-      1 => 1426687906,
+      1 => 1427111709,
       2 => 'file',
     ),
   ),
@@ -76,6 +76,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 >
 		<?php echo '<script'; ?>
  src="/assets/js/bootstrap.min.js"><?php echo '</script'; ?>
+>
+		<?php echo '<script'; ?>
+ src="/assets/js/jquery.fancybox.js"><?php echo '</script'; ?>
+>
+		<?php echo '<script'; ?>
+ src="/assets/js/webshop.js"><?php echo '</script'; ?>
 >
 	</body>
 </html><?php }} ?>
