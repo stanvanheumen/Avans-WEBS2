@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-23 20:28:18
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-23 20:41:28
          compiled from "app\view\home\search.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2309355045fa11b5154-67833840%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '192b9ccec4b15613440ae02e6401d99858a931fc' => 
     array (
       0 => 'app\\view\\home\\search.tpl',
-      1 => 1427138897,
+      1 => 1427139687,
       2 => 'file',
     ),
   ),
@@ -50,20 +50,22 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 foreach ($_from as $_smarty_tpl->tpl_vars['product']->key => $_smarty_tpl->tpl_vars['product']->value) {
 $_smarty_tpl->tpl_vars['product']->_loop = true;
 ?> 			
-						<div class="row">
+						<div class="row vertical-offset-7">
 							<div class="col-md-6">
 								<div class="media">
-									<div class="media-left media-middle">
-										<?php  $_smarty_tpl->tpl_vars['afbeelding'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['afbeelding']->_loop = false;
+									<div class="col-md-6">
+										<div class="panel-body featured">
+											<?php  $_smarty_tpl->tpl_vars['afbeelding'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['afbeelding']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['product_images']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['afbeelding']->key => $_smarty_tpl->tpl_vars['afbeelding']->value) {
 $_smarty_tpl->tpl_vars['afbeelding']->_loop = true;
 ?>
-											<?php if ($_smarty_tpl->tpl_vars['product']->value->getId()==$_smarty_tpl->tpl_vars['afbeelding']->value->getProductId()) {?>
-											<img class="media-object" src="/<?php echo $_smarty_tpl->tpl_vars['afbeelding']->value->getLink();?>
-" alt="auction" height="100" width="100">
-											<?php }?>
-										<?php } ?>
+												<?php if ($_smarty_tpl->tpl_vars['product']->value->getId()==$_smarty_tpl->tpl_vars['afbeelding']->value->getProductId()) {?>
+												<img class="img-responsive center-block" src="/<?php echo $_smarty_tpl->tpl_vars['afbeelding']->value->getLink();?>
+" alt="auction">
+												<?php }?>
+											<?php } ?>
+										</div>
 									</div>
 									<div class="media-body">
 										<h4 class="media-heading"><a href="productdetails?product_id=<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
@@ -74,8 +76,8 @@ $_smarty_tpl->tpl_vars['afbeelding']->_loop = true;
 									</div>
 								</div>
 							</div>
-							<div class="col-md-3 auctions">Prijs &euro; <?php echo $_smarty_tpl->tpl_vars['product']->value->getPrijs();?>
-</div>
+							<div class="col-md-3 auctions"><span class="search-title">&euro; <?php echo $_smarty_tpl->tpl_vars['product']->value->getPrijs();?>
+</span></div>
 							<div class="col-md-3">
 								<?php if (isset($_SESSION['home_authenticated'])&&$_SESSION['home_authenticated']==1) {?>
 								<form action="/home/addtocart" method="post" role="form">

@@ -14,15 +14,17 @@
 				<div class="panel panel-default">
 					<div class="panel-body">	
 						{foreach $products as $product} 			
-						<div class="row">
+						<div class="row vertical-offset-7">
 							<div class="col-md-6">
 								<div class="media">
-									<div class="media-left media-middle">
-										{foreach $product_images as $afbeelding}
-											{if $product->getId() eq $afbeelding->getProductId()}
-											<img class="media-object" src="/{$afbeelding->getLink()}" alt="auction" height="100" width="100">
-											{/if}
-										{/foreach}
+									<div class="col-md-6">
+										<div class="panel-body featured">
+											{foreach $product_images as $afbeelding}
+												{if $product->getId() eq $afbeelding->getProductId()}
+												<img class="img-responsive center-block" src="/{$afbeelding->getLink()}" alt="auction">
+												{/if}
+											{/foreach}
+										</div>
 									</div>
 									<div class="media-body">
 										<h4 class="media-heading"><a href="productdetails?product_id={$product->getId()}">{$product->getProductNaam()}</a></h4>
@@ -30,7 +32,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-3 auctions">Prijs &euro; {$product->getPrijs()}</div>
+							<div class="col-md-3 auctions"><span class="search-title">&euro; {$product->getPrijs()}</span></div>
 							<div class="col-md-3">
 								{if isset($smarty.session.home_authenticated) && $smarty.session.home_authenticated == 1}
 								<form action="/home/addtocart" method="post" role="form">
