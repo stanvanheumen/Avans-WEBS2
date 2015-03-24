@@ -277,9 +277,8 @@ class Home extends Controller {
 		$this->smarty->assign('computers', $computers);
 		$this->smarty->assign('toys', $toys);
 
-		$id = $_SESSION["user_id"];
-
-		if (isset($_SESSION['user_id'])) {
+		if (isset($_SESSION['user_id'])) {	
+			$id = $_SESSION["user_id"];
 			$user = $this->db->queryObject("SELECT * FROM account WHERE id = '$id'", 'Account');
 			$this->smarty->assign('user_name', $user->getVoornaam());
 		}
