@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-19 14:18:46
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-24 09:27:03
          compiled from "app\view\home\account.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:29582550acaa1938307-87534900%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'cdff2a688485199f68e52632dab01c8d55870cbe' => 
     array (
       0 => 'app\\view\\home\\account.tpl',
-      1 => 1426771125,
+      1 => 1427185537,
       2 => 'file',
     ),
   ),
@@ -17,55 +17,68 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'version' => 'Smarty-3.1.21-dev',
   'unifunc' => 'content_550acaa1938f49_47910552',
+  'variables' => 
+  array (
+    'products' => 0,
+    'product' => 0,
+  ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_550acaa1938f49_47910552')) {function content_550acaa1938f49_47910552($_smarty_tpl) {?><div class="container">
-	<div class="panel panel-default">
-		<div class="panel-body">
-			<h3 class="panel-title">Mijn account</h3>
-		</div>
-	</div>
 	<table id="cart" class="table table-hover table-condensed">
-    				<thead>
-						<tr>
-							<th style="width:50%">Product</th>
-							<th style="width:10%">Prijs</th>
-							<th style="width:8%">Hoeveelheid</th>
-							<th style="width:22%" class="text-center">Subtotaal</th>
-							<th style="width:10%"></th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td data-th="Product">
-								<div class="row">
-									<div class="col-sm-2 hidden-xs"><img src="http://placehold.it/100x100" alt="..." class="img-responsive"/></div>
-									<div class="col-sm-10">
-										<h4 class="nomargin">Product 1</h4>
-										<p>Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet.</p>
-									</div>
-								</div>
-							</td>
-							<td data-th="Price">$1.99</td>
-							<td data-th="Quantity">
-								<input type="number" class="form-control text-center" value="1">
-							</td>
-							<td data-th="Subtotal" class="text-center">1.99</td>
-							<td class="actions" data-th="">
-								<button class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></button>								
-							</td>
-						</tr>
-					</tbody>
-					<tfoot>
-						<tr class="visible-xs">
-							<td class="text-center"><strong>Totaal 1.99</strong></td>
-						</tr>
-						<tr>
-							<td><a href="#" class="btn btn-warning"><i class="glyphicon glyphicon-chevron-left"></i>Ga door met winkelen</a></td>
-							<td colspan="2" class="hidden-xs"></td>
-							<td class="hidden-xs text-center"><strong>Totaal $1.99</strong></td>
-							<td><a href="#" class="btn btn-success btn-block">Betalen <i class="glyphicon glyphicon-chevron-right"></i></a></td>
-						</tr>
-					</tfoot>
-				</table>
+		<thead>
+			<tr>
+				<th style="width:50%">Product</th>
+				<th style="width:10%">Prijs</th>
+				<th style="width:8%">Hoeveelheid</th>
+				<th style="width:22%" class="text-center">Subtotaal</th>
+				<th style="width:10%"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php  $_smarty_tpl->tpl_vars['product'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['product']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['products']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['product']->key => $_smarty_tpl->tpl_vars['product']->value) {
+$_smarty_tpl->tpl_vars['product']->_loop = true;
+?>
+			<tr>
+				<td data-th="Product">
+					<div class="row">
+						<div class="col-sm-2 hidden-xs"><img src="http://placehold.it/100x100" alt="..." class="img-responsive"/></div>
+						<div class="col-sm-10">
+							<h4 class="nomargin"><?php echo $_smarty_tpl->tpl_vars['product']->value->getProductNaam();?>
+</h4>
+							<p><?php echo $_smarty_tpl->tpl_vars['product']->value->getBeschrijvingKort();?>
+</p>
+						</div>
+					</div>
+				</td>
+				<td data-th="Price">&euro; <?php echo $_smarty_tpl->tpl_vars['product']->value->getPrijs();?>
+</td>
+				<td data-th="Quantity">
+					<input type="number" min="1" id="input<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
+" onchange="update(<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
+, <?php echo $_smarty_tpl->tpl_vars['product']->value->getPrijs();?>
+)" class="form-control text-center" value="1">
+				</td>
+				<td data-th="Subtotal" data-price="<?php echo $_smarty_tpl->tpl_vars['product']->value->getPrijs();?>
+" id="<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
+" class="product-price text-center">&euro; <?php echo $_smarty_tpl->tpl_vars['product']->value->getPrijs();?>
+</td>
+				<td class="actions">
+					<a href="/home/removefromcart?id=<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
+" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></a>								
+				</td>
+			</tr>
+			<?php } ?>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td><a href="/home/index" class="btn btn-warning"><i class="glyphicon glyphicon-chevron-left"></i>Ga door met winkelen</a></td>
+				<td colspan="2" class="hidden-xs"></td>
+				<td class="hidden-xs text-center total-price"></td>
+				<td><a href="#" class="btn btn-success btn-block">Betalen <i class="glyphicon glyphicon-chevron-right"></i></a></td>
+			</tr>
+		</tfoot>
+	</table>
 </div><?php }} ?>

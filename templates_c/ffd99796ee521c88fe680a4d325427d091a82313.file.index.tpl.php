@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-19 10:03:26
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-24 09:27:50
          compiled from "app\view\cms\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:28035506b8ab2c5304-39722742%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ffd99796ee521c88fe680a4d325427d091a82313' => 
     array (
       0 => 'app\\view\\cms\\index.tpl',
-      1 => 1426755802,
+      1 => 1427185537,
       2 => 'file',
     ),
   ),
@@ -39,6 +39,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				    		<input class="btn btn-lg btn-success btn-block" type="submit" value="Login">
 				    	</fieldset>
 			      	</form>
+					<div class="vertical-offset-7">
+						<a href="/home/" class="btn btn-primary btn-lg btn-block" role="button">Ga terug</a>
+					</div>
 			    </div>
 			</div>
 		</div>

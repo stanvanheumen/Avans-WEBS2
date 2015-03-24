@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-19 14:04:12
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-24 09:25:45
          compiled from "app\view\home\partial\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:77015506b87d4cea71-39422611%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '05bc796b59176bb95fc96ed999d2513b2b1049fd' => 
     array (
       0 => 'app\\view\\home\\partial\\header.tpl',
-      1 => 1426770246,
+      1 => 1427185537,
       2 => 'file',
     ),
   ),
@@ -45,6 +45,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		
 		<link href="/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 		<link href="/assets/css/style.css" rel="stylesheet" type="text/css">
+		<link href="/assets/css/jquery.fancybox.css" rel="stylesheet" type="text/css">
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 	</head>
 
@@ -69,7 +70,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 							<ul class="dropdown-menu mega-dropdown-menu row">
 								<li class="col-sm-3">
 									<ul>
-										<li class="dropdown-header">Categorie</li>
+										<li class="dropdown-header"><a href="#">Alle Categorie&euml;n</a></li>
 										<li class="divider"></li>
 									  	<?php  $_smarty_tpl->tpl_vars['cat'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['cat']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['categories']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
@@ -152,7 +153,7 @@ $_smarty_tpl->tpl_vars['toy']->_loop = true;
 								<input type="search" class="form-control input-lg"
 									name="search-query" id="search-query" placeholder="Zoeken in alle artikelen..." />
 								<div class="input-group-btn">
-									<button class="btn btn-lg btn-blue" type="submit" id="Search">
+									<button class="btn btn-lg btn-primary" type="submit" id="Search">
 										<span class="glyphicon glyphicon-search"></span>
 									</button>
 								</div>

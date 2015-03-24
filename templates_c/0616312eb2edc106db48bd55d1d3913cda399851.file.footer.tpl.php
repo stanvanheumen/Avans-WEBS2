@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-16 12:03:25
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-24 09:25:46
          compiled from "app\view\home\partial\footer.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:38675506b87da052e1-84095875%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0616312eb2edc106db48bd55d1d3913cda399851' => 
     array (
       0 => 'app\\view\\home\\partial\\footer.tpl',
-      1 => 1426503750,
+      1 => 1427185537,
       2 => 'file',
     ),
   ),
@@ -15,13 +15,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_5506b87da141e7_64071637',
   'variables' => 
   array (
     'year' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5506b87da141e7_64071637',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5506b87da141e7_64071637')) {function content_5506b87da141e7_64071637($_smarty_tpl) {?>		<div class="container">
 			<!-- main-footer -->
@@ -76,6 +76,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 >
 		<?php echo '<script'; ?>
  src="/assets/js/bootstrap.min.js"><?php echo '</script'; ?>
+>
+		<?php echo '<script'; ?>
+ src="/assets/js/jquery.fancybox.js"><?php echo '</script'; ?>
+>
+		<?php echo '<script'; ?>
+ src="/assets/js/webshop.js"><?php echo '</script'; ?>
 >
 	</body>
 </html><?php }} ?>
