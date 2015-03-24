@@ -38,7 +38,7 @@
 									<ul>
 										<li class="dropdown-header"><a href="#">Alle Categorie&euml;n</a></li>
 										<li class="divider"></li>
-									  	{foreach $categories as $cat}
+										{foreach $categories as $cat}
 										<li><a href="/home/assortment?categorie={$cat->getId()}">{$cat->getNaam()}</a></li>
 										{/foreach}
 									</ul>
@@ -75,8 +75,18 @@
 					</ul>
 					<ul class="nav navbar-nav pull-right">
 						{if isset($smarty.session.home_authenticated) && $smarty.session.home_authenticated == 1}
-						<li><a href="/home/account">Mijn account</a></li>
-						<li><a href="/home/logout">Log uit</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+								{if isset($user_name)}
+								{$user_name} <span class="caret"></span>
+								{/if}
+							</a>
+							<ul class="dropdown-menu account-menu" role="menu">
+								<li><a href="/home/account">Winkelwagentje</a></li>
+								<li class="divider"></li>
+								<li><a href="/home/logout">Log uit</a></li>
+							</ul>
+						</li>
 						{else}
 						<li><a href="/home/login">Inloggen</a></li>
 						<li><a href="/home/register">Registreren</a></li>

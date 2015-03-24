@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-23 16:43:46
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-23 23:25:21
          compiled from "app\view\home\partial\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:152885504cf2864e144-41746963%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1d6ae20fa24257141043b4465874c54dfbdb3689' => 
     array (
       0 => 'app\\view\\home\\partial\\header.tpl',
-      1 => 1427111709,
+      1 => 1427149520,
       2 => 'file',
     ),
   ),
@@ -28,6 +28,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'computer' => 0,
     'toys' => 0,
     'toy' => 0,
+    'user_name' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -72,7 +73,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 									<ul>
 										<li class="dropdown-header"><a href="#">Alle Categorie&euml;n</a></li>
 										<li class="divider"></li>
-									  	<?php  $_smarty_tpl->tpl_vars['cat'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['cat']->_loop = false;
+										<?php  $_smarty_tpl->tpl_vars['cat'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['cat']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['categories']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['cat']->key => $_smarty_tpl->tpl_vars['cat']->value) {
 $_smarty_tpl->tpl_vars['cat']->_loop = true;
@@ -133,8 +134,19 @@ $_smarty_tpl->tpl_vars['toy']->_loop = true;
 					</ul>
 					<ul class="nav navbar-nav pull-right">
 						<?php if (isset($_SESSION['home_authenticated'])&&$_SESSION['home_authenticated']==1) {?>
-						<li><a href="/home/account">Mijn account</a></li>
-						<li><a href="/home/logout">Log uit</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+								<?php if (isset($_smarty_tpl->tpl_vars['user_name']->value)) {?>
+								<?php echo $_smarty_tpl->tpl_vars['user_name']->value;?>
+ <span class="caret"></span>
+								<?php }?>
+							</a>
+							<ul class="dropdown-menu account-menu" role="menu">
+								<li><a href="/home/account">Winkelwagentje</a></li>
+								<li class="divider"></li>
+								<li><a href="/home/logout">Log uit</a></li>
+							</ul>
+						</li>
 						<?php } else { ?>
 						<li><a href="/home/login">Inloggen</a></li>
 						<li><a href="/home/register">Registreren</a></li>

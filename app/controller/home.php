@@ -253,6 +253,7 @@ class Home extends Controller {
 			if ($user != null && $user->getRankNaam() == 'member') {
 				if(password_verify($this->db->escape($_POST['password']), $user->getHash())) {
 					$_SESSION['home_authenticated'] = 1;
+					$_SESSION['user_id'] = $user->getId();
 					$this->redirect('/home/index?authenticated=1');
 					return;
 				}
@@ -264,7 +265,8 @@ class Home extends Controller {
 	public function view($view, $data = []) {
 		require_once ('app/model/categorie.inc.php');
 		require_once ('app/model/product.inc.php');
-		
+		require_once ('app/model/account.inc.php');
+
 		$categories = $this->db->queryArray('SELECT * FROM categorie ORDER BY naam', 'Categorie');
 		$games 		= $this->db->queryArray('SELECT * FROM product WHERE categorie_id = 6 LIMIT 8', 'Product');
 		$computers 	= $this->db->queryArray('SELECT * FROM product WHERE categorie_id = 2 LIMIT 8', 'Product');
@@ -274,6 +276,14 @@ class Home extends Controller {
 		$this->smarty->assign('games', $games);
 		$this->smarty->assign('computers', $computers);
 		$this->smarty->assign('toys', $toys);
+
+		$id = $_SESSION["user_id"];
+
+		if (isset($_SESSION['user_id'])) {
+			$user = $this->db->queryObject("SELECT * FROM account WHERE id = '$id'", 'Account');
+			$this->smarty->assign('user_name', $user->getVoornaam());
+		}
+
 		$this->smarty->display('app/view/home/partial/header.tpl');
 		
 		$this->smarty->display('app/view/' . $view . '.tpl');

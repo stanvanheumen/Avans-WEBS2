@@ -57,6 +57,10 @@ body {
 	margin-top:20px;
 }
 
+.navbar-nav>li>.account-menu {
+	margin-top:0px;
+}
+
 .navbar-default .navbar-nav>li>a {
 	font-weight:bold;
 }
