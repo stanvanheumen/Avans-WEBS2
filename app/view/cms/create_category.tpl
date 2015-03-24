@@ -13,6 +13,16 @@
 							<input type="text" class="form-control" id="naam" name="naam" placeholder="Naam" required />
 						</div>
 						
+						<div class="form-group">
+							<label for="categorie">Hoofd Categorie</label>
+							<select class="form-control" id="categorie_id" name="categorie_id" required>
+								<option value="-1" selected>Nieuw</option>
+								{foreach $categorie as $cat}
+								<option value="{$cat->getId()}">{$cat->getNaam()}</option>
+								{/foreach}
+							</select>
+						</div>
+						
 						<div class="pull-right">
 							<button type="submit" class="btn btn-default">Toevoegen</button>
 							<a href="/cms/categories" class="btn btn-default">Annuleren</a>

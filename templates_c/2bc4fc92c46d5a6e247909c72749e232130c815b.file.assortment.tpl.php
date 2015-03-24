@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-22 17:09:31
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-24 19:53:10
          compiled from "app\view\home\assortment.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:10415501900a6e4624-26074044%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '2bc4fc92c46d5a6e247909c72749e232130c815b' => 
     array (
       0 => 'app\\view\\home\\assortment.tpl',
-      1 => 1427021083,
+      1 => 1427223151,
       2 => 'file',
     ),
   ),
@@ -19,9 +19,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'unifunc' => 'content_5501900a712011_27389421',
   'variables' => 
   array (
-    'categories' => 0,
-    'cat' => 0,
+    'sub_categories' => 0,
     'currcategory' => 0,
+    'cat' => 0,
+    'assort_categories' => 0,
     'category' => 0,
     'products' => 0,
     'product' => 0,
@@ -37,6 +38,31 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	</div>
 	<div class="row">
 		<div class="col-sm-3">
+			<?php if (isset($_smarty_tpl->tpl_vars['sub_categories']->value)) {?>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Subcategorie&euml;n</h3>
+				</div>
+				<ul class="list-group">
+					<?php  $_smarty_tpl->tpl_vars['cat'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['cat']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['sub_categories']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['cat']->key => $_smarty_tpl->tpl_vars['cat']->value) {
+$_smarty_tpl->tpl_vars['cat']->_loop = true;
+?> 
+						<?php if (isset($_smarty_tpl->tpl_vars['currcategory']->value)&&$_smarty_tpl->tpl_vars['cat']->value->getId()==$_smarty_tpl->tpl_vars['currcategory']->value) {?>
+							<li class="list-group-item cat-active"><a href="?categorie=<?php echo $_smarty_tpl->tpl_vars['cat']->value->getId();?>
+"><?php echo $_smarty_tpl->tpl_vars['cat']->value->getNaam();?>
+</a></li>
+						<?php } else { ?>
+							<li class="list-group-item"><a href="?categorie=<?php echo $_smarty_tpl->tpl_vars['cat']->value->getId();?>
+"><?php echo $_smarty_tpl->tpl_vars['cat']->value->getNaam();?>
+</a></li>
+						<?php }?>
+					<?php } ?> 
+				</ul>
+			</div>
+			<?php }?>
+		
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h3 class="panel-title">Categorie&euml;n</h3>
@@ -44,11 +70,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				<ul class="list-group">
 					<li class="list-group-item active-link"><a href="#">Alle artikelen</a></li>		
 					<?php  $_smarty_tpl->tpl_vars['cat'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['cat']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['categories']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+ $_from = $_smarty_tpl->tpl_vars['assort_categories']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['cat']->key => $_smarty_tpl->tpl_vars['cat']->value) {
 $_smarty_tpl->tpl_vars['cat']->_loop = true;
 ?> 
-						<?php if ($_smarty_tpl->tpl_vars['cat']->value->getId()==$_smarty_tpl->tpl_vars['currcategory']->value) {?>
+						<?php if (isset($_smarty_tpl->tpl_vars['currcategory']->value)&&$_smarty_tpl->tpl_vars['cat']->value->getId()==$_smarty_tpl->tpl_vars['currcategory']->value) {?>
 							<li class="list-group-item cat-active"><a href="?categorie=<?php echo $_smarty_tpl->tpl_vars['cat']->value->getId();?>
 "><?php echo $_smarty_tpl->tpl_vars['cat']->value->getNaam();?>
 </a></li>

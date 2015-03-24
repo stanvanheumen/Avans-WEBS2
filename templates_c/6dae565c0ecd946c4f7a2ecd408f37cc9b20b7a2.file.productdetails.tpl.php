@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-22 18:07:18
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-24 19:15:50
          compiled from "app\view\home\productdetails.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:286495501c8b33e6ab1-31103040%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6dae565c0ecd946c4f7a2ecd408f37cc9b20b7a2' => 
     array (
       0 => 'app\\view\\home\\productdetails.tpl',
-      1 => 1427044028,
+      1 => 1427220147,
       2 => 'file',
     ),
   ),
@@ -20,6 +20,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'product' => 0,
+    'thumbnail' => 0,
+    'product_afbeeldingen' => 0,
+    'afbeelding' => 0,
     'in_shopping_cart' => 0,
   ),
   'has_nocache_code' => false,
@@ -30,38 +33,32 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	<div class="row">
 		<div class="col-md-4">
 			<div class="col-md-8">
-				<a class="fancybox" href="/assets/images/404.png" title="404" rel="ligthbox">
+				<a class="fancybox" href="/<?php echo $_smarty_tpl->tpl_vars['thumbnail']->value->getLink();?>
+" rel="ligthbox">
 					<div class="panel panel-default">
 						<div class="panel-body product-thumbnail">
-							<img src="/assets/images/404.png" class="img-responsive center-block">
+							<img src="/<?php echo $_smarty_tpl->tpl_vars['thumbnail']->value->getLink();?>
+" class="img-responsive center-block">
 						</div>
 					</div>
 				</a>
 			</div>
 			<div class="col-md-4">
-				<a class="fancybox" href="/assets/images/404.png" title="404" rel="ligthbox">
+				<?php  $_smarty_tpl->tpl_vars['afbeelding'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['afbeelding']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['product_afbeeldingen']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['afbeelding']->key => $_smarty_tpl->tpl_vars['afbeelding']->value) {
+$_smarty_tpl->tpl_vars['afbeelding']->_loop = true;
+?>
+				<a class="fancybox" href="/<?php echo $_smarty_tpl->tpl_vars['afbeelding']->value->getLink();?>
+" rel="ligthbox">
 					<div class="panel panel-default pull-left">
 						<div class="panel-body product-image">
-							<img src="/assets/images/404.png" class="img-responsive center-block">
+							<img src="/<?php echo $_smarty_tpl->tpl_vars['afbeelding']->value->getLink();?>
+" class="img-responsive center-block">
 						</div>
 					</div>
 				</a>
-				
-				<a class="fancybox" href="/assets/images/404.png" title="404" rel="ligthbox">
-					<div class="panel panel-default pull-left">
-						<div class="panel-body product-image">
-							<img src="/assets/images/404.png" class="img-responsive center-block">
-						</div>
-					</div>
-				</a>
-				
-				<a class="fancybox" href="/assets/images/404.png" title="404" rel="ligthbox">
-					<div class="panel panel-default pull-left">
-						<div class="panel-body product-image">
-							<img src="/assets/images/404.png" class="img-responsive center-block">
-						</div>
-					</div>
-				</a>
+				<?php } ?>
 			</div>
 		</div>
 		<div class="col-md-8">

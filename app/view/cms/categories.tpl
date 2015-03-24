@@ -28,6 +28,17 @@
 							<a class="btn btn-danger" href="/cms/delete_category?id={$categorie->getId()}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 						</td>
 					</tr>
+					{foreach $sub_categories as $subcategorie}
+					{if $subcategorie->getCategorieParent() == $categorie->getId()}
+					<tr>
+						<td class="col-md-10 horizontal-offset-20">{$categorie->getNaam()} &gt; {$subcategorie->getNaam()}</td>
+						<td class="col-md-2 text-centered">
+							<a class="btn btn-warning" href="/cms/edit_category?id={$subcategorie->getId()}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+							<a class="btn btn-danger" href="/cms/delete_category?id={$subcategorie->getId()}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+						</td>
+					</tr>
+					{/if}
+					{/foreach}
 					{/foreach}
 				</table>
 			</div>

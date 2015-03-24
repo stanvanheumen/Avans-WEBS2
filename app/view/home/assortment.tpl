@@ -6,14 +6,31 @@
 	</div>
 	<div class="row">
 		<div class="col-sm-3">
+			{if isset($sub_categories)}
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">Subcategorie&euml;n</h3>
+				</div>
+				<ul class="list-group">
+					{foreach $sub_categories as $cat} 
+						{if isset($currcategory) && $cat->getId() eq $currcategory}
+							<li class="list-group-item cat-active"><a href="?categorie={$cat->getId()}">{$cat->getNaam()}</a></li>
+						{else}
+							<li class="list-group-item"><a href="?categorie={$cat->getId()}">{$cat->getNaam()}</a></li>
+						{/if}
+					{/foreach} 
+				</ul>
+			</div>
+			{/if}
+		
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h3 class="panel-title">Categorie&euml;n</h3>
 				</div>
 				<ul class="list-group">
 					<li class="list-group-item active-link"><a href="#">Alle artikelen</a></li>		
-					{foreach $categories as $cat} 
-						{if $cat->getId() eq $currcategory}
+					{foreach $assort_categories as $cat} 
+						{if isset($currcategory) && $cat->getId() eq $currcategory}
 							<li class="list-group-item cat-active"><a href="?categorie={$cat->getId()}">{$cat->getNaam()}</a></li>
 						{else}
 							<li class="list-group-item"><a href="?categorie={$cat->getId()}">{$cat->getNaam()}</a></li>

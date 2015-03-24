@@ -221,9 +221,11 @@ class CMS extends Controller {
 		$this->smart('Categorie&#235;n');
 
 		require_once ('app/model/categorie.inc.php');
-		$categories = $this->db->queryArray('SELECT * FROM categorie ORDER BY naam ASC', 'Categorie');
+		$categories = $this->db->queryArray('SELECT * FROM categorie WHERE categorie_parent IS NULL ORDER BY naam ASC', 'Categorie');
+		$subcategories = $this->db->queryArray('SELECT * FROM categorie WHERE categorie_parent IS NOT NULL ORDER BY naam ASC', 'Categorie');
 
 		$this->smarty->assign('categories', $categories);
+		$this->smarty->assign('sub_categories', $subcategories);
 
 		// Render view
 		$this->view('cms/categories');
@@ -237,6 +239,13 @@ class CMS extends Controller {
 		// Require models
 		$this->smart('Categorie aanmaken');
 		
+		require_once ('app/model/categorie.inc.php');
+
+		// Database requests
+		$categorie = $this->db->queryArray('SELECT * FROM categorie WHERE categorie_parent IS NULL', 'Categorie');
+
+		$this->smarty->assign('categorie', $categorie);
+		
 		// Render view
 		$this->view('cms/create_category');
 	}
@@ -247,8 +256,14 @@ class CMS extends Controller {
 		
 		// Database requests
 		$naam = $this->db->escape($_POST['naam']);
+		$category = $this->db->escape($_POST['categorie_id']);
 		
-		$this->db->query("INSERT INTO categorie (naam) VALUES ('$naam')");
+		if($category == -1) {
+			$this->db->query("INSERT INTO categorie (naam) VALUES ('$naam')");
+		} else {
+			$this->db->query("INSERT INTO categorie (naam, categorie_parent) VALUES ('$naam', '$category')");
+		}
+		
 		
 		// Redirecting
 		$this->redirect('/cms/categories');
@@ -269,13 +284,50 @@ class CMS extends Controller {
 
 		// Database requests
 		$id = $this->db->escape($_GET['id']);
-
+		
 		$categorie = $this->db->queryObject("SELECT * FROM categorie WHERE id = '$id'", 'Categorie');
+		
+		// IMPORTANT: we cannot change a parent category into a subparent category since the parent category can contain subcategories...
+		// however, we can change a subcategory into a parent category, or move the subcategory to another category
+		if($categorie->getCategorieParent() != null) {
+			$parent_category = new Categorie();
+			$parent_category->setId(-1);
+			$parent_category->setNaam('Geen');
+			
+			$categories = $this->db->queryArray("SELECT * FROM categorie WHERE categorie_parent IS NULL", 'Categorie');
+			/// disabled for now since changes cant be undone //array_unshift($categories, $parent_category); // prepend empty category
+			$this->smarty->assign('parent_categories', $categories);
+		}
 
 		$this->smarty->assign('categorie', $categorie);
 		
 		// Render view
 		$this->view('cms/edit_category');
+	}
+	
+	public function edit_category_post() {
+		if(!$this->authenticate_check()) {
+			return;
+		}
+			
+		if(!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+			$this->redirect('/cms/categories');
+			return;
+		}
+		
+		// Database requests
+		$id = $this->db->escape($_GET['id']);
+		$naam = $this->db->escape($_POST['naam']);
+		
+		if(isset($_POST['categorie_id'])) {
+			$category = $this->db->escape($_POST['categorie_id']);
+			$this->db->query("UPDATE categorie SET naam='$naam', categorie_parent='$category' WHERE id='$id'");
+		} else {
+			$this->db->query("UPDATE categorie SET naam='$naam' WHERE id='$id'");
+		}
+		
+		// Redirecting
+		$this->redirect('/cms/categories');
 	}
 
 	public function delete_category() {

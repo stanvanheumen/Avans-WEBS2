@@ -115,19 +115,47 @@ class Home extends Controller {
 			$search_category = $this->db->queryObject("SELECT * FROM categorie WHERE id = '" . $this->db->escape($_GET['categorie']) . "'", 'Categorie');
 		}
 		
-		$categories = $this->db->queryArray("SELECT * FROM categorie ORDER BY naam", 'Categorie');
+		
+		$assort_categories = $this->db->queryArray("SELECT * FROM categorie WHERE categorie_parent IS NULL ORDER BY naam", 'Categorie');
 		
 		$category = ($search_category ? $search_category->getNaam () : "Producten");
 		
 		if($search_category) {
-			$producten = $this->db->queryArray("SELECT * FROM product WHERE categorie_id = '" . $this->db->escape($search_category->getId()) . "'", 'Product');
+			$producten = null;
+			$id = $this->db->escape($search_category->getId());
+			if($search_category->getCategorieParent() == null) {
+				// include all products in all subcategories and current category
+				$producten = $this->db->queryArray("SELECT * FROM product WHERE categorie_id IN (SELECT id FROM categorie WHERE id='$id' OR categorie_parent='$id')", 'Product');
+			} else {
+				// include all products in current category
+				$producten = $this->db->queryArray("SELECT * FROM product WHERE categorie_id = '$id'", 'Product');
+			}
 			$this->smarty->assign('products', $producten);
 			$this->smarty->assign('last_product', end($producten));
 		}
 		
 		$this->smarty->assign('category', $category);
-		$this->smarty->assign('currcategory', $_GET['categorie']);
-		$this->smarty->assign('categories', $categories);
+		if(isset($_GET['categorie'])) {
+			$this->smarty->assign('currcategory', $_GET['categorie']);
+			
+			if($search_category) {
+				$parent_id = 0;
+				if($search_category->getCategorieParent() != null) {
+					// get all subcategories from parent
+					$parent_id = $search_category->getCategorieParent();
+				} else {
+					// get all subcategories from this one
+					$parent_id = $search_category->getId();
+				}
+				
+				$sub_categories = $this->db->queryArray("SELECT * FROM categorie WHERE categorie_parent='$parent_id' ORDER BY naam", 'Categorie');
+				
+				if(!empty($sub_categories)) {
+					$this->smarty->assign('sub_categories', $sub_categories);
+				}
+			}
+		}
+		$this->smarty->assign('assort_categories', $assort_categories);
 		
 		// Render view
 		$this->view('home/assortment');
@@ -267,7 +295,7 @@ class Home extends Controller {
 		require_once ('app/model/product.inc.php');
 		require_once ('app/model/account.inc.php');
 
-		$categories = $this->db->queryArray('SELECT * FROM categorie ORDER BY naam', 'Categorie');
+		$categories = $this->db->queryArray('SELECT * FROM categorie WHERE categorie_parent IS NULL ORDER BY naam', 'Categorie');
 		$games 		= $this->db->queryArray('SELECT * FROM product WHERE categorie_id = 6 LIMIT 8', 'Product');
 		$computers 	= $this->db->queryArray('SELECT * FROM product WHERE categorie_id = 2 LIMIT 8', 'Product');
 		$toys 		= $this->db->queryArray('SELECT * FROM product WHERE categorie_id = 7 LIMIT 8', 'Product');

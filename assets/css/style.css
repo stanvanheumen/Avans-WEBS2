@@ -191,6 +191,10 @@ body {
 	padding-top: 60px;
 }
 
+.horizontal-offset-20 {
+	padding-left: 80px !important;
+}
+
 .text-centered {
 	text-align: center;
 }

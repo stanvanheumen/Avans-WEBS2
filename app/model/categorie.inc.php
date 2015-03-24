@@ -17,6 +17,18 @@ class Categorie {
 		return $this->categorie_parent;
 	}
 	
+	public function setId($id) {
+		$this->id = $id;
+	}
+	
+	public function setNaam($naam) {
+		$this->naam = $naam;
+	}
+	
+	public function setCategorieParent($categorie_parent) {
+		$this->categorie_parent = $categorie_parent;
+	}
+	
 }
 
 ?>
