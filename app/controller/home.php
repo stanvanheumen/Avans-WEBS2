@@ -101,6 +101,33 @@ class Home extends Controller {
 		}
 		$this->redirect('/home/account');
 	}
+
+	public function pay() {
+		require_once ('app/model/bestelling.inc.php');
+		require_once ('app/model/product.inc.php');
+
+		if (!isset($_SESSION['shoppingcart']) || !isset($_SESSION['user_id'])) {
+			$this->redirect('/home/account');
+		}
+
+		$user_id = $_SESSION['user_id'];
+		$this->db->query("INSERT INTO bestelling VALUES (NULL, '$user_id', '1')");
+
+		$bestelling = $this->db->queryObject("SELECT * FROM bestelling ORDER BY id DESC LIMIT 1", 'Bestelling');
+
+		$bestelling_id = $bestelling->getId();
+
+		foreach($_SESSION['shoppingcart'] as $result) {
+			if (isset($_POST[$result])) {
+				$product = $this->db->queryObject("SELECT * FROM product WHERE id = '$result'", 'Product');
+				$product_id = $product->getId();
+				$product_prijs = $product->getPrijs();
+				$this->db->query("INSERT INTO bestelproduct VALUES ('$bestelling_id', '$product_id', '$product_prijs', '0', '$_POST[$result]')");
+			}
+		}
+		$_SESSION['shoppingcart'] = [];
+		$this->redirect('/home/account');
+	}
 	
 	public function assortment() {
 		// Require models
@@ -250,11 +277,14 @@ class Home extends Controller {
 
 		// Require models
 		require_once ('app/model/product.inc.php');
+		require_once ('app/model/bestelling.inc.php');
+		require_once ('app/model/bestelproduct.inc.php');
 		$this->smart('Mijn Account');
 
 		if (!isset($_SESSION['shoppingcart'])) {
 			$_SESSION['shoppingcart'] = [];
 		}
+
 		$temp = '';
 		
 		if(!empty($_SESSION['shoppingcart'])) {
@@ -266,7 +296,22 @@ class Home extends Controller {
 			$products = $this->db->queryArray("SELECT * FROM product WHERE id IN $temp", 'Product');
 		}
 
+		$user_id = $_SESSION['user_id'];
+
+		$orders = $this->db->query("SELECT id FROM bestelling WHERE account_id = '$user_id'");
+
+		$allProductFromOrders = [];
+
+		while ($row = $orders->fetch_array()) {
+			$b_id = $row['id'];
+			$allProducts = $this->db->queryArray("SELECT * FROM bestelproduct WHERE bestelling_id = '$b_id'", 'bestelproduct');
+			foreach($allProducts as $temp) {
+				array_push($allProductFromOrders, $temp);
+			}
+		}
+
 		$this->smarty->assign('products', $products);
+		$this->smarty->assign('orderedProducts', $allProductFromOrders);
 
 		// Render view
 		$this->view('home/account');

@@ -17,17 +17,10 @@
 				<table class="table table-bordered">
 					<tr>
 						<th class="col-md-8">Id</th>
-						<th class="col-md-2">Betaalmethode</th>
-						<th class="col-md-2 text-centered">Opties</th>
 					</tr>
 					{foreach $orders as $order}
 					<tr>
 						<td class="col-md-8">{$order->getId()}</td>
-						<td class="col-md-2">&euro; {$order->getBetaalMethodeId()}</td>
-						<td class="col-md-2 text-centered">
-							<a class="btn btn-warning" href="/cms/edit_order?id={$order->getId()}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-							<a class="btn btn-danger" href="/cms/delete_order?id={$order->getId()}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-						</td>
 					</tr>
 					{/foreach}
 				</table>

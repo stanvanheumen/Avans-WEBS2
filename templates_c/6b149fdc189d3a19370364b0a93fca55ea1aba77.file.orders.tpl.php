@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-20 15:25:27
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-24 22:22:19
          compiled from "app\view\cms\orders.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:584550c2da4604167-62824243%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6b149fdc189d3a19370364b0a93fca55ea1aba77' => 
     array (
       0 => 'app\\view\\cms\\orders.tpl',
-      1 => 1426861525,
+      1 => 1427232138,
       2 => 'file',
     ),
   ),
@@ -43,8 +43,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				<table class="table table-bordered">
 					<tr>
 						<th class="col-md-8">Id</th>
-						<th class="col-md-2">Betaalmethode</th>
-						<th class="col-md-2 text-centered">Opties</th>
 					</tr>
 					<?php  $_smarty_tpl->tpl_vars['order'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['order']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['orders']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
@@ -54,14 +52,6 @@ $_smarty_tpl->tpl_vars['order']->_loop = true;
 					<tr>
 						<td class="col-md-8"><?php echo $_smarty_tpl->tpl_vars['order']->value->getId();?>
 </td>
-						<td class="col-md-2">&euro; <?php echo $_smarty_tpl->tpl_vars['order']->value->getBetaalMethodeId();?>
-</td>
-						<td class="col-md-2 text-centered">
-							<a class="btn btn-warning" href="/cms/edit_order?id=<?php echo $_smarty_tpl->tpl_vars['order']->value->getId();?>
-"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-							<a class="btn btn-danger" href="/cms/delete_order?id=<?php echo $_smarty_tpl->tpl_vars['order']->value->getId();?>
-"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
-						</td>
 					</tr>
 					<?php } ?>
 				</table>
