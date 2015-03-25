@@ -14,9 +14,9 @@
 					</tr>
 					<tr>
 						<td class="no-border"></td>
-						<td class="no-border"><img style="max-height: 100px;" src="/uploads/18_1.png" class="img-responsive center-block"></td>
-						<td class="no-border"><img style="max-height: 100px;" src="/uploads/13_1.png" class="img-responsive center-block"></td>
-						<td class="no-border"><img style="max-height: 100px;" src="/uploads/14_1.png" class="img-responsive center-block"></td>
+						<td class="no-border"><img style="max-height: 100px;" src="/uploads/3_1.png" class="img-responsive center-block"></td>
+						<td class="no-border"><img style="max-height: 100px;" src="/uploads/3_1.png" class="img-responsive center-block"></td>
+						<td class="no-border"><img style="max-height: 100px;" src="/uploads/3_1.png" class="img-responsive center-block"></td>
 					</tr>
 					<tr>
 						<td><b>Prijs</b></td>
