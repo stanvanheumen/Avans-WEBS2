@@ -111,7 +111,7 @@ class Home extends Controller {
 		}
 
 		$user_id = $_SESSION['user_id'];
-		$this->db->query("INSERT INTO bestelling VALUES (NULL, '$user_id', '1')");
+		$this->db->query("INSERT INTO bestelling VALUES (NULL, '$user_id', '1', '1')");
 
 		$bestelling = $this->db->queryObject("SELECT * FROM bestelling ORDER BY id DESC LIMIT 1", 'Bestelling');
 
@@ -122,7 +122,7 @@ class Home extends Controller {
 				$product = $this->db->queryObject("SELECT * FROM product WHERE id = '$result'", 'Product');
 				$product_id = $product->getId();
 				$product_prijs = $product->getPrijs();
-				$this->db->query("INSERT INTO bestelproduct VALUES ('$bestelling_id', '$product_id', '$product_prijs', '0', '$_POST[$result]', '1')");
+				$this->db->query("INSERT INTO bestelproduct VALUES ('$bestelling_id', '$product_id', '$product_prijs', '0', '$_POST[$result]')");
 			}
 		}
 		$_SESSION['shoppingcart'] = [];
