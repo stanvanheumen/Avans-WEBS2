@@ -205,7 +205,7 @@ class Home extends Controller {
 		require_once ('app/model/productafbeelding.inc.php');
 		$this->smart('Product Details');
 		
-		if(!isset($_GET['product_id'])) {
+		if(!isset($_GET['product_id']) || !is_numeric($_GET['product_id'])) {
 			$this->redirect('/home/assortment');
 			return;
 		}
