@@ -122,7 +122,7 @@ class Home extends Controller {
 				$product = $this->db->queryObject("SELECT * FROM product WHERE id = '$result'", 'Product');
 				$product_id = $product->getId();
 				$product_prijs = $product->getPrijs();
-				$this->db->query("INSERT INTO bestelproduct VALUES ('$bestelling_id', '$product_id', '$product_prijs', '0', '$_POST[$result]')");
+				$this->db->query("INSERT INTO bestelproduct VALUES ('$bestelling_id', '$product_id', '$product_prijs', '0', '$_POST[$result]', '1')");
 			}
 		}
 		$_SESSION['shoppingcart'] = [];
@@ -141,7 +141,6 @@ class Home extends Controller {
 		if (isset($_GET['categorie']) && is_numeric($_GET['categorie'])) {
 			$search_category = $this->db->queryObject("SELECT * FROM categorie WHERE id = '" . $this->db->escape($_GET['categorie']) . "'", 'Categorie');
 		}
-		
 		
 		$assort_categories = $this->db->queryArray("SELECT * FROM categorie WHERE categorie_parent IS NULL ORDER BY naam", 'Categorie');
 		
@@ -253,7 +252,7 @@ class Home extends Controller {
 			$this->redirect('/home/register');
 			return;
 		}
-		$this->db->query("INSERT INTO account VALUES (NULL, 'member', '$email', '$password', '$first_name', '$infix_name', '$last_name', '$street', '$postal_code', '$place', '$number', '$gender')");
+		$this->db->query("INSERT INTO account VALUES (NULL, 'member', '$email', '$password', '$first_name', '$infix_name', '$last_name', '$street', '$postal_code', '$place', '$number', '$gender', '1')");
 		$this->redirect('/home/index');
 	}
 	
@@ -353,7 +352,8 @@ class Home extends Controller {
 		if (isset($_SESSION['user_id'])) {	
 			$id = $_SESSION["user_id"];
 			$user = $this->db->queryObject("SELECT * FROM account WHERE id = '$id'", 'Account');
-			$this->smarty->assign('user_name', $user->getVoornaam());
+			if ($user != null)
+				$this->smarty->assign('user_name', $user->getVoornaam());
 		}
 
 		$this->smarty->display('app/view/home/partial/header.tpl');
