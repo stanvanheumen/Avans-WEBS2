@@ -21,33 +21,36 @@ $(document).ready(function(){
 	searchMonitor(".search-product-3");
 });
 
-function searchMonitor($class) {
-	$( $class ).keyup(function() {
-		searchProduct( $class, $(this).val() );
+function searchMonitor(className) {
+	$( className ).keyup(function() {
+		searchProduct( className, $(this).val() );
 	});
 	
-	$( $class ).focusout(function() {
-		$( $class + "-results" ).css('display', 'none');
+	$( className ).focusout(function() {
+		$( className + "-results" ).css('display', 'none');
 	});
 }
 
-function searchProduct($class, $val) {
+function searchProduct(className, $val) {
 	if($val.length == 0) {
-		$( $class + "-results" ).css('display', 'none');
-		$( $class + "-results" ).empty();
+		$( className + "-results" ).css('display', 'none');
+		$( className + "-results" ).empty();
 		return;
 	}
 	$.get( "/api/search?limit=5&filter=" + $val, function( json ) {
-		$( $class + "-results" ).css('display', 'none');
-		$( $class + "-results" ).empty();
+		$( className + "-results" ).css('display', 'none');
+		$( className + "-results" ).empty();
 		
 		for(var i = 0; i < json.length; i++) {
 			var obj = json[i];
-			$( $class + "-results" ).append("<li><a href=\"#\">" + obj.name + "</a></li>");
+			$( className + "-results" ).append("<li class='text-center'><a href=\"#\"><img src='/" + obj.thumb_link + "' class='img-responsive center-block' style='display: block; max-height: 50px;'>" + obj.name + "</a></li>");
+			if(i < json.length - 1) {
+				$( className + "-results" ).append("<li role=\"presentation\" class=\"divider\"></li>");
+			}
 		}
 		
 		if(json.length > 0) {
-			$( $class + "-results" ).css('display', 'block');
+			$( className + "-results" ).css('display', 'block');
 		}
 	}, "json");
 }

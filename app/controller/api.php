@@ -20,12 +20,13 @@ class Api extends Controller {
 		}
 		$filter = $this->db->escape($_GET['filter']);
 		
-		$products = $this->db->queryArray("SELECT * FROM product WHERE productnaam LIKE '%$filter%' AND zichtbaar = 1 LIMIT $limit", 'Product');
+		//$products = $this->db->queryArray("SELECT * FROM product WHERE productnaam LIKE '%$filter%' AND zichtbaar = 1 LIMIT $limit", 'Product');
+		$products = $this->db->queryArray("SELECT p.*, link FROM product AS p INNER JOIN productafbeelding AS pa ON p.id = pa.product_id AND pa.afbeeldingtype_type = 'thumbnail' WHERE productnaam LIKE '%$filter%' AND zichtbaar = 1 LIMIT $limit", 'Product');
 		
 		$arr = array();
 		
 		foreach($products as $product) {
-			$arr[] = array( "id" => $product->getId(), "name" => $product->getProductNaam());
+			$arr[] = array( "id" => $product->getId(), "name" => $product->getProductNaam(), "thumb_link" => $product->link);
 		}
 		
 		echo json_encode($arr);
