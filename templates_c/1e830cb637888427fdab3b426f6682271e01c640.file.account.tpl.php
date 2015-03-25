@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-24 22:21:06
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-25 17:08:17
          compiled from "app\view\home\account.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:5451550b0e18114ae0-56077541%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1e830cb637888427fdab3b426f6682271e01c640' => 
     array (
       0 => 'app\\view\\home\\account.tpl',
-      1 => 1427232053,
+      1 => 1427298875,
       2 => 'file',
     ),
   ),
@@ -104,10 +104,10 @@ $_smarty_tpl->tpl_vars['order']->_loop = true;
 							<img src="/uploads/<?php echo $_smarty_tpl->tpl_vars['order']->value->getProductId();?>
 _1.png" class="img-responsive center-block" alt="-" />
 						</div>
-						<h2>€<?php echo $_smarty_tpl->tpl_vars['order']->value->getPrijs();?>
-</h2>
-						<h3>x<?php echo $_smarty_tpl->tpl_vars['order']->value->getAantal();?>
-</h3>
+						<span class="search-title">&euro;<?php echo $_smarty_tpl->tpl_vars['order']->value->getPrijs();?>
+</span>
+						<span class="panel-title">x<?php echo $_smarty_tpl->tpl_vars['order']->value->getAantal();?>
+</span>
 					</div>
 					<?php } ?>
 				</div>

@@ -217,6 +217,10 @@ class Home extends Controller {
 		// Database requests
 		$product_id = $this->db->escape($_GET['product_id']);
 		$product = $this->db->queryObject("SELECT * FROM product WHERE id = '" . $product_id . "'", 'Product');
+		if ($product == null) {
+			$this->redirect('/home/assortment');
+			return;
+		}
 		$product_thumbnail = $this->db->queryObject("SELECT * FROM productafbeelding WHERE product_id = '" . $product_id . "' AND afbeeldingtype_type = 'thumbnail'", 'ProductAfbeelding');
 		$product_afbeeldingen = $this->db->queryArray("SELECT * FROM productafbeelding WHERE product_id = '" . $product_id . "' AND afbeeldingtype_type = 'afbeelding'", 'ProductAfbeelding');
 		
