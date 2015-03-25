@@ -86,7 +86,7 @@ class CMS extends Controller {
 		$this->smart('Producten');
 
 		require_once ('app/model/product.inc.php');
-		$products = $this->db->queryArray('SELECT * FROM product', 'Product');
+		$products = $this->db->queryArray('SELECT * FROM product WHERE zichtbaar = 1', 'Product');
 
 		$this->smarty->assign('products', $products);
 
@@ -150,8 +150,9 @@ class CMS extends Controller {
 	}
 
 	public function edit_product() {
-		if(!$this->authenticate_check())
+		if(!$this->authenticate_check()) {
 			return;
+		}
 		
 		if(!isset($_GET['id']) || !is_numeric($_GET['id'])) {
 			$this->redirect('/cms/products');
@@ -177,8 +178,9 @@ class CMS extends Controller {
 	}
 
 	public function edit_product_post() {
-		if(!$this->authenticate_check())
+		if(!$this->authenticate_check()) {
 			return;
+		}
 	
 		$id 				= $this->db->escape($_GET['id']);
 		$categorie_id 		= $this->db->escape($_POST['categorie_id']);
@@ -187,13 +189,21 @@ class CMS extends Controller {
 		$beschrijving_kort 	= $this->db->escape($_POST['beschrijving_kort']);
 		$beschrijving_lang 	= $this->db->escape($_POST['beschrijving_lang']);
 		$voorraad 			= $this->db->escape($_POST['voorraad']);
+
+		if (!is_numeric($prijs) || $prijs < 0 || !is_numeric($voorraad) || $voorraad < 0) {
+			$this->redirect('/cms/edit_product?id=' . $id);
+			return;
+		}
+
 		$this->db->query("UPDATE product SET categorie_id='$categorie_id', productnaam='$productnaam', prijs='$prijs', beschrijving='$beschrijving_lang', beschrijving_kort='$beschrijving_kort', voorraad='$voorraad' WHERE id='$id'");
 		$this->redirect('/cms/products');
 	}
 
 	public function delete_product() {
-		if(!$this->authenticate_check())
+		// Authentication checks
+		if(!$this->authenticate_check()) {
 			return;
+		}
 		
 		if(!isset($_GET['id']) || !is_numeric($_GET['id'])) {
 			$this->redirect('/cms/products');
@@ -202,10 +212,8 @@ class CMS extends Controller {
 	
 		$id = $this->db->escape($_GET['id']);
 
-		$this->db->query("DELETE FROM productafbeelding WHERE product_id='$id'");
-		
-		$this->db->query("DELETE FROM product WHERE id='$id'");
-		
+		$this->db->query("UPDATE product SET zichtbaar='0' WHERE id='$id'");
+
 		$this->redirect('/cms/products');
 	}
 
@@ -221,8 +229,8 @@ class CMS extends Controller {
 		$this->smart('Categorie&#235;n');
 
 		require_once ('app/model/categorie.inc.php');
-		$categories = $this->db->queryArray('SELECT * FROM categorie WHERE categorie_parent IS NULL ORDER BY naam ASC', 'Categorie');
-		$subcategories = $this->db->queryArray('SELECT * FROM categorie WHERE categorie_parent IS NOT NULL ORDER BY naam ASC', 'Categorie');
+		$categories = $this->db->queryArray('SELECT * FROM categorie WHERE categorie_parent IS NULL AND zichtbaar = 1 ORDER BY naam ASC', 'Categorie');
+		$subcategories = $this->db->queryArray('SELECT * FROM categorie WHERE categorie_parent IS NOT NULL AND zichtbaar = 1 ORDER BY naam ASC', 'Categorie');
 
 		$this->smarty->assign('categories', $categories);
 		$this->smarty->assign('sub_categories', $subcategories);
@@ -340,8 +348,9 @@ class CMS extends Controller {
 		}
 	
 		$id = $this->db->escape($_GET['id']);
-		$this->db->query("DELETE FROM categorie WHERE id = '$id'");
-		
+
+		$this->db->query("UPDATE categorie SET zichtbaar='0' WHERE id='$id'");
+
 		$this->redirect('/cms/categories');
 	}
 
@@ -358,7 +367,7 @@ class CMS extends Controller {
 
 		require_once ('app/model/bestelling.inc.php');
 		require_once ('app/model/account.inc.php');
-		$orders = $this->db->queryArray('SELECT * FROM bestelling', 'Bestelling');
+		$orders = $this->db->queryArray('SELECT * FROM bestelling WHERE zichtbaar = 1', 'Bestelling');
 		$accounts = $this->db->queryArray('SELECT * FROM account', 'Account');
 
 		$this->smarty->assign('accounts', $accounts);
@@ -407,14 +416,9 @@ class CMS extends Controller {
 		// Require models
 		$this->smart('Bestelling verwijderen');
 
-		require_once ('app/model/bestelproduct.inc.php');
-		require_once ('app/model/product.inc.php');
-
 		$id = $this->db->escape($_GET['id']);
 
-		$this->db->query("DELETE FROM bestelproduct WHERE bestelling_id='$id'");
-
-		$this->db->query("DELETE FROM bestelling WHERE id='$id'");
+		$this->db->query("UPDATE bestelling SET zichtbaar='0' WHERE id='$id'");
 
 		$this->redirect('/cms/orders');
 	}
@@ -432,12 +436,31 @@ class CMS extends Controller {
 		require_once ('app/model/account.inc.php');
 
 		// Database requests
-		$users = $this->db->queryArray('SELECT * FROM account', 'Account');
+		$users = $this->db->queryArray('SELECT * FROM account WHERE zichtbaar = 1', 'Account');
 		
 		$this->smarty->assign('users', $users);
 		
 		// Render view
 		$this->view('cms/users');
+	}
+
+	public function read_user() {
+		if(!$this->authenticate_check())
+			return;
+
+		if(!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+			$this->redirect('/cms/users');
+			return;
+		}
+
+		require_once ('app/model/account.inc.php');
+		$this->smart('Gebruiker bekijken');
+		$id = $this->db->escape($_GET['id']);
+		$user = $this->db->queryObject("SELECT * FROM account WHERE id='$id'", 'Account');
+		$this->smarty->assign('user', $user);
+
+		// Render view
+		$this->view('cms/read_user');
 	}
 
 	public function edit_user() {
@@ -511,7 +534,7 @@ class CMS extends Controller {
 		}
 	
 		$id = $this->db->escape($_GET['id']);
-		$this->db->query("DELETE FROM account WHERE id='$id'");
+		$this->db->query("UPDATE account SET zichtbaar='0' WHERE id='$id'");
 		
 		$this->redirect('/cms/users');
 	}

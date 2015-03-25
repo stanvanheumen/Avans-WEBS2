@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-20 15:21:26
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-25 17:42:19
          compiled from "app\view\cms\products.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:27554550867bbef9012-39955798%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '3ab98e066c14ad114f9a65bd149af70d057de4cb' => 
     array (
       0 => 'app\\view\\cms\\products.tpl',
-      1 => 1426861154,
+      1 => 1427301738,
       2 => 'file',
     ),
   ),
@@ -30,7 +30,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			<div class="panel panel-default">
 				<div class="panel-body text-centered">
 					<a class="btn btn-success" href="/cms/create_product"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
-					<a class="btn btn-blue" href="/cms/"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
 				</div>
 			</div>
 		</div>
@@ -58,9 +57,11 @@ $_smarty_tpl->tpl_vars['product']->_loop = true;
 						<td class="col-md-2">&euro; <?php echo $_smarty_tpl->tpl_vars['product']->value->getPrijs();?>
 </td>
 						<td class="col-md-2 text-centered">
+							<a href="/home/productdetails?product_id=<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
+" class="btn btn-primary"><span class="glyphicon glyphicon-sunglasses"></span></a>
 							<a class="btn btn-warning" href="/cms/edit_product?id=<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
 "><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-							<a class="btn btn-danger" href="/cms/delete_product?id=<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
+							<a onclick="return confirm('Weet je zeker dat je dit wilt verwijderen?');" class="btn btn-danger" href="/cms/delete_product?id=<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
 "><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 						</td>
 					</tr>

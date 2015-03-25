@@ -3,7 +3,7 @@
 		<div class="col-md-2 pull-right">
 			<div class="panel panel-default">
 				<div class="panel-body text-centered">
-					<a class="btn btn-blue" href="/cms/orders"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></a>
+					<a class="btn btn-primary" href="/cms/orders"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></a>
 				</div>
 			</div>
 		</div>

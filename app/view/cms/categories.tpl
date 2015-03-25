@@ -4,7 +4,6 @@
 			<div class="panel panel-default">
 				<div class="panel-body text-centered">
 					<a class="btn btn-success" href="/cms/create_category"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
-					<a class="btn btn-blue" href="/cms/"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
 				</div>
 			</div>
 		</div>
@@ -25,7 +24,7 @@
 						<td class="col-md-10">{$categorie->getNaam()}</td>
 						<td class="col-md-2 text-centered">
 							<a class="btn btn-warning" href="/cms/edit_category?id={$categorie->getId()}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-							<a class="btn btn-danger" href="/cms/delete_category?id={$categorie->getId()}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+							<a onclick="return confirm('Weet je zeker dat je dit wilt verwijderen?');" class="btn btn-danger" href="/cms/delete_category?id={$categorie->getId()}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 						</td>
 					</tr>
 					{foreach $sub_categories as $subcategorie}
@@ -34,7 +33,7 @@
 						<td class="col-md-10 horizontal-offset-20">{$categorie->getNaam()} &gt; {$subcategorie->getNaam()}</td>
 						<td class="col-md-2 text-centered">
 							<a class="btn btn-warning" href="/cms/edit_category?id={$subcategorie->getId()}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-							<a class="btn btn-danger" href="/cms/delete_category?id={$subcategorie->getId()}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+							<a onclick="return confirm('Weet je zeker dat je dit wilt verwijderen?');" class="btn btn-danger" href="/cms/delete_category?id={$subcategorie->getId()}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 						</td>
 					</tr>
 					{/if}
