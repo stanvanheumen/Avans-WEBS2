@@ -8,32 +8,46 @@ $(document).ready(function(){
         closeEffect: "none"
     });
 	
-	$( ".search-product-1" ).keyup(function() {
+	/*$( ".search-product-1" ).keyup(function() {
 		searchProduct( $(this).val() );
 	});
 	
 	$( ".search-product-1" ).focusout(function() {
 		$(".search-product-1-results").css('display', 'none');
-	});
+	});*/
+	
+	searchMonitor(".search-product-1");
+	searchMonitor(".search-product-2");
+	searchMonitor(".search-product-3");
 });
 
-function searchProduct($val) {
+function searchMonitor($class) {
+	$( $class ).keyup(function() {
+		searchProduct( $class, $(this).val() );
+	});
+	
+	$( $class ).focusout(function() {
+		$( $class + "-results" ).css('display', 'none');
+	});
+}
+
+function searchProduct($class, $val) {
 	if($val.length == 0) {
-		$(".search-product-1-results").css('display', 'none');
-		$(".search-product-1-results").empty();
+		$( $class + "-results" ).css('display', 'none');
+		$( $class + "-results" ).empty();
 		return;
 	}
 	$.get( "/api/search?limit=5&filter=" + $val, function( json ) {
-		$(".search-product-1-results").css('display', 'none');
-		$(".search-product-1-results").empty();
+		$( $class + "-results" ).css('display', 'none');
+		$( $class + "-results" ).empty();
 		
 		for(var i = 0; i < json.length; i++) {
 			var obj = json[i];
-			$(".search-product-1-results").append("<li><a href=\"#\">" + obj.name + "</a></li>");
+			$( $class + "-results" ).append("<li><a href=\"#\">" + obj.name + "</a></li>");
 		}
 		
 		if(json.length > 0) {
-			$(".search-product-1-results").css('display', 'block');
+			$( $class + "-results" ).css('display', 'block');
 		}
 	}, "json");
 }
