@@ -31,13 +31,13 @@ function searchMonitor(className) {
 	});
 }
 
-function searchProduct(className, $val) {
-	if($val.length == 0) {
+function searchProduct(className, value) {
+	if(value.length == 0) {
 		$( className + "-results" ).css('display', 'none');
 		$( className + "-results" ).empty();
 		return;
 	}
-	$.get( "/api/search?limit=5&filter=" + $val, function( json ) {
+	$.get( "/api/search?limit=5&filter=" + value, function( json ) {
 		$( className + "-results" ).css('display', 'none');
 		$( className + "-results" ).empty();
 		
