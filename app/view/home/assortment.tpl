@@ -53,7 +53,7 @@
 						<div class="col-md-6">
 							<div class="media">
 								<div class="media-left media-middle">
-									<img class="media-object" src="/assets/images/auction.png" alt="auction">
+									<img class="media-object" width="100" src="/uploads/{$product->getId()}_1.png" alt="auction">
 								</div>
 								<div class="media-body">
 									<h4 class="media-heading"><a href="productdetails?product_id={$product->getId()}">{$product->getProductNaam()}</a></h4>

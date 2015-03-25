@@ -1,12 +1,5 @@
 <div class="container">
 	<div class="row vertical-offset-20">
-		<div class="col-md-2 pull-right">
-			<div class="panel panel-default">
-				<div class="panel-body text-centered">
-					<a class="btn btn-blue" href="/cms/"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
-				</div>
-			</div>
-		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-12">
@@ -31,9 +24,8 @@
 						{/if}
 						{/foreach}
 						<td class="col-md-2 text-centered">
-							<a href="/cms/read_bestelling?id={$order->getId()}" class="btn btn-primary"><span class="
-glyphicon glyphicon-sunglasses"></span></a>
-							<a class="btn btn-danger" href="/cms/delete_bestelling?id={$order->getId()}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+							<a href="/cms/read_bestelling?id={$order->getId()}" class="btn btn-primary"><span class="glyphicon glyphicon-sunglasses"></span></a>
+							<a onclick="return confirm('Weet je zeker dat je dit wilt verwijderen?');" class="btn btn-danger" href="/cms/delete_bestelling?id={$order->getId()}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 						</td>
 					</tr>
 					{/foreach}

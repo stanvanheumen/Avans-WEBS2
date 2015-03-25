@@ -1,12 +1,5 @@
 <div class="container">
 	<div class="row vertical-offset-20">
-		<div class="col-md-2 pull-right">
-			<div class="panel panel-default">
-				<div class="panel-body text-centered">
-					<a class="btn btn-blue" href="/cms/"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
-				</div>
-			</div>
-		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-12">
@@ -29,8 +22,9 @@
 						<td class="col-md-2">{$user->getNaam()}</td>
 						<td class="col-md-3">{$user->getAdres()}</td>
 						<td class="col-md-2 text-centered">
+							<a href="/cms/read_user?id={$user->getId()}" class="btn btn-primary"><span class="glyphicon glyphicon-sunglasses"></span></a>
 							<a class="btn btn-warning" href="/cms/edit_user?id={$user->getId()}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-							<a class="btn btn-danger" href="/cms/delete_user?id={$user->getId()}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+							<a onclick="return confirm('Weet je zeker dat je dit wilt verwijderen?');" class="btn btn-danger" href="/cms/delete_user?id={$user->getId()}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 						</td>
 					</tr>
 					{/foreach}

@@ -2,9 +2,10 @@
 
 class Specificatie {
 	
-	private $id;
 	private $naam;
+
+	public function getNaam() {
+		return $this->naam;
+	}
 	
 }
-
-?>

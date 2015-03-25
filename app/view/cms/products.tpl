@@ -4,7 +4,6 @@
 			<div class="panel panel-default">
 				<div class="panel-body text-centered">
 					<a class="btn btn-success" href="/cms/create_product"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
-					<a class="btn btn-blue" href="/cms/"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
 				</div>
 			</div>
 		</div>
@@ -26,8 +25,9 @@
 						<td class="col-md-8">{$product->getProductNaam()}</td>
 						<td class="col-md-2">&euro; {$product->getPrijs()}</td>
 						<td class="col-md-2 text-centered">
+							<a href="/home/productdetails?product_id={$product->getId()}" class="btn btn-primary"><span class="glyphicon glyphicon-sunglasses"></span></a>
 							<a class="btn btn-warning" href="/cms/edit_product?id={$product->getId()}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-							<a class="btn btn-danger" href="/cms/delete_product?id={$product->getId()}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+							<a onclick="return confirm('Weet je zeker dat je dit wilt verwijderen?');" class="btn btn-danger" href="/cms/delete_product?id={$product->getId()}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 						</td>
 					</tr>
 					{/foreach}

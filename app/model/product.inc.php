@@ -1,16 +1,18 @@
 <?php
 
 class Product {
+
 	private $id;
 	private $categorie_id;
 	private $productnaam;
 	private $prijs;
 	private $beschrijving;
 	private $beschrijving_kort;
+	private $voorraad;
 	private $kortingsprijs;
 	private $aanmaak_datum;
 	private $update_datum;
-	private $voorraad;
+	private $zichtbaar;
 	
 	public function getId() {
 		return $this->id;
@@ -31,6 +33,10 @@ class Product {
 	public function getBeschrijvingKort() {
 		return $this->beschrijving_kort;
 	}
+
+	public function getVoorraad() {
+		return $this->voorraad;
+	}
 	
 	public function getPrijs() {
 		return $this->prijs;
@@ -44,10 +50,8 @@ class Product {
 		return $this->update_datum;
 	}
 	
-	public function getVoorraad() {
-		return $this->voorraad;
+	public function getZichtbaar() {
+		return $this->zichtbaar;
 	}
 	
 }
-
-?>
