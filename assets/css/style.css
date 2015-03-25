@@ -228,6 +228,15 @@ body {
 	max-height: 50px;
 }
 
+.search-image {
+	display: block;
+	max-height: 50px;
+}
+
+.compare-image {
+	max-height: 100px;
+}
+
 /***
 Dashboard stats
 ***/

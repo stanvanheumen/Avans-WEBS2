@@ -8,14 +8,6 @@ $(document).ready(function(){
         closeEffect: "none"
     });
 	
-	/*$( ".search-product-1" ).keyup(function() {
-		searchProduct( $(this).val() );
-	});
-	
-	$( ".search-product-1" ).focusout(function() {
-		$(".search-product-1-results").css('display', 'none');
-	});*/
-	
 	searchMonitor(".search-product-1");
 	searchMonitor(".search-product-2");
 	searchMonitor(".search-product-3");
@@ -43,7 +35,7 @@ function searchProduct(className, value) {
 		
 		for(var i = 0; i < json.length; i++) {
 			var obj = json[i];
-			$( className + "-results" ).append("<li class='text-center'><a href=\"#\"><img src='/" + obj.thumb_link + "' class='img-responsive center-block' style='display: block; max-height: 50px;'>" + obj.name + "</a></li>");
+			$( className + "-results" ).append("<li class='text-center'><a href=\"#\"><img src='/" + obj.thumb_link + "' class='img-responsive center-block search-image'>" + obj.name + "</a></li>");
 			if(i < json.length - 1) {
 				$( className + "-results" ).append("<li role=\"presentation\" class=\"divider\"></li>");
 			}

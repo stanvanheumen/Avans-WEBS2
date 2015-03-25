@@ -42,9 +42,9 @@
 					
 					<tr>
 						<td class="no-border"></td>
-						<td class="no-border"><img style="max-height: 100px;" src="/uploads/3_1.png" class="img-responsive center-block"></td>
-						<td class="no-border"><img style="max-height: 100px;" src="/uploads/3_1.png" class="img-responsive center-block"></td>
-						<td class="no-border"><img style="max-height: 100px;" src="/uploads/3_1.png" class="img-responsive center-block"></td>
+						<td class="no-border"><img src="/uploads/3_1.png" class="img-responsive compare-image center-block"></td>
+						<td class="no-border"><img src="/uploads/3_1.png" class="img-responsive compare-image center-block"></td>
+						<td class="no-border"><img src="/uploads/3_1.png" class="img-responsive compare-image center-block"></td>
 					</tr>
 					<tr>
 						<td><b>Prijs</b></td>
