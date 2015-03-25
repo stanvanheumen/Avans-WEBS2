@@ -446,3 +446,7 @@ Dashboard stats
 .search-title {
 	font-size: 30px;
 }
+
+.no-border {
+	border: 0 !important;
+}

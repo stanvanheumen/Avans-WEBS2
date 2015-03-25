@@ -36,6 +36,14 @@ class Home extends Controller {
 		$this->view('home/index');
 	}
 	
+	public function compareproduct() {
+		// Require models
+		$this->smart('Product vergelijker');
+		
+		// Render view
+		$this->view('home/compareproduct');
+	}
+	
 	public function about() {
 		// Require models
 		$this->smart('Over ons');
@@ -49,24 +57,28 @@ class Home extends Controller {
 		require_once ('app/model/product.inc.php');
 		require_once ('app/model/productafbeelding.inc.php');
 		$this->smart('Zoeken');
+		
+		if(!isset($_GET['search-query'])) {
+			$this->redirect('/home');
+			return;
+		}
 
 		// Database requests
-		if (isset($_GET['search-query'])) {
-			$products = $this->db->queryArray("SELECT * FROM product WHERE productnaam LIKE '%" . $this->db->escape($_GET['search-query']) . "%'", 'Product');
-			$product_images = [];
+		$products = $this->db->queryArray("SELECT * FROM product WHERE productnaam LIKE '%" . $this->db->escape($_GET['search-query']) . "%'", 'Product');
+		$product_images = [];
 
-			$temp = '';
-			foreach ($products as $product) {
-				if (end($products) == $product) {
-					$temp .= $product->getId();
-				} else {
-					$temp .= $product->getId() . ' OR ';
-				}
+		$temp = '';
+		foreach ($products as $product) {
+			if (end($products) == $product) {
+				$temp .= $product->getId();
+			} else {
+				$temp .= $product->getId() . ' OR ';
 			}
-
-			if (sizeof($products) != 0)
-				$product_images = $this->db->queryArray("SELECT * FROM productafbeelding WHERE afbeeldingtype_type = 'thumbnail' AND (product_id = $temp)", 'ProductAfbeelding');
 		}
+
+		if (sizeof($products) != 0)
+			$product_images = $this->db->queryArray("SELECT * FROM productafbeelding WHERE afbeeldingtype_type = 'thumbnail' AND (product_id = $temp)", 'ProductAfbeelding');
+	
 		
 		$this->smarty->assign('products', $products);
 		$this->smarty->assign('product_images', $product_images);
