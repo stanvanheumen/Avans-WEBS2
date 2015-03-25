@@ -56,8 +56,8 @@
 						<div class="col-md-2">
 							<img src="/uploads/{$order->getProductId()}_1.png" class="img-responsive center-block" alt="-" />
 						</div>
-						<h2>€{$order->getPrijs()}</h2>
-						<h3>x{$order->getAantal()}</h3>
+						<span class="search-title">&euro;{$order->getPrijs()}</span>
+						<span class="panel-title">x{$order->getAantal()}</span>
 					</div>
 					{/foreach}
 				</div>
