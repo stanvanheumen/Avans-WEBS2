@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-25 14:26:51
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-25 23:34:11
          compiled from "app\view\home\compareproduct.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:327655512ab692af7c3-90370544%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '4f857cdc17868f027aa06e7ed2275da546dbac76' => 
     array (
       0 => 'app\\view\\home\\compareproduct.tpl',
-      1 => 1427290008,
+      1 => 1427322846,
       2 => 'file',
     ),
   ),
@@ -26,6 +26,19 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		</div>
 		<div class="panel-body">
 			<div class="table-responsive">
+				<div class="col-md-1"></div>
+				<div class="col-md-3">
+					<div class="form-group input-append btn-group">
+						<input type="text" class="form-control search-product-1" placeholder="Zoek product...">
+						<ul class="dropdown-menu search-product-1-results">
+							<li><a href="#"><i class="icon-pencil"></i> Edit</a></li>
+							<li><a href="#"><i class="icon-trash"></i> Delete</a></li>
+							<li><a href="#"><i class="icon-ban-circle"></i> Ban</a></li>
+						</ul>
+						</input>
+					</div>
+				</div>
+				
 				<table class="table">
 					<tr>
 						<th class="col-md-1 no-border"></th>

@@ -7,7 +7,25 @@ $(document).ready(function(){
         openEffect: "none",
         closeEffect: "none"
     });
+	
+	$( ".search-product-1" ).keyup(function() {
+		//$(".search-product-1-results").css('display', 'block');
+		searchProduct( $(this).val() );
+	});
+	
+	$( ".search-product-1" ).focusout(function() {
+		$(".search-product-1-results").css('display', 'none');
+	});
 });
+
+function searchProduct($val) {
+	$.get( "/home/newsearch?limit=5&filter=" + $val, function( data ) {
+		$(".search-product-1-results").css('display', 'none');
+		alert(data);
+		$(".search-product-1-results").empty();
+		$(".search-product-1-results").css('display', 'block');
+	});
+}
 
 function update(id, price) {
 	var newPrice = price * $("#input" + id).val();
