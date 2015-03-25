@@ -126,7 +126,7 @@ class CMS extends Controller {
 		$thumbnail 			= $_FILES['image'];
 		$images 			= $_FILES['images'];
 
-		$this->db->query("INSERT INTO product VALUES (NULL, '$categorie_id', '$productnaam', '$prijs', '$beschrijving_lang', '$beschrijving_kort', '$voorraad', NULL, CURRENT_TIMESTAMP, NULL)");
+		$this->db->query("INSERT INTO product VALUES (NULL, '$categorie_id', '$productnaam', '$prijs', '$beschrijving_lang', '$beschrijving_kort', '$voorraad', NULL, CURRENT_TIMESTAMP, NULL, '1')");
 		$curr_product = $this->db->queryObject('SELECT * FROM product ORDER BY id DESC LIMIT 1', 'Product');
 		
 		$p_id = $curr_product->getId();
@@ -261,7 +261,7 @@ class CMS extends Controller {
 		if($category == -1) {
 			$this->db->query("INSERT INTO categorie (naam) VALUES ('$naam')");
 		} else {
-			$this->db->query("INSERT INTO categorie (naam, categorie_parent) VALUES ('$naam', '$category')");
+			$this->db->query("INSERT INTO categorie (naam, categorie_parent, zichtbaar) VALUES ('$naam', '$category', '1')");
 		}
 		
 		
@@ -357,19 +357,67 @@ class CMS extends Controller {
 		$this->smart('Bestellingen');
 
 		require_once ('app/model/bestelling.inc.php');
+		require_once ('app/model/account.inc.php');
 		$orders = $this->db->queryArray('SELECT * FROM bestelling', 'Bestelling');
+		$accounts = $this->db->queryArray('SELECT * FROM account', 'Account');
 
+		$this->smarty->assign('accounts', $accounts);
 		$this->smarty->assign('orders', $orders);
 
 		// Render view
 		$this->view('cms/orders');
 	}
 
+	public function read_bestelling() {
+		if(!$this->authenticate_check())
+			return;
+		
+		if(!isset($_GET['id'])) {
+			$this->redirect('/cms/orders');
+			return;
+		}
 
-	/*
-	TODO: ADD ORDER 
-					-READ
-	*/
+		// Require models
+		$this->smart('Bestelling bekijken');
+
+		require_once ('app/model/bestelproduct.inc.php');
+		require_once ('app/model/product.inc.php');
+
+		$b_id = $this->db->escape($_GET['id']);
+
+		$orderedproducts = $this->db->queryArray("SELECT * FROM bestelproduct WHERE bestelling_id = '$b_id'", 'bestelproduct');
+		$products = $this->db->queryArray('SELECT * FROM product', 'Product');
+
+		$this->smarty->assign('orderedproducts', $orderedproducts);
+		$this->smarty->assign('products', $products);
+
+		// Render view
+		$this->view('cms/read_order');
+	}
+
+	public function delete_bestelling() {
+		if(!$this->authenticate_check())
+			return;
+		
+		if(!isset($_GET['id'])) {
+			$this->redirect('/cms/orders');
+			return;
+		}
+
+		// Require models
+		$this->smart('Bestelling verwijderen');
+
+		require_once ('app/model/bestelproduct.inc.php');
+		require_once ('app/model/product.inc.php');
+
+		$id = $this->db->escape($_GET['id']);
+
+		$this->db->query("DELETE FROM bestelproduct WHERE bestelling_id='$id'");
+
+		$this->db->query("DELETE FROM bestelling WHERE id='$id'");
+
+		$this->redirect('/cms/orders');
+	}
 
 	/* </ORDERS> */
 
