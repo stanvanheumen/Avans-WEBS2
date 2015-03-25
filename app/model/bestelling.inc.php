@@ -5,6 +5,7 @@ class Bestelling {
 	private $id;
 	private $account_id;
 	private $betaalmethode_id;
+	private $zichtbaar;
 	
 	public function getId() {
 		return $this->id;
@@ -18,6 +19,8 @@ class Bestelling {
 		return $this->betaalmethode_id;
 	}
 
-}
+	public function getZichtbaar() {
+		return $this->zichtbaar;
+	}
 
-?>
+}

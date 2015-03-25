@@ -14,6 +14,7 @@ class Account {
 	private $woonplaats;
 	private $telefoonnummer;
 	private $geslacht;
+	private $zichtbaar;
 	
 	public function getId() {
 		return $this->id;
@@ -62,6 +63,10 @@ class Account {
 	public function getGeslacht() {
 		return $this->geslacht;
 	}
+
+	public function getZichtbaar() {
+		return $this->zichtbaar;
+	}
 	
 	public function getNaam() {
 		$naam = $this->voornaam;
@@ -84,5 +89,3 @@ class Account {
 	}
 	
 }
-
-?>

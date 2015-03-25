@@ -8,12 +8,20 @@ class BestelProduct {
 	private $korting;
 	private $aantal;
 
-	public function getPrijs() {
-		return $this->prijs;
+	public function getBestellingId() {
+		return $this->bestelling_id;
 	}
 
 	public function getProductId() {
 		return $this->product_id;
+	}
+
+	public function getPrijs() {
+		return $this->prijs;
+	}
+
+	public function getKorting() {
+		return $this->korting;
 	}
 
 	public function getAantal() {
@@ -21,5 +29,3 @@ class BestelProduct {
 	}
 	
 }
-
-?>

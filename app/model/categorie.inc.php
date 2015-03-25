@@ -1,20 +1,26 @@
 <?php
 
 class Categorie {
+
 	private $id;
-	private $naam;
 	private $categorie_parent;
+	private $naam;
+	private $zichtbaar;
 	
 	public function getId() {
 		return $this->id;
+	}
+
+	public function getCategorieParent() {
+		return $this->categorie_parent;
 	}
 	
 	public function getNaam() {
 		return $this->naam;
 	}
-	
-	public function getCategorieParent() {
-		return $this->categorie_parent;
+
+	public function getZichtbaar() {
+		return $this->zichtbaar;
 	}
 	
 	public function setId($id) {
@@ -30,5 +36,3 @@ class Categorie {
 	}
 	
 }
-
-?>
