@@ -10,9 +10,7 @@
 					<div class="form-group input-append btn-group">
 						<input type="text" class="form-control search-product-1" placeholder="Zoek product...">
 						<ul class="dropdown-menu search-product-1-results">
-							<li><a href="#"><i class="icon-pencil"></i> Edit</a></li>
-							<li><a href="#"><i class="icon-trash"></i> Delete</a></li>
-							<li><a href="#"><i class="icon-ban-circle"></i> Ban</a></li>
+
 						</ul>
 						</input>
 					</div>

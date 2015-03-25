@@ -9,7 +9,6 @@ $(document).ready(function(){
     });
 	
 	$( ".search-product-1" ).keyup(function() {
-		//$(".search-product-1-results").css('display', 'block');
 		searchProduct( $(this).val() );
 	});
 	
@@ -19,12 +18,24 @@ $(document).ready(function(){
 });
 
 function searchProduct($val) {
-	$.get( "/home/newsearch?limit=5&filter=" + $val, function( data ) {
+	if($val.length == 0) {
 		$(".search-product-1-results").css('display', 'none');
-		alert(data);
 		$(".search-product-1-results").empty();
-		$(".search-product-1-results").css('display', 'block');
-	});
+		return;
+	}
+	$.get( "/api/search?limit=5&filter=" + $val, function( json ) {
+		$(".search-product-1-results").css('display', 'none');
+		$(".search-product-1-results").empty();
+		
+		for(var i = 0; i < json.length; i++) {
+			var obj = json[i];
+			$(".search-product-1-results").append("<li><a href=\"#\">" + obj.name + "</a></li>");
+		}
+		
+		if(json.length > 0) {
+			$(".search-product-1-results").css('display', 'block');
+		}
+	}, "json");
 }
 
 function update(id, price) {

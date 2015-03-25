@@ -349,18 +349,6 @@ class Home extends Controller {
 		}
 		$this->redirect('/home/login?err=1');
 	}
-	
-	public function newsearch() {
-		if(!isset($_GET['limit']) || !is_numeric($_GET['limit']) || $_GET['limit'] < 0 || !isset($_GET['filter'])) {
-			die();
-		}
-		
-		$filter = $_GET['filter'];
-		
-		$products = $this->db->queryArray("SELECT * FROM product WHERE productnaam LIKE '%" . $this->db->escape($filter) . "%'", 'Product');
-		
-		echo $_GET['filter'];
-	}
 
 	public function view($view, $data = []) {
 		require_once ('app/model/categorie.inc.php');
