@@ -13,7 +13,7 @@ class Home extends Controller {
 		}
 
 		// Database requests
-		$products = $this->db->queryArray('SELECT * FROM product LIMIT 9', 'Product');
+		$products = $this->db->queryArray('SELECT * FROM product WHERE zichtbaar = 1 LIMIT 9', 'Product');
 
 		$temp = '';
 		foreach ($products as $product) {
@@ -64,7 +64,7 @@ class Home extends Controller {
 		}
 
 		// Database requests
-		$products = $this->db->queryArray("SELECT * FROM product WHERE productnaam LIKE '%" . $this->db->escape($_GET['search-query']) . "%'", 'Product');
+		$products = $this->db->queryArray("SELECT * FROM product WHERE productnaam LIKE '%" . $this->db->escape($_GET['search-query']) . "%' AND zichtbaar = 1", 'Product');
 		$product_images = [];
 
 		$temp = '';
@@ -154,7 +154,7 @@ class Home extends Controller {
 			$search_category = $this->db->queryObject("SELECT * FROM categorie WHERE id = '" . $this->db->escape($_GET['categorie']) . "'", 'Categorie');
 		}
 		
-		$assort_categories = $this->db->queryArray("SELECT * FROM categorie WHERE categorie_parent IS NULL ORDER BY naam", 'Categorie');
+		$assort_categories = $this->db->queryArray("SELECT * FROM categorie WHERE categorie_parent IS NULL AND zichtbaar = 1 ORDER BY naam", 'Categorie');
 		
 		$category = ($search_category ? $search_category->getNaam () : "Producten");
 		
@@ -186,7 +186,7 @@ class Home extends Controller {
 					$parent_id = $search_category->getId();
 				}
 				
-				$sub_categories = $this->db->queryArray("SELECT * FROM categorie WHERE categorie_parent='$parent_id' ORDER BY naam", 'Categorie');
+				$sub_categories = $this->db->queryArray("SELECT * FROM categorie WHERE categorie_parent='$parent_id' AND zichtbaar = 1 ORDER BY naam", 'Categorie');
 				
 				if(!empty($sub_categories)) {
 					$this->smarty->assign('sub_categories', $sub_categories);
@@ -216,7 +216,7 @@ class Home extends Controller {
 
 		// Database requests
 		$product_id = $this->db->escape($_GET['product_id']);
-		$product = $this->db->queryObject("SELECT * FROM product WHERE id = '" . $product_id . "'", 'Product');
+		$product = $this->db->queryObject("SELECT * FROM product WHERE id = '" . $product_id . "' AND zichtbaar = 1", 'Product');
 		if ($product == null) {
 			$this->redirect('/home/assortment');
 			return;
@@ -263,7 +263,7 @@ class Home extends Controller {
 		$number 		= $this->db->escape($_POST['number']);
 		$email 			= $this->db->escape($_POST['email']);
 		$password 		= $this->getHash($this->db->escape($_POST['password']));
-		$acc = $this->db->queryObject("SELECT * FROM account WHERE gebruikersnaam = '$email'", 'Account');
+		$acc = $this->db->queryObject("SELECT * FROM account WHERE gebruikersnaam = '$email' AND zichtbaar = 1", 'Account');
 		if($acc != null) {
 			$this->redirect('/home/register');
 			return;
@@ -308,12 +308,12 @@ class Home extends Controller {
 		
 		$products = [];
 		if (strlen($temp) != 0) {
-			$products = $this->db->queryArray("SELECT * FROM product WHERE id IN $temp", 'Product');
+			$products = $this->db->queryArray("SELECT * FROM product WHERE id IN $temp AND zichtbaar = 1", 'Product');
 		}
 
 		$user_id = $_SESSION['user_id'];
 
-		$orders = $this->db->query("SELECT id FROM bestelling WHERE account_id = '$user_id'");
+		$orders = $this->db->query("SELECT id FROM bestelling WHERE account_id = '$user_id' AND zichtbaar = 1");
 
 		$allProductFromOrders = [];
 
@@ -337,7 +337,7 @@ class Home extends Controller {
 
 		if (isset($_POST['email']) && isset($_POST['password'])) {
 			$username = $this->db->escape($_POST['email']);
-			$user = $this->db->queryObject("SELECT * FROM account WHERE gebruikersnaam = '$username'", 'Account');
+			$user = $this->db->queryObject("SELECT * FROM account WHERE gebruikersnaam = '$username' AND zichtbaar = 1", 'Account');
 			if ($user != null && $user->getRankNaam() == 'member') {
 				if(password_verify($this->db->escape($_POST['password']), $user->getHash())) {
 					$_SESSION['home_authenticated'] = 1;
@@ -355,10 +355,10 @@ class Home extends Controller {
 		require_once ('app/model/product.inc.php');
 		require_once ('app/model/account.inc.php');
 
-		$categories = $this->db->queryArray('SELECT * FROM categorie WHERE categorie_parent IS NULL ORDER BY naam', 'Categorie');
-		$games 		= $this->db->queryArray('SELECT * FROM product WHERE categorie_id = 6 LIMIT 8', 'Product');
-		$computers 	= $this->db->queryArray('SELECT * FROM product WHERE categorie_id = 2 LIMIT 8', 'Product');
-		$toys 		= $this->db->queryArray('SELECT * FROM product WHERE categorie_id = 7 LIMIT 8', 'Product');
+		$categories = $this->db->queryArray('SELECT * FROM categorie WHERE categorie_parent IS NULL AND zichtbaar = 1 ORDER BY naam', 'Categorie');
+		$games 		= $this->db->queryArray('SELECT * FROM product WHERE categorie_id = 6 AND zichtbaar = 1 LIMIT 8', 'Product');
+		$computers 	= $this->db->queryArray('SELECT * FROM product WHERE categorie_id = 2 AND zichtbaar = 1 LIMIT 8', 'Product');
+		$toys 		= $this->db->queryArray('SELECT * FROM product WHERE categorie_id = 7 AND zichtbaar = 1 LIMIT 8', 'Product');
 		
 		$this->smarty->assign('categories', $categories);
 		$this->smarty->assign('games', $games);
@@ -367,7 +367,7 @@ class Home extends Controller {
 
 		if (isset($_SESSION['user_id'])) {	
 			$id = $_SESSION["user_id"];
-			$user = $this->db->queryObject("SELECT * FROM account WHERE id = '$id'", 'Account');
+			$user = $this->db->queryObject("SELECT * FROM account WHERE id = '$id' AND zichtbaar = 1", 'Account');
 			if ($user != null)
 				$this->smarty->assign('user_name', $user->getVoornaam());
 		}
@@ -381,10 +381,6 @@ class Home extends Controller {
 
 	public function authenticate_check() {
 		return isset($_SESSION['home_authenticated']) && $_SESSION['home_authenticated'] == 1;
-		/*if(!isset($_SESSION['home_authenticated']) || $_SESSION['home_authenticated'] != 1)
-			return false;
-		else
-			return true;*/
 	}
 
 	public function logout() {

@@ -15,7 +15,7 @@
 				<tr>
 					<td data-th="Product">
 						<div class="row">
-							<div class="col-sm-2 hidden-xs"><img src="http://placehold.it/100x100" alt="..." class="img-responsive"/></div>
+							<div class="col-sm-2 hidden-xs"><img class="media-object" width="100" src="/uploads/{$product->getId()}_1.png" alt="auction"></div>
 							<div class="col-sm-10">
 								<h4 class="nomargin">{$product->getProductNaam()}</h4>
 								<p>{$product->getBeschrijvingKort()}</p>
