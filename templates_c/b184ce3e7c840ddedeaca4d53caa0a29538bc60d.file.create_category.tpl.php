@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-24 21:15:27
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-26 15:17:41
          compiled from "app\view\cms\create_category.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:26138550b0d81599466-28968862%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b184ce3e7c840ddedeaca4d53caa0a29538bc60d' => 
     array (
       0 => 'app\\view\\cms\\create_category.tpl',
-      1 => 1427228070,
+      1 => 1427379456,
       2 => 'file',
     ),
   ),
@@ -42,8 +42,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						</div>
 						
 						<div class="form-group">
-							<label for="categorie">Hoofd Categorie</label>
-							<select class="form-control" id="categorie_id" name="categorie_id" required>
+							<label for="categorie_id">Hoofd Categorie</label>
+							<select class="form-control" id="categorie_id" name="categorie_id">
 								<option value="-1" selected>Nieuw</option>
 								<?php  $_smarty_tpl->tpl_vars['cat'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['cat']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['categorie']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}

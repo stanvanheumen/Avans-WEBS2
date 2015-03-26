@@ -163,15 +163,18 @@ class CMS extends Controller {
 		$this->smart('Wijzigen');
 		require_once ('app/model/product.inc.php');
 		require_once ('app/model/categorie.inc.php');
+		require_once ('app/model/productafbeelding.inc.php');
 
 		// Database requests
 		$id = $this->db->escape($_GET['id']);
 
 		$product = $this->db->queryObject("SELECT * FROM PRODUCT WHERE id='$id'", 'Product');
 		$categorie = $this->db->queryArray('SELECT * FROM categorie', 'Categorie');
+		$image = $this->db->queryArray("SELECT * FROM productafbeelding WHERE product_id = '$id'", 'ProductAfbeelding');
 
 		$this->smarty->assign('categorie', $categorie);
 		$this->smarty->assign('product', $product);
+		$this->smarty->assign('images', $image);
 		
 		// Render view
 		$this->view('cms/edit_product');

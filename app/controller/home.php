@@ -388,5 +388,11 @@ class Home extends Controller {
 		$this->redirect('/home/index?authenticated=2');
 	}
 
+	public function sitemap() {
+		$this->smart('Sitemap');
+
+		$this->view('/home/sitemap');
+	}
+
 	
 }

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-16 22:22:26
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-26 15:02:21
          compiled from "app\view\home\register.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2322355045d6777a904-94193311%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '235f948b4afa669491ab14e00ad4519be00b56ab' => 
     array (
       0 => 'app\\view\\home\\register.tpl',
-      1 => 1426540938,
+      1 => 1427378540,
       2 => 'file',
     ),
   ),
@@ -62,7 +62,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 							<input class="form-control" placeholder="Telefoonnummer" name="number" type="text" required>
 						</div>
 						<div class="form-group">
-							<select class="form-control" name="gender" required>
+							<select class="form-control" name="gender">
 								<option value="0">Man</option>
 								<option value="1">Vrouw</option>
 								<option value="2">Ik weet het niet/beide</option>
