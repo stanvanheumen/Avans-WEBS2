@@ -10,8 +10,8 @@
 				<div class="panel-body">
 					<form action="/cms/edit_product_post?id={$product->getId()}" method="post" role="form">
 						<div class="form-group">
-							<label for="categorie">Categorie</label>
-							<select class="form-control" id="categorie_id" name="categorie_id" required>
+							<label for="categorie_id">Categorie</label>
+							<select class="form-control" id="categorie_id" name="categorie_id">
 							{foreach $categorie as $cat}
 								{if $product->getCategorieId() eq $cat->getId()}
 								<option value="{$cat->getId()}" selected>{$cat->getNaam()}</option>
@@ -30,17 +30,21 @@
 							<input type="text" class="form-control" id="prijs" value="{$product->getPrijs()}" name="prijs" placeholder="Prijs" required />
 						</div>
 						<div class="form-group">
-							<label for="korte_beschrijving">Korte beschrijving</label>
+							<label for="beschrijving_kort">Korte beschrijving</label>
 							<input type="text" class="form-control" id="beschrijving_kort" value="{$product->getBeschrijvingKort()}" name="beschrijving_kort" placeholder="Korte beschrijving" required />
 						</div>
 						<div class="form-group">
-							<label for="lange_beschrijving">Lange beschrijving</label>
-							<textarea type="text" class="form-control" id="beschrijving_lang" name="beschrijving_lang" placeholder="Lange beschrijving" required>{$product->getBeschrijving()}</textarea>
+							<label for="beschrijving_lang">Lange beschrijving</label>
+							<textarea class="form-control" id="beschrijving_lang" name="beschrijving_lang" required>{$product->getBeschrijving()}</textarea>
 						</div>
 						<div class="form-group">
 							<label for="voorraad">Voorraad</label>
 							<input type="text" class="form-control" id="voorraad" value="{$product->getVoorraad()}" name="voorraad" placeholder="Voorraad" required />
 						</div>
+						{foreach $images as $image}
+						<label>{$image->getLink()}</label>
+						<img src="/{$image->getLink()}" alt="img" width="100" class="img-responsive" />
+						{/foreach}
 						<div class="pull-right">
 							<button type="submit" class="btn btn-default">Wijzigen</button>
 							<a href="/cms/products" class="btn btn-default">Annuleren</a>

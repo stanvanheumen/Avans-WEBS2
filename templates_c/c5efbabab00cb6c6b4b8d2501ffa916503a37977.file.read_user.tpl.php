@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-25 18:14:07
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-26 15:19:44
          compiled from "app\view\cms\read_user.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:222815512ec07c78f28-50009839%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c5efbabab00cb6c6b4b8d2501ffa916503a37977' => 
     array (
       0 => 'app\\view\\cms\\read_user.tpl',
-      1 => 1427303645,
+      1 => 1427379582,
       2 => 'file',
     ),
   ),
@@ -39,17 +39,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						<div class="form-group">
 							<div class="row">
 								<div class="col-md-4">
-									<label for="voornaam">Voornaam</label><br />
+									<label>Voornaam</label><br />
 									<?php echo $_smarty_tpl->tpl_vars['user']->value->getVoornaam();?>
 
 								</div>
 								<div class="col-md-4">
-									<label for="tussenvoegsel">Tussenvoegsel</label><br />
+									<label>Tussenvoegsel</label><br />
 									<?php echo $_smarty_tpl->tpl_vars['user']->value->getTussenvoegsel();?>
 
 								</div>
 								<div class="col-md-4">
-									<label for="achternaam">Achternaam</label><br />
+									<label>Achternaam</label><br />
 									<?php echo $_smarty_tpl->tpl_vars['user']->value->getAchternaam();?>
 
 								</div>
@@ -58,24 +58,24 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						<div class="form-group">
 							<div class="row">
 								<div class="col-md-4">
-									<label for="straat">Straat</label><br />
+									<label>Straat</label><br />
 									<?php echo $_smarty_tpl->tpl_vars['user']->value->getStraat();?>
 
 								</div>
 								<div class="col-md-4">
-									<label for="postcode">Postcode</label><br />
+									<label>Postcode</label><br />
 									<?php echo $_smarty_tpl->tpl_vars['user']->value->getPostcode();?>
 
 								</div>
 								<div class="col-md-4">
-									<label for="woonplaats">Woonplaats</label><br />
+									<label>Woonplaats</label><br />
 									<?php echo $_smarty_tpl->tpl_vars['user']->value->getWoonplaats();?>
 
 								</div>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="telefoonnummer">Telefoonnummer</label><br />
+							<label>Telefoonnummer</label><br />
 							<?php echo $_smarty_tpl->tpl_vars['user']->value->getTelefoonnummer();?>
 
 						</div>

@@ -6,7 +6,7 @@
 						<h4>Klantenservice</h4>
 						<ul>
 							<li><a href="/home/about">Over ons</a></li>
-							<li><a href="/home/about">Veelgestelde vragen</a></li>
+							<li><a href="/home/sitemap">Sitemap</a></li>
 						</ul>
 					</div>  
 					<div class="col-md-4">

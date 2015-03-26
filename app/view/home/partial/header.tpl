@@ -36,7 +36,7 @@
 							<ul class="dropdown-menu mega-dropdown-menu row">
 								<li class="col-sm-3">
 									<ul>
-										<li class="dropdown-header"><a href="#">Alle Categorie&euml;n</a></li>
+										<li class="dropdown-header"><a href="/home/assortment">Alle Categorie&euml;n</a></li>
 										<li class="divider"></li>
 										{foreach $categories as $cat}
 										<li><a href="/home/assortment?categorie={$cat->getId()}">{$cat->getNaam()}</a></li>

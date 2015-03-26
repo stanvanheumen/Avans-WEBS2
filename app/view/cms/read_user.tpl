@@ -14,15 +14,15 @@
 						<div class="form-group">
 							<div class="row">
 								<div class="col-md-4">
-									<label for="voornaam">Voornaam</label><br />
+									<label>Voornaam</label><br />
 									{$user->getVoornaam()}
 								</div>
 								<div class="col-md-4">
-									<label for="tussenvoegsel">Tussenvoegsel</label><br />
+									<label>Tussenvoegsel</label><br />
 									{$user->getTussenvoegsel()}
 								</div>
 								<div class="col-md-4">
-									<label for="achternaam">Achternaam</label><br />
+									<label>Achternaam</label><br />
 									{$user->getAchternaam()}
 								</div>
 							</div>
@@ -30,21 +30,21 @@
 						<div class="form-group">
 							<div class="row">
 								<div class="col-md-4">
-									<label for="straat">Straat</label><br />
+									<label>Straat</label><br />
 									{$user->getStraat()}
 								</div>
 								<div class="col-md-4">
-									<label for="postcode">Postcode</label><br />
+									<label>Postcode</label><br />
 									{$user->getPostcode()}
 								</div>
 								<div class="col-md-4">
-									<label for="woonplaats">Woonplaats</label><br />
+									<label>Woonplaats</label><br />
 									{$user->getWoonplaats()}
 								</div>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="telefoonnummer">Telefoonnummer</label><br />
+							<label>Telefoonnummer</label><br />
 							{$user->getTelefoonnummer()}
 						</div>
 						<div class="pull-right">

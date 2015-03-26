@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-23 17:20:56
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-26 15:15:39
          compiled from "app\view\cms\edit_product.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2110550871dcc67e90-30396556%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '20bcb134513a88604485ee9d9cf391c02b665f0c' => 
     array (
       0 => 'app\\view\\cms\\edit_product.tpl',
-      1 => 1427127643,
+      1 => 1427379337,
       2 => 'file',
     ),
   ),
@@ -22,6 +22,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'product' => 0,
     'categorie' => 0,
     'cat' => 0,
+    'images' => 0,
+    'image' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -38,8 +40,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<form action="/cms/edit_product_post?id=<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
 " method="post" role="form">
 						<div class="form-group">
-							<label for="categorie">Categorie</label>
-							<select class="form-control" id="categorie_id" name="categorie_id" required>
+							<label for="categorie_id">Categorie</label>
+							<select class="form-control" id="categorie_id" name="categorie_id">
 							<?php  $_smarty_tpl->tpl_vars['cat'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['cat']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['categorie']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['cat']->key => $_smarty_tpl->tpl_vars['cat']->value) {
@@ -68,13 +70,13 @@ $_smarty_tpl->tpl_vars['cat']->_loop = true;
 " name="prijs" placeholder="Prijs" required />
 						</div>
 						<div class="form-group">
-							<label for="korte_beschrijving">Korte beschrijving</label>
+							<label for="beschrijving_kort">Korte beschrijving</label>
 							<input type="text" class="form-control" id="beschrijving_kort" value="<?php echo $_smarty_tpl->tpl_vars['product']->value->getBeschrijvingKort();?>
 " name="beschrijving_kort" placeholder="Korte beschrijving" required />
 						</div>
 						<div class="form-group">
-							<label for="lange_beschrijving">Lange beschrijving</label>
-							<textarea type="text" class="form-control" id="beschrijving_lang" name="beschrijving_lang" placeholder="Lange beschrijving" required><?php echo $_smarty_tpl->tpl_vars['product']->value->getBeschrijving();?>
+							<label for="beschrijving_lang">Lange beschrijving</label>
+							<textarea class="form-control" id="beschrijving_lang" name="beschrijving_lang" required><?php echo $_smarty_tpl->tpl_vars['product']->value->getBeschrijving();?>
 </textarea>
 						</div>
 						<div class="form-group">
@@ -82,6 +84,16 @@ $_smarty_tpl->tpl_vars['cat']->_loop = true;
 							<input type="text" class="form-control" id="voorraad" value="<?php echo $_smarty_tpl->tpl_vars['product']->value->getVoorraad();?>
 " name="voorraad" placeholder="Voorraad" required />
 						</div>
+						<?php  $_smarty_tpl->tpl_vars['image'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['image']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['images']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['image']->key => $_smarty_tpl->tpl_vars['image']->value) {
+$_smarty_tpl->tpl_vars['image']->_loop = true;
+?>
+						<label><?php echo $_smarty_tpl->tpl_vars['image']->value->getLink();?>
+</label>
+						<img src="/<?php echo $_smarty_tpl->tpl_vars['image']->value->getLink();?>
+" alt="img" width="100" class="img-responsive" />
+						<?php } ?>
 						<div class="pull-right">
 							<button type="submit" class="btn btn-default">Wijzigen</button>
 							<a href="/cms/products" class="btn btn-default">Annuleren</a>

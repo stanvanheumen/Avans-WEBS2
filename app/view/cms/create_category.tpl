@@ -14,8 +14,8 @@
 						</div>
 						
 						<div class="form-group">
-							<label for="categorie">Hoofd Categorie</label>
-							<select class="form-control" id="categorie_id" name="categorie_id" required>
+							<label for="categorie_id">Hoofd Categorie</label>
+							<select class="form-control" id="categorie_id" name="categorie_id">
 								<option value="-1" selected>Nieuw</option>
 								{foreach $categorie as $cat}
 								<option value="{$cat->getId()}">{$cat->getNaam()}</option>

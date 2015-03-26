@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-23 16:43:46
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-26 14:49:18
          compiled from "app\view\home\partial\footer.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:116655504cf2876d802-54219077%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '474865eb134609a5982c260a48982628fa09e51e' => 
     array (
       0 => 'app\\view\\home\\partial\\footer.tpl',
-      1 => 1427111709,
+      1 => 1427377708,
       2 => 'file',
     ),
   ),
@@ -31,7 +31,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						<h4>Klantenservice</h4>
 						<ul>
 							<li><a href="/home/about">Over ons</a></li>
-							<li><a href="/home/about">Veelgestelde vragen</a></li>
+							<li><a href="/home/sitemap">Sitemap</a></li>
 						</ul>
 					</div>  
 					<div class="col-md-4">
@@ -45,7 +45,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						<h4>WebShop</h4>
 						<ul>
 							<li><a href="/home/about">Over WebShop</a></li>
-							<li><a href="/home/about">Cadeaubonnen</a></li>
+							<li><a href="/home/compareproduct">Productvergelijker</a></li>
 						</ul>
 					</div>  
 				</div>

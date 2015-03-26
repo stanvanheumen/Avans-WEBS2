@@ -41,7 +41,7 @@
 							<input class="form-control" placeholder="Telefoonnummer" name="number" type="text" required>
 						</div>
 						<div class="form-group">
-							<select class="form-control" name="gender" required>
+							<select class="form-control" name="gender">
 								<option value="0">Man</option>
 								<option value="1">Vrouw</option>
 								<option value="2">Ik weet het niet/beide</option>
