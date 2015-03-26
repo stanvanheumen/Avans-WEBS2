@@ -18,6 +18,7 @@ class db {
 	}
 	
 	public function queryObject($sql, $class) {
+		require_once ('app/model/' . $class . '.inc.php');
 		$result = $this->query($sql);
 		$item = $result->fetch_object($class);
 		
@@ -27,6 +28,7 @@ class db {
 	}
 	
 	public function queryArray($sql, $class) {
+		require_once ('app/model/' . $class . '.inc.php');
 		$result = $this->query($sql);
 		$items = array();
 	

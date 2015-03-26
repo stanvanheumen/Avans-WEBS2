@@ -3,9 +3,7 @@
 class Home extends Controller {
 
 	public function index() {
-		// Require models
-		require_once ('app/model/product.inc.php');
-		require_once ('app/model/productafbeelding.inc.php');
+		// Set Smarty
 		$this->smart('Home');
 		
 		if(isset($_GET['authenticated'])) {
@@ -37,7 +35,7 @@ class Home extends Controller {
 	}
 	
 	public function compareproduct() {
-		// Require models
+		// Set Smarty
 		$this->smart('Product vergelijker');
 		
 		// Render view
@@ -45,7 +43,7 @@ class Home extends Controller {
 	}
 	
 	public function about() {
-		// Require models
+		// Set Smarty
 		$this->smart('Over ons');
 
 		// Render view
@@ -53,13 +51,11 @@ class Home extends Controller {
 	}
 	
 	public function search() {
-		// Require models
-		require_once ('app/model/product.inc.php');
-		require_once ('app/model/productafbeelding.inc.php');
+		// Set Smarty
 		$this->smart('Zoeken');
 		
 		if(!isset($_GET['search-query'])) {
-			$this->redirect('/home');
+			$this->redirect('/home/index');
 			return;
 		}
 
@@ -115,9 +111,6 @@ class Home extends Controller {
 	}
 
 	public function pay() {
-		require_once ('app/model/bestelling.inc.php');
-		require_once ('app/model/product.inc.php');
-
 		if (!isset($_SESSION['shoppingcart']) || !isset($_SESSION['user_id'])) {
 			$this->redirect('/home/account');
 		}
@@ -142,9 +135,7 @@ class Home extends Controller {
 	}
 	
 	public function assortment() {
-		// Require models
-		require_once ('app/model/categorie.inc.php');
-		require_once ('app/model/product.inc.php');
+		// Set Smarty
 		$this->smart('Assortiment');
 
 		// Database requests
@@ -200,9 +191,7 @@ class Home extends Controller {
 	}
 	
 	public function productdetails() {
-		// Require models
-		require_once ('app/model/product.inc.php');
-		require_once ('app/model/productafbeelding.inc.php');
+		// Set Smarty
 		$this->smart('Product Details');
 		
 		if(!isset($_GET['product_id']) || !is_numeric($_GET['product_id'])) {
@@ -244,7 +233,7 @@ class Home extends Controller {
 	}
 	
 	public function register() {
-		// Require models
+		// Set Smarty
 		$this->smart('Registreren'); 
 
 		// Render view
@@ -252,7 +241,6 @@ class Home extends Controller {
 	}
 
 	public function register_post() {
-		require_once ('app/model/account.inc.php');
 		$first_name 	= $this->db->escape($_POST['first_name']);
 		$infix_name 	= $this->db->escape($_POST['infix_name']);
 		$last_name 		= $this->db->escape($_POST['last_name']);
@@ -273,7 +261,7 @@ class Home extends Controller {
 	}
 	
 	public function login() {
-		// Require models
+		// Set Smarty
 		$this->smart('Login');
 		
 		if(isset($_GET['err']) && $_GET['err'] == 1) {
@@ -290,10 +278,7 @@ class Home extends Controller {
 			return;
 		}
 
-		// Require models
-		require_once ('app/model/product.inc.php');
-		require_once ('app/model/bestelling.inc.php');
-		require_once ('app/model/bestelproduct.inc.php');
+		// Set Smarty
 		$this->smart('Mijn Account');
 
 		if (!isset($_SESSION['shoppingcart'])) {
@@ -304,7 +289,7 @@ class Home extends Controller {
 		
 		if(!empty($_SESSION['shoppingcart'])) {
 			$temp = "('" . implode("','", $_SESSION['shoppingcart']) . "')";
-		}		
+		}	
 		
 		$products = [];
 		if (strlen($temp) != 0) {
@@ -333,8 +318,6 @@ class Home extends Controller {
 	}
 	
 	public function login_post() {
-		require_once ('app/model/account.inc.php');
-
 		if (isset($_POST['email']) && isset($_POST['password'])) {
 			$username = $this->db->escape($_POST['email']);
 			$user = $this->db->queryObject("SELECT * FROM account WHERE gebruikersnaam = '$username' AND zichtbaar = 1", 'Account');
@@ -351,10 +334,6 @@ class Home extends Controller {
 	}
 
 	public function view($view, $data = []) {
-		require_once ('app/model/categorie.inc.php');
-		require_once ('app/model/product.inc.php');
-		require_once ('app/model/account.inc.php');
-
 		$categories = $this->db->queryArray('SELECT * FROM categorie WHERE categorie_parent IS NULL AND zichtbaar = 1 ORDER BY naam', 'Categorie');
 		$games 		= $this->db->queryArray('SELECT * FROM product WHERE categorie_id = 6 AND zichtbaar = 1 LIMIT 8', 'Product');
 		$computers 	= $this->db->queryArray('SELECT * FROM product WHERE categorie_id = 2 AND zichtbaar = 1 LIMIT 8', 'Product');
