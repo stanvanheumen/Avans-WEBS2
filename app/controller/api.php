@@ -76,7 +76,6 @@ class Api extends Controller {
 		// fetch basic data
 		foreach($products as $product) {
 			$p = $map[$product->getId()];
-			//$names['names'][] = array( $p => $product->getProductNaam() );
 			$names['names'][$p] = $product->getProductNaam();
 			$prices['prices'][$p] = $product->getPrijs();
 			$thumbnails['thumbnails'][$p] = $product->link;

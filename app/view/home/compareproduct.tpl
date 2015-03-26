@@ -8,25 +8,22 @@
 				<div class="col-md-4">
 					<div class="form-group input-append btn-group center-block">
 						<input type="text" class="form-control search-product-1" placeholder="Zoek product...">
-							<ul class="dropdown-menu search-product-1-results">
-							</ul>
-						</input>
+						<ul class="dropdown-menu search-product-1-results">
+						</ul>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="form-group input-append btn-group center-block">
 						<input type="text" class="form-control search-product-2" placeholder="Zoek product...">
-							<ul class="dropdown-menu search-product-2-results">
-							</ul>
-						</input>
+						<ul class="dropdown-menu search-product-2-results">
+						</ul>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="form-group input-append btn-group center-block">
 						<input type="text" class="form-control search-product-3" placeholder="Zoek product...">
-							<ul class="dropdown-menu search-product-3-results">
-							</ul>
-						</input>
+						<ul class="dropdown-menu search-product-3-results">
+						</ul>
 					</div>
 				</div>
 				

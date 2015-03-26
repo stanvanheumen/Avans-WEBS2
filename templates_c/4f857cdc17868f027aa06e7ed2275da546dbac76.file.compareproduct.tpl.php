@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-26 14:12:54
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-26 15:39:09
          compiled from "app\view\home\compareproduct.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:327655512ab692af7c3-90370544%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '4f857cdc17868f027aa06e7ed2275da546dbac76' => 
     array (
       0 => 'app\\view\\home\\compareproduct.tpl',
-      1 => 1427375565,
+      1 => 1427380734,
       2 => 'file',
     ),
   ),
@@ -29,25 +29,22 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				<div class="col-md-4">
 					<div class="form-group input-append btn-group center-block">
 						<input type="text" class="form-control search-product-1" placeholder="Zoek product...">
-							<ul class="dropdown-menu search-product-1-results">
-							</ul>
-						</input>
+						<ul class="dropdown-menu search-product-1-results">
+						</ul>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="form-group input-append btn-group center-block">
 						<input type="text" class="form-control search-product-2" placeholder="Zoek product...">
-							<ul class="dropdown-menu search-product-2-results">
-							</ul>
-						</input>
+						<ul class="dropdown-menu search-product-2-results">
+						</ul>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="form-group input-append btn-group center-block">
 						<input type="text" class="form-control search-product-3" placeholder="Zoek product...">
-							<ul class="dropdown-menu search-product-3-results">
-							</ul>
-						</input>
+						<ul class="dropdown-menu search-product-3-results">
+						</ul>
 					</div>
 				</div>
 				
