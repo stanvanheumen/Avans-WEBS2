@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-26 15:02:21
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-26 22:20:55
          compiled from "app\view\home\register.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2322355045d6777a904-94193311%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '235f948b4afa669491ab14e00ad4519be00b56ab' => 
     array (
       0 => 'app\\view\\home\\register.tpl',
-      1 => 1427378540,
+      1 => 1427404854,
       2 => 'file',
     ),
   ),
@@ -77,7 +77,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						<div class="form-group">
 							<input class="form-control" placeholder="Wachtwoord" name="password" type="password" required>
 						</div>
-						<input class="btn btn-lg btn-blue btn-block" type="submit" value="Registreren">
+						<input class="btn btn-lg btn-primary btn-block" type="submit" value="Registreren">
 					</fieldset>
 				</form>
 			</div>

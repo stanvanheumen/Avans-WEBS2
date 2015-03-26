@@ -56,7 +56,7 @@
 						<div class="form-group">
 							<input class="form-control" placeholder="Wachtwoord" name="password" type="password" required>
 						</div>
-						<input class="btn btn-lg btn-blue btn-block" type="submit" value="Registreren">
+						<input class="btn btn-lg btn-primary btn-block" type="submit" value="Registreren">
 					</fieldset>
 				</form>
 			</div>
