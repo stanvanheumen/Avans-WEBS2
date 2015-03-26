@@ -237,6 +237,10 @@ body {
 	max-height: 100px;
 }
 
+.min-height-400 {
+	min-height: 400px;
+}
+
 /***
 Dashboard stats
 ***/

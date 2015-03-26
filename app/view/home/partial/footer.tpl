@@ -20,7 +20,7 @@
 						<h4>WebShop</h4>
 						<ul>
 							<li><a href="/home/about">Over WebShop</a></li>
-							<li><a href="/home/about">Cadeaubonnen</a></li>
+							<li><a href="/home/compareproduct">Productvergelijker</a></li>
 						</ul>
 					</div>  
 				</div>

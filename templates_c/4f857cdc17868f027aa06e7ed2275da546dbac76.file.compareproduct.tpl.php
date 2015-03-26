@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-26 00:24:06
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-26 14:12:54
          compiled from "app\view\home\compareproduct.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:327655512ab692af7c3-90370544%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '4f857cdc17868f027aa06e7ed2275da546dbac76' => 
     array (
       0 => 'app\\view\\home\\compareproduct.tpl',
-      1 => 1427325844,
+      1 => 1427375565,
       2 => 'file',
     ),
   ),
@@ -25,36 +25,36 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			<h3 class="panel-title">Producten vergelijken</h3>
 		</div>
 		<div class="panel-body">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="form-group input-append btn-group center-block">
+						<input type="text" class="form-control search-product-1" placeholder="Zoek product...">
+							<ul class="dropdown-menu search-product-1-results">
+							</ul>
+						</input>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group input-append btn-group center-block">
+						<input type="text" class="form-control search-product-2" placeholder="Zoek product...">
+							<ul class="dropdown-menu search-product-2-results">
+							</ul>
+						</input>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group input-append btn-group center-block">
+						<input type="text" class="form-control search-product-3" placeholder="Zoek product...">
+							<ul class="dropdown-menu search-product-3-results">
+							</ul>
+						</input>
+					</div>
+				</div>
+				
+			</div>
 			<div class="table-responsive">				
 				<table class="table">
-					<tr>
-						<td></td>
-						<td>
-							<div class="form-group input-append btn-group center-block">
-								<input type="text" class="form-control search-product-1" placeholder="Zoek product...">
-								<ul class="dropdown-menu search-product-1-results">
-								</ul>
-								</input>
-							</div>
-						</td>
-						<td>
-							<div class="form-group input-append btn-group center-block">
-								<input type="text" class="form-control search-product-2" placeholder="Zoek product...">
-								<ul class="dropdown-menu search-product-2-results">
-								</ul>
-								</input>
-							</div>
-						</td>
-						<td>
-							<div class="form-group input-append btn-group center-block">
-								<input type="text" class="form-control search-product-3" placeholder="Zoek product...">
-								<ul class="dropdown-menu search-product-3-results">
-								</ul>
-								</input>
-							</div>
-						</td>
-					</tr>
-					<tr>
+					<!--<tr>
 						<th class="col-md-1 no-border"></th>
 						<th class="text-center col-md-3 no-border">Kaasschaaf</th>
 						<th class="text-center col-md-3 no-border">Lego Duplo voor Stan</th>
@@ -63,16 +63,16 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					
 					<tr>
 						<td class="no-border"></td>
-						<td class="no-border"><img style="max-height: 100px;" src="/uploads/3_1.png" class="img-responsive center-block"></td>
-						<td class="no-border"><img style="max-height: 100px;" src="/uploads/3_1.png" class="img-responsive center-block"></td>
-						<td class="no-border"><img style="max-height: 100px;" src="/uploads/3_1.png" class="img-responsive center-block"></td>
+						<td class="no-border"><img src="/uploads/3_1.png" class="img-responsive compare-image center-block"></td>
+						<td class="no-border"><img src="/uploads/3_1.png" class="img-responsive compare-image center-block"></td>
+						<td class="no-border"><img src="/uploads/3_1.png" class="img-responsive compare-image center-block"></td>
 					</tr>
 					<tr>
 						<td><b>Prijs</b></td>
 						<td class="text-center">&euro;20,-</td>
 						<td class="text-center">&euro;19,99</td>
 						<td class="text-center">&euro;10,-</td>
-					</tr>
+					</tr>-->
 				</table>
 			</div>
 		</div>

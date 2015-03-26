@@ -4,36 +4,36 @@
 			<h3 class="panel-title">Producten vergelijken</h3>
 		</div>
 		<div class="panel-body">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="form-group input-append btn-group center-block">
+						<input type="text" class="form-control search-product-1" placeholder="Zoek product...">
+							<ul class="dropdown-menu search-product-1-results">
+							</ul>
+						</input>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group input-append btn-group center-block">
+						<input type="text" class="form-control search-product-2" placeholder="Zoek product...">
+							<ul class="dropdown-menu search-product-2-results">
+							</ul>
+						</input>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="form-group input-append btn-group center-block">
+						<input type="text" class="form-control search-product-3" placeholder="Zoek product...">
+							<ul class="dropdown-menu search-product-3-results">
+							</ul>
+						</input>
+					</div>
+				</div>
+				
+			</div>
 			<div class="table-responsive">				
 				<table class="table">
-					<tr>
-						<td></td>
-						<td>
-							<div class="form-group input-append btn-group center-block">
-								<input type="text" class="form-control search-product-1" placeholder="Zoek product...">
-								<ul class="dropdown-menu search-product-1-results">
-								</ul>
-								</input>
-							</div>
-						</td>
-						<td>
-							<div class="form-group input-append btn-group center-block">
-								<input type="text" class="form-control search-product-2" placeholder="Zoek product...">
-								<ul class="dropdown-menu search-product-2-results">
-								</ul>
-								</input>
-							</div>
-						</td>
-						<td>
-							<div class="form-group input-append btn-group center-block">
-								<input type="text" class="form-control search-product-3" placeholder="Zoek product...">
-								<ul class="dropdown-menu search-product-3-results">
-								</ul>
-								</input>
-							</div>
-						</td>
-					</tr>
-					<tr>
+					<!--<tr>
 						<th class="col-md-1 no-border"></th>
 						<th class="text-center col-md-3 no-border">Kaasschaaf</th>
 						<th class="text-center col-md-3 no-border">Lego Duplo voor Stan</th>
@@ -51,7 +51,7 @@
 						<td class="text-center">&euro;20,-</td>
 						<td class="text-center">&euro;19,99</td>
 						<td class="text-center">&euro;10,-</td>
-					</tr>
+					</tr>-->
 				</table>
 			</div>
 		</div>
