@@ -3,9 +3,9 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="alert alert-success" role="alert">
-				{if $authenticated == 1}
+				{if $authenticated == 1 }
 				U bent succesvol ingelogd!
-				{elseif $authenticated == 2}
+				{elseif $authenticated == 2 }
 				U ben uitgelogd!
 				{/if}
 			</div>

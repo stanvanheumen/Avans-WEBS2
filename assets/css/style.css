@@ -4,6 +4,7 @@ html {
 
 body {
 	font-family: 'Open Sans', sans-serif;
+	background-color: #efefef;
 }
 
 .btn,
@@ -17,8 +18,13 @@ body {
 	border-radius: 0px;
 }
 
+.navbar {
+	box-shadow: none;
+}
+
 .container {
 	margin-bottom: 0px;
+	background-color: #fff;
 }
 
 .no-margin {
@@ -75,6 +81,7 @@ body {
 	width: 100%;
 	box-shadow: none;
 	-webkit-box-shadow: none;
+	border: 1px solid #dfdfdf;
 }
 
 .mega-dropdown-menu:before {
@@ -170,9 +177,14 @@ body {
 	color: #fff;
 }
 
+.cms {
+	background-color: #dfdfdf;
+}
+
 /* CMS */
 .vertical-offset-100 {
 	padding-top: 100px;
+	background-color: #dfdfdf;
 }
 
 .vertical-offset-7 {

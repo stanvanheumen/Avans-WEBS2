@@ -1,6 +1,6 @@
 		<div class="container">
 			<!-- main-footer -->
-			<nav class="navbar navbar-default">
+			<nav class="navbar navbar-default border-none">
 				<div class="col-lg-12 ">
 					<div class="col-md-4">
 						<h4>Klantenservice</h4>

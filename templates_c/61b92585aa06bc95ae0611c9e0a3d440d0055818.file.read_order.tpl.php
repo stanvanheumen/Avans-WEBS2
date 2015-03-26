@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-25 18:14:37
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-26 22:17:22
          compiled from "app\view\cms\read_order.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:151935512e85285c9a0-77964637%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '61b92585aa06bc95ae0611c9e0a3d440d0055818' => 
     array (
       0 => 'app\\view\\cms\\read_order.tpl',
-      1 => 1427303676,
+      1 => 1427404641,
       2 => 'file',
     ),
   ),
@@ -27,7 +27,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5512e8528cb9e7_86747284')) {function content_5512e8528cb9e7_86747284($_smarty_tpl) {?><div class="container">
-	<div class="row vertical-offset-20">
+	<div class="row cms vertical-offset-20">
 		<div class="col-md-2 pull-right">
 			<div class="panel panel-default">
 				<div class="panel-body text-centered">
@@ -36,7 +36,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			</div>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row cms">
 		<div class="col-md-12">
 			<div class="panel panel-default">
 				<div class="panel-heading text-centered">

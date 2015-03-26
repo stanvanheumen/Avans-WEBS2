@@ -102,8 +102,7 @@
 					<div class="col-sm-12">
 						<form action="/home/search">
 							<div class="input-group">
-								<input type="search" class="form-control input-lg"
-									name="search-query" id="search-query" placeholder="Zoeken in alle artikelen..." />
+								<input type="search" class="form-control input-lg search-input" name="search-query" id="search-query" placeholder="Zoeken in alle artikelen..." />
 								<div class="input-group-btn">
 									<button class="btn btn-lg btn-primary" type="submit" id="Search">
 										<span class="glyphicon glyphicon-search"></span>

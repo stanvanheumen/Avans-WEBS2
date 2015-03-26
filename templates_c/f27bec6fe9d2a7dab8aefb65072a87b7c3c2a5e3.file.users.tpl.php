@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-25 18:10:07
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-26 22:14:22
          compiled from "app\view\cms\users.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:24627550867bcf136b5-65486066%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f27bec6fe9d2a7dab8aefb65072a87b7c3c2a5e3' => 
     array (
       0 => 'app\\view\\cms\\users.tpl',
-      1 => 1427303404,
+      1 => 1427404460,
       2 => 'file',
     ),
   ),
@@ -25,9 +25,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_550867bd02e713_62036566')) {function content_550867bd02e713_62036566($_smarty_tpl) {?><div class="container">
-	<div class="row vertical-offset-20">
+	<div class="row cms vertical-offset-20">
 	</div>
-	<div class="row">
+	<div class="row cms">
 		<div class="col-md-12">
 			<div class="panel panel-default">
 				<div class="panel-heading text-centered">

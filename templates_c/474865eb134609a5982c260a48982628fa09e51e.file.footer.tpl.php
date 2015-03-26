@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-26 14:49:18
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-26 22:03:14
          compiled from "app\view\home\partial\footer.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:116655504cf2876d802-54219077%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '474865eb134609a5982c260a48982628fa09e51e' => 
     array (
       0 => 'app\\view\\home\\partial\\footer.tpl',
-      1 => 1427377708,
+      1 => 1427403792,
       2 => 'file',
     ),
   ),
@@ -25,7 +25,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5504cf28775fe9_02975714')) {function content_5504cf28775fe9_02975714($_smarty_tpl) {?>		<div class="container">
 			<!-- main-footer -->
-			<nav class="navbar navbar-default">
+			<nav class="navbar navbar-default border-none">
 				<div class="col-lg-12 ">
 					<div class="col-md-4">
 						<h4>Klantenservice</h4>

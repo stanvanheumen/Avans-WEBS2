@@ -1,5 +1,5 @@
 <div class="container">
-	<div class="row vertical-offset-20">
+	<div class="row cms vertical-offset-20">
 		<div class="col-md-2 pull-right">
 			<div class="panel panel-default">
 				<div class="panel-body text-centered">
@@ -8,7 +8,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row cms">
 		<div class="col-md-12">
 			<div class="panel panel-default">
 				<div class="panel-heading text-centered">

@@ -1,5 +1,5 @@
 <div class="container">
-	<div class="row">
+	<div class="row cms">
 		<div class="col-lg-6 col-md-3 col-sm-6 col-xs-12">
 			<a class="dashboard-stat dashboard-stat-light blue-soft" href="/cms/products">
 			<div class="visual">
@@ -32,7 +32,7 @@
 			</a>
 		</div>
 	</div>
-	<div class="row">	
+	<div class="row cms">	
 		<div class="col-lg-6 col-md-3 col-sm-6 col-xs-12">
 			<a class="dashboard-stat dashboard-stat-light green-soft" href="/cms/orders">
 			<div class="visual">
