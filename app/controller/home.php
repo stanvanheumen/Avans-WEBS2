@@ -111,8 +111,9 @@ class Home extends Controller {
 	}
 
 	public function pay() {
-		if (!isset($_SESSION['shoppingcart']) || !isset($_SESSION['user_id'])) {
+		if (!isset($_SESSION['shoppingcart']) || !isset($_SESSION['user_id']) || count($_SESSION['shoppingcart']) == 0) {
 			$this->redirect('/home/account');
+			return;
 		}
 
 		$user_id = $_SESSION['user_id'];
@@ -159,6 +160,10 @@ class Home extends Controller {
 				// include all products in current category
 				$producten = $this->db->queryArray("SELECT * FROM product WHERE categorie_id = '$id'", 'Product');
 			}
+			$this->smarty->assign('products', $producten);
+			$this->smarty->assign('last_product', end($producten));
+		} else {
+			$producten = $this->db->queryArray("SELECT * FROM product WHERE zichtbaar = 1", 'Product');
 			$this->smarty->assign('products', $producten);
 			$this->smarty->assign('last_product', end($producten));
 		}
@@ -223,8 +228,11 @@ class Home extends Controller {
 				break;
 			}
 		}
-		
+
+		$reviews = $this->db->queryArray("SELECT * FROM review WHERE product_id = '$product_id'", 'Review');
+
 		$this->smarty->assign('product', $product);
+		$this->smarty->assign('reviews', $reviews);
 		$this->smarty->assign('thumbnail', $product_thumbnail);
 		$this->smarty->assign('product_afbeeldingen', $product_afbeeldingen);
 		
@@ -264,7 +272,10 @@ class Home extends Controller {
 			return;
 		}
 		$this->db->query("INSERT INTO account VALUES (NULL, 'member', '$email', '$password', '$first_name', '$infix_name', '$last_name', '$street', '$postal_code', '$place', '$number', '$gender', '1')");
-		$this->redirect('/home/index');
+		$_SESSION['home_authenticated'] = 1;
+		$_SESSION['user_id'] = $user->getId();
+		$this->redirect('/home/index?authenticated=3');
+		return;
 	}
 	
 	public function login() {
@@ -303,25 +314,45 @@ class Home extends Controller {
 			$products = $this->db->queryArray("SELECT * FROM product WHERE id IN $temp AND zichtbaar = 1", 'Product');
 		}
 
-		$user_id = $_SESSION['user_id'];
-
-		$orders = $this->db->query("SELECT id FROM bestelling WHERE account_id = '$user_id' AND zichtbaar = 1");
-
-		$allProductFromOrders = [];
-
-		while ($row = $orders->fetch_array()) {
-			$b_id = $row['id'];
-			$allProducts = $this->db->queryArray("SELECT * FROM bestelproduct WHERE bestelling_id = '$b_id'", 'bestelproduct');
-			foreach($allProducts as $temp) {
-				array_push($allProductFromOrders, $temp);
-			}
-		}
-
 		$this->smarty->assign('products', $products);
-		$this->smarty->assign('orderedProducts', $allProductFromOrders);
 
 		// Render view
 		$this->view('home/account');
+	}
+
+	public function orders() {
+		if(!$this->authenticate_check()) {
+			$this->redirect('/home/login');
+			return;
+		}
+
+		// Set Smarty
+		$this->smart('Bestellingen');
+
+		$user_id = $_SESSION['user_id'];
+		$orders = $this->db->queryArray("SELECT * FROM bestelling WHERE account_id = '$user_id' AND zichtbaar = 1", 'Bestelling');
+
+		$orderproducts = [];
+
+		foreach ($orders as $order) {
+			$b_id = $order->getId();
+			$bestelproductarray = [];
+			$bestelproducts = $this->db->queryArray("SELECT * FROM bestelproduct WHERE bestelling_id = '$b_id'", 'BestelProduct');
+			foreach ($bestelproducts as $bproduct) {
+				$order_and_product = [];
+				$p_id = $bproduct->getProductId();
+				$normal_product = $this->db->queryObject("SELECT * FROM product WHERE id = '$p_id'", 'Product');
+				array_push($order_and_product, $bproduct);
+				array_push($order_and_product, $normal_product);
+				array_push($bestelproductarray, $order_and_product);
+			}
+			array_push($orderproducts, $bestelproductarray);
+		}
+
+		$this->smarty->assign('orderproducts', $orderproducts);
+
+		// Render view
+		$this->view('home/orders');
 	}
 	
 	public function login_post() {

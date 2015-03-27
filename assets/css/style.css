@@ -229,6 +229,10 @@ body {
 	height: 200px;
 }
 
+.orders img {
+	height: 60px;
+}
+
 .product-thumbnail img {
 	max-height: 200px;
 }

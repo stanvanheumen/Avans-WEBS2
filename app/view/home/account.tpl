@@ -43,25 +43,4 @@
 			</tfoot>
 		</table>
 	</form>
-
-	<div class="row">
-		<div class="col-md-12">
-			<div class="panel panel-primary">
-				<div class="panel-heading">
-					<span class="panel-title">Bestellingen</span>
-				</div>
-				<div class="panel-body">
-					{foreach $orderedProducts as $order}
-					<div class="row">
-						<div class="col-md-2">
-							<img src="/uploads/{$order->getProductId()}_1.png" class="img-responsive center-block" alt="-" />
-						</div>
-						<span class="search-title">&euro;{$order->getPrijs()}</span>
-						<span class="panel-title">x{$order->getAantal()}</span>
-					</div>
-					{/foreach}
-				</div>
-			</div>
-		</div>
-	</div>
 </div>

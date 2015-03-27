@@ -7,6 +7,8 @@
 				U bent succesvol ingelogd!
 				{elseif $authenticated == 2 }
 				U ben uitgelogd!
+				{elseif $authenticated == 3 }
+				U bent succesvol geregistreerd!
 				{/if}
 			</div>
 		</div>

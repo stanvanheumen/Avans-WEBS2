@@ -83,6 +83,7 @@
 							</a>
 							<ul class="dropdown-menu account-menu" role="menu">
 								<li><a href="/home/account">Winkelwagentje</a></li>
+								<li><a href="/home/orders">Bestellingen</a></li>
 								<li class="divider"></li>
 								<li><a href="/home/logout">Log uit</a></li>
 							</ul>

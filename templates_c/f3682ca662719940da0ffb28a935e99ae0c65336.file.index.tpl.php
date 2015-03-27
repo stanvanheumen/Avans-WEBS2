@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-27 16:57:05
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-27 19:49:30
          compiled from "app\view\home\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2937355157dd1585a45-28701879%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f3682ca662719940da0ffb28a935e99ae0c65336' => 
     array (
       0 => 'app\\view\\home\\index.tpl',
-      1 => 1427470790,
+      1 => 1427482017,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_55157dd15e8613_53292479',
   'variables' => 
   array (
     'authenticated' => 0,
@@ -24,8 +26,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'product' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_55157dd15e8613_53292479',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_55157dd15e8613_53292479')) {function content_55157dd15e8613_53292479($_smarty_tpl) {?><div class="container">
 	<?php if (isset($_smarty_tpl->tpl_vars['authenticated']->value)) {?>
@@ -36,6 +36,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				U bent succesvol ingelogd!
 				<?php } elseif ($_smarty_tpl->tpl_vars['authenticated']->value==2) {?>
 				U ben uitgelogd!
+				<?php } elseif ($_smarty_tpl->tpl_vars['authenticated']->value==3) {?>
+				U bent succesvol geregistreerd!
 				<?php }?>
 			</div>
 		</div>
