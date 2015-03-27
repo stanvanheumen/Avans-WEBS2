@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-24 09:26:43
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-27 09:23:12
          compiled from "app\view\home\login.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:464155081f5a635750-78177109%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '154d612b83be8baedc3fede925d99647ed8df2e9' => 
     array (
       0 => 'app\\view\\home\\login.tpl',
-      1 => 1427185537,
+      1 => 1427444564,
       2 => 'file',
     ),
   ),
@@ -26,7 +26,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <?php if ($_valid && !is_callable('content_55081f5a7c4ed3_85061408')) {function content_55081f5a7c4ed3_85061408($_smarty_tpl) {?><div class="container">
 	<div class="col-sm-3"></div>
 	<div class="col-sm-6">
-		<div class="panel panel-default">
+		<div class="panel panel-primary">
 			<div class="panel-heading">
 				<h3 class="panel-title">Inloggen</h3>
 			</div>

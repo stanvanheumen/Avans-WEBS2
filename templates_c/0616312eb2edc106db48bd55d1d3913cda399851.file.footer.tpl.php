@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-24 09:25:46
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-27 08:56:22
          compiled from "app\view\home\partial\footer.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:38675506b87da052e1-84095875%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0616312eb2edc106db48bd55d1d3913cda399851' => 
     array (
       0 => 'app\\view\\home\\partial\\footer.tpl',
-      1 => 1427185537,
+      1 => 1427442964,
       2 => 'file',
     ),
   ),
@@ -25,13 +25,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5506b87da141e7_64071637')) {function content_5506b87da141e7_64071637($_smarty_tpl) {?>		<div class="container">
 			<!-- main-footer -->
-			<nav class="navbar navbar-default">
+			<nav class="navbar navbar-default border-none">
 				<div class="col-lg-12 ">
 					<div class="col-md-4">
 						<h4>Klantenservice</h4>
 						<ul>
 							<li><a href="/home/about">Over ons</a></li>
-							<li><a href="/home/about">Veelgestelde vragen</a></li>
+							<li><a href="/home/sitemap">Sitemap</a></li>
 						</ul>
 					</div>  
 					<div class="col-md-4">
@@ -45,7 +45,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						<h4>WebShop</h4>
 						<ul>
 							<li><a href="/home/about">Over WebShop</a></li>
-							<li><a href="/home/about">Cadeaubonnen</a></li>
+							<li><a href="/home/compareproduct">Productvergelijker</a></li>
 						</ul>
 					</div>  
 				</div>

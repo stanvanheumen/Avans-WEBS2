@@ -1,5 +1,26 @@
-<div class="container">
-	<div class="panel panel-primary">
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-27 08:57:56
+         compiled from "app\view\home\compareproduct.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:2392155150d8463bfc5-63475548%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '7a15ba0f7b7e2d35d4018ec379481a2f81b3773b' => 
+    array (
+      0 => 'app\\view\\home\\compareproduct.tpl',
+      1 => 1427442964,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '2392155150d8463bfc5-63475548',
+  'function' => 
+  array (
+  ),
+  'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_55150d8466b0c7_25723324',
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_55150d8466b0c7_25723324')) {function content_55150d8466b0c7_25723324($_smarty_tpl) {?><div class="container">
+	<div class="panel panel-default">
 		<div class="panel-heading">
 			<h3 class="panel-title">Producten vergelijken</h3>
 		</div>
@@ -53,4 +74,4 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div><?php }} ?>

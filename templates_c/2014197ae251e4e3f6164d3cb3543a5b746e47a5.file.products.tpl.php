@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-18 10:18:32
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-27 08:57:04
          compiled from "app\view\cms\products.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:5438550942e856c700-41336321%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '2014197ae251e4e3f6164d3cb3543a5b746e47a5' => 
     array (
       0 => 'app\\view\\cms\\products.tpl',
-      1 => 1426670284,
+      1 => 1427442964,
       2 => 'file',
     ),
   ),
@@ -15,27 +15,26 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_550942e86271a7_44261361',
   'variables' => 
   array (
     'products' => 0,
     'product' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_550942e86271a7_44261361',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_550942e86271a7_44261361')) {function content_550942e86271a7_44261361($_smarty_tpl) {?><div class="container">
-	<div class="row vertical-offset-20">
+	<div class="row cms vertical-offset-20">
 		<div class="col-md-2 pull-right">
 			<div class="panel panel-default">
 				<div class="panel-body text-centered">
 					<a class="btn btn-success" href="/cms/create_product"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
-					<a class="btn btn-blue" href="/cms/"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row cms">
 		<div class="col-md-12">
 			<div class="panel panel-default">
 				<div class="panel-heading text-centered">
@@ -58,9 +57,11 @@ $_smarty_tpl->tpl_vars['product']->_loop = true;
 						<td class="col-md-2">&euro; <?php echo $_smarty_tpl->tpl_vars['product']->value->getPrijs();?>
 </td>
 						<td class="col-md-2 text-centered">
+							<a href="/home/productdetails?product_id=<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
+" class="btn btn-primary"><span class="glyphicon glyphicon-sunglasses"></span></a>
 							<a class="btn btn-warning" href="/cms/edit_product?id=<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
 "><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-							<a class="btn btn-danger" href="/cms/delete_product?id=<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
+							<a onclick="return confirm('Weet je zeker dat je dit wilt verwijderen?');" class="btn btn-danger" href="/cms/delete_product?id=<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
 "><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 						</td>
 					</tr>

@@ -1,5 +1,5 @@
 <div class="container">
-	<div class="panel panel-default">
+	<div class="panel panel-primary">
 		<div class="panel-heading">
 			<h3 class="panel-title">Over ons</h3>
 		</div>
@@ -9,7 +9,7 @@
 			</p>
 		</div>
 	</div>
-	<div class="panel panel-default">
+	<div class="panel panel-primary">
 		<div class="panel-heading">
 			<h3 class="panel-title">Taakverdeling</h3>
 		</div>
@@ -28,7 +28,7 @@
 			</tr>
 		</table>
 	</div>
-	<div class="panel panel-default">
+	<div class="panel panel-primary">
 		<div class="panel-heading">
 			<span class="panel-title">Requirements</span>
 		</div>
@@ -332,7 +332,7 @@
 					<td >
 						<p>Een product heeft kenmerken en per kenmerk kun je filteren.</p>
 					</td>
-					<td class="text-center">&#10004;</td>
+					<td class="text-center"></td>
 				</tr>
 				<tr>
 					<td >
@@ -341,7 +341,7 @@
 					<td >
 						<p>Of: productvergelijker waarmee je maximaal 3 producten naast elkaar kunt zetten.</p>
 					</td>
-					<td class="text-center"></td>
+					<td class="text-center">&#10004;</td>
 				</tr>
 				<tr>
 					<td >

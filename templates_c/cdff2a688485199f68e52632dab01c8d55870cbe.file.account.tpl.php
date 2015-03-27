@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-25 13:08:55
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-27 09:06:49
          compiled from "app\view\home\account.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:29582550acaa1938307-87534900%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'cdff2a688485199f68e52632dab01c8d55870cbe' => 
     array (
       0 => 'app\\view\\home\\account.tpl',
-      1 => 1427285333,
+      1 => 1427442964,
       2 => 'file',
     ),
   ),
@@ -47,7 +47,8 @@ $_smarty_tpl->tpl_vars['product']->_loop = true;
 				<tr>
 					<td data-th="Product">
 						<div class="row">
-							<div class="col-sm-2 hidden-xs"><img src="http://placehold.it/100x100" alt="..." class="img-responsive"/></div>
+							<div class="col-sm-2 hidden-xs"><img class="media-object" width="100" src="/uploads/<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
+_1.png" alt="auction"></div>
 							<div class="col-sm-10">
 								<h4 class="nomargin"><?php echo $_smarty_tpl->tpl_vars['product']->value->getProductNaam();?>
 </h4>

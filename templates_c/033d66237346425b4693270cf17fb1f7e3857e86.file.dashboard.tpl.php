@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-24 09:28:10
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-27 08:57:01
          compiled from "app\view\cms\dashboard.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:121945506b8afe8c247-40714291%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '033d66237346425b4693270cf17fb1f7e3857e86' => 
     array (
       0 => 'app\\view\\cms\\dashboard.tpl',
-      1 => 1427185537,
+      1 => 1427442964,
       2 => 'file',
     ),
   ),
@@ -27,7 +27,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5506b8b0038c39_73326806')) {function content_5506b8b0038c39_73326806($_smarty_tpl) {?><div class="container">
-	<div class="row">
+	<div class="row cms">
 		<div class="col-lg-6 col-md-3 col-sm-6 col-xs-12">
 			<a class="dashboard-stat dashboard-stat-light blue-soft" href="/cms/products">
 			<div class="visual">
@@ -62,7 +62,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			</a>
 		</div>
 	</div>
-	<div class="row">	
+	<div class="row cms">	
 		<div class="col-lg-6 col-md-3 col-sm-6 col-xs-12">
 			<a class="dashboard-stat dashboard-stat-light green-soft" href="/cms/orders">
 			<div class="visual">

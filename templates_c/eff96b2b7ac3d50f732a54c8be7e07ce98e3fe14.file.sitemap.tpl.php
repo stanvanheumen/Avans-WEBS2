@@ -1,5 +1,26 @@
-<div class="container">
-	<div class="panel panel-primary">
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-27 08:58:39
+         compiled from "app\view\\home\sitemap.tpl" */ ?>
+<?php /*%%SmartyHeaderCode:2645455150dafa1b523-49418300%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    'eff96b2b7ac3d50f732a54c8be7e07ce98e3fe14' => 
+    array (
+      0 => 'app\\view\\\\home\\sitemap.tpl',
+      1 => 1427442964,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '2645455150dafa1b523-49418300',
+  'function' => 
+  array (
+  ),
+  'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_55150dafa538a4_85291562',
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_55150dafa538a4_85291562')) {function content_55150dafa538a4_85291562($_smarty_tpl) {?><div class="container">
+	<div class="panel panel-default">
 		<div class="panel-heading">
 			<span class="panel-title">Sitemap</span>
 		</div>
@@ -47,4 +68,4 @@
 			</tbody>
 		</table>
 	</div>
-</div>
+</div><?php }} ?>

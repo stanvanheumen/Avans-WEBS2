@@ -1,5 +1,5 @@
 <div class="container">
-	<div class="panel panel-default">
+	<div class="panel panel-primary">
 		<div class="panel-body">
 			<h3 class="panel-title">Assortiment</h3>
 		</div>
@@ -23,7 +23,7 @@
 			</div>
 			{/if}
 		
-			<div class="panel panel-default">
+			<div class="panel panel-primary">
 				<div class="panel-heading">
 					<h3 class="panel-title">Categorie&euml;n</h3>
 				</div>
@@ -40,7 +40,7 @@
 			</div>
 		</div>
 		<div class="col-sm-9">
-			<div class="panel panel-default">
+			<div class="panel panel-primary">
 				<div class="panel-heading">
 					<h3 class="panel-title">
 						{$category}

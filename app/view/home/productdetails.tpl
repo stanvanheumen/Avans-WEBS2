@@ -4,7 +4,7 @@
 		<div class="col-md-4">
 			<div class="col-md-8">
 				<a class="fancybox" href="/{$thumbnail->getLink()}" rel="lightbox">
-					<div class="panel panel-default">
+					<div class="panel panel-primary">
 						<div class="panel-body product-thumbnail">
 							<img src="/{$thumbnail->getLink()}" class="img-responsive center-block" alt="img">
 						</div>
@@ -14,7 +14,7 @@
 			<div class="col-md-4">
 				{foreach $product_afbeeldingen as $afbeelding}
 				<a class="fancybox" href="/{$afbeelding->getLink()}" rel="lightbox">
-					<div class="panel panel-default pull-left">
+					<div class="panel panel-primary pull-left">
 						<div class="panel-body product-image">
 							<img src="/{$afbeelding->getLink()}" class="img-responsive center-block" alt="img">
 						</div>

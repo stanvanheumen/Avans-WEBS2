@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-19 09:52:02
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-27 08:57:22
          compiled from "app\view\cms\users.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:8095550942e90a6b44-10350653%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '86417aa0ccd3472a14a9e1b9bc1f789148da3def' => 
     array (
       0 => 'app\\view\\cms\\users.tpl',
-      1 => 1426754947,
+      1 => 1427442964,
       2 => 'file',
     ),
   ),
@@ -25,16 +25,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_550942e911a878_47271796')) {function content_550942e911a878_47271796($_smarty_tpl) {?><div class="container">
-	<div class="row vertical-offset-20">
-		<div class="col-md-2 pull-right">
-			<div class="panel panel-default">
-				<div class="panel-body text-centered">
-					<a class="btn btn-blue" href="/cms/"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
-				</div>
-			</div>
-		</div>
+	<div class="row cms vertical-offset-20">
 	</div>
-	<div class="row">
+	<div class="row cms">
 		<div class="col-md-12">
 			<div class="panel panel-default">
 				<div class="panel-heading text-centered">
@@ -63,9 +56,11 @@ $_smarty_tpl->tpl_vars['user']->_loop = true;
 						<td class="col-md-3"><?php echo $_smarty_tpl->tpl_vars['user']->value->getAdres();?>
 </td>
 						<td class="col-md-2 text-centered">
+							<a href="/cms/read_user?id=<?php echo $_smarty_tpl->tpl_vars['user']->value->getId();?>
+" class="btn btn-primary"><span class="glyphicon glyphicon-sunglasses"></span></a>
 							<a class="btn btn-warning" href="/cms/edit_user?id=<?php echo $_smarty_tpl->tpl_vars['user']->value->getId();?>
 "><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-							<a class="btn btn-danger" href="/cms/delete_user?id=<?php echo $_smarty_tpl->tpl_vars['user']->value->getId();?>
+							<a onclick="return confirm('Weet je zeker dat je dit wilt verwijderen?');" class="btn btn-danger" href="/cms/delete_user?id=<?php echo $_smarty_tpl->tpl_vars['user']->value->getId();?>
 "><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
 						</td>
 					</tr>

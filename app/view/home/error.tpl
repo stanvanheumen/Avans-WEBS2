@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-			<div class="panel panel-default">
+			<div class="panel panel-primary">
 				<div class="panel-heading text-centered">
 					<h4 class="panel-title">404 page not found</h4>
 				</div>

@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="col-sm-3"></div>
 	<div class="col-sm-6">
-		<div class="panel panel-default">
+		<div class="panel panel-primary">
 			<div class="panel-heading">
 				<h3 class="panel-title">Inloggen</h3>
 			</div>

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-25 12:59:28
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-27 09:22:20
          compiled from "app\view\home\assortment.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:3273550194704e0cd7-15619978%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '88cae01ad072e945fe59e9206dfb527459aa141e' => 
     array (
       0 => 'app\\view\\home\\assortment.tpl',
-      1 => 1427274424,
+      1 => 1427444539,
       2 => 'file',
     ),
   ),
@@ -31,7 +31,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_55019470546e56_89302312')) {function content_55019470546e56_89302312($_smarty_tpl) {?><div class="container">
-	<div class="panel panel-default">
+	<div class="panel panel-primary">
 		<div class="panel-body">
 			<h3 class="panel-title">Assortiment</h3>
 		</div>
@@ -63,7 +63,7 @@ $_smarty_tpl->tpl_vars['cat']->_loop = true;
 			</div>
 			<?php }?>
 		
-			<div class="panel panel-default">
+			<div class="panel panel-primary">
 				<div class="panel-heading">
 					<h3 class="panel-title">Categorie&euml;n</h3>
 				</div>
@@ -88,7 +88,7 @@ $_smarty_tpl->tpl_vars['cat']->_loop = true;
 			</div>
 		</div>
 		<div class="col-sm-9">
-			<div class="panel panel-default">
+			<div class="panel panel-primary">
 				<div class="panel-heading">
 					<h3 class="panel-title">
 						<?php echo $_smarty_tpl->tpl_vars['category']->value;?>
@@ -106,7 +106,8 @@ $_smarty_tpl->tpl_vars['product']->_loop = true;
 						<div class="col-md-6">
 							<div class="media">
 								<div class="media-left media-middle">
-									<img class="media-object" src="/assets/images/auction.png" alt="auction">
+									<img class="media-object" width="100" src="/uploads/<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
+_1.png" alt="auction">
 								</div>
 								<div class="media-body">
 									<h4 class="media-heading"><a href="productdetails?product_id=<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
