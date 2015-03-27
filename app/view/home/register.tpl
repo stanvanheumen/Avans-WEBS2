@@ -6,6 +6,15 @@
 				<h3 class="panel-title">Registreren</h3>
 			</div>
 			<div class="panel-body">
+				{if isset($authenticate_error)}
+				<div class="alert alert-danger" role="alert">
+					<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					De wachtwoorden matchen niet
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				{/if}
 				<form action="/home/register_post" method="post" accept-charset="UTF-8" role="form">
 					<fieldset>
 						<div class="form-group">
@@ -55,6 +64,9 @@
 						</div>
 						<div class="form-group">
 							<input class="form-control" placeholder="Wachtwoord" name="password" type="password" required>
+						</div>
+						<div class="form-group">
+							<input class="form-control" placeholder="Herhaal wachtwoord" name="repeat_password" type="password" required>
 						</div>
 						<input class="btn btn-lg btn-primary btn-block" type="submit" value="Registreren">
 					</fieldset>

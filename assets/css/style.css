@@ -475,3 +475,12 @@ Dashboard stats
 .no-border {
 	border: 0 !important;
 }
+
+.padding-none {
+	padding: 0px;
+}
+
+.parent-size {
+	width: 100%;
+	height: 100%;
+}

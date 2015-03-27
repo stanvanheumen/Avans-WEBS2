@@ -251,6 +251,13 @@ class Home extends Controller {
 		$number 		= $this->db->escape($_POST['number']);
 		$email 			= $this->db->escape($_POST['email']);
 		$password 		= $this->getHash($this->db->escape($_POST['password']));
+		$repeat_pass	= $this->getHash($this->db->escape($_POST['repeat_password']));
+
+		if ($password != $repeat_pass) {
+			$this->redirect('/home/register');
+			return;
+		}
+
 		$acc = $this->db->queryObject("SELECT * FROM account WHERE gebruikersnaam = '$email' AND zichtbaar = 1", 'Account');
 		if($acc != null) {
 			$this->redirect('/home/register');

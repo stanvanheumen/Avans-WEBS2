@@ -15,7 +15,7 @@
 	<div class="row">
 		{foreach $products as $product}
 		<div class="col-md-4">
-			<div class="panel panel-default">
+			<div class="panel panel-primary">
 				<div class="panel-body featured">
 					{foreach $product_images as $image}
 					{if $image->getProductId() eq $product->getId()}
@@ -23,8 +23,8 @@
 					{/if}
 					{/foreach}
 				</div>
-				<div class="panel-footer">
-					<a href="/home/productdetails?product_id={$product->getId()}">{$product->getProductNaam()}</a>
+				<div class="panel-footer padding-none">
+					<a class="btn btn-primary parent-size" href="/home/productdetails?product_id={$product->getId()}">{$product->getProductNaam()}</a>
 				</div>
 			</div>
 		</div>
