@@ -8,6 +8,7 @@
 			<div class="panel-body">
 				{if isset($authenticate_error)}
 				<div class="alert alert-danger" role="alert">
+					<a href="#" class="close" data-dismiss="alert">&times;</a>
 					<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
 					Verkeerde gebruikersnaam/wachtwoord
 				</div>

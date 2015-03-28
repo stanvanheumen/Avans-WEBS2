@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-22 12:43:07
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-27 10:52:10
          compiled from "app\view\home\index.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:102155018aacbf0e94-81580805%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '32efcc9b188c649b4044a0a7ab5b26049cefdc3c' => 
     array (
       0 => 'app\\view\\home\\index.tpl',
-      1 => 1427024585,
+      1 => 1427449909,
       2 => 'file',
     ),
   ),
@@ -32,6 +32,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	<div class="row">
 		<div class="col-md-12">
 			<div class="alert alert-success" role="alert">
+				<a href="#" class="close" data-dismiss="alert">&times;</a>
 				<?php if ($_smarty_tpl->tpl_vars['authenticated']->value==1) {?>
 				U bent succesvol ingelogd!
 				<?php } elseif ($_smarty_tpl->tpl_vars['authenticated']->value==2) {?>

@@ -3,6 +3,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="alert alert-success" role="alert">
+				<a href="#" class="close" data-dismiss="alert">&times;</a>
 				{if $authenticated == 1 }
 				U bent succesvol ingelogd!
 				{elseif $authenticated == 2 }
