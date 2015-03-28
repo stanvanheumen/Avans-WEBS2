@@ -9,7 +9,9 @@ body {
 
 .btn,
 .form-control, 
-.panel, 
+.panel,
+.panel-heading,
+.panel-footer,
 .well,
 .nav,
 .navbar-default,
