@@ -71,6 +71,8 @@ class Api extends Controller {
 		$names = array('names' => array());
 		$prices = array('prices' => array());
 		$thumbnails = array('thumbnails' => array());
+		$descriptions = array('descriptions' => array());
+		$stock = array('stocks' => array());
 		
 		
 		// fetch basic data
@@ -79,11 +81,15 @@ class Api extends Controller {
 			$names['names'][$p] = $product->getProductNaam();
 			$prices['prices'][$p] = $product->getPrijs();
 			$thumbnails['thumbnails'][$p] = $product->link;
+			$descriptions['descriptions'][$p] = $product->getBeschrijvingKort();
+			$stock['stocks'][$p] = $product->getVoorraad();
 		}
 		
 		$arr[] = $names;
 		$arr[] = $thumbnails;
+		$arr[] = $descriptions;
 		$arr[] = $prices;
+		$arr[] = $stock;
 		
 		// fetch specifications
 		

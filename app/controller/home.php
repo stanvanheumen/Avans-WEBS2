@@ -129,6 +129,19 @@ class Home extends Controller {
 
 		// Execute database requests
 		$search_category = false;
+		
+		// pagination
+		$page = 1;
+		
+		if(isset($_GET['page']) && is_numeric($_GET['page']) && $_GET['page'] > 0) {
+			$page = $_GET['page'];
+		}
+		
+		$limit = (double)6;
+		$page--;
+		$start = $page * $limit;
+		
+		// fetching category
 	
 		if (isset($_GET['categorie']) && is_numeric($_GET['categorie'])) {
 			$search_category = $this->db->queryObject("SELECT * FROM categorie WHERE id = '" . $this->db->escape($_GET['categorie']) . "'", 'Categorie');
@@ -138,23 +151,41 @@ class Home extends Controller {
 		
 		$category = ($search_category ? $search_category->getNaam () : "Producten");
 		
+		$producten = null;
+		$productCount = -1;
 		if($search_category) {
-			$producten = null;
 			$id = $this->db->escape($search_category->getId());
 			if($search_category->getCategorieParent() == null) {
 				// include all products in all subcategories and current category
-				$producten = $this->db->queryArray("SELECT * FROM product WHERE categorie_id IN (SELECT id FROM categorie WHERE id='$id' OR categorie_parent='$id')", 'Product');
+				$producten = $this->db->queryArray("SELECT * FROM product WHERE categorie_id IN (SELECT id FROM categorie WHERE id='$id' OR categorie_parent='$id') LIMIT $start,$limit", 'Product');
+				
+				$result = $this->db->query("SELECT COUNT(*) FROM product WHERE categorie_id IN (SELECT id FROM categorie WHERE id='$id' OR categorie_parent='$id')");
+				$productCount = $result->fetch_row()[0];
+				$result->close();
+				
 			} else {
 				// include all products in current category
-				$producten = $this->db->queryArray("SELECT * FROM product WHERE categorie_id = '$id'", 'Product');
+				$producten = $this->db->queryArray("SELECT * FROM product WHERE categorie_id = '$id' LIMIT $start,$limit", 'Product');
+				
+				$result = $this->db->query("SELECT COUNT(*) FROM product WHERE categorie_id = '$id'");
+				$productCount = $result->fetch_row()[0];
+				$result->close();
 			}
-			$this->smarty->assign('products', $producten);
-			$this->smarty->assign('last_product', end($producten));
 		} else {
-			$producten = $this->db->queryArray("SELECT * FROM product WHERE zichtbaar = 1", 'Product');
-			$this->smarty->assign('products', $producten);
-			$this->smarty->assign('last_product', end($producten));
+			$producten = $this->db->queryArray("SELECT * FROM product WHERE zichtbaar = 1 LIMIT $start,$limit", 'Product');
+			
+			$result = $this->db->query("SELECT COUNT(*) FROM product WHERE zichtbaar = 1");
+			$productCount = $result->fetch_row()[0];
+			$result->close();
 		}
+		
+		$pages = ceil( (double)$productCount / $limit);
+		
+		$this->smarty->assign('products', $producten);
+		$this->smarty->assign('last_product', end($producten));
+		
+		$this->smarty->assign('pages', $pages);
+		$this->smarty->assign('current_page', $page + 1);
 		
 		$this->smarty->assign('category', $category);
 		if(isset($_GET['categorie'])) {

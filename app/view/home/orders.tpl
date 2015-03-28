@@ -5,6 +5,11 @@
 				<div class="panel-heading">
 					<span class="panel-title">Bestellingen</span>
 				</div>
+				{if empty($orderproducts) }
+				<div class="panel-body">
+					<p>Je hebt nog geen bestellingen geplaatst.</p>
+				</div>
+				{else}
 				<table class="table table-bordered">
 					{foreach $orderproducts as $order}
 					<tr>
@@ -31,6 +36,7 @@
 					</tr>
 					{/foreach}
 				</table>
+				{/if}
 			</div>
 		</div>
 	</div>

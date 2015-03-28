@@ -144,7 +144,42 @@ function compareProducts() {
 				
 				$( '.table' ).append(row);
 			}
-			if(i == 2) {
+			if(i == 2 || i == 4) {
+				// data (description or stock)
+				var data;
+				var title;
+				if(i == 2) {
+					data = json[i].descriptions;
+					title = "Beschrijving";
+				} else {
+					data = json[i].stocks;
+					title = "Voorraad";
+				}
+				
+				var row = '<tr><td class="col-md-1"><strong>' + title + '</strong></td>';
+				row += '<td class="text-center">';
+				if(data.product1) {
+					row += data.product1;
+				}
+				row += '</td>';
+				
+				row += '<td class="text-center">';
+				if(data.product2) {
+					row += data.product2;
+				}
+				row += '</td>';
+				
+				row += '<td class="text-center">';
+				if(data.product3) {
+					row += data.product3;
+				}
+				row += '</td>';
+				
+				row += '</tr>';
+				
+				$( '.table' ).append(row);
+			}
+			if(i == 3) {
 				// prices
 				var prices = json[i].prices;
 				

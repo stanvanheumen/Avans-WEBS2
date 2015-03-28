@@ -79,4 +79,31 @@
 			</div>
 		</div>
 	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<nav class="pull-right">
+				<ul class="pagination pagination-sm">
+					{if $pages > 1}
+					{if $current_page > 1}
+						<li><a href="/home/assortment?page={$current_page - 1}{if isset($currcategory)}&categorie={$currcategory}{/if}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+					{else}
+						<li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+					{/if}
+					{for $p=1 to $pages}
+					{if $p == $current_page}
+					<li class="active"><a href="/home/assortment?page=$p{if isset($currcategory)}&categorie={$currcategory}{/if}">{$p}</a></li>
+					{else}
+					<li><a href="/home/assortment?page={$p}{if isset($currcategory)}&categorie={$currcategory}{/if}">{$p}</a></li>
+					{/if}
+					{/for}
+					{if $pages == $current_page}
+					<li class="disabled"><a href="#">&raquo;</a></li>
+					{else}
+					<li><a href="/home/assortment?page={$current_page + 1}{if isset($currcategory)}&categorie={$currcategory}{/if}">&raquo;</a></li>
+					{/if}
+					{/if}
+				</ul>
+			</nav>
+		</div>
+	</div>
 </div>
