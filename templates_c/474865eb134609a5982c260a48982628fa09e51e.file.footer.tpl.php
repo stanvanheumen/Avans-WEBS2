@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-27 16:57:05
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-28 23:53:33
          compiled from "app\view\home\partial\footer.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:837055157dd164e689-58379408%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '474865eb134609a5982c260a48982628fa09e51e' => 
     array (
       0 => 'app\\view\\home\\partial\\footer.tpl',
-      1 => 1427468552,
+      1 => 1427583201,
       2 => 'file',
     ),
   ),
@@ -15,13 +15,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_55157dd1657269_16033627',
   'variables' => 
   array (
     'year' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_55157dd1657269_16033627',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_55157dd1657269_16033627')) {function content_55157dd1657269_16033627($_smarty_tpl) {?>		<div class="container">
 			<!-- main-footer -->
@@ -60,6 +60,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					</div>
 				</div>
 				<div class="row">
+					<p>
+						<a href="http://jigsaw.w3.org/css-validator/check/referer">
+							<img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valide CSS!" />
+						</a>
+					</p>
 					<div class="col-md-12">
 						<p>
 							Copyright &copy; <?php echo $_smarty_tpl->tpl_vars['year']->value;?>

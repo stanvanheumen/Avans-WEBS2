@@ -1,4 +1,5 @@
 <?php
+
 require_once 'app/libs/Smarty.class.php';
 
 class Controller {

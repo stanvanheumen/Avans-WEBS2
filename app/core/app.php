@@ -11,14 +11,15 @@ class App {
 		
 		session_start();
 
-		//$_SESSION['shoppingcart'] = array();
-
-		if (!isset($url[0]) && !isset($url[1]))
+		if (!isset($url[0]) && !isset($url[1])) {
 			header('Location: /home/index');
+		}
 
 		if (file_exists('app/controller/' . $url[0] . '.php')) {
 			$this->controller = $url[0];
 			unset($url[0]);
+		} else {
+			header('Location: /home/index');
 		}
 
 		require_once 'app/controller/' . $this->controller . '.php';
@@ -40,8 +41,9 @@ class App {
 	}
 	
 	protected function parseUrl() {
-		if (isset($_GET['url']))
+		if (isset($_GET['url'])) {
 			return $url = explode('/', filter_var(rtrim($_GET['url'], '/'), FILTER_SANITIZE_URL));
+		}
 	}
 	
 }

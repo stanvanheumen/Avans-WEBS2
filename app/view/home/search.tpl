@@ -37,7 +37,7 @@
 							</div>
 						</div>
 						{/foreach}
-				    </div>
+					</div>
 				</div>
 			</div>
 		</div>
