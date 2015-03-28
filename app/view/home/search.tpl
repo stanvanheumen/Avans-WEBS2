@@ -3,15 +3,9 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="panel panel-primary">
-					<div class="panel-body">
+					<div class="panel-heading">
 						<h3 class="panel-title">{$amount} resultaten gevonden voor '{$searchquery}'</h3>
 					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm-12">
-				<div class="panel panel-primary">
 					<div class="panel-body">	
 						{foreach $products as $product} 			
 						<div class="row vertical-offset-7">

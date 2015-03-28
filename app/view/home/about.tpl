@@ -13,18 +13,61 @@
 		<div class="panel-heading">
 			<h3 class="panel-title">Taakverdeling</h3>
 		</div>
-		<table class="table">
+		<table class="table table-bordered">
 			<tr>
-				<th>Brian</th>
-				<th>Stan</th>
+				<th>Taak</th>
+				<th>Door</th>
+				<th>Tijd</th>
 			</tr>
 			<tr>
 				<td>Database klasse</td>
-				<td>MVC framework</td>
+				<td>Brian</td>
+				<td>1 uur</td>
 			</tr>
 			<tr>
 				<td>Smarty</td>
+				<td>Brian</td>
+				<td>1 uur</td>
+			</tr>
+			<tr>
+				<td>MVC framework</td>
+				<td>Stan</td>
+				<td>2 uur</td>
+			</tr>
+			<tr>
 				<td>Layout / CSS</td>
+				<td>Stan, Brian</td>
+				<td>5 uur</td>
+			</tr>
+			<tr>
+				<td>Validatie</td>
+				<td>Stan, Brian</td>
+				<td>2 uur</td>
+			</tr>
+			<tr>
+				<td>CMS</td>
+				<td>Stan, Brian</td>
+				<td>6 uur</td>
+			</tr>
+			<tr>
+				<td>Winkelwagentje</td>
+				<td>Stan, Brian</td>
+				<td>4 uur</td>
+			</tr>
+			<tr>
+				<td>Productvergelijker</td>
+				<td>Brian</td>
+				<td>3 uur</td>
+			</tr>
+			<tr>
+				<td>Single Entry Point</td>
+				<td>Stan</td>
+				<td>2 uur</td>
+			</tr>
+			<tr>
+				<td>Sitemenu</td>
+				<td>Stan</td>
+				<td>1 uur</td>
 			</tr>
 		</table>
 	</div>

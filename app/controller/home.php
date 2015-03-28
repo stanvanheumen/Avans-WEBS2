@@ -375,14 +375,15 @@ class Home extends Controller {
 
 	public function view($view, $data = []) {
 		$categories = $this->db->queryArray('SELECT * FROM categorie WHERE categorie_parent IS NULL AND zichtbaar = 1 ORDER BY naam', 'Categorie');
-		$games 		= $this->db->queryArray('SELECT * FROM product WHERE categorie_id = 6 AND zichtbaar = 1 LIMIT 8', 'Product');
-		$computers 	= $this->db->queryArray('SELECT * FROM product WHERE categorie_id = 2 AND zichtbaar = 1 LIMIT 8', 'Product');
-		$toys 		= $this->db->queryArray('SELECT * FROM product WHERE categorie_id = 7 AND zichtbaar = 1 LIMIT 8', 'Product');
-		
+
+		$productsarray = [];
+		for ($index = 0; $index < 3; $index++) {
+			$curr_cat = $categories[$index]->getId();
+			array_push($productsarray, $this->db->queryArray("SELECT * FROM product WHERE categorie_id = $curr_cat AND zichtbaar = 1 LIMIT 8", 'Product'));
+		}
+
 		$this->smarty->assign('categories', $categories);
-		$this->smarty->assign('games', $games);
-		$this->smarty->assign('computers', $computers);
-		$this->smarty->assign('toys', $toys);
+		$this->smarty->assign('productsarray', $productsarray);
 
 		if (isset($_SESSION['user_id'])) {	
 			$id = $_SESSION["user_id"];

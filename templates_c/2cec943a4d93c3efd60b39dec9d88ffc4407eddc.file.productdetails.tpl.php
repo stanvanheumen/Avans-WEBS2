@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-27 20:58:49
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-28 19:01:28
          compiled from "app\view\home\productdetails.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:55015515a49c734fe0-53263257%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '2cec943a4d93c3efd60b39dec9d88ffc4407eddc' => 
     array (
       0 => 'app\\view\\home\\productdetails.tpl',
-      1 => 1427486325,
+      1 => 1427565638,
       2 => 'file',
     ),
   ),
@@ -116,22 +116,47 @@ $_smarty_tpl->tpl_vars['afbeelding']->_loop = true;
 foreach ($_from as $_smarty_tpl->tpl_vars['review']->key => $_smarty_tpl->tpl_vars['review']->value) {
 $_smarty_tpl->tpl_vars['review']->_loop = true;
 ?>
-			<div class="row">
-				<div class="col-md-1">
-				</div>
-				<div class="col-md-10">
-					<div class="panel panel-primary">
-						<div class="panel-heading">
-							<span class="panel-title"><?php echo $_smarty_tpl->tpl_vars['review']->value->getDatum();?>
+		<div class="row">
+			<div class="col-md-1">
+			</div>
+			<div class="col-md-10">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<span class="panel-title">Review door <?php echo $_smarty_tpl->tpl_vars['review']->value->getVoornaam();?>
+ op <?php echo $_smarty_tpl->tpl_vars['review']->value->getDatum();?>
 </span>
-						</div>
-						<div class="panel-body">
-							<?php echo $_smarty_tpl->tpl_vars['review']->value->getBericht();?>
+					</div>
+					<div class="panel-body">
+						<?php echo $_smarty_tpl->tpl_vars['review']->value->getBericht();?>
 
-						</div>
 					</div>
 				</div>
 			</div>
+		</div>
 		<?php } ?>
+		<?php if (isset($_SESSION['home_authenticated'])&&$_SESSION['home_authenticated']==1) {?>
+		<div class="row">
+			<div class="col-md-1">
+			</div>
+			<div class="col-md-10">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<span class="panel-title">Schrijf een review</span>
+					</div>
+					<div class="panel-body">
+						<form action="/home/postreview?id=<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
+" method="post" role="form" enctype="multipart/form-data">
+							<div class="form-group">
+								<textarea class="form-control" id="review" name="review" placeholder="Type je review..." required></textarea>
+							</div>
+							<div class="pull-right">
+								<button type="submit" class="btn btn-primary">Plaatsen</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<?php }?>
 	</div>
 </div><?php }} ?>

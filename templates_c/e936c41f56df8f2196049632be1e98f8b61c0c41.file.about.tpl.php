@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-27 23:41:06
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-28 23:09:23
          compiled from "app\view\home\about.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:313745515dc8244c0f5-70854161%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'e936c41f56df8f2196049632be1e98f8b61c0c41' => 
     array (
       0 => 'app\\view\\home\\about.tpl',
-      1 => 1427468649,
+      1 => 1427580563,
       2 => 'file',
     ),
   ),
@@ -15,9 +15,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
-  'has_nocache_code' => false,
   'version' => 'Smarty-3.1.21-dev',
   'unifunc' => 'content_5515dc82474d57_22512243',
+  'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5515dc82474d57_22512243')) {function content_5515dc82474d57_22512243($_smarty_tpl) {?><div class="container">
 	<div class="panel panel-primary">
@@ -34,18 +34,61 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<div class="panel-heading">
 			<h3 class="panel-title">Taakverdeling</h3>
 		</div>
-		<table class="table">
+		<table class="table table-bordered">
 			<tr>
-				<th>Brian</th>
-				<th>Stan</th>
+				<th>Taak</th>
+				<th>Door</th>
+				<th>Tijd</th>
 			</tr>
 			<tr>
 				<td>Database klasse</td>
-				<td>MVC framework</td>
+				<td>Brian</td>
+				<td>1 uur</td>
 			</tr>
 			<tr>
 				<td>Smarty</td>
+				<td>Brian</td>
+				<td>1 uur</td>
+			</tr>
+			<tr>
+				<td>MVC framework</td>
+				<td>Stan</td>
+				<td>2 uur</td>
+			</tr>
+			<tr>
 				<td>Layout / CSS</td>
+				<td>Stan, Brian</td>
+				<td>5 uur</td>
+			</tr>
+			<tr>
+				<td>Validatie</td>
+				<td>Stan, Brian</td>
+				<td>2 uur</td>
+			</tr>
+			<tr>
+				<td>CMS</td>
+				<td>Stan, Brian</td>
+				<td>6 uur</td>
+			</tr>
+			<tr>
+				<td>Winkelwagentje</td>
+				<td>Stan, Brian</td>
+				<td>4 uur</td>
+			</tr>
+			<tr>
+				<td>Productvergelijker</td>
+				<td>Brian</td>
+				<td>3 uur</td>
+			</tr>
+			<tr>
+				<td>Single Entry Point</td>
+				<td>Stan</td>
+				<td>2 uur</td>
+			</tr>
+			<tr>
+				<td>Sitemenu</td>
+				<td>Stan</td>
+				<td>1 uur</td>
 			</tr>
 		</table>
 	</div>

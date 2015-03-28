@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-27 19:42:46
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-28 18:03:24
          compiled from "app\view\home\login.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:277625515a4a6dd1bf0-96904499%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8ca6324119a2c75a6255ee6e579e20fe8c69285d' => 
     array (
       0 => 'app\\view\\home\\login.tpl',
-      1 => 1427468649,
+      1 => 1427562190,
       2 => 'file',
     ),
   ),
@@ -15,13 +15,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_5515a4a6e02936_58132101',
   'variables' => 
   array (
     'authenticate_error' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5515a4a6e02936_58132101',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5515a4a6e02936_58132101')) {function content_5515a4a6e02936_58132101($_smarty_tpl) {?><div class="container">
 	<div class="col-sm-3"></div>
@@ -33,6 +33,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			<div class="panel-body">
 				<?php if (isset($_smarty_tpl->tpl_vars['authenticate_error']->value)) {?>
 				<div class="alert alert-danger" role="alert">
+					<a href="#" class="close" data-dismiss="alert">&times;</a>
 					<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
 					Verkeerde gebruikersnaam/wachtwoord
 				</div>

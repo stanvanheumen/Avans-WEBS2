@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-27 19:51:24
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-28 23:30:10
          compiled from "app\view\home\partial\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2715655157dd141bc00-80767768%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1d6ae20fa24257141043b4465874c54dfbdb3689' => 
     array (
       0 => 'app\\view\\home\\partial\\header.tpl',
-      1 => 1427482240,
+      1 => 1427581808,
       2 => 'file',
     ),
   ),
@@ -22,12 +22,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'title' => 0,
     'categories' => 0,
     'cat' => 0,
-    'games' => 0,
-    'game' => 0,
-    'computers' => 0,
-    'computer' => 0,
-    'toys' => 0,
-    'toy' => 0,
+    'index' => 0,
+    'productsarray' => 0,
+    'product' => 0,
     'user_name' => 0,
   ),
   'has_nocache_code' => false,
@@ -84,51 +81,28 @@ $_smarty_tpl->tpl_vars['cat']->_loop = true;
 										<?php } ?>
 									</ul>
 								</li>
+								<?php $_smarty_tpl->tpl_vars['index'] = new Smarty_Variable;$_smarty_tpl->tpl_vars['index']->step = 1;$_smarty_tpl->tpl_vars['index']->total = (int) ceil(($_smarty_tpl->tpl_vars['index']->step > 0 ? 2+1 - (0) : 0-(2)+1)/abs($_smarty_tpl->tpl_vars['index']->step));
+if ($_smarty_tpl->tpl_vars['index']->total > 0) {
+for ($_smarty_tpl->tpl_vars['index']->value = 0, $_smarty_tpl->tpl_vars['index']->iteration = 1;$_smarty_tpl->tpl_vars['index']->iteration <= $_smarty_tpl->tpl_vars['index']->total;$_smarty_tpl->tpl_vars['index']->value += $_smarty_tpl->tpl_vars['index']->step, $_smarty_tpl->tpl_vars['index']->iteration++) {
+$_smarty_tpl->tpl_vars['index']->first = $_smarty_tpl->tpl_vars['index']->iteration == 1;$_smarty_tpl->tpl_vars['index']->last = $_smarty_tpl->tpl_vars['index']->iteration == $_smarty_tpl->tpl_vars['index']->total;?>
 								<li class="col-sm-3">
 									<ul>
-										<li class="dropdown-header">Muziek, Film en Games</li>
+										<li class="dropdown-header"><a href="/home/assortment?categorie=<?php echo $_smarty_tpl->tpl_vars['categories']->value[$_smarty_tpl->tpl_vars['index']->value]->getId();?>
+"><?php echo $_smarty_tpl->tpl_vars['categories']->value[$_smarty_tpl->tpl_vars['index']->value]->getNaam();?>
+</a></li>
 										<li class="divider"></li>
-										<?php  $_smarty_tpl->tpl_vars['game'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['game']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['games']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['game']->key => $_smarty_tpl->tpl_vars['game']->value) {
-$_smarty_tpl->tpl_vars['game']->_loop = true;
+										<?php  $_smarty_tpl->tpl_vars['product'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['product']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['productsarray']->value[$_smarty_tpl->tpl_vars['index']->value]; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['product']->key => $_smarty_tpl->tpl_vars['product']->value) {
+$_smarty_tpl->tpl_vars['product']->_loop = true;
 ?>
-										<li><a href="/home/productdetails?product_id=<?php echo $_smarty_tpl->tpl_vars['game']->value->getId();?>
-"><?php echo $_smarty_tpl->tpl_vars['game']->value->getProductNaam();?>
+										<li><a href="/home/productdetails?product_id=<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
+"><?php echo $_smarty_tpl->tpl_vars['product']->value->getProductNaam();?>
 </a></li>
 										<?php } ?>
 									</ul>
 								</li>
-								<li class="col-sm-3">
-									<ul>
-										<li class="dropdown-header">Computer en Elektronica</li>
-										<li class="divider"></li>
-										<?php  $_smarty_tpl->tpl_vars['computer'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['computer']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['computers']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['computer']->key => $_smarty_tpl->tpl_vars['computer']->value) {
-$_smarty_tpl->tpl_vars['computer']->_loop = true;
-?>
-										<li><a href="/home/productdetails?product_id=<?php echo $_smarty_tpl->tpl_vars['computer']->value->getId();?>
-"><?php echo $_smarty_tpl->tpl_vars['computer']->value->getProductNaam();?>
-</a></li>
-										<?php } ?>
-									</ul>
-								</li>
-								<li class="col-sm-3">
-									<ul>
-										<li class="dropdown-header">Speelgoed</li>
-										<li class="divider"></li>
-										<?php  $_smarty_tpl->tpl_vars['toy'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['toy']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['toys']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['toy']->key => $_smarty_tpl->tpl_vars['toy']->value) {
-$_smarty_tpl->tpl_vars['toy']->_loop = true;
-?>
-										<li><a href="/home/productdetails?product_id=<?php echo $_smarty_tpl->tpl_vars['toy']->value->getId();?>
-"><?php echo $_smarty_tpl->tpl_vars['toy']->value->getProductNaam();?>
-</a></li>
-										<?php } ?>
-									</ul>
-								</li>
+								<?php }} ?>
 							</ul>
 						</li>
 					</ul>
@@ -142,7 +116,8 @@ $_smarty_tpl->tpl_vars['toy']->_loop = true;
 								<?php }?>
 							</a>
 							<ul class="dropdown-menu account-menu" role="menu">
-								<li><a href="/home/account">Winkelwagentje</a></li>
+								<li><a href="/home/account">Winkelwagentje (<?php echo count($_SESSION['shoppingcart']);?>
+)</a></li>
 								<li><a href="/home/orders">Bestellingen</a></li>
 								<li class="divider"></li>
 								<li><a href="/home/logout">Log uit</a></li>

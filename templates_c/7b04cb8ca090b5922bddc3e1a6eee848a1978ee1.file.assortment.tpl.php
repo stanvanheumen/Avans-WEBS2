@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-27 20:37:59
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-28 23:13:13
          compiled from "app\view\home\assortment.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:147685515ab84da5cd9-45517722%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7b04cb8ca090b5922bddc3e1a6eee848a1978ee1' => 
     array (
       0 => 'app\\view\\home\\assortment.tpl',
-      1 => 1427484972,
+      1 => 1427580792,
       2 => 'file',
     ),
   ),
@@ -31,15 +31,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5515ab84eec4f9_85768825')) {function content_5515ab84eec4f9_85768825($_smarty_tpl) {?><div class="container">
-	<div class="panel panel-primary">
-		<div class="panel-body">
-			<h3 class="panel-title">Assortiment</h3>
-		</div>
-	</div>
 	<div class="row">
 		<div class="col-sm-3">
 			<?php if (isset($_smarty_tpl->tpl_vars['sub_categories']->value)) {?>
-			<div class="panel panel-default">
+			<div class="panel panel-primary">
 				<div class="panel-heading">
 					<h3 class="panel-title">Subcategorie&euml;n</h3>
 				</div>
@@ -50,9 +45,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['cat']->key => $_smarty_tpl->tpl_vars[
 $_smarty_tpl->tpl_vars['cat']->_loop = true;
 ?> 
 						<?php if (isset($_smarty_tpl->tpl_vars['currcategory']->value)&&$_smarty_tpl->tpl_vars['cat']->value->getId()==$_smarty_tpl->tpl_vars['currcategory']->value) {?>
-							<li class="list-group-item cat-active"><a href="?categorie=<?php echo $_smarty_tpl->tpl_vars['cat']->value->getId();?>
-"><?php echo $_smarty_tpl->tpl_vars['cat']->value->getNaam();?>
-</a></li>
+							<li class="list-group-item cat-active"><?php echo $_smarty_tpl->tpl_vars['cat']->value->getNaam();?>
+</li>
 						<?php } else { ?>
 							<li class="list-group-item"><a href="?categorie=<?php echo $_smarty_tpl->tpl_vars['cat']->value->getId();?>
 "><?php echo $_smarty_tpl->tpl_vars['cat']->value->getNaam();?>
@@ -75,9 +69,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['cat']->key => $_smarty_tpl->tpl_vars[
 $_smarty_tpl->tpl_vars['cat']->_loop = true;
 ?> 
 						<?php if (isset($_smarty_tpl->tpl_vars['currcategory']->value)&&$_smarty_tpl->tpl_vars['cat']->value->getId()==$_smarty_tpl->tpl_vars['currcategory']->value) {?>
-							<li class="list-group-item cat-active"><a href="?categorie=<?php echo $_smarty_tpl->tpl_vars['cat']->value->getId();?>
-"><?php echo $_smarty_tpl->tpl_vars['cat']->value->getNaam();?>
-</a></li>
+							<li class="list-group-item cat-active"><?php echo $_smarty_tpl->tpl_vars['cat']->value->getNaam();?>
+</li>
 						<?php } else { ?>
 							<li class="list-group-item"><a href="?categorie=<?php echo $_smarty_tpl->tpl_vars['cat']->value->getId();?>
 "><?php echo $_smarty_tpl->tpl_vars['cat']->value->getNaam();?>
@@ -122,11 +115,16 @@ _1.png" alt="auction">
 </div>
 						<div class="col-md-4">
 							<?php if (isset($_SESSION['home_authenticated'])&&$_SESSION['home_authenticated']==1) {?>
+							<?php if (isset($_SESSION['shoppingcart'])&&in_array($_smarty_tpl->tpl_vars['product']->value->getId(),$_SESSION['shoppingcart'])) {?> 
+							<a href="/home/removefromcart?id=<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
+" class="btn btn-danger">Verwijderen van winkelwagentje</a>
+							<?php } else { ?>
 							<form action="/home/addtocart" method="post" role="form">
 								<input type="hidden" name="value" value="<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
 " />
 								<button type="submit" class="btn btn-success">Toevoegen aan winkelwagentje</button>
 							</form>
+							<?php }?>
 							<?php }?>
 						</div>
 					</div>

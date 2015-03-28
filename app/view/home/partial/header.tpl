@@ -43,33 +43,17 @@
 										{/foreach}
 									</ul>
 								</li>
+								{for $index=0 to 2}
 								<li class="col-sm-3">
 									<ul>
-										<li class="dropdown-header">Muziek, Film en Games</li>
+										<li class="dropdown-header"><a href="/home/assortment?categorie={$categories[$index]->getId()}">{$categories[$index]->getNaam()}</a></li>
 										<li class="divider"></li>
-										{foreach $games as $game}
-										<li><a href="/home/productdetails?product_id={$game->getId()}">{$game->getProductNaam()}</a></li>
+										{foreach $productsarray[$index] as $product}
+										<li><a href="/home/productdetails?product_id={$product->getId()}">{$product->getProductNaam()}</a></li>
 										{/foreach}
 									</ul>
 								</li>
-								<li class="col-sm-3">
-									<ul>
-										<li class="dropdown-header">Computer en Elektronica</li>
-										<li class="divider"></li>
-										{foreach $computers as $computer}
-										<li><a href="/home/productdetails?product_id={$computer->getId()}">{$computer->getProductNaam()}</a></li>
-										{/foreach}
-									</ul>
-								</li>
-								<li class="col-sm-3">
-									<ul>
-										<li class="dropdown-header">Speelgoed</li>
-										<li class="divider"></li>
-										{foreach $toys as $toy}
-										<li><a href="/home/productdetails?product_id={$toy->getId()}">{$toy->getProductNaam()}</a></li>
-										{/foreach}
-									</ul>
-								</li>
+								{/for}
 							</ul>
 						</li>
 					</ul>
@@ -82,7 +66,7 @@
 								{/if}
 							</a>
 							<ul class="dropdown-menu account-menu" role="menu">
-								<li><a href="/home/account">Winkelwagentje</a></li>
+								<li><a href="/home/account">Winkelwagentje ({$smarty.session.shoppingcart|@count})</a></li>
 								<li><a href="/home/orders">Bestellingen</a></li>
 								<li class="divider"></li>
 								<li><a href="/home/logout">Log uit</a></li>

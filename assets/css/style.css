@@ -137,7 +137,7 @@ body {
 .mega-dropdown-menu .dropdown-header,
 .mega-dropdown-menu .dropdown-header a {
 	color: #428bca;
-	font-size: 18px;
+	font-size: 16px;
 	font-weight:bold;
 }
 
@@ -161,8 +161,8 @@ body {
 }
 
 .cat-active {
-	background-color: #dfdfdf;
-	color :#fff;
+	background-color: #eaeaea;
+	color :#000;
 }
 
 .cat-active a {
