@@ -7,6 +7,7 @@ class Review {
 	private $product_id;
 	private $bericht;
 	private $datum;
+	private $voornaam;
 
 	public function getId() {
 		return $this->id;
@@ -26,6 +27,10 @@ class Review {
 
 	public function getDatum() {
 		return $this->datum;
+	}
+	
+	public function getVoornaam() {
+		return $this->voornaam;
 	}
 	
 }

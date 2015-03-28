@@ -67,20 +67,41 @@
 	</div>
 	<div class="row">
 		{foreach $reviews as $review}
-			<div class="row">
-				<div class="col-md-1">
-				</div>
-				<div class="col-md-10">
-					<div class="panel panel-primary">
-						<div class="panel-heading">
-							<span class="panel-title">{$review->getDatum()}</span>
-						</div>
-						<div class="panel-body">
-							{$review->getBericht()}
-						</div>
+		<div class="row">
+			<div class="col-md-1">
+			</div>
+			<div class="col-md-10">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<span class="panel-title">Review door {$review->getVoornaam()} op {$review->getDatum()}</span>
+					</div>
+					<div class="panel-body">
+						{$review->getBericht()}
 					</div>
 				</div>
 			</div>
+		</div>
 		{/foreach}
+		<div class="row">
+			<div class="col-md-1">
+			</div>
+			<div class="col-md-10">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<span class="panel-title">Schrijf een review</span>
+					</div>
+					<div class="panel-body">
+						<form action="/home/postreview?id={$product->getId()}" method="post" role="form" enctype="multipart/form-data">
+							<div class="form-group">
+								<textarea class="form-control" id="review" name="review" placeholder="Type je review..." required></textarea>
+							</div>
+							<div class="pull-right">
+								<button type="submit" class="btn btn-primary">Plaatsen</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>

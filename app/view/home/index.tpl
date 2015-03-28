@@ -19,13 +19,15 @@
 		{foreach $products as $product}
 		<div class="col-md-4">
 			<div class="panel panel-primary">
-				<div class="panel-body featured">
-					{foreach $product_images as $image}
-					{if $image->getProductId() eq $product->getId()}
-					<img src="/{$image->getLink()}" alt="temp" class="img-responsive center-block" />
-					{/if}
-					{/foreach}
-				</div>
+				<a href="/home/productdetails?product_id={$product->getId()}">
+					<div class="panel-body featured">
+						{foreach $product_images as $image}
+						{if $image->getProductId() eq $product->getId()}
+						<img src="/{$image->getLink()}" alt="temp" class="img-responsive center-block" />
+						{/if}
+						{/foreach}
+					</div>
+				</a>
 				<div class="panel-footer padding-none">
 					<a class="btn btn-primary parent-size" href="/home/productdetails?product_id={$product->getId()}">{$product->getProductNaam()}</a>
 				</div>

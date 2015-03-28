@@ -219,8 +219,9 @@ class Home extends Controller {
 			}
 		}
 
-		$reviews = $this->db->queryArray("SELECT * FROM review WHERE product_id = '$product_id'", 'Review');
-
+		//$reviews = $this->db->queryArray("SELECT * FROM review WHERE product_id = '$product_id'", 'Review');
+		$reviews = $this->db->queryArray("SELECT r.*, a.voornaam FROM review AS r INNER JOIN account AS a ON r.account_id = a.id WHERE r.product_id = '$product_id' ORDER BY r.datum DESC", 'Review');
+		
 		$this->smarty->assign('product', $product);
 		$this->smarty->assign('reviews', $reviews);
 		$this->smarty->assign('thumbnail', $product_thumbnail);
@@ -355,6 +356,21 @@ class Home extends Controller {
 			}
 		}
 		$this->redirect('/home/login?err=1');
+	}
+	
+	public function postreview() {
+		if(!isset($_GET['id']) || !is_numeric($_GET['id']) || $_GET['id'] < 0 || !isset($_POST['review']) || !isset($_SESSION['user_id'])) {
+			$this->redirect('/home/assortment');
+			return;
+		}
+		
+		$product_id = $_GET['id'];
+		$user_id = $_SESSION['user_id'];
+		$review = htmlspecialchars($_POST['review'], ENT_QUOTES, 'UTF-8');
+		
+		$this->db->query("INSERT INTO review (account_id, product_id, bericht) VALUES ('$user_id', '$product_id', '$review')");
+		
+		$this->redirect("/home/productdetails?product_id=$product_id");
 	}
 
 	public function view($view, $data = []) {

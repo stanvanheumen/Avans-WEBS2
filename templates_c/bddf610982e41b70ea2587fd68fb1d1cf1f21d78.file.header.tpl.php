@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-27 10:52:10
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-28 18:04:33
          compiled from "app\view\home\partial\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:77935505b2f8b41789-34681639%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'bddf610982e41b70ea2587fd68fb1d1cf1f21d78' => 
     array (
       0 => 'app\\view\\home\\partial\\header.tpl',
-      1 => 1427442937,
+      1 => 1427561935,
       2 => 'file',
     ),
   ),
@@ -143,6 +143,7 @@ $_smarty_tpl->tpl_vars['toy']->_loop = true;
 							</a>
 							<ul class="dropdown-menu account-menu" role="menu">
 								<li><a href="/home/account">Winkelwagentje</a></li>
+								<li><a href="/home/orders">Bestellingen</a></li>
 								<li class="divider"></li>
 								<li><a href="/home/logout">Log uit</a></li>
 							</ul>
