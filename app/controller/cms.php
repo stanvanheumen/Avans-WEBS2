@@ -81,14 +81,32 @@ class CMS extends Controller {
 	public function products() {
 		if(!$this->authenticate_check())
 			return;
+			
+		$page = 1;
+		
+		if(isset($_GET['page']) && is_numeric($_GET['page']) && $_GET['page'] > 0) {
+			$page = $_GET['page'];
+		}
+		
+		$limit = (double)5;
+		$page--;
+		$start = $page * $limit;
 		
 		// Require models
 		$this->smart('Producten');
 
 		require_once ('app/model/product.inc.php');
-		$products = $this->db->queryArray('SELECT * FROM product WHERE zichtbaar = 1', 'Product');
-
+		$products = $this->db->queryArray("SELECT * FROM product WHERE zichtbaar = 1 LIMIT $start,$limit", 'Product');
+		
+		$result = $this->db->query("SELECT COUNT(*) FROM product");
+		$count = (double) $result->fetch_row()[0];
+		$result->close();
+		
+		$pages = ceil($count / $limit);
+		
 		$this->smarty->assign('products', $products);
+		$this->smarty->assign('pages', $pages);
+		$this->smarty->assign('current_page', $page + 1);
 
 		// Render view
 		$this->view('cms/products');
