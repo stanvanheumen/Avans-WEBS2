@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-28 18:33:58
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-28 18:59:37
          compiled from "app\view\home\assortment.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:125465516e6069d0274-81963990%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '2bc4fc92c46d5a6e247909c72749e232130c815b' => 
     array (
       0 => 'app\\view\\home\\assortment.tpl',
-      1 => 1427561935,
+      1 => 1427565570,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_5516e606b4c288_40581187',
   'variables' => 
   array (
     'sub_categories' => 0,
@@ -27,8 +29,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'last_product' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5516e606b4c288_40581187',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5516e606b4c288_40581187')) {function content_5516e606b4c288_40581187($_smarty_tpl) {?><div class="container">
 	<div class="panel panel-primary">
@@ -39,7 +39,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	<div class="row">
 		<div class="col-sm-3">
 			<?php if (isset($_smarty_tpl->tpl_vars['sub_categories']->value)) {?>
-			<div class="panel panel-default">
+			<div class="panel panel-primary">
 				<div class="panel-heading">
 					<h3 class="panel-title">Subcategorie&euml;n</h3>
 				</div>
@@ -122,11 +122,16 @@ _1.png" alt="auction">
 </div>
 						<div class="col-md-4">
 							<?php if (isset($_SESSION['home_authenticated'])&&$_SESSION['home_authenticated']==1) {?>
+							<?php if (isset($_SESSION['shoppingcart'])&&in_array($_smarty_tpl->tpl_vars['product']->value->getId(),$_SESSION['shoppingcart'])) {?> 
+							<a href="/home/removefromcart?id=<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
+" class="btn btn-danger">Verwijderen van winkelwagentje</a>
+							<?php } else { ?>
 							<form action="/home/addtocart" method="post" role="form">
 								<input type="hidden" name="value" value="<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
 " />
 								<button type="submit" class="btn btn-success">Toevoegen aan winkelwagentje</button>
 							</form>
+							<?php }?>
 							<?php }?>
 						</div>
 					</div>
