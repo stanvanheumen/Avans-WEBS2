@@ -82,6 +82,7 @@
 			</div>
 		</div>
 		{/foreach}
+		{if isset($smarty.session.home_authenticated) && $smarty.session.home_authenticated == 1}
 		<div class="row">
 			<div class="col-md-1">
 			</div>
@@ -103,5 +104,6 @@
 				</div>
 			</div>
 		</div>
+		{/if}
 	</div>
 </div>
