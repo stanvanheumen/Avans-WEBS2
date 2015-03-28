@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-26 22:14:07
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-27 19:45:11
          compiled from "app\view\cms\categories.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:692550b0c242170e8-44329294%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:252325515a53764e634-60059943%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,12 +11,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '692550b0c242170e8-44329294',
+  'nocache_hash' => '252325515a53764e634-60059943',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_550b0c24263804_16272739',
   'variables' => 
   array (
     'categories' => 0,
@@ -25,8 +23,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'subcategorie' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_5515a5376e8074_96584762',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_550b0c24263804_16272739')) {function content_550b0c24263804_16272739($_smarty_tpl) {?><div class="container">
+<?php if ($_valid && !is_callable('content_5515a5376e8074_96584762')) {function content_5515a5376e8074_96584762($_smarty_tpl) {?><div class="container">
 	<div class="row cms vertical-offset-20">
 		<div class="col-md-2 pull-right">
 			<div class="panel panel-default">

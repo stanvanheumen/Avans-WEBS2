@@ -1,22 +1,22 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-26 15:06:15
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-27 20:58:49
          compiled from "app\view\home\productdetails.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:2302255032030927f67-17972950%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:55015515a49c734fe0-53263257%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '2cec943a4d93c3efd60b39dec9d88ffc4407eddc' => 
     array (
       0 => 'app\\view\\home\\productdetails.tpl',
-      1 => 1427378771,
+      1 => 1427486325,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2302255032030927f67-17972950',
+  'nocache_hash' => '55015515a49c734fe0-53263257',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_550320309c4ea6_72855159',
+  'unifunc' => 'content_5515a49c7fde70_39206402',
   'variables' => 
   array (
     'product' => 0,
@@ -24,10 +24,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'product_afbeeldingen' => 0,
     'afbeelding' => 0,
     'in_shopping_cart' => 0,
+    'reviews' => 0,
+    'review' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_550320309c4ea6_72855159')) {function content_550320309c4ea6_72855159($_smarty_tpl) {?><div class="container">
+<?php if ($_valid && !is_callable('content_5515a49c7fde70_39206402')) {function content_5515a49c7fde70_39206402($_smarty_tpl) {?><div class="container">
 	<h1><?php echo $_smarty_tpl->tpl_vars['product']->value->getProductNaam();?>
 </h1>
 	<div class="row">
@@ -35,7 +37,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			<div class="col-md-8">
 				<a class="fancybox" href="/<?php echo $_smarty_tpl->tpl_vars['thumbnail']->value->getLink();?>
 " rel="lightbox">
-					<div class="panel panel-default">
+					<div class="panel panel-primary">
 						<div class="panel-body product-thumbnail">
 							<img src="/<?php echo $_smarty_tpl->tpl_vars['thumbnail']->value->getLink();?>
 " class="img-responsive center-block" alt="img">
@@ -51,7 +53,7 @@ $_smarty_tpl->tpl_vars['afbeelding']->_loop = true;
 ?>
 				<a class="fancybox" href="/<?php echo $_smarty_tpl->tpl_vars['afbeelding']->value->getLink();?>
 " rel="lightbox">
-					<div class="panel panel-default pull-left">
+					<div class="panel panel-primary pull-left">
 						<div class="panel-body product-image">
 							<img src="/<?php echo $_smarty_tpl->tpl_vars['afbeelding']->value->getLink();?>
 " class="img-responsive center-block" alt="img">
@@ -107,5 +109,29 @@ $_smarty_tpl->tpl_vars['afbeelding']->_loop = true;
 				</tr>
 			</table>
 		</div>
+	</div>
+	<div class="row">
+		<?php  $_smarty_tpl->tpl_vars['review'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['review']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['reviews']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['review']->key => $_smarty_tpl->tpl_vars['review']->value) {
+$_smarty_tpl->tpl_vars['review']->_loop = true;
+?>
+			<div class="row">
+				<div class="col-md-1">
+				</div>
+				<div class="col-md-10">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<span class="panel-title"><?php echo $_smarty_tpl->tpl_vars['review']->value->getDatum();?>
+</span>
+						</div>
+						<div class="panel-body">
+							<?php echo $_smarty_tpl->tpl_vars['review']->value->getBericht();?>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		<?php } ?>
 	</div>
 </div><?php }} ?>

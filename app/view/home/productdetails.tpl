@@ -65,4 +65,22 @@
 			</table>
 		</div>
 	</div>
+	<div class="row">
+		{foreach $reviews as $review}
+			<div class="row">
+				<div class="col-md-1">
+				</div>
+				<div class="col-md-10">
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<span class="panel-title">{$review->getDatum()}</span>
+						</div>
+						<div class="panel-body">
+							{$review->getBericht()}
+						</div>
+					</div>
+				</div>
+			</div>
+		{/foreach}
+	</div>
 </div>

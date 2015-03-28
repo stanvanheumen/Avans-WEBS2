@@ -1,32 +1,30 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-25 18:24:48
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-27 19:49:55
          compiled from "app\view\home\account.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:5451550b0e18114ae0-56077541%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:63395515a4b108e7c5-44202917%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '1e830cb637888427fdab3b426f6682271e01c640' => 
     array (
       0 => 'app\\view\\home\\account.tpl',
-      1 => 1427304283,
+      1 => 1427482194,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '5451550b0e18114ae0-56077541',
+  'nocache_hash' => '63395515a4b108e7c5-44202917',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_550b0e1815ce50_04769865',
+  'unifunc' => 'content_5515a4b114de31_35452587',
   'variables' => 
   array (
     'products' => 0,
     'product' => 0,
-    'orderedProducts' => 0,
-    'order' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_550b0e1815ce50_04769865')) {function content_550b0e1815ce50_04769865($_smarty_tpl) {?><div class="container">
+<?php if ($_valid && !is_callable('content_5515a4b114de31_35452587')) {function content_5515a4b114de31_35452587($_smarty_tpl) {?><div class="container">
 	<form action="/home/pay" method="post" role="form">
 		<table id="cart" class="table table-hover table-condensed">
 			<thead>
@@ -87,32 +85,4 @@ _1.png" alt="auction"></div>
 			</tfoot>
 		</table>
 	</form>
-
-	<div class="row">
-		<div class="col-md-12">
-			<div class="panel panel-default">
-				<div class="panel-heading">
-					<span class="panel-title">Bestellingen</span>
-				</div>
-				<div class="panel-body">
-					<?php  $_smarty_tpl->tpl_vars['order'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['order']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['orderedProducts']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['order']->key => $_smarty_tpl->tpl_vars['order']->value) {
-$_smarty_tpl->tpl_vars['order']->_loop = true;
-?>
-					<div class="row">
-						<div class="col-md-2">
-							<img src="/uploads/<?php echo $_smarty_tpl->tpl_vars['order']->value->getProductId();?>
-_1.png" class="img-responsive center-block" alt="-" />
-						</div>
-						<span class="search-title">&euro;<?php echo $_smarty_tpl->tpl_vars['order']->value->getPrijs();?>
-</span>
-						<span class="panel-title">x<?php echo $_smarty_tpl->tpl_vars['order']->value->getAantal();?>
-</span>
-					</div>
-					<?php } ?>
-				</div>
-			</div>
-		</div>
-	</div>
 </div><?php }} ?>

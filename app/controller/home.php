@@ -3,79 +3,65 @@
 class Home extends Controller {
 
 	public function index() {
-		// Set Smarty
+		// Initialize Smarty
 		$this->smart('Home');
 		
+		// Check for authenication
 		if(isset($_GET['authenticated'])) {
 			$this->smarty->assign('authenticated', $_GET['authenticated']);
 		}
 
-		// Database requests
+		// Execute database requests
 		$products = $this->db->queryArray('SELECT * FROM product WHERE zichtbaar = 1 LIMIT 9', 'Product');
-
-		$temp = '';
-		foreach ($products as $product) {
-			if (end($products) == $product) {
-				$temp .= $product->getId();
-			} else {
-				$temp .= $product->getId() . ' OR ';
-			}
-		}
-		
+		$product_ids = $this->implodeObjectArray($products, 'getId');
 		$product_images = [];
+		if (strlen($product_ids) != 0) {
+			$product_images = $this->db->queryArray("SELECT * FROM productafbeelding WHERE afbeeldingtype_type = 'thumbnail' AND product_id IN ($product_ids)", 'ProductAfbeelding');
+		}
 
-		if (sizeof($products) != 0)
-			$product_images = $this->db->queryArray("SELECT * FROM productafbeelding WHERE afbeeldingtype_type = 'thumbnail' AND (product_id = $temp)", 'ProductAfbeelding');
-
+		// Assign variables to Smarty
 		$this->smarty->assign('products', $products);
 		$this->smarty->assign('product_images', $product_images);
 
-		// Render view
+		// Render the view
 		$this->view('home/index');
 	}
-	
-	public function compareproduct() {
-		// Set Smarty
-		$this->smart('Product vergelijker');
-		
-		// Render view
-		$this->view('home/compareproduct');
-	}
-	
+
 	public function about() {
-		// Set Smarty
+		// Initialize Smarty
 		$this->smart('Over ons');
 
-		// Render view
+		// Render the view
 		$this->view('home/about');
 	}
 	
+	public function compareproduct() {
+		// Initialize Smarty
+		$this->smart('Productvergelijker');
+		
+		// Render the view
+		$this->view('home/compareproduct');
+	}
+	
 	public function search() {
-		// Set Smarty
+		// Initialize Smarty
 		$this->smart('Zoeken');
 		
+		// Check for GET variable
 		if(!isset($_GET['search-query'])) {
-			$this->redirect('/home/index');
+			$this->redirect('/home/search?search-query=');
 			return;
 		}
 
-		// Database requests
+		// Execute database requests
 		$products = $this->db->queryArray("SELECT * FROM product WHERE productnaam LIKE '%" . $this->db->escape($_GET['search-query']) . "%' AND zichtbaar = 1", 'Product');
+		$product_ids = $this->implodeObjectArray($products, 'getId');
 		$product_images = [];
-
-		$temp = '';
-		foreach ($products as $product) {
-			if (end($products) == $product) {
-				$temp .= $product->getId();
-			} else {
-				$temp .= $product->getId() . ' OR ';
-			}
+		if (strlen($product_ids) != 0) {
+			$product_images = $this->db->queryArray("SELECT * FROM productafbeelding WHERE afbeeldingtype_type = 'thumbnail' AND product_id IN ($product_ids)", 'ProductAfbeelding');
 		}
 
-		if (sizeof($products) != 0)
-			$product_images = $this->db->queryArray("SELECT * FROM productafbeelding WHERE afbeeldingtype_type = 'thumbnail' AND (product_id = $temp)", 'ProductAfbeelding');
-	
-		
+		// Assign variables to Smarty
 		$this->smarty->assign('products', $products);
 		$this->smarty->assign('product_images', $product_images);
 		$this->smarty->assign('amount', count($products));
@@ -103,16 +89,19 @@ class Home extends Controller {
 		if (!isset($_SESSION['shoppingcart'])) {
 			$_SESSION['shoppingcart'] = [];
 		}
+
 		if(isset($_GET['id'])) {
 			$id = $_GET['id'];
 			$_SESSION['shoppingcart'] = array_diff($_SESSION['shoppingcart'], array($id));
 		}
+
 		$this->redirect('/home/account');
 	}
 
 	public function pay() {
-		if (!isset($_SESSION['shoppingcart']) || !isset($_SESSION['user_id'])) {
+		if (!isset($_SESSION['shoppingcart']) || !isset($_SESSION['user_id']) || count($_SESSION['shoppingcart']) == 0) {
 			$this->redirect('/home/account');
+			return;
 		}
 
 		$user_id = $_SESSION['user_id'];
@@ -135,10 +124,10 @@ class Home extends Controller {
 	}
 	
 	public function assortment() {
-		// Set Smarty
+		// Initialize Smarty
 		$this->smart('Assortiment');
 
-		// Database requests
+		// Execute database requests
 		$search_category = false;
 	
 		if (isset($_GET['categorie']) && is_numeric($_GET['categorie'])) {
@@ -159,6 +148,10 @@ class Home extends Controller {
 				// include all products in current category
 				$producten = $this->db->queryArray("SELECT * FROM product WHERE categorie_id = '$id'", 'Product');
 			}
+			$this->smarty->assign('products', $producten);
+			$this->smarty->assign('last_product', end($producten));
+		} else {
+			$producten = $this->db->queryArray("SELECT * FROM product WHERE zichtbaar = 1", 'Product');
 			$this->smarty->assign('products', $producten);
 			$this->smarty->assign('last_product', end($producten));
 		}
@@ -186,12 +179,12 @@ class Home extends Controller {
 		}
 		$this->smarty->assign('assort_categories', $assort_categories);
 		
-		// Render view
+		// Render the view
 		$this->view('home/assortment');
 	}
 	
 	public function productdetails() {
-		// Set Smarty
+		// Initialize Smarty
 		$this->smart('Product Details');
 		
 		if(!isset($_GET['product_id']) || !is_numeric($_GET['product_id'])) {
@@ -203,15 +196,17 @@ class Home extends Controller {
 			$_SESSION['shoppingcart'] = [];
 		}
 
-		// Database requests
+		// Execute database requests
 		$product_id = $this->db->escape($_GET['product_id']);
-		$product = $this->db->queryObject("SELECT * FROM product WHERE id = '" . $product_id . "' AND zichtbaar = 1", 'Product');
+		$product = $this->db->queryObject("SELECT * FROM product WHERE id = '$product_id' AND zichtbaar = 1", 'Product');
+
 		if ($product == null) {
 			$this->redirect('/home/assortment');
 			return;
 		}
-		$product_thumbnail = $this->db->queryObject("SELECT * FROM productafbeelding WHERE product_id = '" . $product_id . "' AND afbeeldingtype_type = 'thumbnail'", 'ProductAfbeelding');
-		$product_afbeeldingen = $this->db->queryArray("SELECT * FROM productafbeelding WHERE product_id = '" . $product_id . "' AND afbeeldingtype_type = 'afbeelding'", 'ProductAfbeelding');
+
+		$product_thumbnail = $this->db->queryObject("SELECT * FROM productafbeelding WHERE product_id = '$product_id' AND afbeeldingtype_type = 'thumbnail'", 'ProductAfbeelding');
+		$product_afbeeldingen = $this->db->queryArray("SELECT * FROM productafbeelding WHERE product_id = '$product_id' AND afbeeldingtype_type = 'afbeelding'", 'ProductAfbeelding');
 		
 		if ($product_afbeeldingen == null) {
 			$product_afbeeldingen = [];
@@ -223,20 +218,23 @@ class Home extends Controller {
 				break;
 			}
 		}
-		
+
+		$reviews = $this->db->queryArray("SELECT * FROM review WHERE product_id = '$product_id'", 'Review');
+
 		$this->smarty->assign('product', $product);
+		$this->smarty->assign('reviews', $reviews);
 		$this->smarty->assign('thumbnail', $product_thumbnail);
 		$this->smarty->assign('product_afbeeldingen', $product_afbeeldingen);
 		
-		// Render view
+		// Render the view
 		$this->view('home/productdetails');
 	}
 	
 	public function register() {
-		// Set Smarty
+		// Initialize Smarty
 		$this->smart('Registreren'); 
 
-		// Render view
+		// Render the view
 		$this->view('home/register');
 	}
 
@@ -251,24 +249,34 @@ class Home extends Controller {
 		$number 		= $this->db->escape($_POST['number']);
 		$email 			= $this->db->escape($_POST['email']);
 		$password 		= $this->getHash($this->db->escape($_POST['password']));
+		$repeat_pass	= $this->getHash($this->db->escape($_POST['repeat_password']));
+
+		if ($password != $repeat_pass) {
+			$this->redirect('/home/register?err=1');
+			return;
+		}
+
 		$acc = $this->db->queryObject("SELECT * FROM account WHERE gebruikersnaam = '$email' AND zichtbaar = 1", 'Account');
 		if($acc != null) {
-			$this->redirect('/home/register');
+			$this->redirect('/home/register?err=1');
 			return;
 		}
 		$this->db->query("INSERT INTO account VALUES (NULL, 'member', '$email', '$password', '$first_name', '$infix_name', '$last_name', '$street', '$postal_code', '$place', '$number', '$gender', '1')");
-		$this->redirect('/home/index');
+		$_SESSION['home_authenticated'] = 1;
+		$_SESSION['user_id'] = $user->getId();
+		$this->redirect('/home/index?authenticated=3');
+		return;
 	}
 	
 	public function login() {
-		// Set Smarty
+		// Initialize Smarty
 		$this->smart('Login');
 		
 		if(isset($_GET['err']) && $_GET['err'] == 1) {
 			$this->smarty->assign('authenticate_error', '1');
 		}
 
-		// Render view
+		// Render the view
 		$this->view('home/login');
 	}
 
@@ -278,43 +286,59 @@ class Home extends Controller {
 			return;
 		}
 
-		// Set Smarty
+		// Initialize Smarty
 		$this->smart('Mijn Account');
 
 		if (!isset($_SESSION['shoppingcart'])) {
 			$_SESSION['shoppingcart'] = [];
 		}
 
-		$temp = '';
-		
-		if(!empty($_SESSION['shoppingcart'])) {
-			$temp = "('" . implode("','", $_SESSION['shoppingcart']) . "')";
-		}	
-		
+		$product_ids = $this->implodeObjectArray($_SESSION['shoppingcart'], null);
 		$products = [];
-		if (strlen($temp) != 0) {
-			$products = $this->db->queryArray("SELECT * FROM product WHERE id IN $temp AND zichtbaar = 1", 'Product');
+		if (strlen($product_ids) != 0) {
+			$products = $this->db->queryArray("SELECT * FROM product WHERE id IN ($product_ids) AND zichtbaar = 1", 'Product');
 		}
-
-		$user_id = $_SESSION['user_id'];
-
-		$orders = $this->db->query("SELECT id FROM bestelling WHERE account_id = '$user_id' AND zichtbaar = 1");
-
-		$allProductFromOrders = [];
-
-		while ($row = $orders->fetch_array()) {
-			$b_id = $row['id'];
-			$allProducts = $this->db->queryArray("SELECT * FROM bestelproduct WHERE bestelling_id = '$b_id'", 'bestelproduct');
-			foreach($allProducts as $temp) {
-				array_push($allProductFromOrders, $temp);
-			}
-		}
-
+		
+		// Assign variables to Smarty
 		$this->smarty->assign('products', $products);
-		$this->smarty->assign('orderedProducts', $allProductFromOrders);
 
 		// Render view
 		$this->view('home/account');
+	}
+
+	public function orders() {
+		if(!$this->authenticate_check()) {
+			$this->redirect('/home/login');
+			return;
+		}
+
+		// Set Smarty
+		$this->smart('Bestellingen');
+
+		$user_id = $_SESSION['user_id'];
+		$orders = $this->db->queryArray("SELECT * FROM bestelling WHERE account_id = '$user_id' AND zichtbaar = 1", 'Bestelling');
+
+		$orderproducts = [];
+
+		foreach ($orders as $order) {
+			$b_id = $order->getId();
+			$bestelproductarray = [];
+			$bestelproducts = $this->db->queryArray("SELECT * FROM bestelproduct WHERE bestelling_id = '$b_id'", 'BestelProduct');
+			foreach ($bestelproducts as $bproduct) {
+				$order_and_product = [];
+				$p_id = $bproduct->getProductId();
+				$normal_product = $this->db->queryObject("SELECT * FROM product WHERE id = '$p_id'", 'Product');
+				array_push($order_and_product, $bproduct);
+				array_push($order_and_product, $normal_product);
+				array_push($bestelproductarray, $order_and_product);
+			}
+			array_push($orderproducts, $bestelproductarray);
+		}
+
+		$this->smarty->assign('orderproducts', $orderproducts);
+
+		// Render view
+		$this->view('home/orders');
 	}
 	
 	public function login_post() {

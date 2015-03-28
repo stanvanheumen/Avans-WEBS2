@@ -9,7 +9,9 @@ body {
 
 .btn,
 .form-control, 
-.panel, 
+.panel,
+.panel-heading,
+.panel-footer,
 .well,
 .nav,
 .navbar-default,
@@ -227,6 +229,10 @@ body {
 
 .featured img {
 	height: 200px;
+}
+
+.orders img {
+	height: 60px;
 }
 
 .product-thumbnail img {
@@ -474,4 +480,13 @@ Dashboard stats
 
 .no-border {
 	border: 0 !important;
+}
+
+.padding-none {
+	padding: 0px;
+}
+
+.parent-size {
+	width: 100%;
+	height: 100%;
 }

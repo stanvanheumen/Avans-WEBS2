@@ -51,19 +51,19 @@ class CMS extends Controller {
 		// Require models
 		$this->smart('Dashboard');
 		
-		$result = $this->db->query("SELECT COUNT(*) FROM product");
+		$result = $this->db->query("SELECT COUNT(*) FROM product WHERE zichtbaar = 1");
 		$row = $result->fetch_row();
 		$products = $row[0];
 		
-		$result = $this->db->query("SELECT COUNT(*) FROM account");
+		$result = $this->db->query("SELECT COUNT(*) FROM account WHERE zichtbaar = 1");
 		$row = $result->fetch_row();
 		$users = $row[0];
 		
-		$result = $this->db->query("SELECT COUNT(*) FROM bestelling");
+		$result = $this->db->query("SELECT COUNT(*) FROM bestelling WHERE zichtbaar = 1");
 		$row = $result->fetch_row();
 		$orders = $row[0];
 
-		$result = $this->db->query("SELECT COUNT(*) FROM categorie");
+		$result = $this->db->query("SELECT COUNT(*) FROM categorie WHERE zichtbaar = 1");
 		$row = $result->fetch_row();
 		$categories = $row[0];
 		

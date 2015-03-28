@@ -1,22 +1,20 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-23 20:41:28
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-27 20:12:00
          compiled from "app\view\home\search.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:2309355045fa11b5154-67833840%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:309635515ab80646529-69452743%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '192b9ccec4b15613440ae02e6401d99858a931fc' => 
     array (
       0 => 'app\\view\\home\\search.tpl',
-      1 => 1427139687,
+      1 => 1427468649,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '2309355045fa11b5154-67833840',
+  'nocache_hash' => '309635515ab80646529-69452743',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_55045fa1228bc7_35699229',
   'variables' => 
   array (
     'amount' => 0,
@@ -27,12 +25,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'afbeelding' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_5515ab806f5744_92468997',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_55045fa1228bc7_35699229')) {function content_55045fa1228bc7_35699229($_smarty_tpl) {?><div class="custom-container content">
+<?php if ($_valid && !is_callable('content_5515ab806f5744_92468997')) {function content_5515ab806f5744_92468997($_smarty_tpl) {?><div class="custom-container content">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
-				<div class="panel panel-default">
+				<div class="panel panel-primary">
 					<div class="panel-body">
 						<h3 class="panel-title"><?php echo $_smarty_tpl->tpl_vars['amount']->value;?>
  resultaten gevonden voor '<?php echo $_smarty_tpl->tpl_vars['searchquery']->value;?>
@@ -43,7 +43,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		</div>
 		<div class="row">
 			<div class="col-sm-12">
-				<div class="panel panel-default">
+				<div class="panel panel-primary">
 					<div class="panel-body">	
 						<?php  $_smarty_tpl->tpl_vars['product'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['product']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['products']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}

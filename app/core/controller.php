@@ -41,5 +41,17 @@ class Controller {
 		// Render view
 		$this->view('home/error');
 	}
+
+	public function implodeObjectArray($array, $method) {
+		$tempArray = [];
+		foreach ($array as $value) {
+			if ($method != null) {
+				array_push($tempArray, $value->$method());
+			} else {
+				array_push($tempArray, $value);
+			}
+		}
+		return implode(',', $tempArray);
+	}
 	
 }

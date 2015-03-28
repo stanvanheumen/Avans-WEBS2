@@ -1,26 +1,26 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-26 15:30:14
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-27 23:41:06
          compiled from "app\view\home\about.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:3239955036e3a807176-69796655%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:313745515dc8244c0f5-70854161%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'e936c41f56df8f2196049632be1e98f8b61c0c41' => 
     array (
       0 => 'app\\view\\home\\about.tpl',
-      1 => 1427380207,
+      1 => 1427468649,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '3239955036e3a807176-69796655',
+  'nocache_hash' => '313745515dc8244c0f5-70854161',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_55036e3a84e677_36352063',
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_5515dc82474d57_22512243',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_55036e3a84e677_36352063')) {function content_55036e3a84e677_36352063($_smarty_tpl) {?><div class="container">
-	<div class="panel panel-default">
+<?php if ($_valid && !is_callable('content_5515dc82474d57_22512243')) {function content_5515dc82474d57_22512243($_smarty_tpl) {?><div class="container">
+	<div class="panel panel-primary">
 		<div class="panel-heading">
 			<h3 class="panel-title">Over ons</h3>
 		</div>
@@ -30,7 +30,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			</p>
 		</div>
 	</div>
-	<div class="panel panel-default">
+	<div class="panel panel-primary">
 		<div class="panel-heading">
 			<h3 class="panel-title">Taakverdeling</h3>
 		</div>
@@ -49,7 +49,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			</tr>
 		</table>
 	</div>
-	<div class="panel panel-default">
+	<div class="panel panel-primary">
 		<div class="panel-heading">
 			<span class="panel-title">Requirements</span>
 		</div>
@@ -353,7 +353,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<td >
 						<p>Een product heeft kenmerken en per kenmerk kun je filteren.</p>
 					</td>
-					<td class="text-center">&#10004;</td>
+					<td class="text-center"></td>
 				</tr>
 				<tr>
 					<td >
@@ -362,7 +362,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 					<td >
 						<p>Of: productvergelijker waarmee je maximaal 3 producten naast elkaar kunt zetten.</p>
 					</td>
-					<td class="text-center"></td>
+					<td class="text-center">&#10004;</td>
 				</tr>
 				<tr>
 					<td >

@@ -1,22 +1,22 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-25 18:23:56
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-27 20:37:59
          compiled from "app\view\home\assortment.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:70175503202f0c4220-34060484%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:147685515ab84da5cd9-45517722%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '7b04cb8ca090b5922bddc3e1a6eee848a1978ee1' => 
     array (
       0 => 'app\\view\\home\\assortment.tpl',
-      1 => 1427304234,
+      1 => 1427484972,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '70175503202f0c4220-34060484',
+  'nocache_hash' => '147685515ab84da5cd9-45517722',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_5503202f17f3a3_38756809',
+  'unifunc' => 'content_5515ab84eec4f9_85768825',
   'variables' => 
   array (
     'sub_categories' => 0,
@@ -30,8 +30,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5503202f17f3a3_38756809')) {function content_5503202f17f3a3_38756809($_smarty_tpl) {?><div class="container">
-	<div class="panel panel-default">
+<?php if ($_valid && !is_callable('content_5515ab84eec4f9_85768825')) {function content_5515ab84eec4f9_85768825($_smarty_tpl) {?><div class="container">
+	<div class="panel panel-primary">
 		<div class="panel-body">
 			<h3 class="panel-title">Assortiment</h3>
 		</div>
@@ -63,12 +63,12 @@ $_smarty_tpl->tpl_vars['cat']->_loop = true;
 			</div>
 			<?php }?>
 		
-			<div class="panel panel-default">
+			<div class="panel panel-primary">
 				<div class="panel-heading">
 					<h3 class="panel-title">Categorie&euml;n</h3>
 				</div>
 				<ul class="list-group">
-					<li class="list-group-item active-link"><a href="#">Alle artikelen</a></li>		
+					<li class="list-group-item active-link"><a href="?categorie=-1">Alle artikelen</a></li>		
 					<?php  $_smarty_tpl->tpl_vars['cat'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['cat']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['assort_categories']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['cat']->key => $_smarty_tpl->tpl_vars['cat']->value) {
@@ -88,7 +88,7 @@ $_smarty_tpl->tpl_vars['cat']->_loop = true;
 			</div>
 		</div>
 		<div class="col-sm-9">
-			<div class="panel panel-default">
+			<div class="panel panel-primary">
 				<div class="panel-heading">
 					<h3 class="panel-title">
 						<?php echo $_smarty_tpl->tpl_vars['category']->value;?>
@@ -105,8 +105,8 @@ $_smarty_tpl->tpl_vars['product']->_loop = true;
 					<div class="row">
 						<div class="col-md-6">
 							<div class="media">
-								<div class="media-left media-middle">
-									<img class="media-object" width="100" src="/uploads/<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
+								<div class="orders">
+									<img class="img-responsive" src="/uploads/<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
 _1.png" alt="auction">
 								</div>
 								<div class="media-body">
