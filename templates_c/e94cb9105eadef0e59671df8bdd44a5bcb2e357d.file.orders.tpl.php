@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-27 20:31:49
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-28 23:34:27
          compiled from "app\view\home\orders.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:285145515a6afc4fdf7-61465042%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'e94cb9105eadef0e59671df8bdd44a5bcb2e357d' => 
     array (
       0 => 'app\\view\\home\\orders.tpl',
-      1 => 1427484708,
+      1 => 1427582032,
       2 => 'file',
     ),
   ),
@@ -32,6 +32,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				<div class="panel-heading">
 					<span class="panel-title">Bestellingen</span>
 				</div>
+				<?php if (empty($_smarty_tpl->tpl_vars['orderproducts']->value)) {?>
+				<div class="panel-body">
+					<p>Je hebt nog geen bestellingen geplaatst.</p>
+				</div>
+				<?php } else { ?>
 				<table class="table table-bordered">
 					<?php  $_smarty_tpl->tpl_vars['order'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['order']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['orderproducts']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
@@ -70,6 +75,7 @@ _1.png" class="img-responsive center-block" alt="-" />
 					</tr>
 					<?php } ?>
 				</table>
+				<?php }?>
 			</div>
 		</div>
 	</div>

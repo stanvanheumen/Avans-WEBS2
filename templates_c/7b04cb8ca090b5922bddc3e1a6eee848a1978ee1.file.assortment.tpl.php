@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-28 23:13:13
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-28 23:35:34
          compiled from "app\view\home\assortment.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:147685515ab84da5cd9-45517722%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7b04cb8ca090b5922bddc3e1a6eee848a1978ee1' => 
     array (
       0 => 'app\\view\\home\\assortment.tpl',
-      1 => 1427580792,
+      1 => 1427582032,
       2 => 'file',
     ),
   ),
@@ -27,6 +27,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'products' => 0,
     'product' => 0,
     'last_product' => 0,
+    'pages' => 0,
+    'current_page' => 0,
+    'p' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -135,6 +138,45 @@ _1.png" alt="auction">
 					<?php }?>
 				</div>
 			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<nav class="pull-right">
+				<ul class="pagination pagination-sm">
+					<?php if ($_smarty_tpl->tpl_vars['pages']->value>1) {?>
+					<?php if ($_smarty_tpl->tpl_vars['current_page']->value>1) {?>
+						<li><a href="/home/assortment?page=<?php echo $_smarty_tpl->tpl_vars['current_page']->value-1;
+if (isset($_smarty_tpl->tpl_vars['currcategory']->value)) {?>&categorie=<?php echo $_smarty_tpl->tpl_vars['currcategory']->value;
+}?>" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+					<?php } else { ?>
+						<li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+					<?php }?>
+					<?php $_smarty_tpl->tpl_vars['p'] = new Smarty_Variable;$_smarty_tpl->tpl_vars['p']->step = 1;$_smarty_tpl->tpl_vars['p']->total = (int) ceil(($_smarty_tpl->tpl_vars['p']->step > 0 ? $_smarty_tpl->tpl_vars['pages']->value+1 - (1) : 1-($_smarty_tpl->tpl_vars['pages']->value)+1)/abs($_smarty_tpl->tpl_vars['p']->step));
+if ($_smarty_tpl->tpl_vars['p']->total > 0) {
+for ($_smarty_tpl->tpl_vars['p']->value = 1, $_smarty_tpl->tpl_vars['p']->iteration = 1;$_smarty_tpl->tpl_vars['p']->iteration <= $_smarty_tpl->tpl_vars['p']->total;$_smarty_tpl->tpl_vars['p']->value += $_smarty_tpl->tpl_vars['p']->step, $_smarty_tpl->tpl_vars['p']->iteration++) {
+$_smarty_tpl->tpl_vars['p']->first = $_smarty_tpl->tpl_vars['p']->iteration == 1;$_smarty_tpl->tpl_vars['p']->last = $_smarty_tpl->tpl_vars['p']->iteration == $_smarty_tpl->tpl_vars['p']->total;?>
+					<?php if ($_smarty_tpl->tpl_vars['p']->value==$_smarty_tpl->tpl_vars['current_page']->value) {?>
+					<li class="active"><a href="/home/assortment?page=$p<?php if (isset($_smarty_tpl->tpl_vars['currcategory']->value)) {?>&categorie=<?php echo $_smarty_tpl->tpl_vars['currcategory']->value;
+}?>"><?php echo $_smarty_tpl->tpl_vars['p']->value;?>
+</a></li>
+					<?php } else { ?>
+					<li><a href="/home/assortment?page=<?php echo $_smarty_tpl->tpl_vars['p']->value;
+if (isset($_smarty_tpl->tpl_vars['currcategory']->value)) {?>&categorie=<?php echo $_smarty_tpl->tpl_vars['currcategory']->value;
+}?>"><?php echo $_smarty_tpl->tpl_vars['p']->value;?>
+</a></li>
+					<?php }?>
+					<?php }} ?>
+					<?php if ($_smarty_tpl->tpl_vars['pages']->value==$_smarty_tpl->tpl_vars['current_page']->value) {?>
+					<li class="disabled"><a href="#">&raquo;</a></li>
+					<?php } else { ?>
+					<li><a href="/home/assortment?page=<?php echo $_smarty_tpl->tpl_vars['current_page']->value+1;
+if (isset($_smarty_tpl->tpl_vars['currcategory']->value)) {?>&categorie=<?php echo $_smarty_tpl->tpl_vars['currcategory']->value;
+}?>">&raquo;</a></li>
+					<?php }?>
+					<?php }?>
+				</ul>
+			</nav>
 		</div>
 	</div>
 </div><?php }} ?>

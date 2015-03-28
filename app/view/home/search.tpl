@@ -22,7 +22,7 @@
 									</div>
 									<div class="media-body">
 										<h4 class="media-heading"><a href="productdetails?product_id={$product->getId()}">{$product->getProductNaam()}</a></h4>
-										{$product->getBeschrijving()}
+										{$product->getBeschrijvingKort()}
 									</div>
 								</div>
 							</div>

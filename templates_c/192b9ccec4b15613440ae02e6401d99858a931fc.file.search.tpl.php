@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-28 23:13:53
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-28 23:41:46
          compiled from "app\view\home\search.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:309635515ab80646529-69452743%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '192b9ccec4b15613440ae02e6401d99858a931fc' => 
     array (
       0 => 'app\\view\\home\\search.tpl',
-      1 => 1427580832,
+      1 => 1427582505,
       2 => 'file',
     ),
   ),
@@ -65,7 +65,7 @@ $_smarty_tpl->tpl_vars['afbeelding']->_loop = true;
 										<h4 class="media-heading"><a href="productdetails?product_id=<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
 "><?php echo $_smarty_tpl->tpl_vars['product']->value->getProductNaam();?>
 </a></h4>
-										<?php echo $_smarty_tpl->tpl_vars['product']->value->getBeschrijving();?>
+										<?php echo $_smarty_tpl->tpl_vars['product']->value->getBeschrijvingKort();?>
 
 									</div>
 								</div>
