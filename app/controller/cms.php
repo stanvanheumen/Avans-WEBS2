@@ -2,7 +2,7 @@
 
 class CMS extends Controller {
 	
-	public function view($view, $data = []) {
+	public function view($view, $data = array()) {
 		$this->smarty->display('app/view/cms/partial/header.tpl');
 		
 		$this->smarty->display('app/view/' . $view . '.tpl');
@@ -99,7 +99,8 @@ class CMS extends Controller {
 		$products = $this->db->queryArray("SELECT * FROM product WHERE zichtbaar = 1 LIMIT $start,$limit", 'Product');
 		
 		$result = $this->db->query("SELECT COUNT(*) FROM product");
-		$count = (double) $result->fetch_row()[0];
+		$row = $result->fetch_row();
+		$count = (double) $row[0];
 		$result->close();
 		
 		$pages = ceil($count / $limit);

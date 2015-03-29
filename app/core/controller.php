@@ -17,7 +17,7 @@ class Controller {
 		return new $name();
 	}
 	
-	public function view($view, $data = []) {
+	public function view($view, $data = array()) {
 		$this->smarty->display('app/view/' . $view . '.tpl');
 	}
 	
@@ -44,7 +44,7 @@ class Controller {
 	}
 
 	public function implodeObjectArray($array, $method) {
-		$tempArray = [];
+		$tempArray = array();
 		foreach ($array as $value) {
 			if ($method != null) {
 				array_push($tempArray, $value->$method());

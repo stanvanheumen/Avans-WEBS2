@@ -4,7 +4,7 @@ class App {
 	
 	protected $controller = 'home';
 	protected $method = 'error';
-	protected $params = [];
+	protected $params = array();
 	
 	public function __construct() {
 		$url = $this->parseUrl();
@@ -21,6 +21,8 @@ class App {
 		} else {
 			header('Location: /home/index');
 		}
+		
+		require_once 'app/libs/password.php';
 
 		require_once 'app/controller/' . $this->controller . '.php';
 		
@@ -35,9 +37,11 @@ class App {
 			$this->method = 'index';
 		}
 		
-		$this->params = $url ? array_values($url) : [];
+		$this->params = $url ? array_values($url) : array();
+		
+		$call = array($this->controller, $this->method);
 
-		call_user_func_array([$this->controller, $this->method], $this->params);
+		call_user_func_array($call, $this->params);
 	}
 	
 	protected function parseUrl() {

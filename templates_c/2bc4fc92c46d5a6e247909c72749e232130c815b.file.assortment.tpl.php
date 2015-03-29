@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-28 23:11:32
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-28 23:35:20
          compiled from "app\view\home\assortment.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:125465516e6069d0274-81963990%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '2bc4fc92c46d5a6e247909c72749e232130c815b' => 
     array (
       0 => 'app\\view\\home\\assortment.tpl',
-      1 => 1427580689,
+      1 => 1427582096,
       2 => 'file',
     ),
   ),
@@ -34,11 +34,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5516e606b4c288_40581187')) {function content_5516e606b4c288_40581187($_smarty_tpl) {?><div class="container">
-	<div class="panel panel-primary">
-		<div class="panel-body">
-			<h3 class="panel-title">Assortiment</h3>
-		</div>
-	</div>
 	<div class="row">
 		<div class="col-sm-3">
 			<?php if (isset($_smarty_tpl->tpl_vars['sub_categories']->value)) {?>
@@ -53,9 +48,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['cat']->key => $_smarty_tpl->tpl_vars[
 $_smarty_tpl->tpl_vars['cat']->_loop = true;
 ?> 
 						<?php if (isset($_smarty_tpl->tpl_vars['currcategory']->value)&&$_smarty_tpl->tpl_vars['cat']->value->getId()==$_smarty_tpl->tpl_vars['currcategory']->value) {?>
-							<li class="list-group-item cat-active"><a href="?categorie=<?php echo $_smarty_tpl->tpl_vars['cat']->value->getId();?>
-"><?php echo $_smarty_tpl->tpl_vars['cat']->value->getNaam();?>
-</a></li>
+							<li class="list-group-item cat-active"><?php echo $_smarty_tpl->tpl_vars['cat']->value->getNaam();?>
+</li>
 						<?php } else { ?>
 							<li class="list-group-item"><a href="?categorie=<?php echo $_smarty_tpl->tpl_vars['cat']->value->getId();?>
 "><?php echo $_smarty_tpl->tpl_vars['cat']->value->getNaam();?>
@@ -78,9 +72,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['cat']->key => $_smarty_tpl->tpl_vars[
 $_smarty_tpl->tpl_vars['cat']->_loop = true;
 ?> 
 						<?php if (isset($_smarty_tpl->tpl_vars['currcategory']->value)&&$_smarty_tpl->tpl_vars['cat']->value->getId()==$_smarty_tpl->tpl_vars['currcategory']->value) {?>
-							<li class="list-group-item cat-active"><a href="?categorie=<?php echo $_smarty_tpl->tpl_vars['cat']->value->getId();?>
-"><?php echo $_smarty_tpl->tpl_vars['cat']->value->getNaam();?>
-</a></li>
+							<li class="list-group-item cat-active"><?php echo $_smarty_tpl->tpl_vars['cat']->value->getNaam();?>
+</li>
 						<?php } else { ?>
 							<li class="list-group-item"><a href="?categorie=<?php echo $_smarty_tpl->tpl_vars['cat']->value->getId();?>
 "><?php echo $_smarty_tpl->tpl_vars['cat']->value->getNaam();?>

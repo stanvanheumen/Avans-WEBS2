@@ -14,7 +14,7 @@ class Home extends Controller {
 		// Execute database requests
 		$products = $this->db->queryArray('SELECT * FROM product WHERE zichtbaar = 1 LIMIT 9', 'Product');
 		$product_ids = $this->implodeObjectArray($products, 'getId');
-		$product_images = [];
+		$product_images = array();
 		if (strlen($product_ids) != 0) {
 			$product_images = $this->db->queryArray("SELECT * FROM productafbeelding WHERE afbeeldingtype_type = 'thumbnail' AND product_id IN ($product_ids)", 'ProductAfbeelding');
 		}
@@ -56,7 +56,7 @@ class Home extends Controller {
 		// Execute database requests
 		$products = $this->db->queryArray("SELECT * FROM product WHERE productnaam LIKE '%" . $this->db->escape($_GET['search-query']) . "%' AND zichtbaar = 1", 'Product');
 		$product_ids = $this->implodeObjectArray($products, 'getId');
-		$product_images = [];
+		$product_images = array();
 		if (strlen($product_ids) != 0) {
 			$product_images = $this->db->queryArray("SELECT * FROM productafbeelding WHERE afbeeldingtype_type = 'thumbnail' AND product_id IN ($product_ids)", 'ProductAfbeelding');
 		}
@@ -75,7 +75,7 @@ class Home extends Controller {
 		$id = $this->db->escape($_POST['value']);
 
 		if (!isset($_SESSION['shoppingcart'])) {
-			$_SESSION['shoppingcart'] = [];
+			$_SESSION['shoppingcart'] = array();
 		}
 
 		if (!in_array($id, $_SESSION['shoppingcart'])) {
@@ -87,7 +87,7 @@ class Home extends Controller {
 
 	public function removefromcart() {
 		if (!isset($_SESSION['shoppingcart'])) {
-			$_SESSION['shoppingcart'] = [];
+			$_SESSION['shoppingcart'] = array();
 		}
 
 		if(isset($_GET['id'])) {
@@ -119,7 +119,7 @@ class Home extends Controller {
 				$this->db->query("INSERT INTO bestelproduct VALUES ('$bestelling_id', '$product_id', '$product_prijs', '0', '$_POST[$result]')");
 			}
 		}
-		$_SESSION['shoppingcart'] = [];
+		$_SESSION['shoppingcart'] = array();
 		$this->redirect('/home/account');
 	}
 	
@@ -160,7 +160,8 @@ class Home extends Controller {
 				$producten = $this->db->queryArray("SELECT * FROM product WHERE categorie_id IN (SELECT id FROM categorie WHERE id='$id' OR categorie_parent='$id') LIMIT $start,$limit", 'Product');
 				
 				$result = $this->db->query("SELECT COUNT(*) FROM product WHERE categorie_id IN (SELECT id FROM categorie WHERE id='$id' OR categorie_parent='$id')");
-				$productCount = $result->fetch_row()[0];
+				$row = $result->fetch_row();
+				$productCount = $row[0];
 				$result->close();
 				
 			} else {
@@ -168,14 +169,16 @@ class Home extends Controller {
 				$producten = $this->db->queryArray("SELECT * FROM product WHERE categorie_id = '$id' LIMIT $start,$limit", 'Product');
 				
 				$result = $this->db->query("SELECT COUNT(*) FROM product WHERE categorie_id = '$id'");
-				$productCount = $result->fetch_row()[0];
+				$row = $result->fetch_row();
+				$productCount = $row[0];
 				$result->close();
 			}
 		} else {
 			$producten = $this->db->queryArray("SELECT * FROM product WHERE zichtbaar = 1 LIMIT $start,$limit", 'Product');
 			
 			$result = $this->db->query("SELECT COUNT(*) FROM product WHERE zichtbaar = 1");
-			$productCount = $result->fetch_row()[0];
+			$row = $result->fetch_row();
+			$productCount = $row[0];
 			$result->close();
 		}
 		
@@ -224,7 +227,7 @@ class Home extends Controller {
 		}
 		
 		if (!isset($_SESSION['shoppingcart'])) {
-			$_SESSION['shoppingcart'] = [];
+			$_SESSION['shoppingcart'] = array();
 		}
 
 		// Execute database requests
@@ -240,7 +243,7 @@ class Home extends Controller {
 		$product_afbeeldingen = $this->db->queryArray("SELECT * FROM productafbeelding WHERE product_id = '$product_id' AND afbeeldingtype_type = 'afbeelding'", 'ProductAfbeelding');
 		
 		if ($product_afbeeldingen == null) {
-			$product_afbeeldingen = [];
+			$product_afbeeldingen = array();
 		}
 
 		foreach ($_SESSION['shoppingcart'] as $id) {
@@ -322,11 +325,11 @@ class Home extends Controller {
 		$this->smart('Mijn Account');
 
 		if (!isset($_SESSION['shoppingcart'])) {
-			$_SESSION['shoppingcart'] = [];
+			$_SESSION['shoppingcart'] = array();
 		}
 
 		$product_ids = $this->implodeObjectArray($_SESSION['shoppingcart'], null);
-		$products = [];
+		$products = array();
 		if (strlen($product_ids) != 0) {
 			$products = $this->db->queryArray("SELECT * FROM product WHERE id IN ($product_ids) AND zichtbaar = 1", 'Product');
 		}
@@ -350,14 +353,14 @@ class Home extends Controller {
 		$user_id = $_SESSION['user_id'];
 		$orders = $this->db->queryArray("SELECT * FROM bestelling WHERE account_id = '$user_id' AND zichtbaar = 1", 'Bestelling');
 
-		$orderproducts = [];
+		$orderproducts = array();
 
 		foreach ($orders as $order) {
 			$b_id = $order->getId();
-			$bestelproductarray = [];
+			$bestelproductarray = array();
 			$bestelproducts = $this->db->queryArray("SELECT * FROM bestelproduct WHERE bestelling_id = '$b_id'", 'BestelProduct');
 			foreach ($bestelproducts as $bproduct) {
-				$order_and_product = [];
+				$order_and_product = array();
 				$p_id = $bproduct->getProductId();
 				$normal_product = $this->db->queryObject("SELECT * FROM product WHERE id = '$p_id'", 'Product');
 				array_push($order_and_product, $bproduct);
@@ -404,10 +407,10 @@ class Home extends Controller {
 		$this->redirect("/home/productdetails?product_id=$product_id");
 	}
 
-	public function view($view, $data = []) {
+	public function view($view, $data = array()) {
 		$categories = $this->db->queryArray('SELECT * FROM categorie WHERE categorie_parent IS NULL AND zichtbaar = 1 ORDER BY naam', 'Categorie');
 
-		$productsarray = [];
+		$productsarray = array();
 		for ($index = 0; $index < 3; $index++) {
 			$curr_cat = $categories[$index]->getId();
 			array_push($productsarray, $this->db->queryArray("SELECT * FROM product WHERE categorie_id = $curr_cat AND zichtbaar = 1 LIMIT 8", 'Product'));
@@ -444,6 +447,5 @@ class Home extends Controller {
 
 		$this->view('/home/sitemap');
 	}
-
 	
 }
