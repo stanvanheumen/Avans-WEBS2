@@ -16,19 +16,18 @@
 					<td>
 					{foreach $order as $product}
 					<div class="row">
-						<div class="col-md-2">
+						<div class="col-md-3">
 							<div class="orders">
 								<img src="/uploads/{$product[0]->getProductId()}_1.png" class="img-responsive center-block" alt="-" />
 							</div>
 						</div>
-						<div class="col-md-3">
-							<h4>{$product[1]->getProductNaam()}</h4>
+						<div class="col-md-6">
+							<h5>{$product[1]->getProductNaam()}</h5>
 						</div>
 						<div class="col-md-3">
-							<span class="search-title">&euro;{$product[0]->getPrijs()}</span>
-						</div>
-						<div class="col-md-4">
-							<span class="search-title">x{$product[0]->getAantal()}</span>
+							<div class="price">
+								<span>&euro;</span>{$product[0]->getEuros()}<span class="cents">.{$product[0]->getCents()}</span>
+							</div>x{$product[0]->getAantal()}
 						</div>
 					</div>
 					{/foreach}

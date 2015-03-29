@@ -480,3 +480,17 @@ Dashboard stats
 	width: 100%;
 	height: 100%;
 }
+
+.price {
+	font-size: 3em;
+	font-weight: 300;
+}
+
+.price span {
+	font-size: 0.6em;
+	margin: 0px 2px;
+}
+
+.price .cents {
+	vertical-align: top;
+}

@@ -45,18 +45,22 @@
 				{if isset($products)}
 				{foreach $products as $product} 
 					<div class="row">
-						<div class="col-md-6">
+						<div class="col-md-5">
 							<div class="media">
 								<div class="orders">
 									<img class="img-responsive" src="/uploads/{$product->getId()}_1.png" alt="auction">
 								</div>
 								<div class="media-body">
 									<h4 class="media-heading"><a href="productdetails?product_id={$product->getId()}">{$product->getProductNaam()}</a></h4>
-									{$product->getBeschrijving()}
+									{$product->getBeschrijvingKort()}
 								</div>
 							</div>
 						</div>
-						<div class="col-md-2 auctions">Prijs &euro; {$product->getPrijs()}</div>
+						<div class="col-md-3 auctions">
+							<div class="price">
+								<span>&euro;</span>{$product->getEuros()}<span class="cents">.{$product->getCents()}</span>
+							</div>
+						</div>
 						<div class="col-md-4">
 							{if isset($smarty.session.home_authenticated) && $smarty.session.home_authenticated == 1}
 							{if isset($smarty.session.shoppingcart) && in_array($product->getId(), $smarty.session.shoppingcart)} 

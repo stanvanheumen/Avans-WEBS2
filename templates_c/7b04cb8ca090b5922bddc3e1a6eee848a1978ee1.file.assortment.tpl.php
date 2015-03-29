@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-28 23:35:34
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-29 23:14:17
          compiled from "app\view\home\assortment.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:147685515ab84da5cd9-45517722%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7b04cb8ca090b5922bddc3e1a6eee848a1978ee1' => 
     array (
       0 => 'app\\view\\home\\assortment.tpl',
-      1 => 1427582032,
+      1 => 1427663656,
       2 => 'file',
     ),
   ),
@@ -99,7 +99,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['product']->key => $_smarty_tpl->tpl_v
 $_smarty_tpl->tpl_vars['product']->_loop = true;
 ?> 
 					<div class="row">
-						<div class="col-md-6">
+						<div class="col-md-5">
 							<div class="media">
 								<div class="orders">
 									<img class="img-responsive" src="/uploads/<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
@@ -109,13 +109,18 @@ _1.png" alt="auction">
 									<h4 class="media-heading"><a href="productdetails?product_id=<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
 "><?php echo $_smarty_tpl->tpl_vars['product']->value->getProductNaam();?>
 </a></h4>
-									<?php echo $_smarty_tpl->tpl_vars['product']->value->getBeschrijving();?>
+									<?php echo $_smarty_tpl->tpl_vars['product']->value->getBeschrijvingKort();?>
 
 								</div>
 							</div>
 						</div>
-						<div class="col-md-2 auctions">Prijs &euro; <?php echo $_smarty_tpl->tpl_vars['product']->value->getPrijs();?>
-</div>
+						<div class="col-md-3 auctions">
+							<div class="price">
+								<span>&euro;</span><?php echo $_smarty_tpl->tpl_vars['product']->value->getEuros();?>
+<span class="cents">.<?php echo $_smarty_tpl->tpl_vars['product']->value->getCents();?>
+</span>
+							</div>
+						</div>
 						<div class="col-md-4">
 							<?php if (isset($_SESSION['home_authenticated'])&&$_SESSION['home_authenticated']==1) {?>
 							<?php if (isset($_SESSION['shoppingcart'])&&in_array($_smarty_tpl->tpl_vars['product']->value->getId(),$_SESSION['shoppingcart'])) {?> 

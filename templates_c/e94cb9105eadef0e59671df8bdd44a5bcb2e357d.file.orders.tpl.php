@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-28 23:34:27
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-29 23:11:52
          compiled from "app\view\home\orders.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:285145515a6afc4fdf7-61465042%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'e94cb9105eadef0e59671df8bdd44a5bcb2e357d' => 
     array (
       0 => 'app\\view\\home\\orders.tpl',
-      1 => 1427582032,
+      1 => 1427663512,
       2 => 'file',
     ),
   ),
@@ -51,23 +51,23 @@ foreach ($_from as $_smarty_tpl->tpl_vars['product']->key => $_smarty_tpl->tpl_v
 $_smarty_tpl->tpl_vars['product']->_loop = true;
 ?>
 					<div class="row">
-						<div class="col-md-2">
+						<div class="col-md-3">
 							<div class="orders">
 								<img src="/uploads/<?php echo $_smarty_tpl->tpl_vars['product']->value[0]->getProductId();?>
 _1.png" class="img-responsive center-block" alt="-" />
 							</div>
 						</div>
-						<div class="col-md-3">
-							<h4><?php echo $_smarty_tpl->tpl_vars['product']->value[1]->getProductNaam();?>
-</h4>
+						<div class="col-md-6">
+							<h5><?php echo $_smarty_tpl->tpl_vars['product']->value[1]->getProductNaam();?>
+</h5>
 						</div>
 						<div class="col-md-3">
-							<span class="search-title">&euro;<?php echo $_smarty_tpl->tpl_vars['product']->value[0]->getPrijs();?>
+							<div class="price">
+								<span>&euro;</span><?php echo $_smarty_tpl->tpl_vars['product']->value[0]->getEuros();?>
+<span class="cents">.<?php echo $_smarty_tpl->tpl_vars['product']->value[0]->getCents();?>
 </span>
-						</div>
-						<div class="col-md-4">
-							<span class="search-title">x<?php echo $_smarty_tpl->tpl_vars['product']->value[0]->getAantal();?>
-</span>
+							</div>x<?php echo $_smarty_tpl->tpl_vars['product']->value[0]->getAantal();?>
+
 						</div>
 					</div>
 					<?php } ?>

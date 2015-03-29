@@ -60,7 +60,7 @@
 							<span class="label label-default">Login gegevens</span>
 						</div>
 						<div class="form-group">
-							<input class="form-control" placeholder="E-mail" name="email" type="text" required>
+							<input class="form-control" placeholder="E-mail" name="email" type="email" required>
 						</div>
 						<div class="form-group">
 							<input class="form-control" placeholder="Wachtwoord" name="password" type="password" required>

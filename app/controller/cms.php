@@ -13,7 +13,6 @@ class CMS extends Controller {
 	public function index() {
 		// Require models
 		$this->smart('CMS');
-		require_once ('app/model/account.inc.php');
 
 		if(isset($_SESSION['cms_authenticated']) && $_SESSION['cms_authenticated'] == 1) {
 			$this->redirect('/cms/dashboard');
@@ -95,7 +94,6 @@ class CMS extends Controller {
 		// Require models
 		$this->smart('Producten');
 
-		require_once ('app/model/product.inc.php');
 		$products = $this->db->queryArray("SELECT * FROM product WHERE zichtbaar = 1 LIMIT $start,$limit", 'Product');
 		
 		$result = $this->db->query("SELECT COUNT(*) FROM product");
@@ -119,7 +117,6 @@ class CMS extends Controller {
 		
 		// Require models
 		$this->smart('Toevoegen');
-		require_once ('app/model/categorie.inc.php');
 
 		// Database requests
 		$categorie = $this->db->queryArray('SELECT * FROM categorie', 'Categorie');
@@ -180,14 +177,17 @@ class CMS extends Controller {
 	
 		// Require models
 		$this->smart('Wijzigen');
-		require_once ('app/model/product.inc.php');
-		require_once ('app/model/categorie.inc.php');
-		require_once ('app/model/productafbeelding.inc.php');
 
 		// Database requests
 		$id = $this->db->escape($_GET['id']);
 
 		$product = $this->db->queryObject("SELECT * FROM PRODUCT WHERE id='$id'", 'Product');
+
+		if ($product == null) {
+			$this->redirect('/cms/products');
+			return;
+		}
+
 		$categorie = $this->db->queryArray('SELECT * FROM categorie', 'Categorie');
 		$image = $this->db->queryArray("SELECT * FROM productafbeelding WHERE product_id = '$id'", 'ProductAfbeelding');
 
@@ -250,7 +250,6 @@ class CMS extends Controller {
 		// Require models
 		$this->smart('Categorie&#235;n');
 
-		require_once ('app/model/categorie.inc.php');
 		$categories = $this->db->queryArray('SELECT * FROM categorie WHERE categorie_parent IS NULL AND zichtbaar = 1 ORDER BY naam ASC', 'Categorie');
 		$subcategories = $this->db->queryArray('SELECT * FROM categorie WHERE categorie_parent IS NOT NULL AND zichtbaar = 1 ORDER BY naam ASC', 'Categorie');
 
@@ -268,8 +267,6 @@ class CMS extends Controller {
 		
 		// Require models
 		$this->smart('Categorie aanmaken');
-		
-		require_once ('app/model/categorie.inc.php');
 
 		// Database requests
 		$categorie = $this->db->queryArray('SELECT * FROM categorie WHERE categorie_parent IS NULL', 'Categorie');
@@ -310,13 +307,17 @@ class CMS extends Controller {
 	
 		// Require models
 		$this->smart('Categorie wijzigen');
-		require_once ('app/model/categorie.inc.php');
 
 		// Database requests
 		$id = $this->db->escape($_GET['id']);
 		
 		$categorie = $this->db->queryObject("SELECT * FROM categorie WHERE id = '$id'", 'Categorie');
 		
+		if ($categorie == null) {
+			$this->redirect('/cms/categories');
+			return;
+		}
+
 		// IMPORTANT: we cannot change a parent category into a subparent category since the parent category can contain subcategories...
 		// however, we can change a subcategory into a parent category, or move the subcategory to another category
 		if($categorie->getCategorieParent() != null) {
@@ -387,8 +388,6 @@ class CMS extends Controller {
 		// Require models
 		$this->smart('Bestellingen');
 
-		require_once ('app/model/bestelling.inc.php');
-		require_once ('app/model/account.inc.php');
 		$orders = $this->db->queryArray('SELECT * FROM bestelling WHERE zichtbaar = 1', 'Bestelling');
 		$accounts = $this->db->queryArray('SELECT * FROM account', 'Account');
 
@@ -400,8 +399,9 @@ class CMS extends Controller {
 	}
 
 	public function read_bestelling() {
-		if(!$this->authenticate_check())
+		if(!$this->authenticate_check()) {
 			return;
+		}
 		
 		if(!isset($_GET['id'])) {
 			$this->redirect('/cms/orders');
@@ -411,12 +411,15 @@ class CMS extends Controller {
 		// Require models
 		$this->smart('Bestelling bekijken');
 
-		require_once ('app/model/bestelproduct.inc.php');
-		require_once ('app/model/product.inc.php');
-
 		$b_id = $this->db->escape($_GET['id']);
 
 		$orderedproducts = $this->db->queryArray("SELECT * FROM bestelproduct WHERE bestelling_id = '$b_id'", 'bestelproduct');
+
+		if ($orderedproducts == []) {
+			$this->redirect('/cms/orders');
+			return;
+		}
+
 		$products = $this->db->queryArray('SELECT * FROM product', 'Product');
 
 		$this->smarty->assign('orderedproducts', $orderedproducts);
@@ -427,8 +430,9 @@ class CMS extends Controller {
 	}
 
 	public function delete_bestelling() {
-		if(!$this->authenticate_check())
+		if(!$this->authenticate_check()) {
 			return;
+		}
 		
 		if(!isset($_GET['id'])) {
 			$this->redirect('/cms/orders');
@@ -450,8 +454,9 @@ class CMS extends Controller {
 	/* <USERS> */
 
 	public function users() {
-		if(!$this->authenticate_check())
+		if(!$this->authenticate_check()) {
 			return;
+		}
 		
 		// Require models
 		$this->smart('Gebruikers');
@@ -467,18 +472,19 @@ class CMS extends Controller {
 	}
 
 	public function read_user() {
-		if(!$this->authenticate_check())
+		if(!$this->authenticate_check()) {
 			return;
+		}
 
-		if(!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+		$this->smart('Gebruiker bekijken');
+		$id = $this->db->escape($_GET['id']);
+		$user = $this->db->queryObject("SELECT * FROM account WHERE id='$id'", 'Account');
+
+		if ($user == null) {
 			$this->redirect('/cms/users');
 			return;
 		}
 
-		require_once ('app/model/account.inc.php');
-		$this->smart('Gebruiker bekijken');
-		$id = $this->db->escape($_GET['id']);
-		$user = $this->db->queryObject("SELECT * FROM account WHERE id='$id'", 'Account');
 		$this->smarty->assign('user', $user);
 
 		// Render view
@@ -486,23 +492,22 @@ class CMS extends Controller {
 	}
 
 	public function edit_user() {
-		if(!$this->authenticate_check())
-			return;
-
-		if(!isset($_GET['id']) || !is_numeric($_GET['id'])) {
-			$this->redirect('/cms/users');
+		if(!$this->authenticate_check()) {
 			return;
 		}
 
 		// Require models
 		$this->smart('Gebruiker wijzigen');
-		require_once ('app/model/account.inc.php');
-		require_once ('app/model/rank.inc.php');
-		
+
 		// Database requests
 		$id = $this->db->escape($_GET['id']);
 
 		$user = $this->db->queryObject("SELECT * FROM account WHERE id='$id'", 'Account');
+
+		if ($user == null) {
+			$this->redirect('/cms/users');
+			return;
+		}
 
 		$this->smarty->assign('user', $user);
 		
@@ -547,8 +552,9 @@ class CMS extends Controller {
 	}
 
 	public function delete_user() {
-		if(!$this->authenticate_check())
+		if(!$this->authenticate_check()) {
 			return;
+		}
 		
 		if(!isset($_GET['id']) || !is_numeric($_GET['id'])) {
 			$this->redirect('/cms/users');

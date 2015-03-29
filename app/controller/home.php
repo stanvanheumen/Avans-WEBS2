@@ -253,7 +253,6 @@ class Home extends Controller {
 			}
 		}
 
-		//$reviews = $this->db->queryArray("SELECT * FROM review WHERE product_id = '$product_id'", 'Review');
 		$reviews = $this->db->queryArray("SELECT r.*, a.voornaam FROM review AS r INNER JOIN account AS a ON r.account_id = a.id WHERE r.product_id = '$product_id' ORDER BY r.datum DESC", 'Review');
 		
 		$this->smarty->assign('product', $product);
@@ -266,6 +265,11 @@ class Home extends Controller {
 	}
 	
 	public function register() {
+		if($this->authenticate_check()) {
+			$this->redirect('/home/account');
+			return;
+		}
+
 		// Initialize Smarty
 		$this->smart('Registreren'); 
 
@@ -304,6 +308,11 @@ class Home extends Controller {
 	}
 	
 	public function login() {
+		if($this->authenticate_check()) {
+			$this->redirect('/home/account');
+			return;
+		}
+
 		// Initialize Smarty
 		$this->smart('Login');
 		

@@ -10,7 +10,7 @@
 			    	<form action="/cms/index" method="post" accept-charset="UTF-8" role="form">
 	                    <fieldset>
 				    	  	<div class="form-group">
-				    		    <input class="form-control" placeholder="E-mail" name="email" type="text" required>
+				    		    <input class="form-control" placeholder="Gebruikersnaam" name="email" type="text" required>
 				    		</div>
 				    		<div class="form-group">
 				    			<input class="form-control" placeholder="Wachtwoord" name="password" type="password" required>

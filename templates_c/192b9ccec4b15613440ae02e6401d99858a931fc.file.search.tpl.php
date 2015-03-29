@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-28 23:41:46
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-29 23:07:10
          compiled from "app\view\home\search.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:309635515ab80646529-69452743%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '192b9ccec4b15613440ae02e6401d99858a931fc' => 
     array (
       0 => 'app\\view\\home\\search.tpl',
-      1 => 1427582505,
+      1 => 1427663228,
       2 => 'file',
     ),
   ),
@@ -70,8 +70,13 @@ $_smarty_tpl->tpl_vars['afbeelding']->_loop = true;
 									</div>
 								</div>
 							</div>
-							<div class="col-md-3 auctions"><span class="search-title">&euro; <?php echo $_smarty_tpl->tpl_vars['product']->value->getPrijs();?>
-</span></div>
+							<div class="col-md-3 auctions">
+								<div class="price">
+									<span>&euro;</span><?php echo $_smarty_tpl->tpl_vars['product']->value->getEuros();?>
+<span class="cents">.<?php echo $_smarty_tpl->tpl_vars['product']->value->getCents();?>
+</span>
+								</div>
+							</div>
 							<div class="col-md-3">
 								<?php if (isset($_SESSION['home_authenticated'])&&$_SESSION['home_authenticated']==1) {?>
 								<form action="/home/addtocart" method="post" role="form">
@@ -83,7 +88,7 @@ $_smarty_tpl->tpl_vars['afbeelding']->_loop = true;
 							</div>
 						</div>
 						<?php } ?>
-				    </div>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -53,5 +53,13 @@ class Product {
 	public function getZichtbaar() {
 		return $this->zichtbaar;
 	}
+
+	public function getEuros() {
+		return explode('.', $this->prijs)[0];
+	}
+
+	public function getCents() {
+		return explode('.', $this->prijs)[1];
+	}
 	
 }

@@ -26,7 +26,11 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-3 auctions"><span class="search-title">&euro; {$product->getPrijs()}</span></div>
+							<div class="col-md-3 auctions">
+								<div class="price">
+									<span>&euro;</span>{$product->getEuros()}<span class="cents">.{$product->getCents()}</span>
+								</div>
+							</div>
 							<div class="col-md-3">
 								{if isset($smarty.session.home_authenticated) && $smarty.session.home_authenticated == 1}
 								<form action="/home/addtocart" method="post" role="form">

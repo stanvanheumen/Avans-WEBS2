@@ -27,5 +27,13 @@ class BestelProduct {
 	public function getAantal() {
 		return $this->aantal;
 	}
+
+	public function getEuros() {
+		return explode('.', $this->prijs)[0];
+	}
+
+	public function getCents() {
+		return explode('.', $this->prijs)[1];
+	}
 	
 }
