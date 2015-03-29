@@ -66,7 +66,11 @@
 								{/if}
 							</a>
 							<ul class="dropdown-menu account-menu" role="menu">
+								{if isset($smarty.session.shoppingcart)}
 								<li><a href="/home/account">Winkelwagentje ({$smarty.session.shoppingcart|@count})</a></li>
+								{else}
+								<li><a href="/home/account">Winkelwagentje (0)</a></li>
+								{/if} 
 								<li><a href="/home/orders">Bestellingen</a></li>
 								<li class="divider"></li>
 								<li><a href="/home/logout">Log uit</a></li>

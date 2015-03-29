@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-28 23:30:10
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-29 15:02:25
          compiled from "app\view\home\partial\header.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2715655157dd141bc00-80767768%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '1d6ae20fa24257141043b4465874c54dfbdb3689' => 
     array (
       0 => 'app\\view\\home\\partial\\header.tpl',
-      1 => 1427581808,
+      1 => 1427634142,
       2 => 'file',
     ),
   ),
@@ -116,8 +116,12 @@ $_smarty_tpl->tpl_vars['product']->_loop = true;
 								<?php }?>
 							</a>
 							<ul class="dropdown-menu account-menu" role="menu">
+								<?php if (isset($_SESSION['shoppingcart'])) {?>
 								<li><a href="/home/account">Winkelwagentje (<?php echo count($_SESSION['shoppingcart']);?>
 )</a></li>
+								<?php } else { ?>
+								<li><a href="/home/account">Winkelwagentje (0)</a></li>
+								<?php }?> 
 								<li><a href="/home/orders">Bestellingen</a></li>
 								<li class="divider"></li>
 								<li><a href="/home/logout">Log uit</a></li>
