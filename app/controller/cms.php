@@ -78,8 +78,9 @@ class CMS extends Controller {
 	/* <PRODUCTS> */
 	
 	public function products() {
-		if(!$this->authenticate_check())
+		if(!$this->authenticate_check()) {
 			return;
+		}
 			
 		$page = 1;
 		
@@ -112,8 +113,9 @@ class CMS extends Controller {
 	}
 
 	public function create_product() {
-		if(!$this->authenticate_check())
+		if(!$this->authenticate_check()) {
 			return;
+		}
 		
 		// Require models
 		$this->smart('Toevoegen');
@@ -128,10 +130,10 @@ class CMS extends Controller {
 	}
 
 	public function create_product_post() {
-		if(!$this->authenticate_check())
+		if(!$this->authenticate_check()) {
 			return;
+		}
 	
-		require_once ('app/model/product.inc.php');
 		$categorie_id 		= $this->db->escape($_POST['categorie_id']);
 		$productnaam 		= $this->db->escape($_POST['productnaam']);
 		$prijs 				= $this->db->escape($_POST['prijs']);
@@ -244,8 +246,9 @@ class CMS extends Controller {
 	/* <CATEGORIES> */
 
 	public function categories() {
-		if(!$this->authenticate_check())
+		if(!$this->authenticate_check()) {
 			return;
+		}
 		
 		// Require models
 		$this->smart('Categorie&#235;n');
@@ -262,8 +265,9 @@ class CMS extends Controller {
 	}
 
 	public function create_category() {
-		if(!$this->authenticate_check())
+		if(!$this->authenticate_check()) {
 			return;
+		}
 		
 		// Require models
 		$this->smart('Categorie aanmaken');
@@ -278,8 +282,9 @@ class CMS extends Controller {
 	}
 
 	public function create_category_post() {
-		if(!$this->authenticate_check())
+		if(!$this->authenticate_check()) {
 			return;
+		}
 		
 		// Database requests
 		$naam = $this->db->escape($_POST['naam']);
@@ -297,8 +302,9 @@ class CMS extends Controller {
 	}
 
 	public function edit_category() {
-		if(!$this->authenticate_check())
+		if(!$this->authenticate_check()) {
 			return;
+		}
 		
 		if(!isset($_GET['id']) || !is_numeric($_GET['id'])) {
 			$this->redirect('/cms/categories');
@@ -362,8 +368,9 @@ class CMS extends Controller {
 	}
 
 	public function delete_category() {
-		if(!$this->authenticate_check())
+		if(!$this->authenticate_check()) {
 			return;
+		}
 		
 		if(!isset($_GET['id']) || !is_numeric($_GET['id'])) {
 			$this->redirect('/cms/categories');
@@ -382,8 +389,9 @@ class CMS extends Controller {
 	/* <ORDERS> */
 
 	public function orders() {
-		if(!$this->authenticate_check())
+		if(!$this->authenticate_check()) {
 			return;
+		}
 		
 		// Require models
 		$this->smart('Bestellingen');
@@ -460,7 +468,6 @@ class CMS extends Controller {
 		
 		// Require models
 		$this->smart('Gebruikers');
-		require_once ('app/model/account.inc.php');
 
 		// Database requests
 		$users = $this->db->queryArray('SELECT * FROM account WHERE zichtbaar = 1', 'Account');
