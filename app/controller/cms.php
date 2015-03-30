@@ -219,12 +219,35 @@ class CMS extends Controller {
 		$beschrijving_lang 	= $this->db->escape($_POST['beschrijving_lang']);
 		$voorraad 			= $this->db->escape($_POST['voorraad']);
 
-		// ERROR !!!
 		$thumbnail 			= $_FILES['afbeelding'];
 		$images 			= $_FILES['afbeeldingen'];
 
-		var_dump($thumbnail);
-		return;
+		
+
+		if ($thumbnail['size'] != 0) {
+			move_uploaded_file($thumbnail['tmp_name'], 'uploads/' . $id . '_1.png');
+			$filename = 'uploads/' . $id . '_1.png';
+			$obj = $this->db->queryObject("SELECT * FROM productafbeelding WHERE product_id = '$id' AND afbeeldingtype_type = 'thumbnail'", 'ProductAfbeelding');
+			if ($obj == null) {
+				$this->db->query("INSERT INTO productafbeelding VALUES (NULL, '$id', 'thumbnail', '$filename')");
+			}			
+		}
+		
+		$counter = 2;
+		foreach ($images['tmp_name'] as $value) {
+			if ($value == '') {
+				break;
+			}
+			$location = 'uploads/' . $id . '_' . $counter . '.png';
+			move_uploaded_file($value, $location);
+			$obj = $this->db->queryObject("SELECT * FROM productafbeelding WHERE product_id = '$id' AND afbeeldingtype_type = 'afbeelding' AND link = '$location'", 'ProductAfbeelding');
+			if ($obj == null) {
+				$this->db->query("INSERT INTO productafbeelding VALUES (NULL, '$id', 'afbeelding', '$location')");
+			}
+			$counter++;
+		}
+
+		
 
 		if (!is_numeric($prijs) || $prijs < 0 || !is_numeric($voorraad) || $voorraad < 0) {
 			$this->redirect('/cms/edit_product?id=' . $id);

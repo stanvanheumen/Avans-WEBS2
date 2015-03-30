@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-30 16:08:52
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-30 16:27:04
          compiled from "app\view\cms\edit_product.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1119655186e78ad8979-27181997%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '20bcb134513a88604485ee9d9cf391c02b665f0c' => 
     array (
       0 => 'app\\view\\cms\\edit_product.tpl',
-      1 => 1427724507,
+      1 => 1427725623,
       2 => 'file',
     ),
   ),
@@ -38,7 +38,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				</div>
 				<div class="panel-body">
 					<form action="/cms/edit_product_post?id=<?php echo $_smarty_tpl->tpl_vars['product']->value->getId();?>
-" method="post" role="form">
+" method="post" role="form" enctype="multipart/form-data">
 						<div class="form-group">
 							<label for="categorie_id">Categorie</label>
 							<select class="form-control" id="categorie_id" name="categorie_id">
@@ -87,10 +87,12 @@ $_smarty_tpl->tpl_vars['cat']->_loop = true;
 						<div class="form-group">
 							<label for="image">Thumbnail</label>
 							<input type="file" id="afbeelding" name="afbeelding" accept="image/*" />
+							<i>De gekozen afbeelding overschrijft de oude afbeelding.</i>
 						</div>
 						<div class="form-group">
 							<label>Afbeeldingen</label>
 							<input type="file" id="afbeeldingen" name="afbeeldingen[]" multiple="multiple" accept="image/*" />
+							<i>De gekozen afbeeldingen overschrijven de oude afbeeldingen.</i>
 						</div>
 						<?php  $_smarty_tpl->tpl_vars['image'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['image']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['images']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}

@@ -44,10 +44,12 @@
 						<div class="form-group">
 							<label for="image">Thumbnail</label>
 							<input type="file" id="afbeelding" name="afbeelding" accept="image/*" />
+							<i>De gekozen afbeelding overschrijft de oude afbeelding.</i>
 						</div>
 						<div class="form-group">
 							<label>Afbeeldingen</label>
 							<input type="file" id="afbeeldingen" name="afbeeldingen[]" multiple="multiple" accept="image/*" />
+							<i>De gekozen afbeeldingen overschrijven de oude afbeeldingen.</i>
 						</div>
 						{foreach $images as $image}
 						<label>{$image->getLink()}</label>
