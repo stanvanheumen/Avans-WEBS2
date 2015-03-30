@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-30 15:37:03
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-30 16:08:52
          compiled from "app\view\cms\edit_product.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1119655186e78ad8979-27181997%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '20bcb134513a88604485ee9d9cf391c02b665f0c' => 
     array (
       0 => 'app\\view\\cms\\edit_product.tpl',
-      1 => 1427722619,
+      1 => 1427724507,
       2 => 'file',
     ),
   ),
@@ -22,6 +22,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'product' => 0,
     'categorie' => 0,
     'cat' => 0,
+    'images' => 0,
+    'image' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -83,15 +85,23 @@ $_smarty_tpl->tpl_vars['cat']->_loop = true;
 " name="voorraad" placeholder="Voorraad" required />
 						</div>
 						<div class="form-group">
-							<label for="afbeelding">Thumbnail</label>
+							<label for="image">Thumbnail</label>
 							<input type="file" id="afbeelding" name="afbeelding" accept="image/*" />
-							<i>De gekozen afbeelding overschrijft de oude afbeelding.</i>
 						</div>
 						<div class="form-group">
 							<label>Afbeeldingen</label>
 							<input type="file" id="afbeeldingen" name="afbeeldingen[]" multiple="multiple" accept="image/*" />
-							<i>De gekozen afbeeldingen overschrijven de oude afbeeldingen.</i>
 						</div>
+						<?php  $_smarty_tpl->tpl_vars['image'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['image']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['images']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['image']->key => $_smarty_tpl->tpl_vars['image']->value) {
+$_smarty_tpl->tpl_vars['image']->_loop = true;
+?>
+						<label><?php echo $_smarty_tpl->tpl_vars['image']->value->getLink();?>
+</label>
+						<img src="/<?php echo $_smarty_tpl->tpl_vars['image']->value->getLink();?>
+" alt="img" width="100" class="img-responsive" />
+						<?php } ?>
 						<div class="pull-right">
 							<button type="submit" class="btn btn-default">Wijzigen</button>
 							<a href="/cms/products" class="btn btn-default">Annuleren</a>

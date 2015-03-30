@@ -219,6 +219,13 @@ class CMS extends Controller {
 		$beschrijving_lang 	= $this->db->escape($_POST['beschrijving_lang']);
 		$voorraad 			= $this->db->escape($_POST['voorraad']);
 
+		// ERROR !!!
+		$thumbnail 			= $_FILES['afbeelding'];
+		$images 			= $_FILES['afbeeldingen'];
+
+		var_dump($thumbnail);
+		return;
+
 		if (!is_numeric($prijs) || $prijs < 0 || !is_numeric($voorraad) || $voorraad < 0) {
 			$this->redirect('/cms/edit_product?id=' . $id);
 			return;

@@ -41,6 +41,14 @@
 							<label for="voorraad">Voorraad</label>
 							<input type="number" min="0" class="form-control" id="voorraad" value="{$product->getVoorraad()}" name="voorraad" placeholder="Voorraad" required />
 						</div>
+						<div class="form-group">
+							<label for="image">Thumbnail</label>
+							<input type="file" id="afbeelding" name="afbeelding" accept="image/*" />
+						</div>
+						<div class="form-group">
+							<label>Afbeeldingen</label>
+							<input type="file" id="afbeeldingen" name="afbeeldingen[]" multiple="multiple" accept="image/*" />
+						</div>
 						{foreach $images as $image}
 						<label>{$image->getLink()}</label>
 						<img src="/{$image->getLink()}" alt="img" width="100" class="img-responsive" />
