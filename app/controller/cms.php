@@ -146,8 +146,8 @@ class CMS extends Controller {
 			return;
 		}
 		
-		$thumbnail 			= $_FILES['image'];
-		$images 			= $_FILES['images'];
+		$thumbnail = $_FILES['image'];
+		$images = $_FILES['images'];
 
 		$this->db->query("INSERT INTO product VALUES (NULL, '$categorie_id', '$productnaam', '$prijs', '$beschrijving_lang', '$beschrijving_kort', '$voorraad', NULL, CURRENT_TIMESTAMP, NULL, '1')");
 		$curr_product = $this->db->queryObject('SELECT * FROM product ORDER BY id DESC LIMIT 1', 'Product');

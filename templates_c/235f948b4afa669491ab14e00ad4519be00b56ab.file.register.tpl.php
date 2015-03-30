@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-29 23:21:48
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-30 19:45:44
          compiled from "app\view\home\register.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:123575516ec85955336-80581281%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '235f948b4afa669491ab14e00ad4519be00b56ab' => 
     array (
       0 => 'app\\view\\home\\register.tpl',
-      1 => 1427663991,
+      1 => 1427737511,
       2 => 'file',
     ),
   ),
@@ -32,6 +32,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			</div>
 			<div class="panel-body">
 				<?php if (isset($_smarty_tpl->tpl_vars['authenticate_error']->value)) {?>
+				<?php if ($_smarty_tpl->tpl_vars['authenticate_error']->value==1) {?>
 				<div class="alert alert-danger" role="alert">
 					<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
 					De wachtwoorden matchen niet
@@ -39,6 +40,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
+				<?php } else { ?>
+				<div class="alert alert-danger" role="alert">
+					<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Dit e-mailadres is al geregistreerd
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<?php }?>
 				<?php }?>
 				<form action="/home/register_post" method="post" accept-charset="UTF-8" role="form">
 					<fieldset>

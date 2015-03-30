@@ -7,6 +7,7 @@
 			</div>
 			<div class="panel-body">
 				{if isset($authenticate_error)}
+				{if $authenticate_error == 1}
 				<div class="alert alert-danger" role="alert">
 					<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
 					De wachtwoorden matchen niet
@@ -14,6 +15,15 @@
 						<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
+				{else}
+				<div class="alert alert-danger" role="alert">
+					<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+					Dit e-mailadres is al geregistreerd
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				{/if}
 				{/if}
 				<form action="/home/register_post" method="post" accept-charset="UTF-8" role="form">
 					<fieldset>

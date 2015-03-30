@@ -120,7 +120,7 @@ class Home extends Controller {
 			}
 		}
 		$_SESSION['shoppingcart'] = array();
-		$this->redirect('/home/account');
+		$this->redirect('/home/orders');
 	}
 	
 	public function assortment() {
@@ -265,13 +265,21 @@ class Home extends Controller {
 	}
 	
 	public function register() {
-		if($this->authenticate_check()) {
+		if ($this->authenticate_check()) {
 			$this->redirect('/home/account');
 			return;
 		}
 
 		// Initialize Smarty
 		$this->smart('Registreren'); 
+
+		if (isset($_GET['err'])) {
+			if ($_GET['err'] == 1) {
+				$this->smarty->assign('authenticate_error', '1');
+			} else if ($_GET['err'] == 2) {
+				$this->smarty->assign('authenticate_error', '2');
+			}
+		}
 
 		// Render the view
 		$this->view('home/register');
@@ -290,18 +298,18 @@ class Home extends Controller {
 		$password 		= $this->getHash($this->db->escape($_POST['password']));
 		$repeat_pass	= $this->getHash($this->db->escape($_POST['repeat_password']));
 
-		if ($password != $repeat_pass) {
+		if ($_POST['password'] != $_POST['repeat_password']) {
 			$this->redirect('/home/register?err=1');
 			return;
 		}
-
-		$acc = $this->db->queryObject("SELECT * FROM account WHERE gebruikersnaam = '$email' AND zichtbaar = 1", 'Account');
+		$acc = $this->db->queryObject("SELECT * FROM account WHERE gebruikersnaam = '$email'", 'Account');
 		if($acc != null) {
-			$this->redirect('/home/register?err=1');
+			$this->redirect('/home/register?err=2');
 			return;
 		}
 		$this->db->query("INSERT INTO account VALUES (NULL, 'member', '$email', '$password', '$first_name', '$infix_name', '$last_name', '$street', '$postal_code', '$place', '$number', '$gender', '1')");
 		$_SESSION['home_authenticated'] = 1;
+		$user = $this->db->queryObject("SELECT * FROM account ORDER BY id DESC", 'Account');
 		$_SESSION['user_id'] = $user->getId();
 		$this->redirect('/home/index?authenticated=3');
 		return;
