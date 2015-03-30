@@ -23,7 +23,7 @@ class Controller {
 	
 	public function smart($title) {
 		$this->smarty = new Smarty();
-		$this->smarty->assign('title', $title);
+		$this->smarty->assign('title', 'Bol.Webshop - ' . $title);
 		$this->smarty->assign('year', date('Y'));
 	}
 
