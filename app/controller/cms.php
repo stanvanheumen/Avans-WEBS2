@@ -140,6 +140,11 @@ class CMS extends Controller {
 		$beschrijving_kort 	= $this->db->escape($_POST['beschrijving_kort']);
 		$beschrijving_lang 	= $this->db->escape($_POST['beschrijving_lang']);
 		$voorraad 			= $this->db->escape($_POST['voorraad']);
+
+		if (!is_numeric($prijs) || !is_numeric($voorraad)) {
+			$this->redirect('/cms/create_product');
+			return;
+		}
 		
 		$thumbnail 			= $_FILES['image'];
 		$images 			= $_FILES['images'];

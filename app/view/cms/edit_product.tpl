@@ -27,7 +27,7 @@
 						</div>
 						<div class="form-group">
 							<label for="prijs">Prijs</label>
-							<input type="text" class="form-control" id="prijs" value="{$product->getPrijs()}" name="prijs" placeholder="Prijs" required />
+							<input type="number" min="1" step="0.01" class="form-control" id="prijs" value="{$product->getPrijs()}" name="prijs" placeholder="Prijs" required />
 						</div>
 						<div class="form-group">
 							<label for="beschrijving_kort">Korte beschrijving</label>
@@ -39,7 +39,7 @@
 						</div>
 						<div class="form-group">
 							<label for="voorraad">Voorraad</label>
-							<input type="text" class="form-control" id="voorraad" value="{$product->getVoorraad()}" name="voorraad" placeholder="Voorraad" required />
+							<input type="number" min="0" class="form-control" id="voorraad" value="{$product->getVoorraad()}" name="voorraad" placeholder="Voorraad" required />
 						</div>
 						{foreach $images as $image}
 						<label>{$image->getLink()}</label>

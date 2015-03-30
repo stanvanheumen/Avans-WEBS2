@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-28 23:36:42
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-30 14:52:54
          compiled from "app\view\cms\create_product.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:2390355172cfae00459-05654031%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0bce4e72afd5b6a007da69e83f8ce09c0b3b073c' => 
     array (
       0 => 'app\\view\\cms\\create_product.tpl',
-      1 => 1427410496,
+      1 => 1427719973,
       2 => 'file',
     ),
   ),
@@ -15,14 +15,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_55172cfae77a97_70656220',
   'variables' => 
   array (
     'categorie' => 0,
     'cat' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_55172cfae77a97_70656220',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_55172cfae77a97_70656220')) {function content_55172cfae77a97_70656220($_smarty_tpl) {?><div class="container">
 	<div class="row cms vertical-offset-20">
@@ -55,7 +55,7 @@ $_smarty_tpl->tpl_vars['cat']->_loop = true;
 						</div>
 						<div class="form-group">
 							<label for="prijs">Prijs</label>
-							<input type="text" class="form-control" id="prijs" name="prijs" placeholder="Prijs" required />
+							<input type="number" class="form-control" min="1.00" step="0.01" id="prijs" name="prijs" placeholder="Prijs" required />
 						</div>
 						<div class="form-group">
 							<label for="beschrijving_kort">Korte beschrijving</label>
@@ -67,7 +67,7 @@ $_smarty_tpl->tpl_vars['cat']->_loop = true;
 						</div>
 						<div class="form-group">
 							<label for="voorraad">Voorraad</label>
-							<input type="text" class="form-control" id="voorraad" name="voorraad" placeholder="Voorraad" required />
+							<input type="number" min="1" class="form-control" id="voorraad" name="voorraad" placeholder="Voorraad" required />
 						</div>
 						<div class="form-group">
 							<label for="image">Thumbnail</label>

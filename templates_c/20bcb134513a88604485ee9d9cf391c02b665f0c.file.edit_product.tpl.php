@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-29 23:28:24
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-30 14:55:59
          compiled from "app\view\cms\edit_product.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1119655186e78ad8979-27181997%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '20bcb134513a88604485ee9d9cf391c02b665f0c' => 
     array (
       0 => 'app\\view\\cms\\edit_product.tpl',
-      1 => 1427404574,
+      1 => 1427720155,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.21-dev',
+  'unifunc' => 'content_55186e78bc66c1_50634230',
   'variables' => 
   array (
     'product' => 0,
@@ -24,8 +26,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'image' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.21-dev',
-  'unifunc' => 'content_55186e78bc66c1_50634230',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_55186e78bc66c1_50634230')) {function content_55186e78bc66c1_50634230($_smarty_tpl) {?><div class="container">
 	<div class="row cms vertical-offset-20">
@@ -66,7 +66,7 @@ $_smarty_tpl->tpl_vars['cat']->_loop = true;
 						</div>
 						<div class="form-group">
 							<label for="prijs">Prijs</label>
-							<input type="text" class="form-control" id="prijs" value="<?php echo $_smarty_tpl->tpl_vars['product']->value->getPrijs();?>
+							<input type="number" min="1" step="0.01" class="form-control" id="prijs" value="<?php echo $_smarty_tpl->tpl_vars['product']->value->getPrijs();?>
 " name="prijs" placeholder="Prijs" required />
 						</div>
 						<div class="form-group">
@@ -81,7 +81,7 @@ $_smarty_tpl->tpl_vars['cat']->_loop = true;
 						</div>
 						<div class="form-group">
 							<label for="voorraad">Voorraad</label>
-							<input type="text" class="form-control" id="voorraad" value="<?php echo $_smarty_tpl->tpl_vars['product']->value->getVoorraad();?>
+							<input type="number" min="0" class="form-control" id="voorraad" value="<?php echo $_smarty_tpl->tpl_vars['product']->value->getVoorraad();?>
 " name="voorraad" placeholder="Voorraad" required />
 						</div>
 						<?php  $_smarty_tpl->tpl_vars['image'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['image']->_loop = false;

@@ -23,7 +23,7 @@
 						</div>
 						<div class="form-group">
 							<label for="prijs">Prijs</label>
-							<input type="text" class="form-control" id="prijs" name="prijs" placeholder="Prijs" required />
+							<input type="number" class="form-control" min="1.00" step="0.01" id="prijs" name="prijs" placeholder="Prijs" required />
 						</div>
 						<div class="form-group">
 							<label for="beschrijving_kort">Korte beschrijving</label>
@@ -35,7 +35,7 @@
 						</div>
 						<div class="form-group">
 							<label for="voorraad">Voorraad</label>
-							<input type="text" class="form-control" id="voorraad" name="voorraad" placeholder="Voorraad" required />
+							<input type="number" min="1" class="form-control" id="voorraad" name="voorraad" placeholder="Voorraad" required />
 						</div>
 						<div class="form-group">
 							<label for="image">Thumbnail</label>
