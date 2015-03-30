@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-27 10:55:30
+<?php /* Smarty version Smarty-3.1.21-dev, created on 2015-03-30 16:19:40
          compiled from "app\view\home\login.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:56575505b3213f8b89-62059752%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '26cad9242094b7b403a0dc0fe45876a56f1f3c99' => 
     array (
       0 => 'app\\view\\home\\login.tpl',
-      1 => 1427450123,
+      1 => 1427724869,
       2 => 'file',
     ),
   ),
@@ -41,7 +41,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				<form action="/home/login_post" method="post" accept-charset="UTF-8" role="form">
 					<fieldset>
 						<div class="form-group">
-							<input class="form-control" placeholder="E-mail" name="email" type="text" required>
+							<input class="form-control" placeholder="E-mail" name="email" type="email" required>
 						</div>
 						<div class="form-group">
 							<input class="form-control" placeholder="Wachtwoord" name="password" type="password" required>

@@ -8,7 +8,7 @@
 					<h4 class="panel-title">Product wijzigen</h4>
 				</div>
 				<div class="panel-body">
-					<form action="/cms/edit_product_post?id={$product->getId()}" method="post" role="form">
+					<form action="/cms/edit_product_post?id={$product->getId()}" method="post" role="form" enctype="multipart/form-data">
 						<div class="form-group">
 							<label for="categorie_id">Categorie</label>
 							<select class="form-control" id="categorie_id" name="categorie_id">
