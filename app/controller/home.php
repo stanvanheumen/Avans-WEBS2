@@ -157,9 +157,9 @@ class Home extends Controller {
 			$id = $this->db->escape($search_category->getId());
 			if($search_category->getCategorieParent() == null) {
 				// include all products in all subcategories and current category
-				$producten = $this->db->queryArray("SELECT * FROM product WHERE categorie_id IN (SELECT id FROM categorie WHERE id='$id' OR categorie_parent='$id') LIMIT $start,$limit", 'Product');
+				$producten = $this->db->queryArray("SELECT * FROM product WHERE categorie_id IN (SELECT id FROM categorie WHERE id='$id' OR categorie_parent='$id') AND zichtbaar = 1 LIMIT $start,$limit", 'Product');
 				
-				$result = $this->db->query("SELECT COUNT(*) FROM product WHERE categorie_id IN (SELECT id FROM categorie WHERE id='$id' OR categorie_parent='$id')");
+				$result = $this->db->query("SELECT COUNT(*) FROM product WHERE categorie_id IN (SELECT id FROM categorie WHERE id='$id' OR categorie_parent='$id') AND zichtbaar = 1");
 				$row = $result->fetch_row();
 				$productCount = $row[0];
 				$result->close();
