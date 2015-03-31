@@ -55,11 +55,13 @@ class Product {
 	}
 
 	public function getEuros() {
-		return explode('.', $this->prijs)[0];
+		$exp = explode('.', $this->prijs);
+		return $exp[0];
 	}
 
 	public function getCents() {
-		return explode('.', $this->prijs)[1];
+		$exp = explode('.', $this->prijs);
+		return $exp[1];
 	}
 	
 }

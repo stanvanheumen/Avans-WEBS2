@@ -458,7 +458,7 @@ class CMS extends Controller {
 
 		$orderedproducts = $this->db->queryArray("SELECT * FROM bestelproduct WHERE bestelling_id = '$b_id'", 'bestelproduct');
 
-		if ($orderedproducts == []) {
+		if ($orderedproducts == array()) {
 			$this->redirect('/cms/orders');
 			return;
 		}
